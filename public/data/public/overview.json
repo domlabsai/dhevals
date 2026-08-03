@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "dhevals_public_overview",
+  "generated_at": "2026-08-03T19:48:57.130Z",
+  "source_revision": "a4886de",
+  "latest_signal": {
+    "run_id": "fixture-20260803162842",
+    "model_id": "sacilm",
+    "model_name": "SaciLM",
+    "provider": "fixture",
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "suite_version": "0.2.0",
+    "score": null,
+    "coverage": 1,
+    "evidence_status": "locked",
+    "is_fixture": true,
+    "date": "2026-08-03T16:28:42Z"
+  },
+  "calibration": {
+    "status": "pending",
+    "completed_groups": 0,
+    "required_groups": 150
+  },
+  "counts": {
+    "suites": 3,
+    "models": 3,
+    "runs": 6,
+    "promoted_runs": 0
+  },
+  "methodology_version": "0.1.0"
+}

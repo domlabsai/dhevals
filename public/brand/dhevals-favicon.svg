@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">DHEvals</title>
+  <rect width="64" height="64" rx="12" fill="#050607"/>
+  <path fill="#DFFF00" d="M8 48 L20 16 H32 L20 48 Z"/>
+  <path fill="#DFFF00" d="M32 48 L44 16 H56 L44 48 Z"/>
+</svg>

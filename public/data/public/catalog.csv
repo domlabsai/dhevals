@@ -1,0 +1,7 @@
+run_id,model_id,suite_version,run_status,quality_score,coverage,verified,completed_at
+fixture-20260803162842,sacilm,0.2.0,locked,,1,true,2026-08-03T16:28:42Z
+opencode-deepseek-v4-flash-free-v01-rerun,opencode/deepseek-v4-flash-free,0.1.0,archive_only,66.7,1,true,2026-08-03T16:26:18Z
+negative-fixture-v0.3,negative-fixture-v0.3,0.3.0,invalid,,1,true,2026-08-03T02:18:27Z
+expanded-fixture-v0.3,sacilm-expanded-fixture,0.3.0,locked,,1,true,2026-08-03T01:21:43Z
+verify-negative,negative-fixture,0.2.0,invalid,,1,false,2026-08-02T23:43:40Z
+e2e-fixture-refresh,sacilm,0.1.0,locked,,1,false,2026-08-02T23:09:13Z

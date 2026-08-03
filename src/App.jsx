@@ -342,6 +342,12 @@ function SecondaryView({ activeNav, runArtifact, reportArtifact, youtubePack, le
 
 function App() {
   const [activeNav, setActiveNav] = useState('Overview')
+
+  // The console now lives under /console; index.html's title belongs to the
+  // public platform, so the console restores its own title on mount.
+  useEffect(() => {
+    document.title = 'DHEvals · Run overview'
+  }, [])
   const [selectedId, setSelectedId] = useState('research-synthesis')
   const [showSources, setShowSources] = useState(false)
   const [directorMode, setDirectorMode] = useState(false)

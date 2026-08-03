@@ -1,0 +1,269 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "dhevals_public_run",
+  "generated_at": "2026-08-03T19:48:57.130Z",
+  "run": {
+    "id": "e2e-fixture-refresh",
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "suite_version": "0.1.0",
+    "suite_hash": "6aec244ca9cb9eac03b1862b38ab9616c30ddef6cdb2398c332e533ca44c9fe1",
+    "model": {
+      "id": "sacilm",
+      "name": "SaciLM",
+      "provider": "fixture"
+    },
+    "runner_version": "0.1.0",
+    "started_at": "2026-08-02T23:09:13Z",
+    "finished_at": "2026-08-02T23:09:13Z"
+  },
+  "run_status": "locked",
+  "is_fixture": true,
+  "archive_only": false,
+  "verified": false,
+  "summary": {
+    "task_count": 6,
+    "completed_count": 6,
+    "coverage": 1,
+    "overall_score": 100,
+    "error_count": 0,
+    "estimated_cost_usd_total": null
+  },
+  "categories": [
+    {
+      "category": "Code",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 52300,
+      "tokens_total": 39884
+    },
+    {
+      "category": "Communication",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 18400,
+      "tokens_total": 7621
+    },
+    {
+      "category": "Data",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 45700,
+      "tokens_total": 34112
+    },
+    {
+      "category": "Documents",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 24100,
+      "tokens_total": 16982
+    },
+    {
+      "category": "Planning",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 31200,
+      "tokens_total": 21307
+    },
+    {
+      "category": "Research",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 38600,
+      "tokens_total": 28451
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "research-synthesis",
+      "title": "Research & synthesis",
+      "category": "Research",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 38600,
+      "tokens": 28451,
+      "failure_reason": null,
+      "prompt": null,
+      "output": "A comparação indica que a busca híbrida combina recall lexical e semântico, enquanto dense-only simplifica a operação. Os principais trade-offs são custo de indexação, latência e cobertura de termos raros. As citações do conjunto apontam ganho de recall em torno de 18% para o híbrido, mas grounding e freshness continuam riscos de produção. Recomendo um experimento A/B com re-ranking, medindo precisão, custo e taxa de respostas sem evidência.",
+      "checks": [
+        {
+          "id": "required-terms",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-evidence",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 445 >= 240"
+        }
+      ]
+    },
+    {
+      "task_id": "document-qa",
+      "title": "Document Q&A",
+      "category": "Documents",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 24100,
+      "tokens": 16982,
+      "failure_reason": null,
+      "prompt": null,
+      "output": "{\"decisoes\":[\"manter o rollout em duas regiões\"],\"pendencias\":[\"validar o owner do alerta\"],\"riscos\":[\"há um conflito entre o prazo da seção 3 e o da seção 7\"]}",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": true,
+          "score": 1,
+          "details": "valid object with required keys"
+        },
+        {
+          "id": "has-conflict",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: conflito"
+        }
+      ]
+    },
+    {
+      "task_id": "plan-outline",
+      "title": "Plan & outline",
+      "category": "Planning",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 31200,
+      "tokens": 21307,
+      "failure_reason": null,
+      "prompt": null,
+      "output": "Semana 1: definir responsável e dependências críticas. Dia 3: validar o primeiro fluxo. Semana 2: executar piloto e medir. Riscos: atraso de aprovação e falta de dados. Próximos passos: confirmar owners, registrar o orçamento e revisar o plano no fim de cada dia.",
+      "checks": [
+        {
+          "id": "operational-coverage",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "actionable",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        }
+      ]
+    },
+    {
+      "task_id": "data-analysis",
+      "title": "Data analysis",
+      "category": "Data",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 45700,
+      "tokens": 34112,
+      "failure_reason": null,
+      "prompt": null,
+      "output": "{\"metodo\":\"comparação de retenção por coorte com janela de 30 dias\",\"resultado\":\"a coorte B retém 11 pontos percentuais a mais que A\",\"recomendacao\":\"testar o onboarding de B na próxima coorte; a limitação é que o período observado é curto\"}",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": true,
+          "score": 1,
+          "details": "valid object with required keys"
+        },
+        {
+          "id": "limitation",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: limitação"
+        }
+      ]
+    },
+    {
+      "task_id": "code-generation",
+      "title": "Code generation",
+      "category": "Code",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 52300,
+      "tokens": 39884,
+      "failure_reason": null,
+      "prompt": null,
+      "output": "Correção: propagar o AbortSignal para o worker e remover o retry duplicado. O patch mantém a fila simples e torna o timeout observável.\n\nTeste de regressão:\ndescribe('worker timeout', () => { test('cancela o job após o limite', async () => { /* fixture */ }) })",
+      "checks": [
+        {
+          "id": "test-present",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: teste, test(, describe("
+        },
+        {
+          "id": "fix-present",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: correção, patch, fix"
+        }
+      ]
+    },
+    {
+      "task_id": "email-draft",
+      "title": "Email draft",
+      "category": "Communication",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 18400,
+      "tokens": 7621,
+      "failure_reason": null,
+      "prompt": null,
+      "output": "Assunto: Atualização do prazo do rollout\n\nOlá, equipe. Tivemos um atraso de dois dias na validação final. Para manter a qualidade, o novo prazo é sexta-feira, às 17h.\n\nPróximos passos: Ana confirma o checklist, Bruno atualiza o ambiente e eu envio o status amanhã. Se houver qualquer risco adicional, sinalizaremos antes do novo prazo.",
+      "checks": [
+        {
+          "id": "message-structure",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-copy",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 335 >= 120"
+        }
+      ]
+    }
+  ],
+  "verification": null,
+  "provenance": {
+    "manifest_hash": "sha256:6aec244ca9cb9eac03b1862b38ab9616c30ddef6cdb2398c332e533ca44c9fe1",
+    "runner_version": "0.1.0",
+    "source_report": "sacilm-heavy-user-fixture-run.report.json"
+  }
+}

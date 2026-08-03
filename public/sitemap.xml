@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://dhevals.ai/</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/leaderboard</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/compare</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/benchmarks</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/reports</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/methodology</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/about</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/data</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/models/baseline-gpt-4-turbo</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/models/sacilm</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/models/opencode-deepseek-v4-flash-free</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/benchmarks/heavy-user-ptbr-v0-1-0</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/benchmarks/heavy-user-ptbr-v0-2-0</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/benchmarks/heavy-user-ptbr-v0-3-0</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/reports/fixture-20260803162842</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/reports/opencode-deepseek-v4-flash-free-v01-rerun</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/reports/negative-fixture-v0.3</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/reports/expanded-fixture-v0.3</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/reports/verify-negative</loc><lastmod>2026-08-03</lastmod></url>
+  <url><loc>https://dhevals.ai/reports/e2e-fixture-refresh</loc><lastmod>2026-08-03</lastmod></url>
+</urlset>

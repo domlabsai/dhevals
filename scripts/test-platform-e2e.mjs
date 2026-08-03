@@ -27,6 +27,7 @@ const commands = [
   'test:api',
   'build',
   'test:public-docs',
+  'test:public-projection',
   'test:production-bundle',
   'test:e2e',
   'test:goal-audit',

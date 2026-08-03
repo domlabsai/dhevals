@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "dhevals_public_runs_index",
+  "generated_at": "2026-08-03T19:48:57.130Z",
+  "entries": [
+    {
+      "id": "fixture-20260803162842",
+      "model_id": "sacilm",
+      "model_name": "SaciLM",
+      "provider": "fixture",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.2.0",
+      "run_status": "locked",
+      "quality_score": null,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": true,
+      "archive_only": false,
+      "lock_reason": "offline fixture is not a public model run",
+      "started_at": "2026-08-03T16:28:42Z",
+      "completed_at": "2026-08-03T16:28:42Z",
+      "task_count": 10,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/fixture-20260803162842.json"
+      }
+    },
+    {
+      "id": "opencode-deepseek-v4-flash-free-v01-rerun",
+      "model_id": "opencode/deepseek-v4-flash-free",
+      "model_name": "opencode/deepseek-v4-flash-free",
+      "provider": "opencode",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.1.0",
+      "run_status": "archive_only",
+      "quality_score": 66.7,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "lock_reason": null,
+      "started_at": "2026-08-03T16:24:31Z",
+      "completed_at": "2026-08-03T16:26:18Z",
+      "task_count": 6,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/opencode-deepseek-v4-flash-free-v01-rerun.json"
+      }
+    },
+    {
+      "id": "negative-fixture-v0.3",
+      "model_id": "negative-fixture-v0.3",
+      "model_name": "negative-fixture-v0.3",
+      "provider": "fixture",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.3.0",
+      "run_status": "invalid",
+      "quality_score": null,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": true,
+      "archive_only": false,
+      "lock_reason": "offline fixture",
+      "started_at": "2026-08-03T02:18:27Z",
+      "completed_at": "2026-08-03T02:18:27Z",
+      "task_count": 20,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/negative-fixture-v0.3.json"
+      }
+    },
+    {
+      "id": "expanded-fixture-v0.3",
+      "model_id": "sacilm-expanded-fixture",
+      "model_name": "sacilm-expanded-fixture",
+      "provider": "fixture",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.3.0",
+      "run_status": "locked",
+      "quality_score": null,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": true,
+      "archive_only": false,
+      "lock_reason": "offline fixture",
+      "started_at": "2026-08-03T01:21:43Z",
+      "completed_at": "2026-08-03T01:21:43Z",
+      "task_count": 20,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/expanded-fixture-v0.3.json"
+      }
+    },
+    {
+      "id": "verify-negative",
+      "model_id": "negative-fixture",
+      "model_name": "negative-fixture",
+      "provider": "fixture",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.2.0",
+      "run_status": "invalid",
+      "quality_score": null,
+      "coverage": 1,
+      "verified": false,
+      "is_fixture": true,
+      "archive_only": false,
+      "lock_reason": "offline fixture is not a public model run",
+      "started_at": "2026-08-02T23:43:40Z",
+      "completed_at": "2026-08-02T23:43:40Z",
+      "task_count": 10,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/verify-negative.json"
+      }
+    },
+    {
+      "id": "e2e-fixture-refresh",
+      "model_id": "sacilm",
+      "model_name": "SaciLM",
+      "provider": "fixture",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.1.0",
+      "run_status": "locked",
+      "quality_score": null,
+      "coverage": 1,
+      "verified": false,
+      "is_fixture": true,
+      "archive_only": false,
+      "lock_reason": "offline fixture",
+      "started_at": "2026-08-02T23:09:13Z",
+      "completed_at": "2026-08-02T23:09:13Z",
+      "task_count": 6,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/e2e-fixture-refresh.json"
+      }
+    }
+  ]
+}

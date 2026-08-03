@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "dhevals_public_leaderboard",
+  "generated_at": "2026-08-03T19:48:57.130Z",
+  "methodology": {
+    "ranking_field": "quality_score",
+    "requires_full_coverage": true,
+    "requires_promotion": true,
+    "fixture_scores_never_published": true
+  },
+  "ranked": [],
+  "not_ranked": [
+    {
+      "model_id": "baseline-gpt-4-turbo",
+      "model_name": "GPT-4 Turbo baseline",
+      "provider": "openai-compatible",
+      "reason": "not_configured",
+      "evidence_status": "pending",
+      "last_activity_at": null
+    },
+    {
+      "model_id": "sacilm",
+      "model_name": "SaciLM",
+      "provider": "runpod-openai-compatible",
+      "reason": "pending",
+      "evidence_status": "pending",
+      "last_activity_at": "2026-08-03T16:28:42Z"
+    },
+    {
+      "model_id": "opencode/deepseek-v4-flash-free",
+      "model_name": "opencode/deepseek-v4-flash-free",
+      "provider": "opencode",
+      "reason": "locked",
+      "evidence_status": "locked",
+      "last_activity_at": "2026-08-03T16:26:18Z"
+    }
+  ]
+}

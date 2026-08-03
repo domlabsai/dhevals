@@ -24,7 +24,7 @@ test.beforeAll(() => {
 test('executes a fixture run, syncs the artifact, and updates the presentation surface', async ({ page }) => {
   const initialArtifact = JSON.parse(readFileSync(artifactPath, 'utf8'))
 
-  await page.goto('/')
+  await page.goto('/console')
   await expect(page).toHaveTitle(/DHEvals · Run overview/)
   await expect(page.getByTestId('sync-state')).toContainText('run artifact synced')
   await expect(page.getByTestId('run-id')).toHaveText(initialArtifact.run.id)
@@ -139,7 +139,7 @@ test('executes a fixture run, syncs the artifact, and updates the presentation s
 test('keeps the evidence surface usable on a narrow viewport', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.goto('/')
+  await page.goto('/console')
   await expect(page.getByTestId('sync-state')).toContainText('run artifact synced')
   await expect(page.locator('.navigation-rail')).toBeVisible()
   await expect(page.getByRole('button', { name: 'Reports' })).toBeVisible()

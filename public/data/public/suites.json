@@ -1,0 +1,94 @@
+[
+  {
+    "id": "dhevals-heavy-user-ptbr",
+    "version": "0.1.0",
+    "slug": "heavy-user-ptbr-v0-1-0",
+    "title": "Heavy-user tasks — Brazilian Portuguese",
+    "language": "pt-BR",
+    "task_count": 6,
+    "categories": [
+      "Research",
+      "Documents",
+      "Planning",
+      "Data",
+      "Code",
+      "Communication"
+    ],
+    "dimension_count": 16,
+    "status": "fixture_only",
+    "manifest_hash": "sha256:154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3",
+    "last_reviewed_at": null,
+    "current_public": false,
+    "description": "Primeira suíte fixture de tarefas compostas para heavy users de IA.",
+    "license": "CC-BY-4.0 para o manifesto; entradas sintéticas para desenvolvimento",
+    "calibration": {
+      "status": "not_run",
+      "completed_groups": 0,
+      "required_groups": 0
+    }
+  },
+  {
+    "id": "dhevals-heavy-user-ptbr",
+    "version": "0.2.0",
+    "slug": "heavy-user-ptbr-v0-2-0",
+    "title": "Heavy-user tasks — Brazilian Portuguese",
+    "language": "pt-BR",
+    "task_count": 10,
+    "categories": [
+      "Research",
+      "Documents",
+      "Planning",
+      "Data",
+      "Code",
+      "Communication",
+      "Long context",
+      "Structured output",
+      "Safe automation",
+      "Critical review"
+    ],
+    "dimension_count": 29,
+    "status": "calibration_pending",
+    "manifest_hash": "sha256:ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+    "last_reviewed_at": null,
+    "current_public": true,
+    "description": "Matriz inicial completa de tarefas heavy-user para calibração pública e revisão humana.",
+    "license": "CC-BY-4.0 para o manifesto; entradas sintéticas para calibração",
+    "calibration": {
+      "status": "pending",
+      "completed_groups": 0,
+      "required_groups": 150
+    }
+  },
+  {
+    "id": "dhevals-heavy-user-ptbr",
+    "version": "0.3.0",
+    "slug": "heavy-user-ptbr-v0-3-0",
+    "title": "Heavy-user tasks — Brazilian Portuguese",
+    "language": "pt-BR",
+    "task_count": 20,
+    "categories": [
+      "Research",
+      "Documents",
+      "Planning",
+      "Data",
+      "Code",
+      "Communication",
+      "Long context",
+      "Structured output",
+      "Safe automation",
+      "Critical review"
+    ],
+    "dimension_count": 41,
+    "status": "calibration_pending",
+    "manifest_hash": "sha256:96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
+    "last_reviewed_at": null,
+    "current_public": false,
+    "description": "Matriz expandida de tarefas heavy-user para calibração pública e comparação de modelos.",
+    "license": "CC-BY-4.0 para o manifesto; entradas sintéticas para calibração",
+    "calibration": {
+      "status": "pending",
+      "completed_groups": 0,
+      "required_groups": 300
+    }
+  }
+]
