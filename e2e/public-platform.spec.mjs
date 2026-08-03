@@ -4,8 +4,8 @@ import { expect, test } from 'playwright/test'
  * E2E coverage for the public platform served at `/` (the internal console
  * lives at `/console` and is covered by dhevals-console.spec.mjs).
  *
- * Run ids are volatile: the locked fixture report and the archive-only run
- * are resolved from /data/public/runs.json at test time, never hard-coded.
+ * Run ids are volatile: archive-only runs are resolved from /data/public/runs.json
+ * at test time, never hard-coded.
  */
 
 /* Collect uncaught page exceptions so each test can assert a clean console. */
@@ -22,19 +22,6 @@ async function fetchRunsIndex(page) {
   return index.entries ?? []
 }
 
-async function lockedFixtureRun(page) {
-  const entries = await fetchRunsIndex(page)
-  const overviewResponse = await page.request.get('/data/public/overview.json')
-  expect(overviewResponse.status()).toBe(200)
-  const overview = await overviewResponse.json()
-  const featuredId = overview.latest_signal?.run_id
-  const run =
-    entries.find((entry) => entry.is_fixture && entry.run_status === 'locked' && entry.id === featuredId) ??
-    entries.find((entry) => entry.is_fixture && entry.run_status === 'locked')
-  expect(run, 'a locked fixture run must exist in the public projection').toBeTruthy()
-  return run
-}
-
 test('homepage presents the claim with evidence, not promoted-score hype', async ({ page }) => {
   const errors = watchPageErrors(page)
 
@@ -46,11 +33,13 @@ test('homepage presents the claim with evidence, not promoted-score hype', async
   await expect(hero).toBeVisible()
   await expect(hero.getByRole('link', { name: 'Explore leaderboard' })).toHaveAttribute('href', '/leaderboard')
 
-  // Featured signal: evidence badge carries a text label, score is "—" (fixture, locked).
+  // Featured signal: evidence badge carries a text label and the score stays
+  // hidden because the latest model run is archive-only.
   const featured = page.getByTestId('featured-result')
   await expect(featured.getByTestId('evidence-badge')).toContainText('Locked')
   await expect(featured.locator('.display-lg')).toHaveText('—')
-  await expect(featured).toContainText('Fixture')
+  await expect(featured).toContainText('Archive-only model evidence')
+  await expect(featured).not.toContainText(/sacilm/i)
 
   // No promoted-score claim anywhere: the promoted band is an explicit empty
   // state and every decision card renders in its unavailable treatment.
@@ -85,29 +74,29 @@ test('leaderboard is honestly empty and filters round-trip through the URL', asy
 
   // Not-yet-ranked table lists every tracked model; missing metrics are "—".
   const table = page.getByTestId('leaderboard-table')
-  await expect(table.locator('tbody tr')).toHaveCount(3)
+  await expect(table.locator('tbody tr')).toHaveCount(2)
   await expect(table).toContainText('—')
 
   // Copy/share control exists.
   await expect(page.getByTestId('share-menu')).toBeVisible()
 
   // URL filter round-trip: query params drive chips and rows.
-  await page.goto('/leaderboard?q=sacilm&evidence=pending')
+  await page.goto('/leaderboard?q=deepseek&evidence=locked')
   await expect(page.getByTestId('filter-chip')).toHaveCount(2)
   await expect(table.locator('tbody tr')).toHaveCount(1)
-  await expect(table).toContainText('SaciLM')
+  await expect(table).toContainText('deepseek')
 
   // Removing the search chip updates the URL and widens the table.
   await page.getByRole('button', { name: /Remove filter Search/ }).click()
-  await expect(page).toHaveURL((url) => !url.searchParams.has('q') && url.searchParams.get('evidence') === 'pending')
+  await expect(page).toHaveURL((url) => !url.searchParams.has('q') && url.searchParams.get('evidence') === 'locked')
   await expect(page.getByTestId('filter-chip')).toHaveCount(1)
-  await expect(table.locator('tbody tr')).toHaveCount(2)
+  await expect(table.locator('tbody tr')).toHaveCount(1)
 
   // Reset filters clears the query string entirely.
   await page.getByRole('button', { name: 'Reset filters' }).click()
   await expect(page).toHaveURL(/\/leaderboard$/)
   await expect(page.getByTestId('filter-chip')).toHaveCount(0)
-  await expect(table.locator('tbody tr')).toHaveCount(3)
+  await expect(table.locator('tbody tr')).toHaveCount(2)
 
   expect(errors).toEqual([])
 })
@@ -115,12 +104,12 @@ test('leaderboard is honestly empty and filters round-trip through the URL', asy
 test('model page shows pending evidence and a designed not-found state', async ({ page }) => {
   const errors = watchPageErrors(page)
 
-  await page.goto('/models/sacilm')
+  await page.goto('/models/opencode-deepseek-v4-flash-free')
   await expect(page.getByTestId('model-page')).toBeVisible()
 
   const hero = page.getByTestId('score-hero')
   await expect(hero.locator('.display-lg')).toHaveText('—')
-  await expect(hero.getByTestId('evidence-badge')).toContainText('Pending')
+  await expect(hero.getByTestId('evidence-badge')).toContainText('Locked')
 
   await expect(page.getByTestId('timeline')).toBeVisible()
   await expect(page.getByTestId('model-page')).toContainText('Absence of a score is a state')
@@ -145,7 +134,7 @@ test('compare canonicalizes the pair and never declares a winner', async ({ page
   await expect(page.getByRole('heading', { name: 'Side-by-side evidence' })).toBeVisible()
 
   // Canonical ordering is alphabetical: the reversed pair redirects.
-  const slugs = ['baseline-gpt-4-turbo', 'sacilm']
+  const slugs = ['baseline-gpt-4-turbo', 'opencode-deepseek-v4-flash-free']
   const canonical = [...slugs].sort().join('-vs-')
   const reversed = [...slugs].reverse().join('-vs-')
   await page.goto(`/compare/${reversed}`)
@@ -174,21 +163,27 @@ test('compare canonicalizes the pair and never declares a winner', async ({ page
   expect(errors).toEqual([])
 })
 
-test('report pages label locked fixtures and archive-only runs', async ({ page }) => {
+test('report pages label archive-only runs and expose the inauguration report', async ({ page }) => {
   const errors = watchPageErrors(page)
 
-  /* ---- Locked fixture report (run id resolved dynamically) ---- */
-  const fixtureRun = await lockedFixtureRun(page)
-  const detailResponse = await page.request.get(`/data/public/runs/${fixtureRun.id}.json`)
+  /* ---- Archive-only report (run id resolved dynamically) ---- */
+  const entries = await fetchRunsIndex(page)
+  const archiveRun =
+    entries.find((entry) => entry.run_status === 'archive_only' && entry.id.includes('-v03-final')) ??
+    entries.find((entry) => entry.run_status === 'archive_only')
+  expect(archiveRun, 'an archive-only run must exist in the public projection').toBeTruthy()
+  expect(typeof archiveRun.quality_score).toBe('number')
+  const archiveScore = archiveRun.quality_score.toFixed(1)
+  const detailResponse = await page.request.get(`/data/public/runs/${archiveRun.id}.json`)
   expect(detailResponse.status()).toBe(200)
   const detail = await detailResponse.json()
   const firstTask = detail.tasks[0]
   expect(firstTask.prompt.length).toBeGreaterThan(20)
 
-  await page.goto(`/reports/${fixtureRun.id}`)
+  await page.goto(`/reports/${archiveRun.id}`)
   await expect(page.getByTestId('report-page')).toBeVisible()
-  await expect(page.getByRole('status')).toContainText('Locked offline fixture')
-  await expect(page.getByTestId('score-hero').locator('.display-lg')).toHaveText('—')
+  await expect(page.getByRole('status')).toContainText('Archive only')
+  await expect(page.getByTestId('score-hero').locator('.display-lg')).toHaveText(archiveScore)
 
   // Task table opens the run inspector with pt-BR prompt evidence.
   const taskTable = page.getByTestId('data-table')
@@ -200,27 +195,13 @@ test('report pages label locked fixtures and archive-only runs', async ({ page }
 
   // Export menu links the JSON artifact.
   await page.getByTestId('export-menu').locator('summary').click()
-  const artifactLink = page.getByTestId('export-menu').getByRole('link', { name: `${fixtureRun.id}.json` })
-  await expect(artifactLink).toHaveAttribute('href', `/data/public/runs/${fixtureRun.id}.json`)
+  const artifactLink = page.getByTestId('export-menu').getByRole('link', { name: `${archiveRun.id}.json` })
+  await expect(artifactLink).toHaveAttribute('href', `/data/public/runs/${archiveRun.id}.json`)
 
-  /* ---- Archive-only report (score shown, labeled archive only) ---- */
-  const entries = await fetchRunsIndex(page)
-  // Several archive-only runs may exist; prefer the stable v01 rerun (score
-  // 66.7), and always take the expected score from the index entry itself.
-  const archiveRun =
-    entries.find(
-      (entry) =>
-        entry.run_status === 'archive_only' && entry.id.includes('opencode-deepseek-v4-flash-free-v01-rerun'),
-    ) ?? entries.find((entry) => entry.run_status === 'archive_only')
-  expect(archiveRun, 'an archive-only run must exist in the public projection').toBeTruthy()
-  expect(typeof archiveRun.quality_score).toBe('number')
-  const archiveScore = archiveRun.quality_score.toFixed(1)
-
-  await page.goto(`/reports/${archiveRun.id}`)
-  await expect(page.getByTestId('report-page')).toBeVisible()
-  await expect(page.getByRole('status')).toContainText('Archive only')
-  await expect(page.getByTestId('score-hero').locator('.display-lg')).toHaveText(archiveScore)
-  await expect(page.getByTestId('report-page')).toContainText(/archive only/i)
+  await page.goto('/reports/inauguration')
+  await expect(page.getByTestId('inauguration-page')).toBeVisible()
+  await expect(page.getByTestId('inauguration-page')).toContainText('The first three stages are in.')
+  await expect(page.getByTestId('inauguration-page')).toContainText('Stage 03')
 
   expect(errors).toEqual([])
 })
@@ -272,10 +253,13 @@ test('reports index, methodology, data downloads, about, and 404', async ({ page
   await expect(page.getByTestId('data-page')).toBeVisible()
   await expect(page.getByTestId('data-table')).toContainText('overview.json')
   await expect(page.getByTestId('data-table')).toContainText('catalog.csv')
-  for (const href of ['/data/public/overview.json', '/data/public/runs.json', '/data/public/catalog.csv']) {
+  for (const href of ['/data/public/overview.json', '/data/public/runs.json', '/data/public/catalog.csv', '/data/public/inauguration.json']) {
     const response = await page.request.get(href)
     expect(response.status(), `${href} should download`).toBe(200)
   }
+
+  const publicProjection = await page.request.get('/data/public/models.json')
+  expect(await publicProjection.text()).not.toMatch(/sacilm/i)
 
   // About links the public repository.
   await page.goto('/about')
@@ -300,12 +284,12 @@ test('mobile leaderboard uses a details drawer and never overflows horizontally'
   await expect(page.getByTestId('leaderboard-page')).toBeVisible()
 
   const table = page.getByTestId('leaderboard-table')
-  await expect(table).toContainText('SaciLM')
-  await expect(table).toContainText('runpod-openai-compatible')
+  await expect(table).toContainText('deepseek')
+  await expect(table).toContainText('opencode')
 
   // "Details" opens the drawer with operational metrics; Escape closes it.
-  await page.getByRole('button', { name: 'Details for SaciLM' }).click()
-  const detailsDrawer = page.getByRole('dialog', { name: 'SaciLM' })
+  await page.getByRole('button', { name: /Details for/ }).first().click()
+  const detailsDrawer = page.getByRole('dialog').last()
   await expect(detailsDrawer).toBeVisible()
   await expect(detailsDrawer).toContainText('Quality /100')
   await expect(detailsDrawer).toContainText('Latency')
@@ -396,6 +380,7 @@ test('SEO metadata, JSON-LD, sitemap, and robots', async ({ page }) => {
   const sitemapText = await sitemap.text()
   expect(sitemapText).toContain('<urlset')
   expect(sitemapText).toContain('https://dhevals.ai/leaderboard')
+  expect(sitemapText).not.toMatch(/sacilm/i)
 
   const robots = await page.request.get('/robots.txt')
   expect(robots.status()).toBe(200)

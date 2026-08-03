@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_run",
-  "generated_at": "2026-08-03T19:48:57.130Z",
+  "generated_at": "2026-08-03T21:35:27.887Z",
   "run": {
     "id": "opencode-deepseek-v4-flash-free-v01-rerun",
     "suite_id": "dhevals-heavy-user-ptbr",

@@ -88,6 +88,7 @@ export function ReportsPage() {
           Every run the lab has recorded, with its status attached. Archive-only and fixture runs are
           shown for transparency and are never presented as promoted results.
         </p>
+        <Link to="/reports/inauguration" className="label">Read the DHEvals inauguration report →</Link>
       </header>
 
       <FilterBar

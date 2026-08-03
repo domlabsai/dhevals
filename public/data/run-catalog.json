@@ -1,7 +1,7 @@
 {
   "kind": "dhevals_run_catalog",
   "schema_version": "0.1.0",
-  "generated_at": "2026-08-03T16:28:43.515Z",
+  "generated_at": "2026-08-03T19:31:41Z",
   "current_public_run_id": "fixture-20260803162842",
   "entries": [
     {
@@ -24,6 +24,48 @@
       "archive_only": false,
       "publication_status": "locked",
       "lock_reason": "offline fixture is not a public model run"
+    },
+    {
+      "run_id": "opencode-deepseek-v4-flash-free-v03-final",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.3.0",
+      "suite_hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
+      "model_id": "opencode/deepseek-v4-flash-free",
+      "provider": "opencode",
+      "score": 0.7,
+      "coverage": 1,
+      "task_count": 20,
+      "completed_count": 20,
+      "error_count": 0,
+      "started_at": "2026-08-03T19:07:27Z",
+      "finished_at": "2026-08-03T19:31:40Z",
+      "generated_at": "2026-08-03T19:31:41Z",
+      "source": "reports/runs/opencode-deepseek-v4-flash-free-v03-final.report.json",
+      "current_public": false,
+      "archive_only": true,
+      "publication_status": "candidate",
+      "lock_reason": null
+    },
+    {
+      "run_id": "opencode-deepseek-v4-flash-free-v02-final",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.2.0",
+      "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+      "model_id": "opencode/deepseek-v4-flash-free",
+      "provider": "opencode",
+      "score": 0.6,
+      "coverage": 1,
+      "task_count": 10,
+      "completed_count": 10,
+      "error_count": 0,
+      "started_at": "2026-08-03T18:55:15Z",
+      "finished_at": "2026-08-03T19:07:16Z",
+      "generated_at": "2026-08-03T19:07:16Z",
+      "source": "reports/runs/opencode-deepseek-v4-flash-free-v02-final.report.json",
+      "current_public": false,
+      "archive_only": true,
+      "publication_status": "locked",
+      "lock_reason": "human calibration is not ready"
     },
     {
       "run_id": "opencode-deepseek-v4-flash-free-v01-rerun",
@@ -108,27 +150,6 @@
       "archive_only": false,
       "publication_status": "locked",
       "lock_reason": "offline fixture is not a public model run"
-    },
-    {
-      "run_id": "e2e-fixture-refresh",
-      "suite_id": "dhevals-heavy-user-ptbr",
-      "suite_version": "0.1.0",
-      "suite_hash": "6aec244ca9cb9eac03b1862b38ab9616c30ddef6cdb2398c332e533ca44c9fe1",
-      "model_id": "sacilm",
-      "provider": "fixture",
-      "score": 1,
-      "coverage": 1,
-      "task_count": 6,
-      "completed_count": 6,
-      "error_count": 0,
-      "started_at": "2026-08-02T23:09:13Z",
-      "finished_at": "2026-08-02T23:09:13Z",
-      "generated_at": "2026-08-02T23:09:13Z",
-      "source": "reports/fixtures/sacilm-heavy-user-fixture-run.report.json",
-      "current_public": false,
-      "archive_only": false,
-      "publication_status": "locked",
-      "lock_reason": "offline fixture"
     }
   ]
 }

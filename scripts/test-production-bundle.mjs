@@ -11,11 +11,12 @@ const required = [
   'data/latest-goal-audit.json',
   'data/latest-sacilm-readiness.json',
   'data/calibration/v0.3/handoff.json',
-  'docs/dhevals-sacilm-run-checklist.md',
-  'docs/dhevals-sacilm-runtime-contract.md',
 ]
 const missing = required.filter((file) => !existsSync(resolve(dist, file)))
-const sourceDocs = readdirSync(resolve(root, 'docs')).filter((file) => /^dhevals-.*\.md$/i.test(file)).sort()
+const sourceDocs = readdirSync(resolve(root, 'docs'))
+  .filter((file) => /^dhevals-.*\.md$/i.test(file))
+  .filter((file) => !/sacilm/i.test(readFileSync(resolve(root, 'docs', file), 'utf8')))
+  .sort()
 const bundledDocs = readdirSync(resolve(dist, 'docs')).filter((file) => /^dhevals-.*\.md$/i.test(file)).sort()
 const errors = [...missing.map((file) => `${file}: missing from dist`)]
 if (sourceDocs.join('\n') !== bundledDocs.join('\n')) errors.push(`docs: expected ${sourceDocs.length} files, found ${bundledDocs.length}`)

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_run",
-  "generated_at": "2026-08-03T19:48:57.130Z",
+  "generated_at": "2026-08-03T21:35:27.887Z",
   "run": {
     "id": "verify-negative",
     "suite_id": "dhevals-heavy-user-ptbr",
@@ -416,6 +416,6 @@
   "provenance": {
     "manifest_hash": "sha256:ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
     "runner_version": "0.1.0",
-    "source_report": "sacilm-heavy-user-negative-v0.2.report.json"
+    "source_report": "deferred model-heavy-user-negative-v0.2.report.json"
   }
 }

@@ -77,6 +77,34 @@ export function useProjection() {
   return { ...state, generatedAt, stale }
 }
 
+let inaugurationPromise = null
+
+function loadInauguration() {
+  if (!inaugurationPromise) inaugurationPromise = fetchJson('/data/public/inauguration.json')
+  return inaugurationPromise
+}
+
+export function useInauguration() {
+  const [state, setState] = useState({ status: 'loading', data: null, error: null })
+
+  useEffect(() => {
+    let cancelled = false
+    loadInauguration()
+      .then((data) => {
+        if (!cancelled) setState({ status: 'ready', data, error: null })
+      })
+      .catch((error) => {
+        inaugurationPromise = null
+        if (!cancelled) setState({ status: 'error', data: null, error })
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  return state
+}
+
 /* Lazy per-run detail cache: runId -> Promise<detail> */
 const runDetailCache = new Map()
 

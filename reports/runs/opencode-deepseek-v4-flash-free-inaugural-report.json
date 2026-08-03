@@ -1,0 +1,92 @@
+{
+  "kind": "dhevals_inauguration_report",
+  "schema_version": "0.1.0",
+  "title": "DHEvals Inauguration Report",
+  "subtitle": "The first three heavy-user evaluation stages",
+  "generated_at": "2026-08-03T19:31:41Z",
+  "publication": "archive-only",
+  "model": {
+    "model_id": "opencode/deepseek-v4-flash-free",
+    "provider": "opencode",
+    "adapter": "command-line",
+    "variant": "minimal",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seed": 7
+  },
+  "overall": {
+    "stage_count": 3,
+    "task_count": 36,
+    "completed_count": 36,
+    "coverage": 1.0,
+    "task_weighted_score": 0.6667,
+    "unresolved_infrastructure_errors": 0,
+    "retry_resolved_timeouts": 1,
+    "quality_failures": 2
+  },
+  "stages": [
+    {
+      "label": "Stage 01",
+      "suite_version": "0.1.0",
+      "run_id": "opencode-deepseek-v4-flash-free-v01-rerun",
+      "suite_hash": "154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3",
+      "task_count": 6,
+      "completed_count": 6,
+      "coverage": 1.0,
+      "score": 0.6667,
+      "status_counts": { "pass": 2, "partial": 4, "fail": 0, "error": 0 },
+      "timeout_retries": 0,
+      "quality_failures": [],
+      "started_at": "2026-08-03T16:24:31Z",
+      "finished_at": "2026-08-03T16:26:18Z",
+      "detail_path": "/reports/opencode-deepseek-v4-flash-free-v01-rerun"
+    },
+    {
+      "label": "Stage 02",
+      "suite_version": "0.2.0",
+      "run_id": "opencode-deepseek-v4-flash-free-v02-final",
+      "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+      "task_count": 10,
+      "completed_count": 10,
+      "coverage": 1.0,
+      "score": 0.6,
+      "status_counts": { "pass": 3, "partial": 6, "fail": 1, "error": 0 },
+      "timeout_retries": 0,
+      "quality_failures": ["structured-extraction"],
+      "started_at": "2026-08-03T18:55:15Z",
+      "finished_at": "2026-08-03T19:07:16Z",
+      "detail_path": "/reports/opencode-deepseek-v4-flash-free-v02-final"
+    },
+    {
+      "label": "Stage 03",
+      "suite_version": "0.3.0",
+      "run_id": "opencode-deepseek-v4-flash-free-v03-final",
+      "suite_hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
+      "task_count": 20,
+      "completed_count": 20,
+      "coverage": 1.0,
+      "score": 0.7,
+      "status_counts": { "pass": 9, "partial": 10, "fail": 1, "error": 0 },
+      "timeout_retries": 1,
+      "retry_resolved_tasks": ["critical-review-audit"],
+      "quality_failures": ["safe-automation-plan"],
+      "started_at": "2026-08-03T19:07:27Z",
+      "finished_at": "2026-08-03T19:31:40Z",
+      "detail_path": "/reports/opencode-deepseek-v4-flash-free-v03-final"
+    }
+  ],
+  "timeout_policy": {
+    "per_attempt_seconds": 300,
+    "timeout_retries": 1,
+    "retry_backoff": 2,
+    "retry_scope": "timeout-only",
+    "process_group_cleanup": true
+  },
+  "methodology": {
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "locale": "pt-BR",
+    "scores_are": "deterministic task-check aggregates",
+    "scores_are_not": "a universal model ranking or a substitute for human calibration",
+    "promotion": "All three stages remain archive-only until the calibration and release gates are complete."
+  }
+}

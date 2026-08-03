@@ -11,6 +11,7 @@ import { ComparePage } from './pages/ComparePage.jsx'
 import { BenchmarksPage } from './pages/BenchmarksPage.jsx'
 import { SuitePage } from './pages/SuitePage.jsx'
 import { ReportsPage } from './pages/ReportsPage.jsx'
+import { InaugurationPage } from './pages/InaugurationPage.jsx'
 import { ReportPage } from './pages/ReportPage.jsx'
 import { MethodologyPage } from './pages/MethodologyPage.jsx'
 import { AboutPage } from './pages/AboutPage.jsx'
@@ -26,6 +27,7 @@ const ROUTES = [
   { pattern: '/benchmarks', render: () => <BenchmarksPage /> },
   { pattern: '/benchmarks/:suiteSlug', render: (p) => <SuitePage suiteSlug={p.suiteSlug} /> },
   { pattern: '/reports', render: () => <ReportsPage /> },
+  { pattern: '/reports/inauguration', render: () => <InaugurationPage /> },
   { pattern: '/reports/:runId', render: (p) => <ReportPage runId={p.runId} /> },
   { pattern: '/methodology', render: () => <MethodologyPage /> },
   { pattern: '/about', render: () => <AboutPage /> },

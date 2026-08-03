@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -26,6 +26,7 @@ function main() {
   const suites = readJson('suites.json', true)
   const runsIndex = readJson('runs.json', true)
   const leaderboard = readJson('leaderboard.json', true)
+  const inauguration = readJson('inauguration.json', true)
   if (!existsSync(resolve(publicDirectory, 'catalog.csv'))) errors.push('catalog.csv: file is missing')
 
   if (overview) checkOverview(overview)
@@ -33,14 +34,23 @@ function main() {
   if (Array.isArray(suites)) checkSuites(suites)
   if (runsIndex) checkRunsIndex(runsIndex)
   if (leaderboard) checkLeaderboard(leaderboard)
+  if (inauguration) checkInauguration(inauguration)
 
-  for (const file of ['overview.json', 'models.json', 'suites.json', 'runs.json', 'leaderboard.json', 'catalog.csv']) {
+  for (const file of ['overview.json', 'models.json', 'suites.json', 'runs.json', 'leaderboard.json', 'inauguration.json', 'catalog.csv']) {
     const path = resolve(publicDirectory, file)
     if (!existsSync(path)) continue
     scanForForbidden(readFileSync(path, 'utf8'), file)
+    scanForHiddenModel(readFileSync(path, 'utf8'), file)
   }
 
   if (runsIndex && Array.isArray(runsIndex.entries)) {
+    const expectedRunFiles = new Set(runsIndex.entries.map((entry) => `${entry.id}.json`))
+    const runsDirectory = resolve(publicDirectory, 'runs')
+    if (existsSync(runsDirectory)) {
+      for (const file of readdirSync(runsDirectory).filter((candidate) => candidate.endsWith('.json'))) {
+        if (!expectedRunFiles.has(file)) errors.push(`runs/${file}: orphaned detail file is not indexed`)
+      }
+    }
     for (const entry of runsIndex.entries) {
       const detailPath = resolve(publicDirectory, 'runs', `${entry.id}.json`)
       if (!existsSync(detailPath)) {
@@ -49,6 +59,7 @@ function main() {
       }
       const raw = readFileSync(detailPath, 'utf8')
       scanForForbidden(raw, `runs/${entry.id}.json`)
+      scanForHiddenModel(raw, `runs/${entry.id}.json`)
       let detail = null
       try {
         detail = JSON.parse(raw)
@@ -67,7 +78,7 @@ function main() {
   console.log(JSON.stringify({
     status: 'passed',
     kind: 'dhevals_public_projection_test',
-    files: 6 + (runsIndex?.entries?.length || 0),
+    files: 7 + (runsIndex?.entries?.length || 0),
     runs: runsIndex?.entries?.length || 0,
     ranked: Array.isArray(leaderboard?.ranked) ? leaderboard.ranked.length : 0,
   }, null, 2))
@@ -85,6 +96,20 @@ function checkOverview(overview) {
   }
   if (overview.calibration) requireFields('overview.json calibration', overview.calibration, ['status', 'completed_groups', 'required_groups'])
   if (overview.counts) requireFields('overview.json counts', overview.counts, ['suites', 'models', 'runs', 'promoted_runs'])
+}
+
+function checkInauguration(report) {
+  requireFields('inauguration.json', report, ['kind', 'schema_version', 'title', 'generated_at', 'publication', 'model', 'overall', 'stages', 'timeout_policy', 'methodology'])
+  if (report.kind !== 'dhevals_inauguration_report') errors.push('inauguration.json: kind is invalid')
+  if (report.publication !== 'archive-only') errors.push('inauguration.json: publication must remain archive-only')
+  if (String(report.model?.model_id || '').toLowerCase().includes('sacilm')) errors.push('inauguration.json: hidden model leaked')
+  if (!Array.isArray(report.stages) || report.stages.length !== 3) errors.push('inauguration.json: expected exactly three stages')
+  if (report.overall?.coverage !== 1) errors.push('inauguration.json: inauguration must have full coverage')
+  for (const stage of report.stages || []) {
+    requireFields(`inauguration.json stage ${stage?.suite_version ?? '?'}`, stage, ['label', 'suite_version', 'run_id', 'task_count', 'completed_count', 'coverage', 'score', 'status_counts', 'detail_path'])
+    if (stage.coverage !== 1) errors.push(`inauguration.json stage ${stage.suite_version}: coverage must be 1`)
+    if (!String(stage.detail_path || '').startsWith('/reports/')) errors.push(`inauguration.json stage ${stage.suite_version}: detail_path must be public`)
+  }
 }
 
 function checkModels(models) {
@@ -196,6 +221,10 @@ function scanForForbidden(text, label) {
     const match = text.match(pattern)
     if (match) errors.push(`${label}: contains a secret-like value matching ${pattern}`)
   }
+}
+
+function scanForHiddenModel(text, label) {
+  if (/sacilm/i.test(text)) errors.push(`${label}: contains a deferred model reference`)
 }
 
 function readJson(file, required) {

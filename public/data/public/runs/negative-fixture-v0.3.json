@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_run",
-  "generated_at": "2026-08-03T19:48:57.130Z",
+  "generated_at": "2026-08-03T21:35:27.887Z",
   "run": {
     "id": "negative-fixture-v0.3",
     "suite_id": "dhevals-heavy-user-ptbr",
@@ -708,6 +708,6 @@
   "provenance": {
     "manifest_hash": "sha256:96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
     "runner_version": "0.1.0",
-    "source_report": "sacilm-heavy-user-negative-v0.3.report.json"
+    "source_report": "deferred model-heavy-user-negative-v0.3.report.json"
   }
 }

@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import json
 import os
 import shlex
+import signal
 import subprocess
 from time import perf_counter
 from pathlib import Path
@@ -141,6 +142,8 @@ class CommandLineAdapter:
         *,
         prompt_mode: str = "stdin",
         timeout_seconds: float = 120.0,
+        timeout_retries: int = 0,
+        timeout_backoff: float = 2.0,
         cwd: Optional[str] = None,
         environment: Optional[Mapping[str, str]] = None,
     ):
@@ -150,9 +153,15 @@ class CommandLineAdapter:
             raise ValueError("prompt_mode must be 'stdin' or 'arg'")
         if isinstance(timeout_seconds, bool) or not isinstance(timeout_seconds, (int, float)) or timeout_seconds <= 0:
             raise ValueError("timeout_seconds must be a positive number")
+        if isinstance(timeout_retries, bool) or not isinstance(timeout_retries, int) or timeout_retries < 0:
+            raise ValueError("timeout_retries must be a non-negative integer")
+        if isinstance(timeout_backoff, bool) or not isinstance(timeout_backoff, (int, float)) or timeout_backoff < 1:
+            raise ValueError("timeout_backoff must be a number greater than or equal to 1")
         self.command = tuple(command)
         self.prompt_mode = prompt_mode
         self.timeout_seconds = float(timeout_seconds)
+        self.timeout_retries = timeout_retries
+        self.timeout_backoff = float(timeout_backoff)
         self.cwd = str(Path(cwd).expanduser()) if cwd else None
         self.environment = dict(environment or {})
 
@@ -163,6 +172,8 @@ class CommandLineAdapter:
         *,
         prompt_mode: str = "stdin",
         timeout_seconds: float = 120.0,
+        timeout_retries: int = 0,
+        timeout_backoff: float = 2.0,
         cwd: Optional[str] = None,
         environment: Optional[Mapping[str, str]] = None,
     ) -> "CommandLineAdapter":
@@ -174,6 +185,8 @@ class CommandLineAdapter:
             argv,
             prompt_mode=prompt_mode,
             timeout_seconds=timeout_seconds,
+            timeout_retries=timeout_retries,
+            timeout_backoff=timeout_backoff,
             cwd=cwd,
             environment=environment,
         )
@@ -194,23 +207,26 @@ class CommandLineAdapter:
         environment = os.environ.copy()
         environment.update(self.environment)
         started = perf_counter()
-        try:
-            completed = subprocess.run(
-                argv,
-                input=input_text,
-                text=True,
-                capture_output=True,
-                timeout=self.timeout_seconds,
-                cwd=self.cwd,
-                env=environment,
-                check=False,
-            )
-        except FileNotFoundError as exc:
-            raise AdapterError(f"CLI executable not found: {argv[0]}") from exc
-        except subprocess.TimeoutExpired as exc:
-            raise AdapterError(f"CLI timed out after {self.timeout_seconds:g}s") from exc
-        except OSError as exc:
-            raise AdapterError(f"CLI could not be started: {exc}") from exc
+        attempts = 0
+        timeout_seconds = self.timeout_seconds
+        while True:
+            attempts += 1
+            try:
+                completed = self._run_process(argv, input_text, timeout_seconds, environment)
+            except FileNotFoundError as exc:
+                raise AdapterError(f"CLI executable not found: {argv[0]}") from exc
+            except subprocess.TimeoutExpired as exc:
+                if attempts <= self.timeout_retries:
+                    timeout_seconds *= self.timeout_backoff
+                    continue
+                total_attempts = self.timeout_retries + 1
+                raise AdapterError(
+                    f"CLI timed out after {timeout_seconds:g}s (attempt {attempts}/{total_attempts})"
+                ) from exc
+            except OSError as exc:
+                raise AdapterError(f"CLI could not be started: {exc}") from exc
+            else:
+                break
 
         if completed.returncode != 0:
             detail = (completed.stderr or completed.stdout or "").strip().replace("\n", " ")[:500]
@@ -227,8 +243,42 @@ class CommandLineAdapter:
                 "adapter": "command-line",
                 "command": Path(argv[0]).name,
                 "prompt_mode": self.prompt_mode,
+                "attempt": attempts,
+                "timeout_seconds": timeout_seconds,
+                "timeout_retries": attempts - 1,
             },
         )
+
+    def _run_process(
+        self,
+        argv: Sequence[str],
+        input_text: Optional[str],
+        timeout_seconds: float,
+        environment: Mapping[str, str],
+    ) -> subprocess.CompletedProcess[str]:
+        """Run one CLI attempt and reap the whole process group on timeout.
+
+        OpenCode and similar CLIs may spawn a server or provider child.  Using
+        a new session and killing its process group prevents a timed-out task
+        from leaving an orphan request consuming quota in the background.
+        """
+        process = subprocess.Popen(
+            argv,
+            stdin=subprocess.PIPE if input_text is not None else None,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            cwd=self.cwd,
+            env=environment,
+            start_new_session=os.name != "nt",
+        )
+        try:
+            stdout, stderr = process.communicate(input=input_text, timeout=timeout_seconds)
+        except subprocess.TimeoutExpired:
+            _terminate_process_group(process)
+            stdout, stderr = process.communicate()
+            raise
+        return subprocess.CompletedProcess(argv, process.returncode, stdout, stderr)
 
     @staticmethod
     def _render(part: str, task: TaskSpec, config: ModelConfigLike) -> str:
@@ -250,6 +300,8 @@ def cli_adapter_from_environment(
     *,
     prompt_mode: str = "stdin",
     timeout_seconds: float = 120.0,
+    timeout_retries: int = 0,
+    timeout_backoff: float = 2.0,
     cwd: Optional[str] = None,
 ) -> CommandLineAdapter:
     """Build a command adapter from a shell-like command string.
@@ -264,8 +316,25 @@ def cli_adapter_from_environment(
         command,
         prompt_mode=prompt_mode,
         timeout_seconds=timeout_seconds,
+        timeout_retries=timeout_retries,
+        timeout_backoff=timeout_backoff,
         cwd=cwd,
     )
+
+
+def _terminate_process_group(process: subprocess.Popen) -> None:
+    """Terminate a timed-out CLI and any child processes it spawned."""
+    if process.poll() is not None:
+        return
+    try:
+        if os.name == "nt":
+            process.kill()
+        else:
+            os.killpg(process.pid, signal.SIGKILL)
+    except ProcessLookupError:
+        # The process exited between poll() and kill().  communicate() below
+        # still reaps it and returns the captured output.
+        pass
 
 
 def _optional_int(value: Any) -> Optional[int]:

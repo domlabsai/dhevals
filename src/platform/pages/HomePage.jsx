@@ -73,8 +73,10 @@ export function HomePage() {
           <FeaturedResult
             signal={signal}
             revision={overview.source_revision}
-            caveat="Offline calibration fixture — not a public model score. It exercises the pipeline and stays out of the leaderboard."
-            action={{ to: `/reports/${signal.run_id}`, label: 'Inspect this run' }}
+            caveat={signal?.is_fixture
+              ? 'Offline calibration fixture — not a public model score. It exercises the pipeline and stays out of the leaderboard.'
+              : 'Archive-only model evidence — verified for transparency, not promoted to the leaderboard.'}
+            action={signal ? { to: `/reports/${signal.run_id}`, label: 'Inspect this run' } : undefined}
           />
           <section className="panel stack" aria-label="Latest verified signal">
             <p className="eyebrow">Latest verified signal</p>
@@ -151,7 +153,10 @@ export function HomePage() {
         <section className="stack" aria-label="Recent reports">
           <div className="row" style={{ justifyContent: 'space-between' }}>
             <p className="eyebrow">Recent reports</p>
-            <Link to="/reports" className="label">All reports →</Link>
+            <span className="row" style={{ gap: 'var(--space-4)' }}>
+              <Link to="/reports/inauguration" className="label">Inauguration report →</Link>
+              <Link to="/reports" className="label">All reports →</Link>
+            </span>
           </div>
           <div>
             {recentRuns.map((run) => {

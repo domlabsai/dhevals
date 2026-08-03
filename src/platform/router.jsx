@@ -81,8 +81,8 @@ export function Link({
 }
 
 /*
- * matchPath('/models/:slug', '/models/sacilm')
- *   -> { slug: 'sacilm' } or null
+ * matchPath('/models/:slug', '/models/example-model')
+ *   -> { slug: 'example-model' } or null
  */
 export function matchPath(pattern, pathname) {
   const patternParts = pattern.split('/').filter(Boolean)

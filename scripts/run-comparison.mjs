@@ -84,6 +84,14 @@ for (const model of registry.models || []) {
       ? process.env[model.cli_timeout_env]
       : model.cli_timeout_seconds || '120'
     args.push('--cli-timeout-seconds', String(timeout))
+    const timeoutRetries = model.cli_timeout_retries_env && process.env[model.cli_timeout_retries_env]
+      ? process.env[model.cli_timeout_retries_env]
+      : model.cli_timeout_retries ?? process.env.DHEVALS_MODEL_CLI_TIMEOUT_RETRIES ?? '1'
+    const timeoutBackoff = model.cli_timeout_backoff_env && process.env[model.cli_timeout_backoff_env]
+      ? process.env[model.cli_timeout_backoff_env]
+      : model.cli_timeout_backoff ?? process.env.DHEVALS_MODEL_CLI_TIMEOUT_BACKOFF ?? '2'
+    args.push('--cli-timeout-retries', String(timeoutRetries))
+    args.push('--cli-timeout-backoff', String(timeoutBackoff))
   } else {
     args.push('--base-url', baseUrl)
     if (model.api_key_env) args.push('--api-key-env', model.api_key_env)

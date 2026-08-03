@@ -21,7 +21,13 @@ O valor de `DHEVALS_MODEL_CLI_COMMAND` é dividido com `shlex` e executado com
 `shell=false`; o prompt da tarefa nunca é interpolado em um shell. O stdout é
 tratado como a resposta do modelo e stderr aparece apenas no diagnóstico local.
 Cada tarefa tem timeout independente e falha de processo permanece como erro
-de infraestrutura, nunca como nota zero.
+de infraestrutura, nunca como nota zero. O `run:model` faz uma nova tentativa
+automática somente quando há timeout (uma tentativa extra por padrão, com
+timeout 2x maior). Configure `DHEVALS_MODEL_CLI_TIMEOUT_RETRIES=0` para
+desativar ou `DHEVALS_MODEL_CLI_TIMEOUT_BACKOFF` para alterar o multiplicador.
+Ao expirar, o grupo inteiro de processos do CLI é encerrado e recolhido; isso
+evita que um processo filho do OpenCode continue consumindo cota depois do
+registro do erro.
 
 Quando o CLI possui um agente capaz de ler ou editar arquivos (como o modo
 `build` do OpenCode), defina `DHEVALS_MODEL_CLI_CWD` para um diretório vazio e
@@ -56,6 +62,9 @@ export DHEVALS_MODEL_ADAPTER="command-line"
 export DHEVALS_MODEL_CLI_COMMAND="opencode run --pure --variant minimal --model opencode/deepseek-v4-flash-free"
 export DHEVALS_MODEL_CLI_PROMPT_MODE="arg"
 export DHEVALS_MODEL_CLI_CWD="/tmp/dhevals-opencode-sandbox"
+export DHEVALS_MODEL_CLI_TIMEOUT_SECONDS="180"
+export DHEVALS_MODEL_CLI_TIMEOUT_RETRIES="1"
+export DHEVALS_MODEL_CLI_TIMEOUT_BACKOFF="2"
 npm run run:model
 
 # Qwen — exemplo com prompt como argumento

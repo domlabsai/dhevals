@@ -1,5 +1,5 @@
 import { execSync } from 'node:child_process'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -9,6 +9,7 @@ const suiteCatalogPath = resolve(root, 'public/data/suite-catalog.json')
 const modelCatalogPath = resolve(root, 'public/data/model-catalog.json')
 const runCatalogPath = resolve(root, 'public/data/run-catalog.json')
 const publicReportPath = resolve(root, 'public/data/latest-report.json')
+const inaugurationSourcePath = resolve(root, 'reports/runs/opencode-deepseek-v4-flash-free-inaugural-report.json')
 
 const EVIDENCE_STATUSES = ['supported', 'estimated', 'pending', 'locked', 'invalid']
 const SUITE_TITLE = 'Heavy-user tasks — Brazilian Portuguese'
@@ -26,6 +27,7 @@ function main() {
   const suiteCatalog = readRequiredJson(suiteCatalogPath)
   const modelCatalog = readRequiredJson(modelCatalogPath)
   const runCatalog = readRequiredJson(runCatalogPath)
+  const inauguration = readRequiredJson(inaugurationSourcePath)
   if (!Array.isArray(suiteCatalog.suites)) fail('suite-catalog.json is missing a suites array')
   if (!Array.isArray(modelCatalog.models)) fail('model-catalog.json is missing a models array')
   if (!Array.isArray(runCatalog.entries)) fail('run-catalog.json is missing an entries array')
@@ -46,10 +48,17 @@ function main() {
   const overview = buildOverview(runCatalog, runs, suiteCatalog, modelEntries, sourceRevision)
   const leaderboard = buildLeaderboard(modelEntries, runs)
 
-  mkdirSync(resolve(outputDirectory, 'runs'), { recursive: true })
+  const runsOutputDirectory = resolve(outputDirectory, 'runs')
+  mkdirSync(runsOutputDirectory, { recursive: true })
+  const projectedRunIds = new Set(runs.map((run) => run.entry.run_id))
+  for (const file of readdirSync(runsOutputDirectory)) {
+    if (file.endsWith('.json') && !projectedRunIds.has(file.slice(0, -5))) {
+      rmSync(resolve(runsOutputDirectory, file), { force: true })
+    }
+  }
   for (const run of runs) {
     const detail = buildRunDetail(run)
-    writeJson(resolve(outputDirectory, 'runs', `${run.entry.run_id}.json`), detail)
+    writeJson(resolve(runsOutputDirectory, `${run.entry.run_id}.json`), detail)
   }
   writeJson(resolve(outputDirectory, 'overview.json'), overview)
   writeJson(resolve(outputDirectory, 'models.json'), modelEntries)
@@ -61,6 +70,7 @@ function main() {
     entries: runEntries,
   })
   writeJson(resolve(outputDirectory, 'leaderboard.json'), leaderboard)
+  writeJson(resolve(outputDirectory, 'inauguration.json'), inauguration)
   writeFileSync(resolve(outputDirectory, 'catalog.csv'), buildCatalogCsv(runEntries), 'utf8')
 
   console.log(JSON.stringify({
@@ -71,6 +81,7 @@ function main() {
     models: modelEntries.length,
     runs: runEntries.length,
     promoted_runs: overview.counts.promoted_runs,
+    inauguration: true,
   }, null, 2))
 }
 
@@ -79,6 +90,7 @@ function collectRuns(runCatalog) {
   const seen = new Set()
   for (const entry of runCatalog.entries) {
     if (!entry.run_id || !entry.source) fail('run-catalog entry is missing run_id or source')
+    if (isHiddenModel(entry.model_id)) continue
     const reportPath = resolve(root, entry.source)
     const report = readRequiredJson(reportPath)
     if (report?.run?.id !== entry.run_id) fail(`report ${entry.source} does not match run ${entry.run_id}`)
@@ -146,7 +158,7 @@ function buildRunDetail(run) {
   const summary = report.summary || {}
   const model = reportRun.model || {}
   const publicSuite = reportRun.suite_id === 'dhevals-heavy-user-ptbr'
-  return {
+  return sanitizeDeferredModelReferences({
     schema_version: '1.0.0',
     kind: 'dhevals_public_run',
     generated_at: GENERATED_AT,
@@ -221,19 +233,33 @@ function buildRunDetail(run) {
       runner_version: reportRun.runner_version || null,
       source_report: basename(run.reportPath),
     },
+  })
+}
+
+// A model response can quote internal roadmap material. Keep the archived
+// evidence public while redacting deferred-model references at the projection
+// boundary; source reports remain unchanged for internal auditability.
+function sanitizeDeferredModelReferences(value) {
+  if (typeof value === 'string') return value.replace(/sacilm/gi, 'deferred model')
+  if (Array.isArray(value)) return value.map(sanitizeDeferredModelReferences)
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).map(([key, child]) => [key, sanitizeDeferredModelReferences(child)]))
   }
+  return value
 }
 
 function buildModels(modelCatalog, runs, suiteCatalog) {
   const models = []
   const seen = new Set()
   for (const model of modelCatalog.models) {
+    if (isHiddenModel(model.id)) continue
     if (!model.id || model.id.includes('fixture') || model.id.includes('negative')) continue
     seen.add(model.id)
     models.push(buildModelEntry(model.id, model.label || model.id, model.provider || 'unknown', model, runs, suiteCatalog))
   }
   for (const run of runs) {
     const modelId = run.entry.model_id
+    if (isHiddenModel(modelId)) continue
     if (!modelId || seen.has(modelId)) continue
     if (modelId.includes('fixture') || modelId.includes('negative')) continue
     seen.add(modelId)
@@ -334,12 +360,16 @@ function buildSuites(suiteCatalog, suiteManifests) {
 
 function buildOverview(runCatalog, runs, suiteCatalog, modelEntries, sourceRevision) {
   const currentRunId = runCatalog.current_public_run_id
-  const current = runs.find((run) => run.entry.run_id === currentRunId) || null
+  const current = runs.find((run) => run.entry.run_id === currentRunId) || latestBy(runs, (run) => run.entry.finished_at)
   const currentSuite = current
     ? suiteCatalog.suites.find((suite) => suite.suite_id === current.entry.suite_id && suite.version === current.entry.suite_version)
     : suiteCatalog.suites.find((suite) => suite.current_public) || null
   const calibration = currentSuite?.calibration || {}
   const promoted = runs.filter((run) => classifyRun(run).runStatus === 'promoted')
+  const currentClassification = current ? classifyRun(current) : null
+  const currentIsLocked = currentClassification
+    ? currentClassification.isFixture || currentClassification.runStatus !== 'promoted'
+    : false
   return {
     schema_version: '1.0.0',
     kind: 'dhevals_public_overview',
@@ -353,9 +383,9 @@ function buildOverview(runCatalog, runs, suiteCatalog, modelEntries, sourceRevis
           provider: current.entry.provider,
           suite_id: current.entry.suite_id,
           suite_version: current.entry.suite_version,
-          score: classifyRun(current).isFixture || current.entry.publication_status === 'locked' ? null : toHundred(current.entry.score),
+          score: currentIsLocked ? null : toHundred(current.entry.score),
           coverage: typeof current.entry.coverage === 'number' ? current.entry.coverage : null,
-          evidence_status: current.entry.publication_status === 'locked' ? 'locked' : 'pending',
+          evidence_status: currentIsLocked ? 'locked' : 'supported',
           is_fixture: classifyRun(current).isFixture,
           date: current.entry.finished_at || null,
         }
@@ -423,6 +453,10 @@ function modelName(modelId) {
   if (modelId === 'sacilm') return 'SaciLM'
   if (modelId === 'baseline-gpt-4-turbo') return 'GPT-4 Turbo baseline'
   return modelId || 'unknown'
+}
+
+function isHiddenModel(modelId) {
+  return String(modelId || '').toLowerCase().includes('sacilm')
 }
 
 function modelLicense(catalogModel) {
