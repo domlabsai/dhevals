@@ -201,6 +201,13 @@ evidence copying, responsive layouts, and a **Director view** composed for
   publication policy;
 - [model adapters](./docs/dhevals-model-adapters.md) — CLI, HTTP, isolation,
   and comparison configuration.
+- [public platform SDD](./docs/dhevals-public-platform-sdd.md) — public
+  information architecture, data contract, routes, and release requirements;
+- [public platform design system](./docs/dhevals-public-platform-design-system.md)
+  — brand, tokens, components, visualization, motion, and social cards;
+- [design LLM prompt](./docs/dhevals-public-platform-design-prompt.md) —
+  copy/paste brief for generating the public platform design;
+- [brand assets](./public/brand/) — versioned DHEvals logo SVGs.
 
 ## Repository layout
 
