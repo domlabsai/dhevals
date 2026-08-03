@@ -1,0 +1,116 @@
+{
+  "id": "dhevals-heavy-user-ptbr",
+  "version": "0.1.0",
+  "locale": "pt-BR",
+  "description": "Primeira suíte fixture de tarefas compostas para heavy users de IA.",
+  "license": "CC-BY-4.0 para o manifesto; entradas sintéticas para desenvolvimento",
+  "provenance": {
+    "owner": "DomHubs / Dom Labs",
+    "purpose": "calibração inicial do DHEvals antes da rodada pública do SaciLM",
+    "publication": "fixture-only"
+  },
+  "tasks": [
+    {
+      "id": "research-synthesis",
+      "title": "Research & synthesis",
+      "category": "Research",
+      "prompt": "Você é responsável por uma decisão de busca corporativa. Compare estratégias híbridas e dense-only para RAG, explicite trade-offs, riscos de grounding e recomende um próximo experimento. Inclua citações internas aos trechos fornecidos.",
+      "context": "Fonte A — experimento offline sintético: em 600 consultas corporativas, a busca híbrida aumentou o recall@10 em 14% contra dense-only. O ganho foi maior em consultas com nomes próprios, códigos e siglas. O experimento não mediu factualidade da resposta nem removeu duplicatas do corpus.\n\nFonte B — piloto sintético de FAQ: dense-only reduziu a latência mediana em 32% e teve precisão@5 semelhante para perguntas curtas. Falhou com mais frequência em IDs exatos, negações e filtros por departamento. O corpus do piloto tinha 40% de documentos duplicados.\n\nUse somente essas duas fontes, cite-as como [Fonte A] e [Fonte B] e diferencie fatos, inferências e pontos que ainda precisam de validação.",
+      "checks": [
+        {"id": "required-terms", "type": "contains_all", "values": ["trade-offs", "citações", "grounding"]},
+        {"id": "minimum-evidence", "type": "min_length", "characters": 240}
+      ],
+      "rubric": [
+        {"id": "correctness", "label": "Correção", "weight": 0.45},
+        {"id": "uncertainty", "label": "Incerteza explícita", "weight": 0.25},
+        {"id": "usability", "label": "Utilidade da recomendação", "weight": 0.3}
+      ],
+      "metadata": {"tools": "simulated", "public": true}
+    },
+    {
+      "id": "document-qa",
+      "title": "Document Q&A",
+      "category": "Documents",
+      "prompt": "Extraia de um brief operacional as decisões, pendências e riscos. Retorne somente JSON válido com as chaves decisoes, pendencias e riscos; preserve nomes de seção e sinalize conflitos.",
+      "context": "Brief operacional — Projeto Atlas\n\nSeção: Escopo aprovado\nDecisão: lançar um piloto para 30 usuários internos, limitado ao fluxo de busca de políticas.\n\nSeção: Cronograma\nDecisão: a revisão de segurança deve terminar em 18/08/2026.\nPendência: confirmar quem será o owner da aprovação jurídica.\n\nSeção: Riscos e bloqueios\nRisco: a equipe de Operações registra go-live em 12/08/2026, enquanto Engenharia registra go-live em 19/08/2026. O conflito não foi resolvido.\nRisco: não há plano de rollback documentado para o índice de busca.",
+      "checks": [
+        {"id": "valid-structure", "type": "json_object", "required_keys": ["decisoes", "pendencias", "riscos"]},
+        {"id": "has-conflict", "type": "contains_any", "values": ["conflito", "contraditório", "contraditorio"]}
+      ],
+      "rubric": [
+        {"id": "extraction", "label": "Extração", "weight": 0.5},
+        {"id": "traceability", "label": "Rastreabilidade", "weight": 0.3},
+        {"id": "format", "label": "Formato", "weight": 0.2}
+      ],
+      "metadata": {"tools": "none", "public": true}
+    },
+    {
+      "id": "plan-outline",
+      "title": "Plan & outline",
+      "category": "Planning",
+      "prompt": "Monte um plano de lançamento em duas semanas, com orçamento fixo, dependências, riscos priorizados e próximos passos. O plano deve ser acionável por uma equipe pequena.",
+      "context": "Cenário sintético — Projeto Atlas\n\nObjetivo: lançar um piloto interno de busca de políticas em 10 dias úteis.\nOrçamento fixo: R$ 18.000; não pode ser ampliado durante o piloto.\nEquipe disponível: uma pessoa de produto, uma de engenharia e uma de operações, em dedicação parcial.\nDependências: aprovação de segurança antes do primeiro usuário; índice carregado com 200 documentos; grupo piloto de 30 usuários; canal de suporte definido.\nRiscos conhecidos: dados desatualizados, atraso da aprovação jurídica e baixa adesão dos usuários.\nCritério de saída: 90% das consultas do conjunto de validação retornam uma fonte rastreável e nenhum incidente crítico aberto.",
+      "checks": [
+        {"id": "operational-coverage", "type": "contains_all", "values": ["dependências", "riscos", "próximos passos"]},
+        {"id": "actionable", "type": "regex", "pattern": "(dia|semana|respons[aá]vel)", "case_insensitive": true}
+      ],
+      "rubric": [
+        {"id": "sequencing", "label": "Sequenciamento", "weight": 0.4},
+        {"id": "constraints", "label": "Restrições", "weight": 0.3},
+        {"id": "actionability", "label": "Ação", "weight": 0.3}
+      ],
+      "metadata": {"tools": "none", "public": true}
+    },
+    {
+      "id": "data-analysis",
+      "title": "Data analysis",
+      "category": "Data",
+      "prompt": "Analise uma tabela sintética de retenção por coorte. Retorne JSON válido com metodo, resultado e recomendacao, incluindo uma hipótese testável e suas limitações.",
+      "context": "Tabela sintética de retenção (percentual de usuários ativos)\n\ncoorte | tamanho | D1 | D7 | D30\nJan/2026 | 1000 | 100% | 42% | 21%\nFev/2026 | 1100 | 100% | 48% | 26%\nMar/2026 | 1050 | 100% | 39% | 18%\nAbr/2026 | 1200 | 100% | 51% | 29%\n\nEm março houve uma mudança de onboarding; em abril também foi alterado o canal de aquisição. Não há randomização nem informação de mix de usuários. Calcule diferenças descritivas, não trate correlação como causalidade e declare o que precisa ser testado.",
+      "checks": [
+        {"id": "valid-structure", "type": "json_object", "required_keys": ["metodo", "resultado", "recomendacao"]},
+        {"id": "limitation", "type": "contains_any", "values": ["limitação", "limitacao", "hipótese", "hipotese"]}
+      ],
+      "rubric": [
+        {"id": "calculation", "label": "Cálculo", "weight": 0.45},
+        {"id": "interpretation", "label": "Interpretação", "weight": 0.35},
+        {"id": "limitations", "label": "Limitações", "weight": 0.2}
+      ],
+      "metadata": {"tools": "simulated", "public": true}
+    },
+    {
+      "id": "code-generation",
+      "title": "Code generation",
+      "category": "Code",
+      "prompt": "Você recebeu um worker TypeScript com timeout intermitente. Proponha uma correção mínima, explique o trade-off e inclua um teste de regressão executável.",
+      "context": "Worker TypeScript sintético:\n\n```ts\nexport async function processJob(id: string, deps: Deps) {\n  const result = await Promise.race([\n    deps.client.fetch(id),\n    timeout(5_000),\n  ]);\n  await deps.queue.ack(id);\n  return result;\n}\n```\n\nO timeout apenas rejeita a Promise; ele não cancela a requisição HTTP. Em produção, o worker recebe o mesmo job novamente quando o ack não acontece a tempo, e duas requisições podem continuar consumindo recursos. `deps.client.fetch` aceita um `AbortSignal`. A correção deve ser mínima, manter o contrato de retorno e incluir um teste que prove que o sinal é abortado após 5 segundos.",
+      "checks": [
+        {"id": "test-present", "type": "contains_any", "values": ["teste", "test(", "describe("]},
+        {"id": "fix-present", "type": "contains_any", "values": ["correção", "correcao", "patch", "fix"]}
+      ],
+      "rubric": [
+        {"id": "correctness", "label": "Correção", "weight": 0.5},
+        {"id": "regression", "label": "Regressão", "weight": 0.3},
+        {"id": "tradeoffs", "label": "Trade-offs", "weight": 0.2}
+      ],
+      "metadata": {"tools": "none", "public": true}
+    },
+    {
+      "id": "email-draft",
+      "title": "Email draft",
+      "category": "Communication",
+      "prompt": "Escreva um email curto para uma equipe multifuncional comunicando um atraso de dois dias. Inclua assunto, contexto sem culpar pessoas, próximos passos e prazo revisado.",
+      "context": "Projeto Atlas — comunicação sintética\n\nO piloto estava previsto para 14/08/2026 e será entregue em 16/08/2026. A causa é a necessidade de uma rodada adicional de validação de segurança após uma inconsistência encontrada no ambiente de staging. A equipe não deve ser culpabilizada. Próximos passos: concluir a validação em 15/08, publicar o checklist revisado e confirmar os primeiros usuários em 16/08. O email será enviado para Produto, Engenharia, Segurança e Operações.",
+      "checks": [
+        {"id": "message-structure", "type": "contains_all", "values": ["assunto", "próximos passos", "prazo"]},
+        {"id": "minimum-copy", "type": "min_length", "characters": 120}
+      ],
+      "rubric": [
+        {"id": "tone", "label": "Tom", "weight": 0.4},
+        {"id": "clarity", "label": "Clareza", "weight": 0.35},
+        {"id": "actionability", "label": "Próximos passos", "weight": 0.25}
+      ],
+      "metadata": {"tools": "none", "public": true}
+    }
+  ]
+}

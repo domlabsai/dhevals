@@ -1,0 +1,74 @@
+{
+  "kind": "dhevals_comparison_execution",
+  "schema_version": "0.1.0",
+  "generated_at": "2026-08-03T16:28:43.787Z",
+  "status": "pending",
+  "purpose": "same-suite model comparison with locked scores until release gates pass",
+  "suite": {
+    "id": "dhevals-heavy-user-ptbr",
+    "version": "0.3.0",
+    "hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
+    "registry": "benchmarks/comparisons/v0.3/models.json"
+  },
+  "policy": {
+    "same_suite_hash_required": true,
+    "same_generation_config_required": true,
+    "fixture_scores_public": false,
+    "human_calibration_required": true,
+    "primary_model_id": "sacilm"
+  },
+  "primary_model_id": "sacilm",
+  "generation": {
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seed": 7
+  },
+  "models": [
+    {
+      "id": "sacilm",
+      "label": "SaciLM",
+      "provider": "runpod-openai-compatible",
+      "publication": "primary",
+      "adapter": "openai-compatible",
+      "endpoint_env": "DHEVALS_SACILM_BASE_URL",
+      "command_env": null,
+      "endpoint_configured": false,
+      "status": "not-run",
+      "run_id": null,
+      "artifact": null,
+      "score": null,
+      "score_status": "locked_until_release_gate"
+    },
+    {
+      "id": "baseline-gpt-4-turbo",
+      "label": "GPT-4 Turbo baseline",
+      "provider": "openai-compatible",
+      "publication": "comparison-only",
+      "adapter": "openai-compatible",
+      "endpoint_env": "DHEVALS_BASELINE_BASE_URL",
+      "command_env": null,
+      "endpoint_configured": false,
+      "status": "endpoint-not-configured",
+      "run_id": null,
+      "artifact": null,
+      "score": null,
+      "score_status": "locked_until_release_gate"
+    }
+  ],
+  "execution": {
+    "mode": "not_run",
+    "completed_models": 0,
+    "configured_models": 0,
+    "total_models": 2,
+    "report_count": 0,
+    "same_suite_hash_required": true,
+    "same_generation_config_required": true,
+    "fixture_scores_public": false
+  },
+  "provenance": {
+    "summary": null,
+    "runner": "scripts/run-comparison.mjs",
+    "scores": "not copied into this contract; use verified report and release gate artifacts",
+    "secrets_recorded": false
+  }
+}

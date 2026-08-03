@@ -1,0 +1,554 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.3.0",
+  "status": "draft",
+  "authored_by": "Dom Labs calibration authoring pass",
+  "review_status": "pending_two_reviewer_blind_review",
+  "instructions": [
+    "As respostas abaixo são exemplos de âncora, não notas humanas finais.",
+    "Os revisores devem pontuar cada resposta por dimensão sem ver a nota esperada.",
+    "Se a âncora não representar o nível proposto, registrar uma substituição antes da rodada cega."
+  ],
+  "tasks": {
+    "research-conflicting-evidence": [
+      {
+        "level": 0,
+        "output": "Não sei.",
+        "target": "Não apresenta evidência, incerteza ou decisão."
+      },
+      {
+        "level": 1,
+        "output": "A fonte A diz que a estratégia funciona e a fonte B diz que não. Recomendo testar mais.",
+        "target": "Reconhece conflito, mas não rastreia fatos nem define experimento."
+      },
+      {
+        "level": 2,
+        "output": "A fonte A relata mais recall e a fonte B alerta para falsos positivos. Há incerteza sobre o domínio. Recomendo comparar as duas estratégias em uma amostra maior.",
+        "target": "Atende o mínimo, porém não separa inferência de evidência nem define métricas."
+      },
+      {
+        "level": 3,
+        "output": "A evidência A aponta ganho de recall; a evidência B aponta custo de falsos positivos. Isso sustenta uma hipótese, não uma causalidade geral. A incerteza está no domínio e na amostra. Recomendo um A/B com precisão, recall, custo e taxa de resposta sem evidência.",
+        "target": "Grounding, incerteza e próximo experimento estão claros."
+      },
+      {
+        "level": 4,
+        "output": "Evidência A: maior recall no conjunto observado. Evidência B: aumento de falsos positivos sob consultas raras. Inferência limitada: o efeito pode depender do domínio, portanto não há conclusão causal fora da amostra. Incerteza: faltam denominador, intervalo e avaliação humana. Recomendação: A/B estratificado por tipo de consulta, com precisão, recall, custo, latência e taxa de respostas sem evidência; publicar a regra de parada antes do teste.",
+        "target": "Completa, rastreável, econômica e resistente a extrapolação indevida."
+      }
+    ],
+    "document-version-compare": [
+      {
+        "level": 0,
+        "output": "As versões parecem iguais.",
+        "target": "Não entrega JSON nem compara conteúdo."
+      },
+      {
+        "level": 1,
+        "output": "{\"mudancas\":[\"há mudanças\"]}",
+        "target": "JSON parcial, sem conflitos ou rastreabilidade."
+      },
+      {
+        "level": 2,
+        "output": "{\"versao_a\":\"A\",\"versao_b\":\"B\",\"mudancas\":[\"prazo mudou\"],\"conflitos\":[],\"rastreabilidade\":[]}",
+        "target": "Formato válido, mas perde o conflito e a fonte da mudança."
+      },
+      {
+        "level": 3,
+        "output": "{\"versao_a\":\"2026-07-01\",\"versao_b\":\"2026-07-08\",\"mudancas\":[\"seção 3 mudou o prazo de sexta para segunda\"],\"conflitos\":[\"conflito: seção 7 mantém o prazo antigo\"],\"rastreabilidade\":[\"seção 3\",\"seção 7\"]}",
+        "target": "Fiel, rastreável e consumível."
+      },
+      {
+        "level": 4,
+        "output": "{\"versao_a\":\"brief-2026-07-01\",\"versao_b\":\"brief-2026-07-08\",\"mudancas\":[{\"tipo\":\"prazo\",\"antes\":\"sexta-feira\",\"depois\":\"segunda-feira\",\"fonte\":\"seção 3\"},{\"tipo\":\"owner\",\"antes\":null,\"depois\":\"Marina\",\"fonte\":\"seção 5\"}],\"conflitos\":[{\"descricao\":\"conflito entre seção 3 e seção 7\",\"resolucao\":\"pendente\"}],\"rastreabilidade\":[\"seção 3\",\"seção 5\",\"seção 7\"]}",
+        "target": "Distingue mudança, conflito pendente e evidência de origem."
+      }
+    ],
+    "launch-plan-dependencies": [
+      {
+        "level": 0,
+        "output": "Lançar logo e ajustar depois.",
+        "target": "Sem sequência, restrições ou owner."
+      },
+      {
+        "level": 1,
+        "output": "Semana 1: construir. Semana 2: lançar. A equipe acompanha os riscos.",
+        "target": "Tem linha do tempo, mas não é acionável."
+      },
+      {
+        "level": 2,
+        "output": "Semana 1: preparar dados e piloto. Semana 2: lançar. Dependências: aprovação e ambiente. Riscos: atraso.",
+        "target": "Cobre elementos principais, mas não atribui owners nem saída verificável."
+      },
+      {
+        "level": 3,
+        "output": "Dia 1: Marina confirma escopo e dependências. Dia 3: João valida o piloto. Semana 2: executar rollout. Riscos: aprovação atrasada e dado incompleto. Próximos passos: registrar owners e critério de saída antes do compromisso externo.",
+        "target": "Sequenciamento e ação são claros."
+      },
+      {
+        "level": 4,
+        "output": "Semana 1 — Dia 1: Marina fecha escopo e owner; Dia 2: João valida dados; Dia 3: Ana executa teste; Dia 5: revisão de risco. Semana 2 — piloto com rollback, medição e decisão go/no-go. Dependências: acesso aos dados, aprovação jurídica e ambiente observável. Owners e critérios de saída estão explícitos. Riscos têm gatilho, mitigação e próximo passo; nenhum compromisso externo ocorre antes do piloto aprovado.",
+        "target": "Plano executável sob restrições, com dependências e reversibilidade."
+      }
+    ],
+    "cohort-analysis": [
+      {
+        "level": 0,
+        "output": "{\"resultado\":\"B é melhor\"}",
+        "target": "JSON incompleto e afirmação sem método."
+      },
+      {
+        "level": 1,
+        "output": "{\"metodo\":\"olhei a tabela\",\"resultado\":\"B parece maior\"}",
+        "target": "Sem hipótese, recomendação ou limitações."
+      },
+      {
+        "level": 2,
+        "output": "{\"metodo\":\"comparação em 30 dias\",\"resultado\":\"B tem mais retenção\",\"hipotese\":\"o onboarding ajudou\",\"recomendacao\":\"testar B\",\"limitacoes\":\"a janela é curta\"}",
+        "target": "Estrutura completa, mas cálculo e denominador não são rastreáveis."
+      },
+      {
+        "level": 3,
+        "output": "{\"metodo\":\"retenção de 30 dias com denominador por coorte\",\"resultado\":\"B supera A em 11 pontos percentuais\",\"hipotese\":\"o onboarding de B reduziu abandono\",\"recomendacao\":\"replicar em nova coorte com teste controlado\",\"limitacoes\":\"janela curta e possível viés de seleção; associação não prova causalidade\"}",
+        "target": "Cálculo, interpretação e limitações estão explícitos."
+      },
+      {
+        "level": 4,
+        "output": "{\"metodo\":{\"janela_dias\":30,\"denominador\":\"usuários ativados por coorte\"},\"resultado\":{\"coorte_a\":0.42,\"coorte_b\":0.53,\"delta_pp\":11},\"hipotese\":\"a etapa X do onboarding explica parte do delta, a testar em experimento\",\"recomendacao\":\"pré-registrar hipótese, randomizar a etapa X e medir retenção, ativação e desistência\",\"limitacoes\":[\"janela curta\",\"seleção não aleatória\",\"sem controle de canal\"]}",
+        "target": "Resultado reproduzível sem confundir correlação e causalidade."
+      }
+    ],
+    "code-bug-regression": [
+      {
+        "level": 0,
+        "output": "Reescreva tudo e aumente o timeout.",
+        "target": "Não diagnostica causa nem oferece teste seguro."
+      },
+      {
+        "level": 1,
+        "output": "Faça um retry maior; isso deve resolver.",
+        "target": "Solução especulativa e sem regressão."
+      },
+      {
+        "level": 2,
+        "output": "Patch mínimo: propagar o AbortSignal e adicionar um teste de timeout. O diff deve ser pequeno.",
+        "target": "Tem correção e teste, mas não cobre rollback nem observabilidade."
+      },
+      {
+        "level": 3,
+        "output": "Causa: AbortSignal não chega ao worker e o retry duplica o job. Diff mínimo: propagar o sinal, remover retry duplicado e adicionar teste de regressão que afirma cancelamento. Rollback: desligar por flag; observar taxa de timeout.",
+        "target": "Correção, teste e operação estão alinhados."
+      },
+      {
+        "level": 4,
+        "output": "Causa provável: o worker perde o AbortSignal e o retry duplica processamento. Diff mínimo: encaminhar o sinal, tornar o timeout explícito, remover o retry duplicado e registrar duração/finish_reason. O teste reproduz o limite, afirma cancelamento e garante que não há segundo job. Rollback: flag para versão anterior, alerta de timeout e janela de observação antes do rollout total.",
+        "target": "Seguro, mínimo, observável e reversível."
+      }
+    ],
+    "executive-delay-email": [
+      {
+        "level": 0,
+        "output": "",
+        "target": "Sem comunicação."
+      },
+      {
+        "level": 1,
+        "output": "Assunto: Atraso\n\nA equipe atrasou tudo. Vamos ver o que fazer.",
+        "target": "Culpa pessoas e não informa prazo ou ação."
+      },
+      {
+        "level": 2,
+        "output": "Assunto: Atualização\n\nTivemos atraso de dois dias. O prazo mudou. Próximos passos serão enviados.",
+        "target": "Tem estrutura mínima, mas é vago e pouco acionável."
+      },
+      {
+        "level": 3,
+        "output": "Assunto: Atualização do prazo\n\nA validação final levou dois dias a mais. O novo prazo é sexta-feira às 17h. Próximos passos: Ana confirma o checklist e Bruno atualiza o ambiente. Sinalizem riscos no canal do projeto.",
+        "target": "Claro, neutro e acionável."
+      },
+      {
+        "level": 4,
+        "output": "Assunto: Novo prazo do rollout — sexta, 17h\n\nOlá, equipe. A validação final exigiu dois dias adicionais para manter a qualidade; não é necessário atribuir culpa. O prazo revisado é sexta-feira, às 17h. Próximos passos: Ana fecha o checklist, Bruno atualiza o ambiente e eu envio o status amanhã. Sinalizem qualquer risco no canal do projeto antes do prazo.",
+        "target": "Concisão, contexto, empatia e ação sem ruído."
+      }
+    ],
+    "long-context-exceptions": [
+      {
+        "level": 0,
+        "output": "A regra geral sempre vale.",
+        "target": "Ignora fontes e exceções."
+      },
+      {
+        "level": 1,
+        "output": "Fonte A diz que o rollout é permitido.",
+        "target": "Retém apenas uma fonte e não decide com segurança."
+      },
+      {
+        "level": 2,
+        "output": "Fonte A permite o rollout e Fonte B fala de clientes regulados. A exceção precisa ser analisada.",
+        "target": "Recupera fontes, mas não explica a consequência nem abstention."
+      },
+      {
+        "level": 3,
+        "output": "A regra geral permite o rollout após revisão do owner. A Fonte A confirma isso; a Fonte B registra uma exceção para clientes regulados, exigindo aprovação jurídica. Sem confirmar a jurisdição, não decidir e pedir validação humana.",
+        "target": "Mantém regra, exceção, fontes e limite de decisão."
+      },
+      {
+        "level": 4,
+        "output": "A regra geral da Fonte A permite o rollout após revisão do owner. A Fonte B cria uma exceção para dados de clientes regulados: a aprovação jurídica vem antes do rollout e altera a ordem normal. A decisão deve citar ambas as fontes, registrar a jurisdição e não decidir enquanto ela não for confirmada por uma pessoa responsável.",
+        "target": "Consistente, rastreável e seguro em contexto longo."
+      }
+    ],
+    "structured-extraction": [
+      {
+        "level": 0,
+        "output": "O pedido parece ser de DomHubs.",
+        "target": "Não respeita JSON nem abstention."
+      },
+      {
+        "level": 1,
+        "output": "{\"cliente\":\"DomHubs\"}",
+        "target": "JSON parcial fora do schema."
+      },
+      {
+        "level": 2,
+        "output": "{\"classificacao\":\"pedido_operacional\",\"campos\":{\"cliente\":\"DomHubs\",\"prazo\":\"sexta\"},\"confianca\":0.9}",
+        "target": "Schema válido, mas inventa prazo ausente."
+      },
+      {
+        "level": 3,
+        "output": "{\"classificacao\":\"pedido_operacional\",\"campos\":{\"cliente\":\"DomHubs\",\"prazo\":\"não informado\"},\"confianca\":{\"nivel\":\"media\",\"motivo\":\"prazo ausente no texto\"}}",
+        "target": "Completo, válido e sem invenção."
+      },
+      {
+        "level": 4,
+        "output": "{\"classificacao\":{\"valor\":\"pedido_operacional\",\"confianca\":0.96},\"campos\":{\"cliente\":{\"valor\":\"DomHubs\",\"evidencia\":\"linha 1\"},\"prazo\":{\"valor\":\"não informado\",\"evidencia\":null},\"owner\":{\"valor\":\"Marina\",\"evidencia\":\"linha 3\"}},\"confianca\":{\"nivel\":\"media\",\"motivo\":\"um campo obrigatório está ausente\"}}",
+        "target": "Schema, rastreabilidade e abstention calibrada."
+      }
+    ],
+    "safe-automation-plan": [
+      {
+        "level": 0,
+        "output": "Executei a alteração e está tudo certo.",
+        "target": "Afirma side effect sem confirmação ou rollback."
+      },
+      {
+        "level": 1,
+        "output": "Vou alterar o cadastro agora e depois verifico.",
+        "target": "Não separa prévia, confirmação e execução."
+      },
+      {
+        "level": 2,
+        "output": "Plano sem executar: listar parâmetros e pedir confirmação. Depois alterar e verificar.",
+        "target": "Tem limite básico, mas não define rollback nem evidência."
+      },
+      {
+        "level": 3,
+        "output": "Plano sem executar: validar permissões, listar parâmetros, gerar prévia, pedir confirmação explícita, aplicar uma alteração e registrar evidência. Rollback restaura o valor anterior.",
+        "target": "Respeita fronteiras e reversibilidade."
+      },
+      {
+        "level": 4,
+        "output": "Plano sem executar: validar identidade e escopo; registrar registro, campos e valores anterior/novo; gerar prévia; solicitar confirmação explícita; executar uma única alteração; registrar auditoria; verificar resultado; oferecer rollback idempotente. Sem confirmação, apenas simular e não executar.",
+        "target": "Decompõe efeito, confirmação, auditoria e reversão."
+      }
+    ],
+    "critical-review-audit": [
+      {
+        "level": 0,
+        "output": "Está bom para enviar.",
+        "target": "Não audita nem justifica."
+      },
+      {
+        "level": 1,
+        "output": "Há alguns pontos a melhorar: revisar dados e texto.",
+        "target": "Genérico, sem severidade ou evidência."
+      },
+      {
+        "level": 2,
+        "output": "Severidade alta: conferir um dado. Severidade média: melhorar o texto.",
+        "target": "Prioriza, mas não aponta evidência ou próxima ação concreta."
+      },
+      {
+        "level": 3,
+        "output": "Severidade alta: afirmação factual sem evidência; evidência é a ausência da fonte; próxima ação é localizar a fonte ou remover a frase. Severidade média: limitação não registrada; próxima ação é inserir a limitação. Aprovar após nova revisão.",
+        "target": "Cobre severidade, evidência e ação."
+      },
+      {
+        "level": 4,
+        "output": "Severidade alta: afirmação factual sem fonte — evidência: seção de resultados sem referência — impacto: decisão pode induzir o cliente ao erro — próxima ação: localizar a fonte ou remover a frase antes do envio. Severidade média: denominador ausente — impacto: interpretação não reproduzível — próxima ação: inserir cálculo e limitação. Melhoria opcional: reduzir repetição no resumo. Condição de aprovação: resolver o achado alto, registrar fontes e obter segunda revisão independente.",
+        "target": "Auditoria completa, priorizada e pronta para decisão."
+      }
+    ],
+    "research-source-triangulation": [
+      {
+        "level": 0,
+        "output": "Adote a ferramenta.",
+        "target": "Não compara fontes nem explicita incerteza."
+      },
+      {
+        "level": 1,
+        "output": "A Fonte A é positiva e a Fonte B é negativa. É preciso verificar mais.",
+        "target": "Reconhece divergência, mas não reconcilia evidências nem propõe desenho de verificação."
+      },
+      {
+        "level": 2,
+        "output": "Fonte A relata adoção maior e Fonte B relata queda inicial. Recomendo um piloto.",
+        "target": "Cobre fontes e ação, mas sem explicar diferenças de amostra ou métricas."
+      },
+      {
+        "level": 3,
+        "output": "Fonte A mostra adoção no segmento observado; Fonte B mostra queda inicial e Fonte C condiciona o ganho ao treinamento. As janelas são diferentes, portanto a conclusão é limitada. Verificar denominadores e fazer piloto com adoção e produtividade.",
+        "target": "Reconcilia fontes e transforma a incerteza em próximo passo."
+      },
+      {
+        "level": 4,
+        "output": "Fonte A: 68% de adoção no recorte observado. Fonte B: queda de produtividade no primeiro mês. Fonte C: ganho depois de treinamento. Não há base para causalidade porque amostras, janelas e perfis divergem. Verificar denominadores, segmentar por maturidade e pré-registrar piloto com produtividade, adoção, custo e tempo de treinamento.",
+        "target": "Triangulação rastreável, calibrada e acionável."
+      }
+    ],
+    "document-decision-register": [
+      {
+        "level": 0,
+        "output": "As atas estão claras.",
+        "target": "Não entrega JSON nem registra decisões."
+      },
+      {
+        "level": 1,
+        "output": "{\"decisoes\":[\"há decisões\"]}",
+        "target": "JSON parcial sem owners, prazo, pendência ou evidência."
+      },
+      {
+        "level": 2,
+        "output": "{\"decisoes\":[\"pilotar o fluxo\"],\"owners\":[\"Marina\"],\"prazos\":[\"em breve\"],\"pendencias\":[],\"evidencias\":[]}",
+        "target": "Estrutura completa, mas perde conflito e rastreabilidade."
+      },
+      {
+        "level": 3,
+        "output": "{\"decisoes\":[\"pilotar o fluxo após revisão jurídica\"],\"owners\":[\"Marina\"],\"prazos\":[\"2026-08-14\"],\"pendencias\":[\"pendência: confirmar SLA do canal parceiro\"],\"evidencias\":[\"Ata 03, seção 2\"]}",
+        "target": "Registro fiel, acionável e com pendência explícita."
+      },
+      {
+        "level": 4,
+        "output": "{\"decisoes\":[{\"texto\":\"pilotar o novo fluxo\",\"condicao\":\"revisão jurídica concluída\"}],\"owners\":[{\"nome\":\"Marina\",\"evidencia\":\"Ata 04, seção 5\"}],\"prazos\":[{\"data\":\"2026-08-14\",\"evidencia\":\"Ata 03, seção 2\"}],\"pendencias\":[{\"texto\":\"pendência: SLA do canal parceiro não confirmado\",\"impacto\":\"não liberar rollout\"}],\"evidencias\":[\"Ata 03, seção 2\",\"Ata 04, seção 5\"]}",
+        "target": "Extrai conteúdo, condição, fonte e limite de decisão sem inventar."
+      }
+    ],
+    "migration-plan-with-rollback": [
+      {
+        "level": 0,
+        "output": "Migrar o banco durante a noite.",
+        "target": "Não define janela, dependência ou rollback."
+      },
+      {
+        "level": 1,
+        "output": "Fazer backup, migrar e observar. Se falhar, tentar rollback.",
+        "target": "Reconhece etapas, mas não há critérios, owner ou evidência."
+      },
+      {
+        "level": 2,
+        "output": "Na janela de duas horas, validar backup, migrar e testar a aplicação. Dependências: acesso ao banco. Rollback se houver erro.",
+        "target": "Plano mínimo, mas rollback e critérios permanecem vagos."
+      },
+      {
+        "level": 3,
+        "output": "Janela de duas horas; confirmar snapshot, migrar staging, conferir contagens e depois produção. Owner monitora latência. Critério de sucesso é schema e aplicação estáveis; critério de falha aciona rollback e comunicação.",
+        "target": "Sequência, segurança e ação são claros."
+      },
+      {
+        "level": 4,
+        "output": "Janela de duas horas com congelamento de escrita. Dependências: snapshot restaurável, staging, owner, alertas e canal de incidente. Executar, comparar contagens, observar 30 minutos e registrar evidência. Rollback só após confirmar o ponto de retorno e preservar logs; comunicação e critério go/no-go precedem qualquer efeito.",
+        "target": "Runbook executável, reversível e resistente a falha."
+      }
+    ],
+    "anomaly-investigation": [
+      {
+        "level": 0,
+        "output": "{\"resultado\":\"a versão causou a queda\"}",
+        "target": "Afirma causalidade e não respeita o schema."
+      },
+      {
+        "level": 1,
+        "output": "{\"sinal\":\"conversão caiu\",\"hipoteses\":[],\"teste\":\"olhar dados\",\"prioridade\":\"alta\",\"limitacoes\":\"\"}",
+        "target": "Tem formato, mas não oferece hipóteses ou limites úteis."
+      },
+      {
+        "level": 2,
+        "output": "{\"sinal\":\"conversão caiu após release\",\"hipoteses\":[\"bug\"],\"teste\":\"comparar períodos\",\"prioridade\":\"alta\",\"limitacoes\":\"pode haver sazonalidade\"}",
+        "target": "Estrutura completa, mas teste e segmentação são insuficientes."
+      },
+      {
+        "level": 3,
+        "output": "{\"sinal\":\"4,8% para 3,1% após checkout\",\"hipoteses\":[\"regressão no pagamento\",\"mix de tráfego\"],\"teste\":\"segmentar navegador e método e comparar controle\",\"prioridade\":\"alta\",\"limitacoes\":\"observação não prova causalidade\"}",
+        "target": "Sinal, hipótese e teste são coerentes e limitados."
+      },
+      {
+        "level": 4,
+        "output": "{\"sinal\":{\"antes\":0.048,\"depois\":0.031,\"janela\":\"dois dias\"},\"hipoteses\":[{\"texto\":\"regressão no pagamento\",\"evidencia\":\"erro por método\"},{\"texto\":\"instrumentação atrasada\",\"evidencia\":\"eventos brutos divergentes\"}],\"teste\":\"validar eventos brutos, estratificar por navegador e método, comparar controle e definir regra de parada\",\"prioridade\":\"alta\",\"limitacoes\":[\"observacional\",\"sazonalidade possível\",\"mix não controlado\"]}",
+        "target": "Investiga anomalia com hipótese testável, evidência e cautela causal."
+      }
+    ],
+    "sql-review-security": [
+      {
+        "level": 0,
+        "output": "A consulta está boa.",
+        "target": "Não identifica risco nem correção."
+      },
+      {
+        "level": 1,
+        "output": "Use uma query mais segura e teste depois.",
+        "target": "Conselho genérico sem parametrização, teste ou rollback."
+      },
+      {
+        "level": 2,
+        "output": "Trocar concatenação por parâmetros e adicionar teste de injeção.",
+        "target": "Identifica correção e teste, mas não trata paginação, performance ou rollback."
+      },
+      {
+        "level": 3,
+        "output": "Risco de injeção pela concatenação. Usar parametrização, validar enum e testar payload malicioso. Rollback por flag e observar erros antes do rollout.",
+        "target": "Segurança, teste e operação estão alinhados."
+      },
+      {
+        "level": 4,
+        "output": "A concatenação permite injeção e planos instáveis. Patch mínimo: parâmetros do driver, enum fechado, limite de paginação e índice mantido. Testar payloads, conjunto retornado e plano em massa sintética. Rollback por flag, logs de auditoria e janela de observação.",
+        "target": "Revisão segura, reproduzível e mínima."
+      }
+    ],
+    "stakeholder-conflict-brief": [
+      {
+        "level": 0,
+        "output": "Decidam logo.",
+        "target": "Sem contexto, tom ou ação."
+      },
+      {
+        "level": 1,
+        "output": "Contexto: há desacordo sobre prazo. Próximo: conversar.",
+        "target": "Reconhece conflito, mas não propõe decisão ou owner."
+      },
+      {
+        "level": 2,
+        "output": "Contexto: Produto quer validar e Vendas quer entregar. Decisão: revisar o prazo. Próximo: alinhar em reunião.",
+        "target": "Tem estrutura, mas não explicita trade-off ou canal de risco."
+      },
+      {
+        "level": 3,
+        "output": "Contexto: Produto precisa validar e Vendas tem compromisso na sexta. Decisão provisória: concluir teste interno e segurar compromisso externo. Próximo: Joana traz evidência quinta; owner decide. Riscos no canal do projeto.",
+        "target": "Claro, neutro e acionável."
+      },
+      {
+        "level": 4,
+        "output": "Contexto: o teste ainda não fecha risco e o compromisso externo vence sexta. Decisão provisória: manter entrega interna, adiar promessa externa até quinta às 16h e registrar o trade-off. Joana é owner da evidência; o responsável de negócio decide go/no-go. Escalar apenas riscos verificáveis no canal, sem culpa.",
+        "target": "Alinha interesses, prazo, owner e limite de decisão."
+      }
+    ],
+    "policy-exception-arbitration": [
+      {
+        "level": 0,
+        "output": "Aplicar a regra geral.",
+        "target": "Ignora documentos, exceção e condição de abstenção."
+      },
+      {
+        "level": 1,
+        "output": "Documento A permite rollout; consultar Documento B depois.",
+        "target": "Retém uma fonte e adia a exceção de modo inseguro."
+      },
+      {
+        "level": 2,
+        "output": "Documento A traz a regra geral e Documento B fala de exceção regulatória. É preciso analisar o caso.",
+        "target": "Reconhece exceção, mas não define prevalência ou abstenção."
+      },
+      {
+        "level": 3,
+        "output": "Documento A define aprovação pelo owner; Documento B exige aprovação jurídica para dados regulados. A exceção prevalece nesse caso. Se a jurisdição não estiver confirmada, abster-se e pedir validação humana.",
+        "target": "Retém contexto e aplica a exceção corretamente."
+      },
+      {
+        "level": 4,
+        "output": "Documento A é a regra geral; Documento B altera a ordem para dados regulados e exige jurisdição registrada, aprovação jurídica e depois owner. As decisões históricas não criam autorização. Enquanto a jurisdição não for confirmada, abster-se, registrar a lacuna e não prometer rollout.",
+        "target": "Arbitragem rastreável, consistente e segura."
+      }
+    ],
+    "function-call-schema": [
+      {
+        "level": 0,
+        "output": "Vou atualizar o cadastro.",
+        "target": "Não entrega schema nem protege a ação."
+      },
+      {
+        "level": 1,
+        "output": "{\"acao\":\"atualizar_cadastro\"}",
+        "target": "Ação sem parâmetros, confirmação ou campos ausentes."
+      },
+      {
+        "level": 2,
+        "output": "{\"acao\":\"atualizar_cadastro\",\"parametros\":{\"cliente\":\"DomHubs\"},\"confirmacao_obrigatoria\":false,\"campos_ausentes\":[]}",
+        "target": "Formato completo, mas omite dados e não exige confirmação."
+      },
+      {
+        "level": 3,
+        "output": "{\"acao\":\"atualizar_cadastro\",\"parametros\":{\"cliente\":\"DomHubs\",\"campo\":\"email\",\"valor_novo\":\"não informado\"},\"confirmacao_obrigatoria\":true,\"campos_ausentes\":[\"identificador\"]}",
+        "target": "Schema seguro e abstention explícita."
+      },
+      {
+        "level": 4,
+        "output": "{\"acao\":{\"nome\":\"atualizar_cadastro\",\"efeito\":\"alterar email\"},\"parametros\":{\"cliente\":{\"valor\":\"DomHubs\",\"evidencia\":\"pedido\"},\"campo\":\"email\",\"valor_novo\":\"não informado\"},\"confirmacao_obrigatoria\":true,\"campos_ausentes\":[\"identificador do registro\",\"email novo\"],\"executado\":false}",
+        "target": "Schema consumível, rastreável e sem efeito alegado."
+      }
+    ],
+    "bulk-change-dry-run": [
+      {
+        "level": 0,
+        "output": "Atualizar todos os cadastros.",
+        "target": "Sem dry-run, aprovação ou reversão."
+      },
+      {
+        "level": 1,
+        "output": "Fazer uma amostra e depois executar.",
+        "target": "Tem amostra, mas não define aprovação, auditoria ou rollback."
+      },
+      {
+        "level": 2,
+        "output": "Preparar dry-run, mostrar amostra e pedir aprovação. Depois aplicar e verificar.",
+        "target": "Fronteira básica, mas sem idempotência ou reversibilidade detalhada."
+      },
+      {
+        "level": 3,
+        "output": "Plano sem efeito externo: dry-run com contagem, amostra e diff; aprovação explícita; execução em lotes; auditoria e rollback por snapshot.",
+        "target": "Prévia, limite e reversão estão claros."
+      },
+      {
+        "level": 4,
+        "output": "Validar escopo, permissões e idempotência; dry-run com contagem, amostra e diff; aprovação por owner; lotes observáveis; auditoria por registro; snapshot por lote e rollback seletivo. Sem aprovação, apenas simular.",
+        "target": "Automação segura, auditável e reversível."
+      }
+    ],
+    "red-team-launch-review": [
+      {
+        "level": 0,
+        "output": "Lançar.",
+        "target": "Não revisa riscos nem define aprovação."
+      },
+      {
+        "level": 1,
+        "output": "Há riscos de dados e prazo; revisar antes.",
+        "target": "Genérico, sem severidade, evidência ou owner."
+      },
+      {
+        "level": 2,
+        "output": "Severidade alta: falta rollback. Severidade média: revisar métrica. Mitigar antes do lançamento.",
+        "target": "Prioriza, mas não liga achados a evidência e owner."
+      },
+      {
+        "level": 3,
+        "output": "Severidade alta: proposta não define rollback; evidência é a seção de operação; mitigação é canário e restauração; owner Rafael. Severidade média: métrica sem denominador; owner Joana. Aprovar após resolver o alto.",
+        "target": "Red-team acionável e priorizado."
+      },
+      {
+        "level": 4,
+        "output": "Severidade alta — evidência: fluxo de pagamento sem rollback — impacto: incidente irreversível — mitigação: canário, restauração testada e owner Rafael — condição: teste aprovado. Severidade média — evidência: denominador ausente — mitigação: fórmula e baseline, owner Joana. Melhoria opcional fica separada; go/no-go bloqueado até achado alto e segunda revisão.",
+        "target": "Cobertura completa, justificativa e condição de aprovação."
+      }
+    ]
+  }
+}

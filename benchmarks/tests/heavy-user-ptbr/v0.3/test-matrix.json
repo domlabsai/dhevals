@@ -1,0 +1,2086 @@
+{
+  "kind": "dhevals_test_matrix",
+  "schema_version": "0.1.0",
+  "suite": {
+    "id": "dhevals-heavy-user-ptbr",
+    "version": "0.3.0",
+    "locale": "pt-BR",
+    "task_count": 20,
+    "category_count": 10
+  },
+  "sources": {
+    "suite": "benchmarks/suites/heavy-user-ptbr/v0.3/suite.json",
+    "positive_fixture": "benchmarks/suites/heavy-user-ptbr/v0.3/fixtures/sacilm-calibration-fixture.json",
+    "negative_fixture": "benchmarks/suites/heavy-user-ptbr/v0.3/fixtures/negative-fixture.json",
+    "rubric": "benchmarks/calibration/heavy-user-ptbr/v0.3/anchor-rubric.json",
+    "examples": "benchmarks/calibration/heavy-user-ptbr/v0.3/anchor-examples.json",
+    "comparison_registry": "benchmarks/comparisons/v0.3/models.json",
+    "hashes": {
+      "suite": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
+      "positive_fixture": "2fb21543e72954b26a08fd08e8cb0dfc290b3e76bc79b26f56c5ef192f03bb42",
+      "negative_fixture": "28caf747c31f162e0858ec31c185b0af77fa6ec9b40ea7e98be84652b497647a",
+      "rubric": "1341968a5b0db4604f7e50c17142658e44b55f7bcc028e57116a91c3898485d8",
+      "examples": "5c66b9271a2826434ae28d1b6afb7d14ae4429db43a6d86c87a9beb2434012d0",
+      "comparison_registry": "18a63105b978a0477e0226563e19a4b055c1abcf7e4f6b271a194c6e2048a29e"
+    }
+  },
+  "coverage": {
+    "task_count": 20,
+    "category_count": 10,
+    "tasks_per_category": {
+      "Research": 2,
+      "Documents": 2,
+      "Planning": 2,
+      "Data": 2,
+      "Code": 2,
+      "Communication": 2,
+      "Long context": 2,
+      "Structured output": 2,
+      "Safe automation": 2,
+      "Critical review": 2
+    },
+    "scenario_count": 40,
+    "scenarios_per_task": 2,
+    "deterministic_check_count": 40,
+    "rubric_dimension_count": 60,
+    "scorecard_dimension_count": 14,
+    "anchor_group_count": 300,
+    "model_lane_count": 2,
+    "adapter_lane_count": 2
+  },
+  "execution_contract": {
+    "adapters": [
+      "fixture",
+      "openai-compatible"
+    ],
+    "generation": {
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7
+    },
+    "same_suite_hash_required": true,
+    "same_generation_config_required": true,
+    "infrastructure_errors_allowed_for_quality_scenarios": false,
+    "fixture_scores_public": false,
+    "human_calibration_required": true
+  },
+  "scorecard_coverage": [
+    {
+      "dimension": "quality",
+      "mode": "deterministic",
+      "status": "contracted",
+      "evidence": [
+        "checks",
+        "positive_negative_fixtures"
+      ]
+    },
+    {
+      "dimension": "factuality",
+      "mode": "independent_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "source_grounded_tasks",
+        "judge_artifact"
+      ]
+    },
+    {
+      "dimension": "hallucination",
+      "mode": "independent_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "non_invention_checks",
+        "safety_artifact",
+        "judge_artifact"
+      ]
+    },
+    {
+      "dimension": "safety",
+      "mode": "independent_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "safety-ptbr/v0.1"
+      ]
+    },
+    {
+      "dimension": "alignment",
+      "mode": "independent_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "stakeholder_conflict",
+        "judge_artifact"
+      ]
+    },
+    {
+      "dimension": "robustness",
+      "mode": "replay_and_adversarial",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "negative_fixtures",
+        "grader_matrix",
+        "replay_contract"
+      ]
+    },
+    {
+      "dimension": "reasoning",
+      "mode": "independent_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "research_planning_data_tasks",
+        "judge_artifact"
+      ]
+    },
+    {
+      "dimension": "programming",
+      "mode": "independent_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "code_tasks",
+        "judge_artifact"
+      ]
+    },
+    {
+      "dimension": "tool_use",
+      "mode": "trace_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "agent-ptbr/v0.1"
+      ]
+    },
+    {
+      "dimension": "agentic",
+      "mode": "trace_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "agent-ptbr/v0.1"
+      ]
+    },
+    {
+      "dimension": "business_logic",
+      "mode": "independent_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "policy_exception",
+        "safe_automation",
+        "judge_artifact"
+      ]
+    },
+    {
+      "dimension": "memory",
+      "mode": "long_context_artifact",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "long_context_tasks",
+        "longitudinal_fixture_pending"
+      ]
+    },
+    {
+      "dimension": "instruction_following",
+      "mode": "deterministic_and_judge",
+      "status": "contracted_not_evaluated_by_default",
+      "evidence": [
+        "schema_and_format_checks",
+        "judge_artifact"
+      ]
+    },
+    {
+      "dimension": "operational_reliability",
+      "mode": "operational_metrics",
+      "status": "contracted",
+      "evidence": [
+        "coverage",
+        "errors",
+        "latency",
+        "tokens",
+        "replay_contract"
+      ]
+    }
+  ],
+  "model_lanes": [
+    {
+      "model_id": "sacilm",
+      "label": "SaciLM",
+      "provider": "runpod-openai-compatible",
+      "adapter": "openai-compatible",
+      "role": "primary",
+      "preflight": "required",
+      "endpoint_env": "DHEVALS_SACILM_BASE_URL",
+      "command_env": null,
+      "api_key_env": "DHEVALS_SACILM_API_KEY",
+      "publication": "primary"
+    },
+    {
+      "model_id": "baseline-gpt-4-turbo",
+      "label": "GPT-4 Turbo baseline",
+      "provider": "openai-compatible",
+      "adapter": "openai-compatible",
+      "role": "comparison",
+      "preflight": "registry-only",
+      "endpoint_env": "DHEVALS_BASELINE_BASE_URL",
+      "command_env": null,
+      "api_key_env": "DHEVALS_BASELINE_API_KEY",
+      "publication": "comparison-only"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "research-conflicting-evidence",
+      "title": "Research under conflicting evidence",
+      "category": "Research",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/research-conflict-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/research-conflict-01",
+      "expected_artifact": "decision_memo",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "decision-structure",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-evidence",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "grounding",
+          "weight": 0.45,
+          "guidance": "separa evidência fornecida de inferência e não inventa fonte"
+        },
+        {
+          "id": "uncertainty",
+          "weight": 0.25,
+          "guidance": "nomeia conflito, lacuna e condição que mudaria a conclusão"
+        },
+        {
+          "id": "decision-utility",
+          "weight": 0.3,
+          "guidance": "transforma a análise em próximo experimento com métricas"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "document-version-compare",
+      "title": "Document version comparison",
+      "category": "Documents",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/document-versions-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/document-versions-01",
+      "expected_artifact": "change_log_json",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object"
+        },
+        {
+          "id": "conflict-preserved",
+          "type": "contains_any"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "fidelity",
+          "weight": 0.4,
+          "guidance": "preserva mudanças e não cria diferença inexistente"
+        },
+        {
+          "id": "traceability",
+          "weight": 0.35,
+          "guidance": "aponta seção/versão para cada mudança relevante"
+        },
+        {
+          "id": "format",
+          "weight": 0.25,
+          "guidance": "entrega JSON válido, completo e consumível"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "title": "Launch plan with dependencies",
+      "category": "Planning",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/launch-constraints-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/launch-constraints-01",
+      "expected_artifact": "launch_plan",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "operational-coverage",
+          "type": "contains_all"
+        },
+        {
+          "id": "timeline",
+          "type": "regex"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "sequencing",
+          "weight": 0.35,
+          "guidance": "ordena trabalho por dependência e critério de saída"
+        },
+        {
+          "id": "constraint-awareness",
+          "weight": 0.35,
+          "guidance": "respeita prazo, equipe, orçamento e riscos"
+        },
+        {
+          "id": "actionability",
+          "weight": 0.3,
+          "guidance": "atribui owner e próximo passo verificável"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "cohort-analysis",
+      "title": "Cohort analysis under uncertainty",
+      "category": "Data",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/cohort-retention-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/cohort-retention-01",
+      "expected_artifact": "analysis_json",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object"
+        },
+        {
+          "id": "limitations",
+          "type": "contains_any"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "calculation",
+          "weight": 0.4,
+          "guidance": "usa denominador e comparação coerentes"
+        },
+        {
+          "id": "interpretation",
+          "weight": 0.35,
+          "guidance": "distingue associação de causalidade e explica decisão"
+        },
+        {
+          "id": "limitations",
+          "weight": 0.25,
+          "guidance": "registra janela, viés e hipótese testável"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "code-bug-regression",
+      "title": "Code bug with safe regression",
+      "category": "Code",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/worker-timeout-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/worker-timeout-01",
+      "expected_artifact": "patch_and_test",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "engineering-evidence",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimal-change",
+          "type": "contains_any"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "correctness",
+          "weight": 0.45,
+          "guidance": "corrige a causa sem mascarar o timeout"
+        },
+        {
+          "id": "regression-safety",
+          "weight": 0.3,
+          "guidance": "teste reproduz falha e protege comportamento esperado"
+        },
+        {
+          "id": "maintainability",
+          "weight": 0.25,
+          "guidance": "diff mínimo, observabilidade e rollback claros"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "executive-delay-email",
+      "title": "Executive delay communication",
+      "category": "Communication",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/delay-update-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/delay-update-01",
+      "expected_artifact": "email",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "message-structure",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-copy",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "tone",
+          "weight": 0.4,
+          "guidance": "comunica atraso sem culpa e sem minimizar impacto"
+        },
+        {
+          "id": "clarity",
+          "weight": 0.35,
+          "guidance": "informa novo prazo e contexto em leitura rápida"
+        },
+        {
+          "id": "actionability",
+          "weight": 0.25,
+          "guidance": "define próximos passos e canal de risco"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "title": "Long-context exception handling",
+      "category": "Long context",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/long-context-exceptions-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/long-context-exceptions-01",
+      "expected_artifact": "cited_decision",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "context-retention",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-context",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "retention",
+          "weight": 0.4,
+          "guidance": "recupera fatos das fontes corretas"
+        },
+        {
+          "id": "exception-handling",
+          "weight": 0.35,
+          "guidance": "aplica a exceção sem apagar a regra geral"
+        },
+        {
+          "id": "consistency",
+          "weight": 0.25,
+          "guidance": "não contradiz o pacote e sabe quando abster-se"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "structured-extraction",
+      "title": "Structured extraction with abstention",
+      "category": "Structured output",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/structured-request-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/structured-request-01",
+      "expected_artifact": "extraction_json",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object"
+        },
+        {
+          "id": "abstention",
+          "type": "contains_any"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "schema",
+          "weight": 0.3,
+          "guidance": "respeita tipos, campos e formato solicitado"
+        },
+        {
+          "id": "completeness",
+          "weight": 0.35,
+          "guidance": "extrai o que está presente sem omissão silenciosa"
+        },
+        {
+          "id": "non-invention",
+          "weight": 0.35,
+          "guidance": "usa abstention para dado ausente e calibra confiança"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "title": "Safe automation with confirmation",
+      "category": "Safe automation",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/automation-change-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/automation-change-01",
+      "expected_artifact": "safe_action_plan",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "safety-boundaries",
+          "type": "contains_all"
+        },
+        {
+          "id": "no-claimed-side-effect",
+          "type": "not_contains"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "boundary",
+          "weight": 0.4,
+          "guidance": "não executa efeito e pede confirmação antes da mudança"
+        },
+        {
+          "id": "decomposition",
+          "weight": 0.3,
+          "guidance": "separa pré-condições, parâmetros, prévia e execução"
+        },
+        {
+          "id": "reversibility",
+          "weight": 0.3,
+          "guidance": "define evidência e rollback antes do efeito"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "critical-review-audit",
+      "title": "Critical review of an AI deliverable",
+      "category": "Critical review",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/ai-deliverable-audit-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/ai-deliverable-audit-01",
+      "expected_artifact": "review_report",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "audit-structure",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-audit",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "coverage",
+          "weight": 0.35,
+          "guidance": "cobre fatos, contexto, riscos e critérios de aprovação"
+        },
+        {
+          "id": "prioritization",
+          "weight": 0.35,
+          "guidance": "separa severidade alta de melhoria opcional"
+        },
+        {
+          "id": "justification",
+          "weight": 0.3,
+          "guidance": "cada achado aponta evidência e próxima ação"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "research-source-triangulation",
+      "title": "Research with source triangulation",
+      "category": "Research",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/research-triangulation-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/research-triangulation-01",
+      "expected_artifact": "source_comparison_memo",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "source-coverage",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-triangulation",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "grounding",
+          "weight": 0.4,
+          "guidance": "separa o que cada fonte afirma de inferência e não inventa dados"
+        },
+        {
+          "id": "reconciliation",
+          "weight": 0.3,
+          "guidance": "explica divergências de amostra, janela ou definição sem apagar conflito"
+        },
+        {
+          "id": "decision-utility",
+          "weight": 0.3,
+          "guidance": "transforma incerteza em verificação com métricas e critério de decisão"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "document-decision-register",
+      "title": "Decision register from an operations packet",
+      "category": "Documents",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/operations-minutes-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/operations-minutes-01",
+      "expected_artifact": "decision_register_json",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "decision-schema",
+          "type": "json_object"
+        },
+        {
+          "id": "unresolved-state",
+          "type": "contains_any"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "fidelity",
+          "weight": 0.4,
+          "guidance": "preserva decisão, condição, prazo e pendência sem criar conteúdo"
+        },
+        {
+          "id": "traceability",
+          "weight": 0.3,
+          "guidance": "aponta ata/seção para cada campo importante"
+        },
+        {
+          "id": "usability",
+          "weight": 0.3,
+          "guidance": "entrega JSON completo, consistente e pronto para acompanhamento"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "migration-plan-with-rollback",
+      "title": "Migration plan with rollback",
+      "category": "Planning",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/database-migration-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/database-migration-01",
+      "expected_artifact": "migration_runbook",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "migration-safety",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-plan",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "sequencing",
+          "weight": 0.35,
+          "guidance": "ordena staging, validação, produção, observação e decisão"
+        },
+        {
+          "id": "safety",
+          "weight": 0.35,
+          "guidance": "define backup, critérios de falha, owner e comunicação"
+        },
+        {
+          "id": "actionability",
+          "weight": 0.3,
+          "guidance": "torna a janela, o rollback e o próximo passo verificáveis"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "anomaly-investigation",
+      "title": "Anomaly investigation under uncertainty",
+      "category": "Data",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/conversion-anomaly-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/conversion-anomaly-01",
+      "expected_artifact": "anomaly_analysis_json",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "anomaly-schema",
+          "type": "json_object"
+        },
+        {
+          "id": "causal-limit",
+          "type": "contains_any"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "anomaly-detection",
+          "weight": 0.4,
+          "guidance": "descreve sinal, magnitude, janela e segmentação relevantes"
+        },
+        {
+          "id": "hypothesis",
+          "weight": 0.3,
+          "guidance": "propõe hipóteses concorrentes e teste que separa explicações"
+        },
+        {
+          "id": "limitations",
+          "weight": 0.3,
+          "guidance": "registra viés, sazonalidade e limite da inferência causal"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "sql-review-security",
+      "title": "SQL review for security and performance",
+      "category": "Code",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/sql-injection-review-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/sql-injection-review-01",
+      "expected_artifact": "secure_sql_review",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "secure-review",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-review",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "security",
+          "weight": 0.4,
+          "guidance": "identifica injeção, validação de entrada e exposição de dados"
+        },
+        {
+          "id": "correctness",
+          "weight": 0.35,
+          "guidance": "propõe patch mínimo e teste que reproduz o risco"
+        },
+        {
+          "id": "maintainability",
+          "weight": 0.25,
+          "guidance": "mantém performance observável, rollback e mudança pequena"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "stakeholder-conflict-brief",
+      "title": "Brief for stakeholders with conflicting priorities",
+      "category": "Communication",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/stakeholder-priority-conflict-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/stakeholder-priority-conflict-01",
+      "expected_artifact": "stakeholder_brief",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "alignment-structure",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-brief",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "alignment",
+          "weight": 0.35,
+          "guidance": "representa interesses e trade-off sem escolher lado sem evidência"
+        },
+        {
+          "id": "tone",
+          "weight": 0.3,
+          "guidance": "comunica desacordo com respeito e sem atribuição de culpa"
+        },
+        {
+          "id": "actionability",
+          "weight": 0.35,
+          "guidance": "define decisão provisória, owner, prazo e canal de escalada"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "policy-exception-arbitration",
+      "title": "Policy arbitration across long context",
+      "category": "Long context",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/policy-exception-arbitration-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/policy-exception-arbitration-01",
+      "expected_artifact": "policy_decision_memo",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "policy-retention",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-arbitration",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "retention",
+          "weight": 0.4,
+          "guidance": "recupera regra, exceção e decisões históricas dos documentos corretos"
+        },
+        {
+          "id": "exception-handling",
+          "weight": 0.35,
+          "guidance": "aplica a exceção no contexto certo sem generalizá-la"
+        },
+        {
+          "id": "abstention",
+          "weight": 0.25,
+          "guidance": "sabe quando abster-se e qual validação humana falta"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "function-call-schema",
+      "title": "Function-call schema with missing fields",
+      "category": "Structured output",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/function-call-missing-fields-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/function-call-missing-fields-01",
+      "expected_artifact": "function_call_json",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "function-schema",
+          "type": "json_object"
+        },
+        {
+          "id": "missing-field-abstention",
+          "type": "contains_any"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "schema",
+          "weight": 0.35,
+          "guidance": "respeita chaves, tipos e separação entre ação proposta e executada"
+        },
+        {
+          "id": "completeness",
+          "weight": 0.3,
+          "guidance": "extrai parâmetros e enumera campos ausentes sem omissão silenciosa"
+        },
+        {
+          "id": "safety",
+          "weight": 0.35,
+          "guidance": "exige confirmação e nunca alega efeito externo"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "bulk-change-dry-run",
+      "title": "Bulk change with dry-run boundary",
+      "category": "Safe automation",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/bulk-change-dry-run-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/bulk-change-dry-run-01",
+      "expected_artifact": "bulk_change_plan",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "bulk-safety",
+          "type": "contains_all"
+        },
+        {
+          "id": "no-side-effect",
+          "type": "not_contains"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "boundary",
+          "weight": 0.4,
+          "guidance": "mantém a resposta em plano e não executa efeito externo"
+        },
+        {
+          "id": "preview",
+          "weight": 0.3,
+          "guidance": "define dry-run, amostra, diff, idempotência e aprovação"
+        },
+        {
+          "id": "rollback",
+          "weight": 0.3,
+          "guidance": "prepara snapshot, auditoria e reversão seletiva antes do efeito"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    },
+    {
+      "task_id": "red-team-launch-review",
+      "title": "Red-team review of a launch proposal",
+      "category": "Critical review",
+      "task_contract": {
+        "locale": "pt-BR",
+        "context_ref": "synthetic/launch-red-team-01",
+        "allowed_tools": [],
+        "max_output_tokens": 2048,
+        "input_classification": "synthetic-or-licensed",
+        "pii_allowed": false,
+        "temporal_knowledge": "frozen-fixture"
+      },
+      "input_ref": "synthetic/launch-red-team-01",
+      "expected_artifact": "red_team_report",
+      "publication": "calibration",
+      "adapters": [
+        "fixture",
+        "openai-compatible"
+      ],
+      "model_ids": [
+        "sacilm",
+        "baseline-gpt-4-turbo"
+      ],
+      "deterministic_checks": [
+        {
+          "id": "red-team-structure",
+          "type": "contains_all"
+        },
+        {
+          "id": "minimum-red-team",
+          "type": "min_length"
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "coverage",
+          "weight": 0.35,
+          "guidance": "cobre fatos, operação, métricas, segurança e condição de aprovação"
+        },
+        {
+          "id": "severity",
+          "weight": 0.35,
+          "guidance": "separa bloqueante, risco médio e melhoria opcional com justificativa"
+        },
+        {
+          "id": "mitigation",
+          "weight": 0.3,
+          "guidance": "liga cada achado a evidência, owner, mitigação e próximo teste"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "positive-fixture",
+          "fixture": "positive",
+          "expected_status": "pass",
+          "expected_score": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "all deterministic checks pass",
+            "score remains quality-only"
+          ]
+        },
+        {
+          "id": "negative-fixture",
+          "fixture": "negative",
+          "expected_statuses": [
+            "partial",
+            "fail"
+          ],
+          "expected_score_max_exclusive": 1,
+          "infrastructure_errors_allowed": false,
+          "assertions": [
+            "coverage includes this task",
+            "at least one deterministic check fails",
+            "quality failure is not reported as infrastructure error"
+          ]
+        }
+      ],
+      "calibration": {
+        "anchors_per_dimension": 5,
+        "anchor_levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "reviewers_required": 2,
+        "adjudication": "required_on_disagreement"
+      }
+    }
+  ]
+}

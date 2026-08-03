@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_youtube_pack",
+  "title": "DHEvals · opencode/deepseek-v4-flash-free · dhevals-heavy-user-ptbr v0.1.0",
+  "run_id": "opencode-deepseek-v4-flash-free-v01-rerun",
+  "hook": "opencode/deepseek-v4-flash-free alcançou 66.7/100 em 6 tarefas heavy-user.",
+  "facts": [
+    "Modelo avaliado: opencode/deepseek-v4-flash-free.",
+    "Suíte: dhevals-heavy-user-ptbr v0.1.0.",
+    "Tarefas concluídas: 6 de 6.",
+    "Score médio determinístico: 66.7/100."
+  ],
+  "category_breakdown": [
+    {
+      "category": "Code",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Communication",
+      "score": 50.0,
+      "task_count": 1
+    },
+    {
+      "category": "Data",
+      "score": 50.0,
+      "task_count": 1
+    },
+    {
+      "category": "Documents",
+      "score": 50.0,
+      "task_count": 1
+    },
+    {
+      "category": "Planning",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Research",
+      "score": 50.0,
+      "task_count": 1
+    }
+  ],
+  "methodology": {
+    "suite_hash": "154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3",
+    "suite_version": "0.1.0",
+    "runner_version": "0.1.0",
+    "model": {
+      "model_id": "opencode/deepseek-v4-flash-free",
+      "provider": "opencode",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {}
+    }
+  },
+  "limitations": [
+    "O score determinístico não substitui a revisão humana da rubrica.",
+    "Comparações públicas exigem a mesma versão de suíte e configuração."
+  ]
+}

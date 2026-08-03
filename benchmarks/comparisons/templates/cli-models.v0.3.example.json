@@ -1,0 +1,45 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.3.0",
+  "policy": {
+    "same_suite_hash_required": true,
+    "same_generation_config_required": true,
+    "fixture_scores_public": false,
+    "human_calibration_required": true,
+    "primary_model_id": "qwen-cli"
+  },
+  "generation": {
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seed": 7
+  },
+  "models": [
+    {
+      "id": "qwen-cli",
+      "label": "Qwen CLI",
+      "provider": "qwen-cli",
+      "adapter": "command-line",
+      "cli_command_env": "DHEVALS_QWEN_COMMAND",
+      "cli_prompt_mode": "stdin",
+      "publication": "primary"
+    },
+    {
+      "id": "opencode-cli",
+      "label": "OpenCode CLI",
+      "provider": "opencode-cli",
+      "adapter": "command-line",
+      "cli_command_env": "DHEVALS_OPENCODE_COMMAND",
+      "cli_prompt_mode": "stdin",
+      "publication": "comparison-only"
+    },
+    {
+      "id": "kimi-cli",
+      "label": "Kimi CLI",
+      "provider": "kimi-cli",
+      "adapter": "command-line",
+      "cli_command_env": "DHEVALS_KIMI_COMMAND",
+      "cli_prompt_mode": "stdin",
+      "publication": "comparison-only"
+    }
+  ]
+}

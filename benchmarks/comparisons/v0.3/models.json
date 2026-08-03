@@ -1,0 +1,43 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.3.0",
+  "policy": {
+    "same_suite_hash_required": true,
+    "same_generation_config_required": true,
+    "fixture_scores_public": false,
+    "human_calibration_required": true,
+    "primary_model_id": "sacilm"
+  },
+  "generation": {
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seed": 7
+  },
+  "models": [
+    {
+      "id": "sacilm",
+      "label": "SaciLM",
+      "provider": "runpod-openai-compatible",
+      "base_url_env": "DHEVALS_SACILM_BASE_URL",
+      "api_key_env": "DHEVALS_SACILM_API_KEY",
+      "checkpoint_env": "DHEVALS_SACILM_CHECKPOINT",
+      "runtime_env": "DHEVALS_SACILM_RUNTIME",
+      "training_commit_env": "DHEVALS_SACILM_TRAINING_COMMIT",
+      "model_manifest": "benchmarks/models/sacilm/v0.1/model.json",
+      "input_cost_env": "DHEVALS_SACILM_INPUT_COST_PER_1K",
+      "output_cost_env": "DHEVALS_SACILM_OUTPUT_COST_PER_1K",
+      "publication": "primary"
+    },
+    {
+      "id": "baseline-gpt-4-turbo",
+      "label": "GPT-4 Turbo baseline",
+      "provider": "openai-compatible",
+      "base_url_env": "DHEVALS_BASELINE_BASE_URL",
+      "api_key_env": "DHEVALS_BASELINE_API_KEY",
+      "input_cost_env": "DHEVALS_BASELINE_INPUT_COST_PER_1K",
+      "output_cost_env": "DHEVALS_BASELINE_OUTPUT_COST_PER_1K",
+      "publication": "comparison-only",
+      "status": "endpoint-not-configured"
+    }
+  ]
+}

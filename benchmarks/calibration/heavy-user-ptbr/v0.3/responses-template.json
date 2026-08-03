@@ -1,0 +1,11 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.3.0",
+  "status": "pending_review",
+  "instructions": [
+    "Cada combinação task_id + dimension_id + anchor_level precisa de dois revisores independentes.",
+    "score é a nota dada pelo revisor à resposta âncora, de 0 a 4.",
+    "Use reviewer_id pseudônimo e registre a justificativa fora deste arquivo quando houver desacordo."
+  ],
+  "responses": []
+}

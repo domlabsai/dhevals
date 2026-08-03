@@ -1,0 +1,245 @@
+{
+  "kind": "dhevals_test_execution",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "generated_at": "2026-08-03T16:28:33.098Z",
+  "purpose": "offline contract execution for every versioned heavy-user matrix",
+  "entries": [
+    {
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.2.0",
+      "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+      "matrix": {
+        "path": "benchmarks/tests/heavy-user-ptbr/v0.2/test-matrix.json",
+        "task_count": 10,
+        "scenario_count": 20,
+        "anchor_group_count": 150,
+        "scorecard_dimension_count": 14,
+        "scorecard_dimensions": [
+          {
+            "dimension": "quality",
+            "status": "contracted"
+          },
+          {
+            "dimension": "factuality",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "hallucination",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "safety",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "alignment",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "robustness",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "reasoning",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "programming",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "tool_use",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "agentic",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "business_logic",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "memory",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "instruction_following",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "operational_reliability",
+            "status": "contracted"
+          }
+        ]
+      },
+      "scenarios": {
+        "positive": {
+          "run_id": "matrix-v0.2-positive",
+          "status": "verified",
+          "coverage": 1,
+          "score": 1,
+          "completed_count": 10,
+          "task_count": 10,
+          "error_count": 0,
+          "result_statuses": [
+            "pass"
+          ],
+          "report_kind": "dhevals_report",
+          "verification_kind": "dhevals_verification",
+          "artifacts": {
+            "report": "temporary/v0.2-positive.report.json",
+            "verification": "temporary/v0.2-positive.verification.json"
+          }
+        },
+        "negative": {
+          "run_id": "matrix-v0.2-negative",
+          "status": "verified",
+          "coverage": 1,
+          "score": 0,
+          "completed_count": 10,
+          "task_count": 10,
+          "error_count": 0,
+          "result_statuses": [
+            "fail"
+          ],
+          "report_kind": "dhevals_report",
+          "verification_kind": "dhevals_verification",
+          "artifacts": {
+            "report": "temporary/v0.2-negative.report.json",
+            "verification": "temporary/v0.2-negative.verification.json"
+          }
+        }
+      },
+      "adapters": [
+        "fixture"
+      ],
+      "status": "ready"
+    },
+    {
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.3.0",
+      "suite_hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
+      "matrix": {
+        "path": "benchmarks/tests/heavy-user-ptbr/v0.3/test-matrix.json",
+        "task_count": 20,
+        "scenario_count": 40,
+        "anchor_group_count": 300,
+        "scorecard_dimension_count": 14,
+        "scorecard_dimensions": [
+          {
+            "dimension": "quality",
+            "status": "contracted"
+          },
+          {
+            "dimension": "factuality",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "hallucination",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "safety",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "alignment",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "robustness",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "reasoning",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "programming",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "tool_use",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "agentic",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "business_logic",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "memory",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "instruction_following",
+            "status": "contracted_not_evaluated_by_default"
+          },
+          {
+            "dimension": "operational_reliability",
+            "status": "contracted"
+          }
+        ]
+      },
+      "scenarios": {
+        "positive": {
+          "run_id": "matrix-v0.3-positive",
+          "status": "verified",
+          "coverage": 1,
+          "score": 1,
+          "completed_count": 20,
+          "task_count": 20,
+          "error_count": 0,
+          "result_statuses": [
+            "pass"
+          ],
+          "report_kind": "dhevals_report",
+          "verification_kind": "dhevals_verification",
+          "artifacts": {
+            "report": "temporary/v0.3-positive.report.json",
+            "verification": "temporary/v0.3-positive.verification.json"
+          }
+        },
+        "negative": {
+          "run_id": "matrix-v0.3-negative",
+          "status": "verified",
+          "coverage": 1,
+          "score": 0.025,
+          "completed_count": 20,
+          "task_count": 20,
+          "error_count": 0,
+          "result_statuses": [
+            "fail",
+            "partial"
+          ],
+          "report_kind": "dhevals_report",
+          "verification_kind": "dhevals_verification",
+          "artifacts": {
+            "report": "temporary/v0.3-negative.report.json",
+            "verification": "temporary/v0.3-negative.verification.json"
+          }
+        }
+      },
+      "adapters": [
+        "fixture"
+      ],
+      "status": "ready"
+    }
+  ],
+  "coverage": {
+    "version_count": 2,
+    "scenario_count": 4,
+    "task_count": 30,
+    "scorecard_dimension_count": 14
+  },
+  "provenance": {
+    "runner": "dhevals-run",
+    "verification": "dhevals-verify",
+    "report": "dhevals-report"
+  }
+}

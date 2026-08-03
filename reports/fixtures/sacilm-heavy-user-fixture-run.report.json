@@ -1,0 +1,314 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_report",
+  "generated_at": "2026-08-02T23:09:13Z",
+  "run": {
+    "id": "e2e-fixture-refresh",
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "suite_version": "0.1.0",
+    "suite_hash": "6aec244ca9cb9eac03b1862b38ab9616c30ddef6cdb2398c332e533ca44c9fe1",
+    "model": {
+      "model_id": "sacilm",
+      "provider": "fixture",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {
+        "checkpoint": "fixture-snapshot",
+        "runtime": "offline-fixture",
+        "training_commit": "fixture-development"
+      }
+    },
+    "runner_version": "0.1.0",
+    "started_at": "2026-08-02T23:09:13Z",
+    "finished_at": "2026-08-02T23:09:13Z"
+  },
+  "summary": {
+    "task_count": 6,
+    "completed_count": 6,
+    "coverage": 1.0,
+    "overall_score": 1.0,
+    "scored_task_count": 6,
+    "error_count": 0
+  },
+  "categories": [
+    {
+      "category": "Code",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1.0,
+      "score": 1.0,
+      "latency_ms_total": 52300.0,
+      "tokens_total": 39884
+    },
+    {
+      "category": "Communication",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1.0,
+      "score": 1.0,
+      "latency_ms_total": 18400.0,
+      "tokens_total": 7621
+    },
+    {
+      "category": "Data",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1.0,
+      "score": 1.0,
+      "latency_ms_total": 45700.0,
+      "tokens_total": 34112
+    },
+    {
+      "category": "Documents",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1.0,
+      "score": 1.0,
+      "latency_ms_total": 24100.0,
+      "tokens_total": 16982
+    },
+    {
+      "category": "Planning",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1.0,
+      "score": 1.0,
+      "latency_ms_total": 31200.0,
+      "tokens_total": 21307
+    },
+    {
+      "category": "Research",
+      "task_count": 1,
+      "completed_count": 1,
+      "error_count": 0,
+      "coverage": 1.0,
+      "score": 1.0,
+      "latency_ms_total": 38600.0,
+      "tokens_total": 28451
+    }
+  ],
+  "results": [
+    {
+      "task_id": "research-synthesis",
+      "title": "Research & synthesis",
+      "category": "Research",
+      "output": "A comparação indica que a busca híbrida combina recall lexical e semântico, enquanto dense-only simplifica a operação. Os principais trade-offs são custo de indexação, latência e cobertura de termos raros. As citações do conjunto apontam ganho de recall em torno de 18% para o híbrido, mas grounding e freshness continuam riscos de produção. Recomendo um experimento A/B com re-ranking, medindo precisão, custo e taxa de respostas sem evidência.",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "required-terms",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1.0,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-evidence",
+          "type": "min_length",
+          "passed": true,
+          "score": 1.0,
+          "details": "length 445 >= 240"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 38600.0,
+        "input_tokens": 12341,
+        "output_tokens": 16110,
+        "total_tokens": 28451,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "fixture"
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "document-qa",
+      "title": "Document Q&A",
+      "category": "Documents",
+      "output": "{\"decisoes\":[\"manter o rollout em duas regiões\"],\"pendencias\":[\"validar o owner do alerta\"],\"riscos\":[\"há um conflito entre o prazo da seção 3 e o da seção 7\"]}",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": true,
+          "score": 1.0,
+          "details": "valid object with required keys"
+        },
+        {
+          "id": "has-conflict",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1.0,
+          "details": "found: conflito"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 24100.0,
+        "input_tokens": 7340,
+        "output_tokens": 9642,
+        "total_tokens": 16982,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "fixture"
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "plan-outline",
+      "title": "Plan & outline",
+      "category": "Planning",
+      "output": "Semana 1: definir responsável e dependências críticas. Dia 3: validar o primeiro fluxo. Semana 2: executar piloto e medir. Riscos: atraso de aprovação e falta de dados. Próximos passos: confirmar owners, registrar o orçamento e revisar o plano no fim de cada dia.",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "operational-coverage",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1.0,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "actionable",
+          "type": "regex",
+          "passed": true,
+          "score": 1.0,
+          "details": "pattern matched"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 31200.0,
+        "input_tokens": 8922,
+        "output_tokens": 12385,
+        "total_tokens": 21307,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "fixture"
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "data-analysis",
+      "title": "Data analysis",
+      "category": "Data",
+      "output": "{\"metodo\":\"comparação de retenção por coorte com janela de 30 dias\",\"resultado\":\"a coorte B retém 11 pontos percentuais a mais que A\",\"recomendacao\":\"testar o onboarding de B na próxima coorte; a limitação é que o período observado é curto\"}",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": true,
+          "score": 1.0,
+          "details": "valid object with required keys"
+        },
+        {
+          "id": "limitation",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1.0,
+          "details": "found: limitação"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 45700.0,
+        "input_tokens": 14881,
+        "output_tokens": 19231,
+        "total_tokens": 34112,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "fixture"
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "code-generation",
+      "title": "Code generation",
+      "category": "Code",
+      "output": "Correção: propagar o AbortSignal para o worker e remover o retry duplicado. O patch mantém a fila simples e torna o timeout observável.\n\nTeste de regressão:\ndescribe('worker timeout', () => { test('cancela o job após o limite', async () => { /* fixture */ }) })",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "test-present",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1.0,
+          "details": "found: teste, test(, describe("
+        },
+        {
+          "id": "fix-present",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1.0,
+          "details": "found: correção, patch, fix"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 52300.0,
+        "input_tokens": 17160,
+        "output_tokens": 22724,
+        "total_tokens": 39884,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "fixture"
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "email-draft",
+      "title": "Email draft",
+      "category": "Communication",
+      "output": "Assunto: Atualização do prazo do rollout\n\nOlá, equipe. Tivemos um atraso de dois dias na validação final. Para manter a qualidade, o novo prazo é sexta-feira, às 17h.\n\nPróximos passos: Ana confirma o checklist, Bruno atualiza o ambiente e eu envio o status amanhã. Se houver qualquer risco adicional, sinalizaremos antes do novo prazo.",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "message-structure",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1.0,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-copy",
+          "type": "min_length",
+          "passed": true,
+          "score": 1.0,
+          "details": "length 335 >= 120"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 18400.0,
+        "input_tokens": 3010,
+        "output_tokens": 4611,
+        "total_tokens": 7621,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "fixture"
+        }
+      },
+      "error": null
+    }
+  ],
+  "methodology": {
+    "score_scale": "0_to_1",
+    "quality_score_excludes_infrastructure_errors": true,
+    "suite_hash": "6aec244ca9cb9eac03b1862b38ab9616c30ddef6cdb2398c332e533ca44c9fe1",
+    "runner_version": "0.1.0"
+  }
+}

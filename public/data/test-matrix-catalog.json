@@ -1,0 +1,173 @@
+{
+  "kind": "dhevals_test_matrix_catalog",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "versions": [
+    {
+      "version": "0.2.0",
+      "path": "benchmarks/tests/heavy-user-ptbr/v0.2/test-matrix.json",
+      "task_count": 10,
+      "scenario_count": 20,
+      "rubric_dimension_count": 30,
+      "scorecard_dimension_count": 14,
+      "scorecard_dimensions": [
+        {
+          "dimension": "quality",
+          "mode": "deterministic",
+          "status": "contracted"
+        },
+        {
+          "dimension": "factuality",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "hallucination",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "safety",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "alignment",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "robustness",
+          "mode": "replay_and_adversarial",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "reasoning",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "programming",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "tool_use",
+          "mode": "trace_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "agentic",
+          "mode": "trace_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "business_logic",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "memory",
+          "mode": "long_context_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "instruction_following",
+          "mode": "deterministic_and_judge",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "operational_reliability",
+          "mode": "operational_metrics",
+          "status": "contracted"
+        }
+      ],
+      "anchor_group_count": 150,
+      "model_lane_count": 2,
+      "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9"
+    },
+    {
+      "version": "0.3.0",
+      "path": "benchmarks/tests/heavy-user-ptbr/v0.3/test-matrix.json",
+      "task_count": 20,
+      "scenario_count": 40,
+      "rubric_dimension_count": 60,
+      "scorecard_dimension_count": 14,
+      "scorecard_dimensions": [
+        {
+          "dimension": "quality",
+          "mode": "deterministic",
+          "status": "contracted"
+        },
+        {
+          "dimension": "factuality",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "hallucination",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "safety",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "alignment",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "robustness",
+          "mode": "replay_and_adversarial",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "reasoning",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "programming",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "tool_use",
+          "mode": "trace_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "agentic",
+          "mode": "trace_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "business_logic",
+          "mode": "independent_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "memory",
+          "mode": "long_context_artifact",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "instruction_following",
+          "mode": "deterministic_and_judge",
+          "status": "contracted_not_evaluated_by_default"
+        },
+        {
+          "dimension": "operational_reliability",
+          "mode": "operational_metrics",
+          "status": "contracted"
+        }
+      ],
+      "anchor_group_count": 300,
+      "model_lane_count": 2,
+      "suite_hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7"
+    }
+  ]
+}

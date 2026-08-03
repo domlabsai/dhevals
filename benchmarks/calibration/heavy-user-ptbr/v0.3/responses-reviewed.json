@@ -1,0 +1,17 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.3.0",
+  "source_sheets": [
+    "reports/calibration/heavy-user-ptbr-v0.3-blind/reviewer-a.csv",
+    "reports/calibration/heavy-user-ptbr-v0.3-blind/reviewer-b.csv"
+  ],
+  "responses": [],
+  "adjudications": [],
+  "pack": {
+    "path": "reports/calibration/heavy-user-ptbr-v0.3-blind/pack.json",
+    "id": "dd7708e3268243773aecac40d2ff082adf3e49ae6aa97e16557291e1e583c371",
+    "anchor_fingerprint": "2b57c7302443a99b3d90d8f187a22c48eebf672a421b25234efb1eec5ff086d9",
+    "rubric_sha256": "1341968a5b0db4604f7e50c17142658e44b55f7bcc028e57116a91c3898485d8",
+    "examples_sha256": "5c66b9271a2826434ae28d1b6afb7d14ae4429db43a6d86c87a9beb2434012d0"
+  }
+}

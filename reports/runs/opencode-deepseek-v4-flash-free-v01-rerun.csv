@@ -1,0 +1,339 @@
+run_id,suite_id,suite_version,suite_hash,model_id,provider,task_id,title,category,prompt,status,score,latency_ms,input_tokens,output_tokens,total_tokens,estimated_cost_usd,error,output
+opencode-deepseek-v4-flash-free-v01-rerun,dhevals-heavy-user-ptbr,0.1.0,154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3,opencode/deepseek-v4-flash-free,opencode,research-synthesis,Research & synthesis,Research,"Você é responsável por uma decisão de busca corporativa. Compare estratégias híbridas e dense-only para RAG, explicite trade-offs, riscos de grounding e recomende um próximo experimento. Inclua citações internas aos trechos fornecidos.
+
+CONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):
+Fonte A — experimento offline sintético: em 600 consultas corporativas, a busca híbrida aumentou o recall@10 em 14% contra dense-only. O ganho foi maior em consultas com nomes próprios, códigos e siglas. O experimento não mediu factualidade da resposta nem removeu duplicatas do corpus.
+
+Fonte B — piloto sintético de FAQ: dense-only reduziu a latência mediana em 32% e teve precisão@5 semelhante para perguntas curtas. Falhou com mais frequência em IDs exatos, negações e filtros por departamento. O corpus do piloto tinha 40% de documentos duplicados.
+
+Use somente essas duas fontes, cite-as como [Fonte A] e [Fonte B] e diferencie fatos, inferências e pontos que ainda precisam de validação.",partial,0.5,22968.71,,,,,,"# Decisão de Busca Corporativa: Híbrida vs. Dense-only para RAG
+
+## 1. Síntese executiva
+
+**Recomendação provisória: adotar híbrida como linha-base, antes de qualquer decisão final.** A híbrida ganha em recuperação (fato), e o fracasso da dense-only em IDs/negações é um risco de grounding diretamente relevante para busca corporativa (inferência sobre [Fonte B]). Contudo, ambos os experimentos têm lacunas críticas — nenhum mediu factualidade da resposta e o corpus do piloto era 40% duplicado — então a adoção deve ser condicionada ao próximo experimento abaixo.
+
+## 2. Comparação das estratégias
+
+| Dimensão | Híbrida | Dense-only |
+|---|---|---|
+| Recall@10 | +14% vs. dense-only [Fonte A] | Base (0) |
+| Recall em nomes próprios, códigos, siglas | Ganho maior [Fonte A] | Inferior |
+| Latência mediana | Não medida | −32% [Fonte B] |
+| Precisão@5 em perguntas curtas | Não medida | Similar (ao híbrido não testado) [Fonte B] |
+| IDs exatos, negações, filtros por departamento | Não reportado | Falha mais frequente [Fonte B] |
+
+## 3. Trade-offs explícitos
+
+**Qualidade de recuperação vs. latência/custo.** O +14% de recall vem com custo operacional (indexação dupla, query mais cara, fusão de resultados) que não foi quantificado [Fonte A]. Já os −32% de latência da dense-only vêm às custas de recall [Fonte B].
+
+**Estratégia é contingente ao tipo de consulta.** Dense-only é aceitável para perguntas curtas [Fonte B], mas fraqueja justamente onde híbrida mais ganha: termos exatos e estruturados [Fonte A][Fonte B]. Isso sugere **rotação por consulta** (híbrida para high-stakes/exata; dense-only para perguntas conversacionais curtas) — porém isso é inferência, pois nenhum experimento testou ambas na mesma consulta.
+
+**Direção provável:** a busca é híbrida (alta recall, resultados relevantes); a geração do RAG não foi avaliada.
+
+## 4. Riscos de grounding
+
+- **Risco A — factualidade não medida em nenhuma das fontes** [Fonte A]. O ganho de recall pode não traduzir em respostas corretas se o reranker/gerador falhar com o ruído extra. *Sem evidência.*
+- **Risco B — duplicatas viesam o recall.** O corpus do piloto tinha 40% de duplicados [Fonte B] e o experimento A não removeu duplicatas [Fonte A]. A diferença de 14% pode ser inflada se duplicatas favorecem a fusão híbrida, ou subestimada se favorecem a dense-only. *Validação pendente.*
+- **Risco C — grounding de respostas em consultas negadas/departamentais.** Densidade semântica costuma falhar nesses padrões (inferência a partir de [Fonte B]); se a resposta for gerada a partir do *chunk errado*, o custo de alucinação é maior do que a latência economizada. *Inferência.*
+
+## 5. Fatos vs. inferências vs. a validar
+
+**Fatos** — Híbrida: recall@10 +14%, ganho maior em nomes próprios/códigos/siglas, não mediu factualidade, não deduplicou [Fonte A]. Dense-only: latência −32%, p@5 similar em perguntas curtas, falha mais em IDs/negações/filtros de departamento, corpus 40% duplicado [Fonte B].
+
+**Inferências** — que o ganho híbrido é robusto a duplicatas (não verificado); que dense-only apresenta risco de grounding em consultas exatas; que um roteamento híbrido por tipo de consulta captura o melhor dos dois mundos.
+
+**A validar** — factualidade da resposta final; efeito real de deduplicação; combinação híbrida vs. dense-only na *mesma* consulta; custo operacional da híbrida; latência híbrida.
+
+## 6. Próximo experimento recomendado
+
+**Estudo fatorial offline + online com corpus deduplicado**, corrigindo as lacunas das duas fontes:
+
+1. **Pré-processamento:** remover duplicatas (~40% do piloto [Fonte B]) e medir recall com e sem dedup, controlando o viés de [Fonte A].
+2. **Condições:** híbrida, dense-only, e roteamento por consulta, na mesma amostra estratificada por tipo (curtas, IDs, negações, filtros de departamento, nomes próprios).
+3. **Métricas adicionadas:** **factualidade/grounding da resposta final** (indicador ausente nas duas fontes [Fonte A]) e latência para a condição híbrida (não medida).
+4. **Decisão-gate:** se a híbrida mantiver ≥+10% de recall *e* factualidade ≥ da dense-only com dedup, fixar híbrida como default; se o roteamento por consulta igualar híbrida com menor latência, adotar roteamento.
+
+Isso responde ao único fato que ainda falta para a decisão: **se o ganho de recuperação sobrevive à deduplicação e se traduz em respostas com grounding correto.**"
+opencode-deepseek-v4-flash-free-v01-rerun,dhevals-heavy-user-ptbr,0.1.0,154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3,opencode/deepseek-v4-flash-free,opencode,document-qa,Document Q&A,Documents,"Extraia de um brief operacional as decisões, pendências e riscos. Retorne somente JSON válido com as chaves decisoes, pendencias e riscos; preserve nomes de seção e sinalize conflitos.
+
+CONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):
+Brief operacional — Projeto Atlas
+
+Seção: Escopo aprovado
+Decisão: lançar um piloto para 30 usuários internos, limitado ao fluxo de busca de políticas.
+
+Seção: Cronograma
+Decisão: a revisão de segurança deve terminar em 18/08/2026.
+Pendência: confirmar quem será o owner da aprovação jurídica.
+
+Seção: Riscos e bloqueios
+Risco: a equipe de Operações registra go-live em 12/08/2026, enquanto Engenharia registra go-live em 19/08/2026. O conflito não foi resolvido.
+Risco: não há plano de rollback documentado para o índice de busca.",partial,0.5,9788.61,,,,,,"```json
+{
+  ""decisoes"": [
+    {
+      ""secao"": ""Escopo aprovado"",
+      ""decisao"": ""Lançar um piloto para 30 usuários internos, limitado ao fluxo de busca de políticas.""
+    },
+    {
+      ""secao"": ""Cronograma"",
+      ""decisao"": ""A revisão de segurança deve terminar em 18/08/2026.""
+    }
+  ],
+  ""pendencias"": [
+    {
+      ""secao"": ""Cronograma"",
+      ""pendencia"": ""Confirmar quem será o owner da aprovação jurídica.""
+    },
+    {
+      ""secao"": ""Riscos e bloqueios"",
+      ""pendencia"": ""Resolver o conflito de datas de go-live (Operações em 12/08/2026 vs Engenharia em 19/08/2026)."",
+      ""conflito"": true
+    }
+  ],
+  ""riscos"": [
+    {
+      ""secao"": ""Riscos e bloqueios"",
+      ""risco"": ""Conflito de datas de go-live não resolvido: Operações registra 12/08/2026 e Engenharia registra 19/08/2026."",
+      ""conflito"": true
+    },
+    {
+      ""secao"": ""Riscos e bloqueios"",
+      ""risco"": ""Não há plano de rollback documentado para o índice de busca.""
+    }
+  ]
+}
+```"
+opencode-deepseek-v4-flash-free-v01-rerun,dhevals-heavy-user-ptbr,0.1.0,154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3,opencode/deepseek-v4-flash-free,opencode,plan-outline,Plan & outline,Planning,"Monte um plano de lançamento em duas semanas, com orçamento fixo, dependências, riscos priorizados e próximos passos. O plano deve ser acionável por uma equipe pequena.
+
+CONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):
+Cenário sintético — Projeto Atlas
+
+Objetivo: lançar um piloto interno de busca de políticas em 10 dias úteis.
+Orçamento fixo: R$ 18.000; não pode ser ampliado durante o piloto.
+Equipe disponível: uma pessoa de produto, uma de engenharia e uma de operações, em dedicação parcial.
+Dependências: aprovação de segurança antes do primeiro usuário; índice carregado com 200 documentos; grupo piloto de 30 usuários; canal de suporte definido.
+Riscos conhecidos: dados desatualizados, atraso da aprovação jurídica e baixa adesão dos usuários.
+Critério de saída: 90% das consultas do conjunto de validação retornam uma fonte rastreável e nenhum incidente crítico aberto.",pass,1.0,25675.32,,,,,,"# Plano de Lançamento — Piloto Atlas (10 dias úteis)
+
+## 1. Objetivo e critério de saída
+
+**Objetivo:** lançar piloto interno de busca de políticas para 30 usuários.
+**Critério de saída (DoD):** ≥90% das consultas do conjunto de validação retornam fonte rastreável **e** zero incidentes críticos abertos.
+**Restrições:** orçamento fixo R$ 18.000 · time de 3 pessoas em dedicação parcial.
+
+---
+
+## 2. Orçamento fixo (R$ 18.000)
+
+| Item | Valor | Observação |
+|---|---|---|
+| Infra, APIs (embedding/LLM), storage | R$ 4.000 | Provisionar para piloto, cancelável |
+| Segurança + aprovação jurídica | R$ 3.000 | Se terceirizado; negociar pacote fixo |
+| Comunicação/treinamento (30 usuários) | R$ 1.500 | Materiais, sessão de onboarding |
+| Canal de suporte + ferramentas | R$ 1.500 | Mesa de ajuda/SLA |
+| **Reserva de contingência** | **R$ 8.000** | **Não tocar sem aprovação conjunta** |
+
+Regra: gastos só entram com um responsável nominal. Reserva cobre atraso de aprovação (júnior para gap) ou retrabalho de índice. R$ 18.000 é teto — sem expansão no piloto.
+
+---
+
+## 3. Timeline (10 dias úteis)
+
+**Semana 1 — Fundações e gates (D1–D5)**
+
+| Dia | Produto | Engenharia | Operações |
+|---|---|---|---|
+| D1 | Kickoff, escopo, lista dos 200 docs, DoD | Arquitetura, checklist de segurança | **Abrir pacote de aprovação de segurança/jurídico** (lead time crítico) |
+| D2 | Validação de fonte/documentos | Setup de infra | Recrutar 30 usuários; definir canal de suporte |
+| D3 | Priorizar 200 docs + formato | Coleta/normalização de dados | Documentar processo de suporte |
+| D4 | Definir conjunto de validação (consultas) | **Carga do índice (200 docs)** | Agendar onboarding |
+| D5 | Teste de qualidade das buscas | Ajustes de indexação | Simular fluxo de suporte |
+
+**Semana 2 — Go-live e medição (D6–D10)**
+
+| Dia | Produto | Engenharia | Operações |
+|---|---|---|---|
+| D6 | **Gate: aprovação de segurança** — sem ela não há 1º usuário | Fix de bugs do teste | Confirmar 30 usuários ativos |
+| D7 | Treinamento/onboarding (30 usuários) | **Go-live do piloto** | Suporte ativo |
+| D8 | Coleta de feedback | Monitoramento de consultas | Triagem de suporte |
+| D9 | Iteração rápida (top issues) | Correções de rastreabilidade | Fechamento de incidentes |
+| D10 | **Avaliação contra critério de saída** | Métrica: 90% rastreável | Report final + decisão de continuidade |
+
+---
+
+## 4. Dependências (caminho crítico)
+
+1. **Aprovação de segurança/jurídica** — gate do 1º usuário (D6). *Começar no D1; é o gargalo com maior lead time.*
+2. **Índice com 200 documentos** — completo no D4; sem ele não há validação real.
+3. **Grupo piloto de 30 usuários** — recrutados e treinados até D7.
+4. **Canal de suporte definido** — operacional antes do go-live (D5).
+
+Sequência de dependência: segurança → usuário → suporte; dados → índice → validação.
+
+---
+
+## 5. Riscos priorizados (impacto × probabilidade)
+
+| # | Risco | Imp | Prob | Prioridade | Mitigação |
+|---|---|---|---|---|---|
+| 1 | **Atraso na aprovação jurídica** | Alto | Alta | **Crítico** | Pacote completo no D1; pré-approval; plano B: piloto ""dry-run"" com equipe interna até liberação; escalar no D4 |
+| 2 | **Baixa adesão dos 30 usuários** | Alto | Alta | **Crítico** | Onboarding com valor claro no D7; incentivo simples; incentivo via gestor |
+| 3 | **Dados desatualizados** | Alto | Média | Alto | Revisão de datas/versões no D3; dono de dados nomeado por doc |
+| 4 | **Overload de suporte (time pequeno/parcial)** | Médio | Alta | Alto | FAQ + triagem; SLAs (crítico: 4h); resposta em lote |
+| 5 | **Rastreabilidade < 90%** | Alto | Média | Alto | Conjunto de validação no D4; medir diariamente D8–D10 |
+| 6 | **Escopo creep no piloto** | Médio | Média | Médio | Backlog congelado; só correções bloqueantes |
+
+---
+
+## 6. Próximos passos (acionáveis agora)
+
+1. **D1 hoje:** Kickoff de 1h — escopo, DoD e **abrir pacote de segurança/jurídico** (risco #1, maior lead time).
+2. Nomear donos: Produto (docs + validação), Engenharia (índice + infra), Operações (suporte + usuários).
+3. Recrutar os 30 usuários e agendar onboarding para D7.
+4. Definir canal de suporte + SLAs até D5.
+5. Configurar dashboard de métricas (rastreabilidade + incidentes) — medição diária a partir de D8.
+6. Stand-up diário de 15 min para acompanhar gates e riscos; revisão de contingência no D4.
+
+**Próximo marco:** pacote de segurança aprovado até D6 — tudo depois disso depende desse gate."
+opencode-deepseek-v4-flash-free-v01-rerun,dhevals-heavy-user-ptbr,0.1.0,154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3,opencode/deepseek-v4-flash-free,opencode,data-analysis,Data analysis,Data,"Analise uma tabela sintética de retenção por coorte. Retorne JSON válido com metodo, resultado e recomendacao, incluindo uma hipótese testável e suas limitações.
+
+CONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):
+Tabela sintética de retenção (percentual de usuários ativos)
+
+coorte | tamanho | D1 | D7 | D30
+Jan/2026 | 1000 | 100% | 42% | 21%
+Fev/2026 | 1100 | 100% | 48% | 26%
+Mar/2026 | 1050 | 100% | 39% | 18%
+Abr/2026 | 1200 | 100% | 51% | 29%
+
+Em março houve uma mudança de onboarding; em abril também foi alterado o canal de aquisição. Não há randomização nem informação de mix de usuários. Calcule diferenças descritivas, não trate correlação como causalidade e declare o que precisa ser testado.",partial,0.5,20659.45,,,,,,"```json
+{
+  ""metodo"": ""Análise descritiva de retenção por coorte (métricas pontuais D1/D7/D30), com cálculo de diferenças em pontos percentuais (pp) entre coortes consecutivas e amplitude mín-máx por janela. Comparações são observacionais; nenhum teste estatístico foi aplicado e nenhuma relação é tratada como causal."",
+  ""resultado"": {
+    ""d1"": ""Constante em 100% nas 4 coortes (sem sinal de variação na ativação imediata)."",
+    ""d7"": {
+      ""jan"": ""42%"",
+      ""fev"": ""48%"",
+      ""mar"": ""39%"",
+      ""abr"": ""51%"",
+      ""diferenças_consecutivas"": { ""jan→fev"": ""+6 pp"", ""fev→mar"": ""-9 pp"", ""mar→abr"": ""+12 pp"" }
+    },
+    ""d30"": {
+      ""jan"": ""21%"",
+      ""fev"": ""26%"",
+      ""mar"": ""18%"",
+      ""abr"": ""29%"",
+      ""diferenças_consecutivas"": { ""jan→fev"": ""+5 pp"", ""fev→mar"": ""-8 pp"", ""mar→abr"": ""+11 pp"" }
+    },
+    ""amplitudes"": { ""d7"": ""12 pp (39%–51%)"", ""d30"": ""11 pp (18%–29%)"" },
+    ""observacoes"": [
+      ""A coorte de março (pós-mudança de onboarding) é a pior em D7 e D30, com queda de ~8–9 pp vs. fevereiro."",
+      ""A coorte de abril (onboarding alterado + novo canal) é a melhor em D7 e D30, com alta de ~11–12 pp vs. março."",
+      ""Fevereiro também subiu (+5–6 pp) sem mudança declarada, sugerindo efeito de sazonalidade/qualidade do tráfego que confunde a leitura."",
+      ""D7 e D30 variam juntos dentro de cada coorte, consistente com um mesmo fator motor nas duas janelas.""
+    ]
+  },
+  ""hipotese_testavel"": ""H1: a retenção média em D30 da coorte de abril é maior que a de março (alta ≈ +11 pp) por causa da nova combinação canal+onboarding. H0 (nula): não há diferença real; a variação é explicada por sazonalidade e mix de usuários. Teste proposto: comparação de proporções de retenção com intervalo de confiança bootstrap por coorte, e teste de significância (ex. qui-quadrado de independência ou prop.test) com correção para múltiplas comparações."",
+  ""limitacoes"": [
+    ""Sem randomização: não é possível isolar efeito do onboarding vs. do canal (em abril ambos mudaram juntos, confundidos)."",
+    ""Sem mix de usuários: diferenças podem refletir perfil/qualidade do tráfego, não o produto."",
+    ""Apenas 4 coortes e janelas curtas (até D30): n pequeno, sem D60/D90 para verificar persistência."",
+    ""D1 fixo em 100% pode mascarar problemas de ativação ou efeitos de definição da métrica."",
+    ""Nenhum teste estatístico realizado; diferenças descritivas podem não ser significativas.""
+  ],
+  ""recomendacao"": ""Tratar os resultados como hipóteses descritivas, não como causalidade. Rodar um experimento randomizado (A/B) que altere apenas uma variável por vez (ex. onboarding isolado, depois canal isolado), registrar mix de usuários por coorte (fonte, device, plano), e monitorar com janelas longas (D30/D60/D90). Antes de lançar, validar se a queda de março é efeito real do onboarding ou artefato de sazonalidade usando coortes-controle do mesmo período de anos anteriores ou holdouts.""
+}
+```"
+opencode-deepseek-v4-flash-free-v01-rerun,dhevals-heavy-user-ptbr,0.1.0,154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3,opencode/deepseek-v4-flash-free,opencode,code-generation,Code generation,Code,"Você recebeu um worker TypeScript com timeout intermitente. Proponha uma correção mínima, explique o trade-off e inclua um teste de regressão executável.
+
+CONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):
+Worker TypeScript sintético:
+
+```ts
+export async function processJob(id: string, deps: Deps) {
+  const result = await Promise.race([
+    deps.client.fetch(id),
+    timeout(5_000),
+  ]);
+  await deps.queue.ack(id);
+  return result;
+}
+```
+
+O timeout apenas rejeita a Promise; ele não cancela a requisição HTTP. Em produção, o worker recebe o mesmo job novamente quando o ack não acontece a tempo, e duas requisições podem continuar consumindo recursos. `deps.client.fetch` aceita um `AbortSignal`. A correção deve ser mínima, manter o contrato de retorno e incluir um teste que prove que o sinal é abortado após 5 segundos.",pass,1.0,21560.77,,,,,,"Sugestão: trocar o `Promise.race` por um `AbortController` — o `race` só rejeita, mas o fetch continua vivo.
+
+**Correção mínima:**
+
+```ts
+export async function processJob(id: string, deps: Deps) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 5_000);
+  try {
+    const result = await deps.client.fetch(id, { signal: controller.signal });
+    await deps.queue.ack(id);
+    return result;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+```
+
+**Trade-off:** o timeout deixa de ser uma rejeição sintética do `race` e vira `AbortError` do fetch — quem fizer `match` na mensagem/erro antigo do timeout precisa se adaptar (ou rewrap o erro). Segundo, o `ack` agora só roda em sucesso: jobs que estouram o timeout **não** são ackados e serão redeliverados, em vez de ack de um trabalho inacabado. Em troca, a conexão HTTP é de fato abortada (libera socket, evita a segunda requisição duplicada em produção) e o timer é sempre limpo (sem leak).
+
+**Teste de regressão (Vitest, fake timers — prova abort após 5 s sem esperar de verdade):**
+
+```ts
+import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
+
+describe('processJob', () => {
+  beforeEach(() => vi.useFakeTimers());
+  afterEach(() => vi.useRealTimers());
+
+  it('aborta o sinal após 5 segundos e não faz ack', async () => {
+    let signal: AbortSignal | undefined;
+    const deps = {
+      client: {
+        fetch: vi.fn((_id: string, opts?: { signal?: AbortSignal }) => {
+          signal = opts?.signal;
+          return new Promise((_, reject) => {
+            signal!.addEventListener('abort', () =>
+              reject(new DOMException('aborted', 'AbortError')),
+            );
+          });
+        }),
+      },
+      queue: { ack: vi.fn() },
+    };
+
+    const pending = processJob('j1', deps as any);
+    expect(signal?.aborted).toBe(false);
+
+    await vi.advanceTimersByTimeAsync(5_000);
+
+    expect(signal?.aborted).toBe(true);
+    await expect(pending).rejects.toThrow('aborted');
+    expect(deps.queue.ack).not.toHaveBeenCalled();
+  });
+});
+```
+
+O teste segura o `signal` passado ao fetch, avança o relógio 5 s e verifica que `signal.aborted` virou `true` — cobrindo exatamente o bug de recursos não liberados."
+opencode-deepseek-v4-flash-free-v01-rerun,dhevals-heavy-user-ptbr,0.1.0,154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3,opencode/deepseek-v4-flash-free,opencode,email-draft,Email draft,Communication,"Escreva um email curto para uma equipe multifuncional comunicando um atraso de dois dias. Inclua assunto, contexto sem culpar pessoas, próximos passos e prazo revisado.
+
+CONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):
+Projeto Atlas — comunicação sintética
+
+O piloto estava previsto para 14/08/2026 e será entregue em 16/08/2026. A causa é a necessidade de uma rodada adicional de validação de segurança após uma inconsistência encontrada no ambiente de staging. A equipe não deve ser culpabilizada. Próximos passos: concluir a validação em 15/08, publicar o checklist revisado e confirmar os primeiros usuários em 16/08. O email será enviado para Produto, Engenharia, Segurança e Operações.",partial,0.5,6054.37,,,,,,"**Assunto:** Atualização do piloto Atlas — nova data: 16/08
+
+**Corpo:**
+
+Olá, equipe,
+
+O piloto do Atlas, previsto para 14/08, será entregue em **16/08**. A mudança vem de uma rodada adicional de validação de segurança, necessária após uma inconsistência encontrada no ambiente de staging — nada que mude o escopo, apenas confirmação extra.
+
+Próximos passos:
+- **15/08** — concluir a validação de segurança;
+- **16/08** — publicar o checklist revisado e confirmar os primeiros usuários.
+
+Obrigado pela colaboração de todos. Qualquer dúvida, estou à disposição."

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dhevals-core"
+version = "0.1.0"
+description = "Reproducible benchmark runner and grading primitives for DHEvals."
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+dhevals-run = "dhevals_core.cli:main"
+dhevals-report = "dhevals_core.reporting:main"
+dhevals-leaderboard = "dhevals_core.leaderboard:main"
+dhevals-calibration = "dhevals_core.calibration:main"
+dhevals-calibration-sheet = "dhevals_core.calibration_sheet:main"
+dhevals-suite = "dhevals_core.suite_cli:main"
+dhevals-verify = "dhevals_core.verify:main"
+dhevals-audit = "dhevals_core.audit:main"
+dhevals-release-gate = "dhevals_core.release:main"
+dhevals-model = "dhevals_core.model_manifest_cli:main"
+dhevals-scorecard = "dhevals_core.scorecard:main"
+dhevals-judge = "dhevals_core.judge:main"
+dhevals-judge-run = "dhevals_core.judge_runner:main"
+dhevals-safety = "dhevals_core.safety:main"
+dhevals-agent = "dhevals_core.agent:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

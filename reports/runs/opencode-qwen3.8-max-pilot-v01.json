@@ -1,0 +1,136 @@
+{
+  "run": {
+    "id": "opencode-qwen3.8-max-pilot-v01",
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "suite_version": "0.1.0",
+    "suite_hash": "6aec244ca9cb9eac03b1862b38ab9616c30ddef6cdb2398c332e533ca44c9fe1",
+    "model": {
+      "model_id": "opencode-go/qwen3.8-max",
+      "provider": "opencode-go",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {}
+    },
+    "runner_version": "0.1.0",
+    "started_at": "2026-08-03T15:51:10Z",
+    "finished_at": "2026-08-03T16:07:08Z"
+  },
+  "summary": {
+    "task_count": 6,
+    "completed_count": 1,
+    "coverage": 0.1667,
+    "overall_score": 1.0
+  },
+  "results": [
+    {
+      "task_id": "research-synthesis",
+      "title": "Research & synthesis",
+      "category": "Research",
+      "prompt": "Você é responsável por uma decisão de busca corporativa. Compare estratégias híbridas e dense-only para RAG, explicite trade-offs, riscos de grounding e recomende um próximo experimento. Inclua citações internas aos trechos fornecidos.",
+      "output": "Nenhum trecho foi anexado a esta conversa (verifiquei também o repositório: não há corpus de referência em `benchmarks/suites/heavy-user-ptbr/`), então as citações internas ficam pendentes de verificação — registro isso como incerteza explícita antes da análise.\n\n## Comparação: híbrida vs dense-only para RAG\n\n**Híbrida (lexical + dense, fusão via RRF ou pesos)**\n- Recupera tanto correspondência exata (códigos, SKUs, nomes próprios, siglas) quanto similaridade semântica.\n- Custo maior: dois índices, pipeline de fusão e tuning de pesos; latência de serving tipicamente mais alta.\n\n**Dense-only**\n- Operação mais simples (um índice, um encoder), boa generalização semântica e paráfrases.\n- Ponto fraco: termos raros e identificadores exatos, onde embeddings costumam falhar; dependência forte da qualidade do encoder para o domínio.\n\n## Trade-offs centrais\n1. **Recall vs custo operacional**: híbrido ganha recall em consultas raras/exatas ao preço de indexação e manutenção duplicadas.\n2. **Latência**: dense-only tende a ser mais rápido e previsível.\n3. **Cobertura lexical**: sem BM25 (ou similar), consultas com termos fora da distribuição de treino do encoder degradam silenciosamente.\n\n## Riscos de grounding\n- Dense-only pode ranquear passagens semanticamente plausíveis porém factualmente erradas, aumentando alucinação ancorada em evidência fraca.\n- Fusão mal calibrada pode promover trechos desatualizados (freshness) sem sinal de proveniência claro.\n- Citações geradas sem verificação de atribuição: o modelo pode citar trecho que não sustenta a afirmação — mitigar com verificação pós-hoc de entailment.\n\n## Recomendação de próximo experimento\nA/B controlado: híbrido (BM25 + dense + RRF) vs dense-only, ambos com re-ranking por cross-encoder. Métricas: precision@k, recall em consultas com termos raros, latência p95, custo por consulta e **taxa de respostas sem evidência** (grounding). Critério de decisão: adotar híbrido se o ganho de recall em consultas exatas superar ~10–15% sem degradar latência além do SLA.\n\nLimitação: sem os trechos fornecidos, não posso emitir citações internas verificáveis; se anexá-los, refaço a análise com citações ponto a ponto.",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "required-terms",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1.0,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-evidence",
+          "type": "min_length",
+          "passed": true,
+          "score": 1.0,
+          "details": "length 2178 >= 240"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 57487.07,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "estimated_cost_usd": null,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "command-line",
+          "command": "opencode",
+          "prompt_mode": "arg"
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "document-qa",
+      "title": "Document Q&A",
+      "category": "Documents",
+      "prompt": "Extraia de um brief operacional as decisões, pendências e riscos. Retorne somente JSON válido com as chaves decisoes, pendencias e riscos; preserve nomes de seção e sinalize conflitos.",
+      "output": null,
+      "score": null,
+      "status": "error",
+      "checks": [],
+      "metrics": {
+        "latency_ms": 180025.39
+      },
+      "error": "AdapterError: CLI timed out after 180s"
+    },
+    {
+      "task_id": "plan-outline",
+      "title": "Plan & outline",
+      "category": "Planning",
+      "prompt": "Monte um plano de lançamento em duas semanas, com orçamento fixo, dependências, riscos priorizados e próximos passos. O plano deve ser acionável por uma equipe pequena.",
+      "output": null,
+      "score": null,
+      "status": "error",
+      "checks": [],
+      "metrics": {
+        "latency_ms": 180020.74
+      },
+      "error": "AdapterError: CLI timed out after 180s"
+    },
+    {
+      "task_id": "data-analysis",
+      "title": "Data analysis",
+      "category": "Data",
+      "prompt": "Analise uma tabela sintética de retenção por coorte. Retorne JSON válido com metodo, resultado e recomendacao, incluindo uma hipótese testável e suas limitações.",
+      "output": null,
+      "score": null,
+      "status": "error",
+      "checks": [],
+      "metrics": {
+        "latency_ms": 180033.87
+      },
+      "error": "AdapterError: CLI timed out after 180s"
+    },
+    {
+      "task_id": "code-generation",
+      "title": "Code generation",
+      "category": "Code",
+      "prompt": "Você recebeu um worker TypeScript com timeout intermitente. Proponha uma correção mínima, explique o trade-off e inclua um teste de regressão executável.",
+      "output": null,
+      "score": null,
+      "status": "error",
+      "checks": [],
+      "metrics": {
+        "latency_ms": 180026.14
+      },
+      "error": "AdapterError: CLI timed out after 180s"
+    },
+    {
+      "task_id": "email-draft",
+      "title": "Email draft",
+      "category": "Communication",
+      "prompt": "Escreva um email curto para uma equipe multifuncional comunicando um atraso de dois dias. Inclua assunto, contexto sem culpar pessoas, próximos passos e prazo revisado.",
+      "output": null,
+      "score": null,
+      "status": "error",
+      "checks": [],
+      "metrics": {
+        "latency_ms": 180033.45
+      },
+      "error": "AdapterError: CLI timed out after 180s"
+    }
+  ]
+}

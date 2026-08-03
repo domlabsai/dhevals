@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_leaderboard",
+  "generated_at": "2026-08-03T16:28:43Z",
+  "status": "draft_locked",
+  "methodology": {
+    "ranking_field": "score",
+    "requires_full_coverage": true,
+    "fixture_scores_are_never_published": true,
+    "human_calibration_required": true
+  },
+  "calibration": {
+    "status": "pending",
+    "ready": false
+  },
+  "entries": [
+    {
+      "run_id": "verify-negative",
+      "model_id": "negative-fixture",
+      "provider": "fixture",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.2.0",
+      "coverage": 1.0,
+      "score": null,
+      "publication_status": "locked",
+      "lock_reason": "offline fixture is not a public model run",
+      "calibration_status": "pending"
+    },
+    {
+      "run_id": "fixture-20260803162842",
+      "model_id": "sacilm",
+      "provider": "fixture",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.2.0",
+      "coverage": 1.0,
+      "score": null,
+      "publication_status": "locked",
+      "lock_reason": "offline fixture is not a public model run",
+      "calibration_status": "pending"
+    }
+  ]
+}

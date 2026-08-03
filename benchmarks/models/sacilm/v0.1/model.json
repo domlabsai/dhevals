@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1.0",
+  "id": "sacilm",
+  "version": "0.1.0",
+  "status": "draft",
+  "description": "Manifesto inicial do SaciLM para o ciclo de post-training e avaliação do DHEvals.",
+  "base_model": {
+    "id": "pending-selection",
+    "revision": null,
+    "license": "pending-selection"
+  },
+  "checkpoint": {
+    "id": "pending-publication",
+    "revision": null,
+    "sha256": null
+  },
+  "post_training": {
+    "tool": "Unsloth",
+    "method": "supervised-fine-tuning",
+    "quantization": "pending-selection",
+    "config": {
+      "lora": "pending-selection",
+      "sequence_length": null,
+      "packing": null
+    },
+    "dataset": {
+      "id": "domhubs-heavy-user-ptbr",
+      "version": "0.1.0",
+      "sha256": null,
+      "license": "pending-review"
+    },
+    "training_commit": null
+  },
+  "training_runtime": {
+    "provider": "RunPod",
+    "hardware": "pending-selection",
+    "image": null
+  },
+  "inference_runtime": {
+    "engine": "vLLM",
+    "api_contract": "openai-chat-completions",
+    "endpoint_env": "DHEVALS_SACILM_BASE_URL"
+  },
+  "generation": {
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seed": 7
+  },
+  "provenance": {
+    "legal_entity": "Dom Hubs",
+    "product": "Dom Labs",
+    "owner": "DomHubs AI team",
+    "publication": "internal-draft"
+  },
+  "notes": [
+    "Substituir os campos pending-* antes da primeira rodada real do SaciLM.",
+    "O status draft permite desenvolvimento offline e não autoriza publicação no leaderboard."
+  ]
+}

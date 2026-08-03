@@ -1,0 +1,236 @@
+{
+  "kind": "dhevals_experiment_catalog",
+  "schema_version": "0.1.0",
+  "generated_at": "2026-08-03T16:28:43.746Z",
+  "status": "ready",
+  "entries": [
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.2.0:sacilm:fixture-20260803162842",
+      "run_id": "fixture-20260803162842",
+      "status": "completed",
+      "model": {
+        "id": "sacilm",
+        "provider": "fixture",
+        "checkpoint": "calibration-fixture",
+        "runtime": "offline-fixture",
+        "training_commit": "calibration-v0.2"
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.2.0",
+        "hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 10,
+        "completed_count": 10,
+        "coverage": 1,
+        "quality_score": 1,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "public/data/latest-report.json",
+        "report_hash": "d49685bec843f0bfbfad47cd0ed3de697cc11d26751a1707d38b21e49cb0358a",
+        "generated_at": "2026-08-03T16:28:42Z"
+      },
+      "started_at": "2026-08-03T16:28:42Z",
+      "finished_at": "2026-08-03T16:28:42Z",
+      "publication": "locked_fixture"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.1.0:opencode/deepseek-v4-flash-free:opencode-deepseek-v4-flash-free-v01-rerun",
+      "run_id": "opencode-deepseek-v4-flash-free-v01-rerun",
+      "status": "completed",
+      "model": {
+        "id": "opencode/deepseek-v4-flash-free",
+        "provider": "opencode",
+        "checkpoint": null,
+        "runtime": null,
+        "training_commit": null
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.1.0",
+        "hash": "154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 6,
+        "completed_count": 6,
+        "coverage": 1,
+        "quality_score": 0.6667,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/runs/opencode-deepseek-v4-flash-free-v01-rerun.report.json",
+        "report_hash": "a1b8989181c376a2d41079ab52fa2f5f9b001cf4d778a82b05ecab3601c9baa4",
+        "generated_at": "2026-08-03T16:26:18Z"
+      },
+      "started_at": "2026-08-03T16:24:31Z",
+      "finished_at": "2026-08-03T16:26:18Z",
+      "publication": "candidate"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.3.0:negative-fixture-v0.3:negative-fixture-v0.3",
+      "run_id": "negative-fixture-v0.3",
+      "status": "completed",
+      "model": {
+        "id": "negative-fixture-v0.3",
+        "provider": "fixture",
+        "checkpoint": "negative-fixture-v0.3",
+        "runtime": "offline-fixture",
+        "training_commit": "negative-fixture-v0.3"
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.3.0",
+        "hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 20,
+        "completed_count": 20,
+        "coverage": 1,
+        "quality_score": 0.025,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/fixtures/sacilm-heavy-user-negative-v0.3.report.json",
+        "report_hash": "dbe45da0ffdaddefb4970694b8d4b796b4428ece982aeec65c759a82b4a575a5",
+        "generated_at": "2026-08-03T02:18:27Z"
+      },
+      "started_at": "2026-08-03T02:18:27Z",
+      "finished_at": "2026-08-03T02:18:27Z",
+      "publication": "locked_fixture"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.3.0:sacilm-expanded-fixture:expanded-fixture-v0.3",
+      "run_id": "expanded-fixture-v0.3",
+      "status": "completed",
+      "model": {
+        "id": "sacilm-expanded-fixture",
+        "provider": "fixture",
+        "checkpoint": "calibration-fixture-v0.3",
+        "runtime": "offline-fixture",
+        "training_commit": "calibration-v0.3"
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.3.0",
+        "hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 20,
+        "completed_count": 20,
+        "coverage": 1,
+        "quality_score": 1,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/fixtures/sacilm-heavy-user-expanded-v0.3.report.json",
+        "report_hash": "d6df878cc0c423fec6a45508803a770099accf09ebe404dd9cd2f694ff26ba46",
+        "generated_at": "2026-08-03T01:21:43Z"
+      },
+      "started_at": "2026-08-03T01:21:43Z",
+      "finished_at": "2026-08-03T01:21:43Z",
+      "publication": "locked_fixture"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.2.0:negative-fixture:verify-negative",
+      "run_id": "verify-negative",
+      "status": "completed",
+      "model": {
+        "id": "negative-fixture",
+        "provider": "fixture",
+        "checkpoint": "negative-fixture",
+        "runtime": "offline-fixture",
+        "training_commit": "negative-fixture"
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.2.0",
+        "hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 10,
+        "completed_count": 10,
+        "coverage": 1,
+        "quality_score": 0,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/fixtures/sacilm-heavy-user-negative-v0.2.report.json",
+        "report_hash": "951c19cf9bb2be3798f39e76113d15a4e75b569fefe08b63f06a1ea2416c612d",
+        "generated_at": "2026-08-02T23:43:40Z"
+      },
+      "started_at": "2026-08-02T23:43:40Z",
+      "finished_at": "2026-08-02T23:43:40Z",
+      "publication": "locked_fixture"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.1.0:sacilm:e2e-fixture-refresh",
+      "run_id": "e2e-fixture-refresh",
+      "status": "completed",
+      "model": {
+        "id": "sacilm",
+        "provider": "fixture",
+        "checkpoint": "fixture-snapshot",
+        "runtime": "offline-fixture",
+        "training_commit": "fixture-development"
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.1.0",
+        "hash": "6aec244ca9cb9eac03b1862b38ab9616c30ddef6cdb2398c332e533ca44c9fe1"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 6,
+        "completed_count": 6,
+        "coverage": 1,
+        "quality_score": 1,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/fixtures/sacilm-heavy-user-fixture-run.report.json",
+        "report_hash": "ec5b8cde9e65ed2d1c0878954d3f63785d7adfa2d18a36e8cedd3067f00cdbac",
+        "generated_at": "2026-08-02T23:09:13Z"
+      },
+      "started_at": "2026-08-02T23:09:13Z",
+      "finished_at": "2026-08-02T23:09:13Z",
+      "publication": "locked_fixture"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "dhevals_agent_fixture",
+  "traces": [
+    {
+      "trace_id": "search-read-001",
+      "events": [
+        {"type": "tool_call", "tool": "search", "side_effect": "read"},
+        {"type": "tool_result", "tool": "search", "side_effect": "none"},
+        {"type": "final", "side_effect": "none"}
+      ]
+    },
+    {
+      "trace_id": "calculator-read-001",
+      "events": [
+        {"type": "tool_call", "tool": "calculator", "side_effect": "read"},
+        {"type": "tool_result", "tool": "calculator", "side_effect": "none"},
+        {"type": "final", "side_effect": "none"}
+      ]
+    }
+  ],
+  "status": "fixture_only"
+}

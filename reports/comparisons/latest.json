@@ -1,0 +1,28 @@
+{
+  "registry": "/Users/felipedomingues/Documents/Dom Labs AI/benchmarks/comparisons/v0.2/models.json",
+  "suite": "benchmarks/suites/heavy-user-ptbr/v0.2/suite.json",
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.2.0",
+  "generation": {
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seed": 7
+  },
+  "run_stamp": "comparison-20260803003000",
+  "outcomes": [
+    {
+      "model_id": "sacilm",
+      "provider": "runpod-openai-compatible",
+      "status": "skipped",
+      "reason": "missing DHEVALS_SACILM_BASE_URL"
+    },
+    {
+      "model_id": "baseline-gpt-4-turbo",
+      "provider": "openai-compatible",
+      "status": "skipped",
+      "reason": "missing DHEVALS_BASELINE_BASE_URL"
+    }
+  ],
+  "report_inputs": [],
+  "generated_at": "2026-08-03T00:30:01.086Z"
+}

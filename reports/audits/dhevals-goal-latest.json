@@ -1,0 +1,359 @@
+{
+  "kind": "dhevals_goal_audit",
+  "schema_version": "0.1.0",
+  "objective": "E2E do DHEvals e matriz heavy-user calibrada para lanes de modelos configuráveis; SaciLM é opcional",
+  "status": "pending",
+  "local_status": "ready",
+  "external_status": "pending",
+  "summary": {
+    "total": 18,
+    "ready": 12,
+    "pending": 2,
+    "blocked": 0,
+    "deferred": 4
+  },
+  "checks": [
+    {
+      "id": "versioned_suites",
+      "status": "ready",
+      "evidence": {
+        "suite_catalog": "public/data/suite-catalog.json",
+        "matrix_catalog": "public/data/test-matrix-catalog.json",
+        "versions": [
+          "0.2.0",
+          "0.3.0"
+        ]
+      },
+      "reason": null
+    },
+    {
+      "id": "matrix_execution",
+      "status": "ready",
+      "evidence": {
+        "artifact": "public/data/test-execution-latest.json",
+        "entries": 2,
+        "scenarios": 4,
+        "scorecard_dimensions": 14
+      },
+      "reason": null
+    },
+    {
+      "id": "derived_artifacts",
+      "status": "ready",
+      "evidence": {
+        "required": [
+          "public/data/latest-run.json",
+          "public/data/latest-report.json",
+          "public/data/latest-report.html",
+          "public/data/latest-results.csv",
+          "public/data/latest-youtube-pack.json",
+          "public/data/latest-verification.json",
+          "public/data/latest-scorecard.json",
+          "public/data/latest-judge.json"
+        ],
+        "missing": []
+      },
+      "reason": null
+    },
+    {
+      "id": "blueprint_components",
+      "status": "ready",
+      "evidence": {
+        "source": "DOM_Labs_Master_Research_Blueprint.md §13.1",
+        "components": {
+          "benchmark_engine": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/models.py",
+              "packages/dhevals_core/src/dhevals_core/grading.py",
+              "packages/dhevals_core/src/dhevals_core/audit.py"
+            ],
+            "missing": []
+          },
+          "dataset_registry": {
+            "required": [
+              "scripts/build-dataset-catalog.mjs",
+              "public/data/dataset-catalog.json"
+            ],
+            "missing": []
+          },
+          "evaluation_runner": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/runner.py",
+              "packages/dhevals_core/src/dhevals_core/adapters.py",
+              "scripts/run-model.mjs"
+            ],
+            "missing": []
+          },
+          "judge_engine": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/judge.py",
+              "packages/dhevals_core/src/dhevals_core/judge_runner.py"
+            ],
+            "missing": []
+          },
+          "human_evaluation_module": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/calibration.py",
+              "packages/dhevals_core/src/dhevals_core/calibration_sheet.py",
+              "src/CalibrationReviewer.jsx"
+            ],
+            "missing": []
+          },
+          "safety_evaluation_suite": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/safety.py",
+              "benchmarks/evaluations/safety-ptbr/v0.1/suite.json"
+            ],
+            "missing": []
+          },
+          "agent_evaluation_suite": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/agent.py",
+              "benchmarks/evaluations/agent-ptbr/v0.1/policy.json"
+            ],
+            "missing": []
+          },
+          "dashboard": {
+            "required": [
+              "src/App.jsx",
+              "dist/index.html"
+            ],
+            "missing": []
+          },
+          "api": {
+            "required": [
+              "scripts/dhevals-api-server.mjs",
+              "scripts/test-dhevals-api.mjs"
+            ],
+            "missing": []
+          },
+          "leaderboard": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/leaderboard.py",
+              "scripts/build-leaderboard.mjs",
+              "public/data/leaderboard.json"
+            ],
+            "missing": []
+          },
+          "scorecards": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/scorecard.py",
+              "public/data/latest-scorecard.json"
+            ],
+            "missing": []
+          },
+          "experiment_tracking": {
+            "required": [
+              "scripts/build-experiment-catalog.mjs",
+              "public/data/experiment-catalog.json"
+            ],
+            "missing": []
+          },
+          "reporting_engine": {
+            "required": [
+              "packages/dhevals_core/src/dhevals_core/reporting.py",
+              "scripts/build-report-artifacts.mjs",
+              "public/data/latest-report.json"
+            ],
+            "missing": []
+          }
+        }
+      },
+      "reason": null
+    },
+    {
+      "id": "judge_artifact_contract",
+      "status": "ready",
+      "evidence": {
+        "artifact": "public/data/latest-judge.json",
+        "status": "not_evaluated",
+        "evaluations": 0,
+        "score": null,
+        "independent_from_quality": true
+      },
+      "reason": null
+    },
+    {
+      "id": "registries",
+      "status": "ready",
+      "evidence": {
+        "required": [
+          "public/data/dataset-catalog.json",
+          "public/data/experiment-catalog.json",
+          "public/data/model-catalog.json",
+          "public/data/run-catalog.json"
+        ],
+        "missing": []
+      },
+      "reason": null
+    },
+    {
+      "id": "scorecard_coverage",
+      "status": "ready",
+      "evidence": {
+        "dimensions": 14,
+        "artifact": "public/data/test-matrix-catalog.json"
+      },
+      "reason": null
+    },
+    {
+      "id": "independent_contracts",
+      "status": "ready",
+      "evidence": {
+        "required": [
+          "benchmarks/evaluations/safety-ptbr/v0.1/suite.json",
+          "benchmarks/evaluations/safety-ptbr/v0.1/fixture.json",
+          "benchmarks/evaluations/agent-ptbr/v0.1/policy.json",
+          "benchmarks/evaluations/agent-ptbr/v0.1/traces-fixture.json",
+          "packages/dhevals_core/src/dhevals_core/judge_runner.py",
+          "scripts/test-judge-runner.mjs",
+          "packages/dhevals_core/tests/test_grader_matrix.py"
+        ],
+        "missing": []
+      },
+      "reason": null
+    },
+    {
+      "id": "comparison_contract",
+      "status": "ready",
+      "evidence": {
+        "artifact": "public/data/comparison-execution-latest.json",
+        "models": [
+          "sacilm",
+          "baseline-gpt-4-turbo"
+        ],
+        "primary_model_id": "sacilm",
+        "status": "pending",
+        "scores_locked": true
+      },
+      "reason": null
+    },
+    {
+      "id": "calibration_pack_v03",
+      "status": "ready",
+      "evidence": {
+        "pack": "reports/calibration/heavy-user-ptbr-v0.3-blind/pack.json",
+        "required_groups": 300,
+        "reviewers": [
+          {
+            "name": "reviewer-a.csv",
+            "path": "reports/calibration/heavy-user-ptbr-v0.3-blind/reviewer-a.csv",
+            "rows": 300,
+            "scored": 0
+          },
+          {
+            "name": "reviewer-b.csv",
+            "path": "reports/calibration/heavy-user-ptbr-v0.3-blind/reviewer-b.csv",
+            "rows": 300,
+            "scored": 0
+          }
+        ]
+      },
+      "reason": null
+    },
+    {
+      "id": "calibration_handoff",
+      "status": "ready",
+      "evidence": {
+        "artifact": "public/data/calibration/v0.3/handoff.json",
+        "status": "ready_for_review",
+        "reviewers": [
+          {
+            "id": "reviewer-a",
+            "rows": 300,
+            "scored": 0
+          },
+          {
+            "id": "reviewer-b",
+            "rows": 300,
+            "scored": 0
+          }
+        ]
+      },
+      "reason": null
+    },
+    {
+      "id": "console_e2e_surface",
+      "status": "ready",
+      "evidence": {
+        "build": "dist/index.html",
+        "test": "e2e/dhevals-console.spec.mjs"
+      },
+      "reason": null
+    },
+    {
+      "id": "sacilm_manifest",
+      "status": "deferred",
+      "evidence": {
+        "mode": "standby",
+        "model": "sacilm",
+        "reason": "SaciLM ainda não entrou em desenvolvimento; a lane de avaliação permanece opcional."
+      },
+      "reason": "retomar esta lane quando o SaciLM estiver pronto"
+    },
+    {
+      "id": "sacilm_endpoint",
+      "status": "deferred",
+      "evidence": {
+        "mode": "standby",
+        "model": "sacilm",
+        "reason": "SaciLM ainda não entrou em desenvolvimento; a lane de avaliação permanece opcional."
+      },
+      "reason": "retomar esta lane quando o SaciLM estiver pronto"
+    },
+    {
+      "id": "sacilm_preflight",
+      "status": "deferred",
+      "evidence": {
+        "mode": "standby",
+        "model": "sacilm",
+        "reason": "SaciLM ainda não entrou em desenvolvimento; a lane de avaliação permanece opcional."
+      },
+      "reason": "retomar esta lane quando o SaciLM estiver pronto"
+    },
+    {
+      "id": "sacilm_real_run",
+      "status": "deferred",
+      "evidence": {
+        "mode": "standby",
+        "model": "sacilm",
+        "reason": "SaciLM ainda não entrou em desenvolvimento; a lane de avaliação permanece opcional."
+      },
+      "reason": "retomar esta lane quando o SaciLM estiver pronto"
+    },
+    {
+      "id": "human_calibration_v03",
+      "status": "pending",
+      "evidence": {
+        "artifact": "public/data/calibration/v0.3/progress.json",
+        "completed_groups": 0,
+        "required_groups": 300,
+        "reviewers_required": 2
+      },
+      "reason": "importe duas revisões independentes, adjudique desacordos e congele a rubrica"
+    },
+    {
+      "id": "release_gate",
+      "status": "pending",
+      "evidence": {
+        "artifact": "public/data/latest-release-gate.json",
+        "status": "blocked",
+        "errors": 8
+      },
+      "reason": "o release gate permanece bloqueado até manifesto, rodada real e calibração passarem"
+    }
+  ],
+  "next_actions": [
+    "retomar esta lane quando o SaciLM estiver pronto",
+    "retomar esta lane quando o SaciLM estiver pronto",
+    "retomar esta lane quando o SaciLM estiver pronto",
+    "retomar esta lane quando o SaciLM estiver pronto",
+    "importe duas revisões independentes, adjudique desacordos e congele a rubrica",
+    "o release gate permanece bloqueado até manifesto, rodada real e calibração passarem"
+  ],
+  "safety": {
+    "secrets_recorded": false,
+    "endpoint_value_recorded": false
+  },
+  "generated_at": "2026-08-03T16:28:44.355Z"
+}

@@ -1,0 +1,129 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_scorecard",
+  "generated_at": "2026-08-03T16:28:43Z",
+  "model": {
+    "id": "sacilm",
+    "provider": "fixture",
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "suite_version": "0.2.0",
+    "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+    "run_id": "fixture-20260803162842"
+  },
+  "overall": {
+    "status": "evaluated",
+    "score": 1.0,
+    "evidence": "deterministic checks from the canonical report"
+  },
+  "dimensions": {
+    "quality": {
+      "status": "evaluated",
+      "score": 1.0,
+      "evidence": "deterministic checks from the canonical report"
+    },
+    "factuality": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "hallucination": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "safety": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "alignment": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "robustness": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "reasoning": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "programming": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "tool_use": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "agentic": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "business_logic": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "memory": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "instruction_following": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "operational_reliability": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "no independent artifact supplied"
+    },
+    "judge_quality": {
+      "status": "not_evaluated",
+      "score": null,
+      "evidence": "LLM-as-a-Judge artifact"
+    }
+  },
+  "operational": {
+    "coverage": 1.0,
+    "completed_tasks": 10,
+    "task_count": 10,
+    "error_count": 0,
+    "average_latency_ms": 1688.0,
+    "total_tokens": 13066,
+    "estimated_cost_usd": null,
+    "speed": {
+      "average_latency_ms": 1688.0
+    },
+    "cost": {
+      "estimated_usd": null
+    },
+    "memory": {
+      "status": "not_measured",
+      "peak_mb": null
+    }
+  },
+  "calibration": {
+    "status": "pending",
+    "completed_groups": 0,
+    "required_groups": 150
+  },
+  "publication": {
+    "status": "blocked",
+    "fixture_locked": true,
+    "reason": "offline fixture is never eligible for publication"
+  },
+  "provenance": {
+    "report_kind": "dhevals_report",
+    "report_generated_at": "2026-08-03T16:28:42Z",
+    "runner_version": "0.1.0"
+  }
+}

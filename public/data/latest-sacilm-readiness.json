@@ -1,0 +1,26 @@
+{
+  "kind": "dhevals_sacilm_readiness",
+  "schema_version": "0.1.0",
+  "status": "deferred",
+  "generated_at": "2026-08-03T16:28:33.145Z",
+  "model": {
+    "id": "sacilm",
+    "version": null,
+    "manifest": null
+  },
+  "mode": "standby",
+  "checks": [
+    {
+      "id": "evaluation_lane",
+      "status": "deferred",
+      "reason": "SaciLM está em standby; a lane genérica do DHEvals pode avaliar outros modelos."
+    }
+  ],
+  "next_actions": [
+    "quando o desenvolvimento começar, trocar DHEVALS_SACILM_EVALUATION_MODE para active, configurar DHEVALS_SACILM_BASE_URL e preparar manifesto/preflight"
+  ],
+  "safety": {
+    "secrets_recorded": false,
+    "endpoint_value_recorded": false
+  }
+}

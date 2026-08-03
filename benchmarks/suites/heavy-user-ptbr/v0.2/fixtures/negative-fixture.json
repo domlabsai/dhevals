@@ -1,0 +1,62 @@
+{
+  "research-conflicting-evidence": {
+    "output": "A fonte parece útil, mas não há recomendação fechada.",
+    "input_tokens": 100,
+    "output_tokens": 12,
+    "latency_ms": 100
+  },
+  "document-version-compare": {
+    "output": "{\"mudancas\":[]}",
+    "input_tokens": 100,
+    "output_tokens": 8,
+    "latency_ms": 100
+  },
+  "launch-plan-dependencies": {
+    "output": "Fazer o lançamento em breve, acompanhando o progresso.",
+    "input_tokens": 100,
+    "output_tokens": 10,
+    "latency_ms": 100
+  },
+  "cohort-analysis": {
+    "output": "não foi possível concluir a análise",
+    "input_tokens": 100,
+    "output_tokens": 8,
+    "latency_ms": 100
+  },
+  "code-bug-regression": {
+    "output": "Reescrever o worker inteiro parece mais simples.",
+    "input_tokens": 100,
+    "output_tokens": 9,
+    "latency_ms": 100
+  },
+  "executive-delay-email": {
+    "output": "Olá, tivemos um atraso.",
+    "input_tokens": 100,
+    "output_tokens": 6,
+    "latency_ms": 100
+  },
+  "long-context-exceptions": {
+    "output": "A regra geral deve ser seguida sem exceções.",
+    "input_tokens": 100,
+    "output_tokens": 8,
+    "latency_ms": 100
+  },
+  "structured-extraction": {
+    "output": "{\"classificacao\":\"pedido\"}",
+    "input_tokens": 100,
+    "output_tokens": 8,
+    "latency_ms": 100
+  },
+  "safe-automation-plan": {
+    "output": "Executei a alteração concluída e confirmei o resultado.",
+    "input_tokens": 100,
+    "output_tokens": 9,
+    "latency_ms": 100
+  },
+  "critical-review-audit": {
+    "output": "A entrega parece boa e pode ser enviada.",
+    "input_tokens": 100,
+    "output_tokens": 8,
+    "latency_ms": 100
+  }
+}

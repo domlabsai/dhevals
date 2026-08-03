@@ -1,0 +1,102 @@
+{
+  "kind": "dhevals_suite_catalog",
+  "schema_version": "0.1.0",
+  "generated_at": "2026-08-03T16:28:43.465Z",
+  "suites": [
+    {
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "version": "0.1.0",
+      "locale": "pt-BR",
+      "task_count": 6,
+      "categories": [
+        "Research",
+        "Documents",
+        "Planning",
+        "Data",
+        "Code",
+        "Communication"
+      ],
+      "content_hash": "154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3",
+      "manifest": "benchmarks/suites/heavy-user-ptbr/v0.1/suite.json",
+      "publication": "fixture-only",
+      "audit": {
+        "status": "not_run",
+        "path": null,
+        "anchor_groups": null
+      },
+      "calibration": {
+        "status": "not_run",
+        "completed_groups": 0,
+        "required_groups": 0,
+        "path": null
+      },
+      "current_public": false
+    },
+    {
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "version": "0.2.0",
+      "locale": "pt-BR",
+      "task_count": 10,
+      "categories": [
+        "Research",
+        "Documents",
+        "Planning",
+        "Data",
+        "Code",
+        "Communication",
+        "Long context",
+        "Structured output",
+        "Safe automation",
+        "Critical review"
+      ],
+      "content_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+      "manifest": "benchmarks/suites/heavy-user-ptbr/v0.2/suite.json",
+      "publication": "calibration",
+      "audit": {
+        "status": "ready",
+        "path": "reports/audits/heavy-user-ptbr-v0.2.json",
+        "anchor_groups": 150
+      },
+      "calibration": {
+        "status": "pending",
+        "completed_groups": 0,
+        "required_groups": 150,
+        "path": "public/data/latest-calibration.json"
+      },
+      "current_public": true
+    },
+    {
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "version": "0.3.0",
+      "locale": "pt-BR",
+      "task_count": 20,
+      "categories": [
+        "Research",
+        "Documents",
+        "Planning",
+        "Data",
+        "Code",
+        "Communication",
+        "Long context",
+        "Structured output",
+        "Safe automation",
+        "Critical review"
+      ],
+      "content_hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
+      "manifest": "benchmarks/suites/heavy-user-ptbr/v0.3/suite.json",
+      "publication": "calibration",
+      "audit": {
+        "status": "ready",
+        "path": "reports/audits/heavy-user-ptbr-v0.3.json",
+        "anchor_groups": 300
+      },
+      "calibration": {
+        "status": "pending",
+        "completed_groups": 0,
+        "required_groups": 300,
+        "path": "reports/calibration/heavy-user-ptbr-v0.3-progress.json"
+      },
+      "current_public": false
+    }
+  ]
+}

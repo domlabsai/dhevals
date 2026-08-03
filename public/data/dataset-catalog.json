@@ -1,0 +1,40 @@
+{
+  "kind": "dhevals_dataset_catalog",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "generated_at": "2026-08-03T16:28:43.693Z",
+  "datasets": [
+    {
+      "id": "domhubs-heavy-user-ptbr",
+      "version": "0.1.0",
+      "status": "draft",
+      "locale": "pt-BR",
+      "purpose": "heavy-user benchmark inputs and calibration examples",
+      "source_type": "synthetic",
+      "license": "Dom Hubs internal-generated",
+      "privacy": {
+        "pii_allowed": false,
+        "personal_data": "prohibited",
+        "review_status": "pending-human-review"
+      },
+      "source_artifacts": [
+        "benchmarks/suites/heavy-user-ptbr/v0.2/suite.json",
+        "benchmarks/suites/heavy-user-ptbr/v0.2/fixtures/sacilm-calibration-fixture.json",
+        "benchmarks/suites/heavy-user-ptbr/v0.3/suite.json",
+        "benchmarks/suites/heavy-user-ptbr/v0.3/fixtures/sacilm-calibration-fixture.json"
+      ],
+      "consumers": [
+        "dhevals-heavy-user-ptbr@0.2.0",
+        "dhevals-heavy-user-ptbr@0.3.0",
+        "sacilm-post-training-draft"
+      ],
+      "provenance": {
+        "legal_entity": "Dom Hubs",
+        "product": "Dom Labs",
+        "owner": "DomHubs AI team"
+      },
+      "manifest": "benchmarks/datasets/heavy-user-ptbr/v0.1/dataset.json",
+      "content_hash": "94434002038286116c4706213d4de654e531e8b838cf3464334461655563de15"
+    }
+  ]
+}

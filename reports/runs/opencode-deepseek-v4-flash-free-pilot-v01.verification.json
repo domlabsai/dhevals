@@ -1,0 +1,23 @@
+{
+  "kind": "dhevals_verification",
+  "status": "invalid",
+  "run_id": "opencode-deepseek-v4-flash-free-pilot-v01",
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.1.0",
+  "suite_hash": "154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3",
+  "checked": {
+    "task_count": 6,
+    "result_count": 6,
+    "report": false
+  },
+  "errors": [
+    "results[0].prompt does not match suite task 'research-synthesis'",
+    "results[1].prompt does not match suite task 'document-qa'",
+    "results[2].prompt does not match suite task 'plan-outline'",
+    "results[3].prompt does not match suite task 'data-analysis'",
+    "results[4].prompt does not match suite task 'code-generation'",
+    "results[5].prompt does not match suite task 'email-draft'"
+  ],
+  "warnings": [],
+  "verified_at": "2026-08-03T16:24:03Z"
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "dhevals_model_catalog",
+  "schema_version": "0.1.0",
+  "generated_at": "2026-08-03T16:28:43.560Z",
+  "registries": [
+    "benchmarks/comparisons/v0.2/models.json",
+    "benchmarks/comparisons/v0.3/models.json"
+  ],
+  "models": [
+    {
+      "id": "baseline-gpt-4-turbo",
+      "label": "GPT-4 Turbo baseline",
+      "provider": "openai-compatible",
+      "publication": "comparison-only",
+      "status": "endpoint-not-configured",
+      "suite_versions": [
+        "0.2.0",
+        "0.3.0"
+      ],
+      "adapter": "openai-compatible",
+      "endpoint_env": "DHEVALS_BASELINE_BASE_URL",
+      "command_env": null,
+      "manifest": null,
+      "configured": false
+    },
+    {
+      "id": "sacilm",
+      "label": "SaciLM",
+      "provider": "runpod-openai-compatible",
+      "publication": "primary",
+      "status": "configured",
+      "suite_versions": [
+        "0.2.0",
+        "0.3.0"
+      ],
+      "adapter": "openai-compatible",
+      "endpoint_env": "DHEVALS_SACILM_BASE_URL",
+      "command_env": null,
+      "manifest": "benchmarks/models/sacilm/v0.1/model.json",
+      "configured": false
+    }
+  ]
+}

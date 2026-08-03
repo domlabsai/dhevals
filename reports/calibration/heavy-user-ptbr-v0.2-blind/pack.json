@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_calibration_pack",
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.2.0",
+  "rubric_sha256": "45566520379ff5213a9f3cdba217a1041c97261c47d206ae9f0852ce2c5904fe",
+  "examples_sha256": "62be7fa6674bf91e1e4b69eddfdcd800df994124a8eb66d41a029ef7902f357a",
+  "required_groups": 150,
+  "anchor_fingerprint": "e0b1222851d97bdf3143201d8db34de16afb7b4024ad60eb64ff84aa522f74a0",
+  "score_scale": {
+    "min": 0,
+    "max": 4,
+    "step": 1
+  },
+  "blind": true,
+  "reviewers": [
+    {
+      "id": "reviewer-a",
+      "file": "reviewer-a.csv",
+      "rows": 150,
+      "anchor_fingerprint": "e0b1222851d97bdf3143201d8db34de16afb7b4024ad60eb64ff84aa522f74a0"
+    },
+    {
+      "id": "reviewer-b",
+      "file": "reviewer-b.csv",
+      "rows": 150,
+      "anchor_fingerprint": "e0b1222851d97bdf3143201d8db34de16afb7b4024ad60eb64ff84aa522f74a0"
+    }
+  ],
+  "source_directory": "reports/calibration/heavy-user-ptbr-v0.2-blind",
+  "generated_at": "2026-08-03T00:49:41Z",
+  "pack_id": "56136edcaabcfcc72c6657b07139a395fc41583e9caa4a6e0e55bb05f14615a4"
+}

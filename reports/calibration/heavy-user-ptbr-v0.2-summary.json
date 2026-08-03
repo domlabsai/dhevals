@@ -1,0 +1,2117 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.2.0",
+  "status": "pending",
+  "reviewers_required": 2,
+  "max_allowed_range": 1,
+  "required_groups": 150,
+  "completed_groups": 0,
+  "missing_groups": [
+    [
+      "research-conflicting-evidence",
+      "grounding",
+      0
+    ],
+    [
+      "research-conflicting-evidence",
+      "grounding",
+      1
+    ],
+    [
+      "research-conflicting-evidence",
+      "grounding",
+      2
+    ],
+    [
+      "research-conflicting-evidence",
+      "grounding",
+      3
+    ],
+    [
+      "research-conflicting-evidence",
+      "grounding",
+      4
+    ],
+    [
+      "research-conflicting-evidence",
+      "uncertainty",
+      0
+    ],
+    [
+      "research-conflicting-evidence",
+      "uncertainty",
+      1
+    ],
+    [
+      "research-conflicting-evidence",
+      "uncertainty",
+      2
+    ],
+    [
+      "research-conflicting-evidence",
+      "uncertainty",
+      3
+    ],
+    [
+      "research-conflicting-evidence",
+      "uncertainty",
+      4
+    ],
+    [
+      "research-conflicting-evidence",
+      "decision-utility",
+      0
+    ],
+    [
+      "research-conflicting-evidence",
+      "decision-utility",
+      1
+    ],
+    [
+      "research-conflicting-evidence",
+      "decision-utility",
+      2
+    ],
+    [
+      "research-conflicting-evidence",
+      "decision-utility",
+      3
+    ],
+    [
+      "research-conflicting-evidence",
+      "decision-utility",
+      4
+    ],
+    [
+      "document-version-compare",
+      "fidelity",
+      0
+    ],
+    [
+      "document-version-compare",
+      "fidelity",
+      1
+    ],
+    [
+      "document-version-compare",
+      "fidelity",
+      2
+    ],
+    [
+      "document-version-compare",
+      "fidelity",
+      3
+    ],
+    [
+      "document-version-compare",
+      "fidelity",
+      4
+    ],
+    [
+      "document-version-compare",
+      "traceability",
+      0
+    ],
+    [
+      "document-version-compare",
+      "traceability",
+      1
+    ],
+    [
+      "document-version-compare",
+      "traceability",
+      2
+    ],
+    [
+      "document-version-compare",
+      "traceability",
+      3
+    ],
+    [
+      "document-version-compare",
+      "traceability",
+      4
+    ],
+    [
+      "document-version-compare",
+      "format",
+      0
+    ],
+    [
+      "document-version-compare",
+      "format",
+      1
+    ],
+    [
+      "document-version-compare",
+      "format",
+      2
+    ],
+    [
+      "document-version-compare",
+      "format",
+      3
+    ],
+    [
+      "document-version-compare",
+      "format",
+      4
+    ],
+    [
+      "launch-plan-dependencies",
+      "sequencing",
+      0
+    ],
+    [
+      "launch-plan-dependencies",
+      "sequencing",
+      1
+    ],
+    [
+      "launch-plan-dependencies",
+      "sequencing",
+      2
+    ],
+    [
+      "launch-plan-dependencies",
+      "sequencing",
+      3
+    ],
+    [
+      "launch-plan-dependencies",
+      "sequencing",
+      4
+    ],
+    [
+      "launch-plan-dependencies",
+      "constraint-awareness",
+      0
+    ],
+    [
+      "launch-plan-dependencies",
+      "constraint-awareness",
+      1
+    ],
+    [
+      "launch-plan-dependencies",
+      "constraint-awareness",
+      2
+    ],
+    [
+      "launch-plan-dependencies",
+      "constraint-awareness",
+      3
+    ],
+    [
+      "launch-plan-dependencies",
+      "constraint-awareness",
+      4
+    ],
+    [
+      "launch-plan-dependencies",
+      "actionability",
+      0
+    ],
+    [
+      "launch-plan-dependencies",
+      "actionability",
+      1
+    ],
+    [
+      "launch-plan-dependencies",
+      "actionability",
+      2
+    ],
+    [
+      "launch-plan-dependencies",
+      "actionability",
+      3
+    ],
+    [
+      "launch-plan-dependencies",
+      "actionability",
+      4
+    ],
+    [
+      "cohort-analysis",
+      "calculation",
+      0
+    ],
+    [
+      "cohort-analysis",
+      "calculation",
+      1
+    ],
+    [
+      "cohort-analysis",
+      "calculation",
+      2
+    ],
+    [
+      "cohort-analysis",
+      "calculation",
+      3
+    ],
+    [
+      "cohort-analysis",
+      "calculation",
+      4
+    ],
+    [
+      "cohort-analysis",
+      "interpretation",
+      0
+    ],
+    [
+      "cohort-analysis",
+      "interpretation",
+      1
+    ],
+    [
+      "cohort-analysis",
+      "interpretation",
+      2
+    ],
+    [
+      "cohort-analysis",
+      "interpretation",
+      3
+    ],
+    [
+      "cohort-analysis",
+      "interpretation",
+      4
+    ],
+    [
+      "cohort-analysis",
+      "limitations",
+      0
+    ],
+    [
+      "cohort-analysis",
+      "limitations",
+      1
+    ],
+    [
+      "cohort-analysis",
+      "limitations",
+      2
+    ],
+    [
+      "cohort-analysis",
+      "limitations",
+      3
+    ],
+    [
+      "cohort-analysis",
+      "limitations",
+      4
+    ],
+    [
+      "code-bug-regression",
+      "correctness",
+      0
+    ],
+    [
+      "code-bug-regression",
+      "correctness",
+      1
+    ],
+    [
+      "code-bug-regression",
+      "correctness",
+      2
+    ],
+    [
+      "code-bug-regression",
+      "correctness",
+      3
+    ],
+    [
+      "code-bug-regression",
+      "correctness",
+      4
+    ],
+    [
+      "code-bug-regression",
+      "regression-safety",
+      0
+    ],
+    [
+      "code-bug-regression",
+      "regression-safety",
+      1
+    ],
+    [
+      "code-bug-regression",
+      "regression-safety",
+      2
+    ],
+    [
+      "code-bug-regression",
+      "regression-safety",
+      3
+    ],
+    [
+      "code-bug-regression",
+      "regression-safety",
+      4
+    ],
+    [
+      "code-bug-regression",
+      "maintainability",
+      0
+    ],
+    [
+      "code-bug-regression",
+      "maintainability",
+      1
+    ],
+    [
+      "code-bug-regression",
+      "maintainability",
+      2
+    ],
+    [
+      "code-bug-regression",
+      "maintainability",
+      3
+    ],
+    [
+      "code-bug-regression",
+      "maintainability",
+      4
+    ],
+    [
+      "executive-delay-email",
+      "tone",
+      0
+    ],
+    [
+      "executive-delay-email",
+      "tone",
+      1
+    ],
+    [
+      "executive-delay-email",
+      "tone",
+      2
+    ],
+    [
+      "executive-delay-email",
+      "tone",
+      3
+    ],
+    [
+      "executive-delay-email",
+      "tone",
+      4
+    ],
+    [
+      "executive-delay-email",
+      "clarity",
+      0
+    ],
+    [
+      "executive-delay-email",
+      "clarity",
+      1
+    ],
+    [
+      "executive-delay-email",
+      "clarity",
+      2
+    ],
+    [
+      "executive-delay-email",
+      "clarity",
+      3
+    ],
+    [
+      "executive-delay-email",
+      "clarity",
+      4
+    ],
+    [
+      "executive-delay-email",
+      "actionability",
+      0
+    ],
+    [
+      "executive-delay-email",
+      "actionability",
+      1
+    ],
+    [
+      "executive-delay-email",
+      "actionability",
+      2
+    ],
+    [
+      "executive-delay-email",
+      "actionability",
+      3
+    ],
+    [
+      "executive-delay-email",
+      "actionability",
+      4
+    ],
+    [
+      "long-context-exceptions",
+      "retention",
+      0
+    ],
+    [
+      "long-context-exceptions",
+      "retention",
+      1
+    ],
+    [
+      "long-context-exceptions",
+      "retention",
+      2
+    ],
+    [
+      "long-context-exceptions",
+      "retention",
+      3
+    ],
+    [
+      "long-context-exceptions",
+      "retention",
+      4
+    ],
+    [
+      "long-context-exceptions",
+      "exception-handling",
+      0
+    ],
+    [
+      "long-context-exceptions",
+      "exception-handling",
+      1
+    ],
+    [
+      "long-context-exceptions",
+      "exception-handling",
+      2
+    ],
+    [
+      "long-context-exceptions",
+      "exception-handling",
+      3
+    ],
+    [
+      "long-context-exceptions",
+      "exception-handling",
+      4
+    ],
+    [
+      "long-context-exceptions",
+      "consistency",
+      0
+    ],
+    [
+      "long-context-exceptions",
+      "consistency",
+      1
+    ],
+    [
+      "long-context-exceptions",
+      "consistency",
+      2
+    ],
+    [
+      "long-context-exceptions",
+      "consistency",
+      3
+    ],
+    [
+      "long-context-exceptions",
+      "consistency",
+      4
+    ],
+    [
+      "structured-extraction",
+      "schema",
+      0
+    ],
+    [
+      "structured-extraction",
+      "schema",
+      1
+    ],
+    [
+      "structured-extraction",
+      "schema",
+      2
+    ],
+    [
+      "structured-extraction",
+      "schema",
+      3
+    ],
+    [
+      "structured-extraction",
+      "schema",
+      4
+    ],
+    [
+      "structured-extraction",
+      "completeness",
+      0
+    ],
+    [
+      "structured-extraction",
+      "completeness",
+      1
+    ],
+    [
+      "structured-extraction",
+      "completeness",
+      2
+    ],
+    [
+      "structured-extraction",
+      "completeness",
+      3
+    ],
+    [
+      "structured-extraction",
+      "completeness",
+      4
+    ],
+    [
+      "structured-extraction",
+      "non-invention",
+      0
+    ],
+    [
+      "structured-extraction",
+      "non-invention",
+      1
+    ],
+    [
+      "structured-extraction",
+      "non-invention",
+      2
+    ],
+    [
+      "structured-extraction",
+      "non-invention",
+      3
+    ],
+    [
+      "structured-extraction",
+      "non-invention",
+      4
+    ],
+    [
+      "safe-automation-plan",
+      "boundary",
+      0
+    ],
+    [
+      "safe-automation-plan",
+      "boundary",
+      1
+    ],
+    [
+      "safe-automation-plan",
+      "boundary",
+      2
+    ],
+    [
+      "safe-automation-plan",
+      "boundary",
+      3
+    ],
+    [
+      "safe-automation-plan",
+      "boundary",
+      4
+    ],
+    [
+      "safe-automation-plan",
+      "decomposition",
+      0
+    ],
+    [
+      "safe-automation-plan",
+      "decomposition",
+      1
+    ],
+    [
+      "safe-automation-plan",
+      "decomposition",
+      2
+    ],
+    [
+      "safe-automation-plan",
+      "decomposition",
+      3
+    ],
+    [
+      "safe-automation-plan",
+      "decomposition",
+      4
+    ],
+    [
+      "safe-automation-plan",
+      "reversibility",
+      0
+    ],
+    [
+      "safe-automation-plan",
+      "reversibility",
+      1
+    ],
+    [
+      "safe-automation-plan",
+      "reversibility",
+      2
+    ],
+    [
+      "safe-automation-plan",
+      "reversibility",
+      3
+    ],
+    [
+      "safe-automation-plan",
+      "reversibility",
+      4
+    ],
+    [
+      "critical-review-audit",
+      "coverage",
+      0
+    ],
+    [
+      "critical-review-audit",
+      "coverage",
+      1
+    ],
+    [
+      "critical-review-audit",
+      "coverage",
+      2
+    ],
+    [
+      "critical-review-audit",
+      "coverage",
+      3
+    ],
+    [
+      "critical-review-audit",
+      "coverage",
+      4
+    ],
+    [
+      "critical-review-audit",
+      "prioritization",
+      0
+    ],
+    [
+      "critical-review-audit",
+      "prioritization",
+      1
+    ],
+    [
+      "critical-review-audit",
+      "prioritization",
+      2
+    ],
+    [
+      "critical-review-audit",
+      "prioritization",
+      3
+    ],
+    [
+      "critical-review-audit",
+      "prioritization",
+      4
+    ],
+    [
+      "critical-review-audit",
+      "justification",
+      0
+    ],
+    [
+      "critical-review-audit",
+      "justification",
+      1
+    ],
+    [
+      "critical-review-audit",
+      "justification",
+      2
+    ],
+    [
+      "critical-review-audit",
+      "justification",
+      3
+    ],
+    [
+      "critical-review-audit",
+      "justification",
+      4
+    ]
+  ],
+  "disagreement_groups": [],
+  "adjudicated_groups": [],
+  "validation_errors": [],
+  "groups": [
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "grounding",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "grounding",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "grounding",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "grounding",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "grounding",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "uncertainty",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "uncertainty",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "uncertainty",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "uncertainty",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "uncertainty",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "decision-utility",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "decision-utility",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "decision-utility",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "decision-utility",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "research-conflicting-evidence",
+      "dimension_id": "decision-utility",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "fidelity",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "fidelity",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "fidelity",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "fidelity",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "fidelity",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "traceability",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "traceability",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "traceability",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "traceability",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "traceability",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "format",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "format",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "format",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "format",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "document-version-compare",
+      "dimension_id": "format",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "sequencing",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "sequencing",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "sequencing",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "sequencing",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "sequencing",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "constraint-awareness",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "constraint-awareness",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "constraint-awareness",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "constraint-awareness",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "constraint-awareness",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "actionability",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "actionability",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "actionability",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "actionability",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "dimension_id": "actionability",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "calculation",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "calculation",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "calculation",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "calculation",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "calculation",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "interpretation",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "interpretation",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "interpretation",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "interpretation",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "interpretation",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "limitations",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "limitations",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "limitations",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "limitations",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "cohort-analysis",
+      "dimension_id": "limitations",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "correctness",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "correctness",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "correctness",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "correctness",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "correctness",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "regression-safety",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "regression-safety",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "regression-safety",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "regression-safety",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "regression-safety",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "maintainability",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "maintainability",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "maintainability",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "maintainability",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "code-bug-regression",
+      "dimension_id": "maintainability",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "tone",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "tone",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "tone",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "tone",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "tone",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "clarity",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "clarity",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "clarity",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "clarity",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "clarity",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "actionability",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "actionability",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "actionability",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "actionability",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "executive-delay-email",
+      "dimension_id": "actionability",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "retention",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "retention",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "retention",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "retention",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "retention",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "exception-handling",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "exception-handling",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "exception-handling",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "exception-handling",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "exception-handling",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "consistency",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "consistency",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "consistency",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "consistency",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "dimension_id": "consistency",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "schema",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "schema",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "schema",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "schema",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "schema",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "completeness",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "completeness",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "completeness",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "completeness",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "completeness",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "non-invention",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "non-invention",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "non-invention",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "non-invention",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "structured-extraction",
+      "dimension_id": "non-invention",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "boundary",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "boundary",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "boundary",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "boundary",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "boundary",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "decomposition",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "decomposition",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "decomposition",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "decomposition",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "decomposition",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "reversibility",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "reversibility",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "reversibility",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "reversibility",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "dimension_id": "reversibility",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "coverage",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "coverage",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "coverage",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "coverage",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "coverage",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "prioritization",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "prioritization",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "prioritization",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "prioritization",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "prioritization",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "justification",
+      "anchor_level": 0,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "justification",
+      "anchor_level": 1,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "justification",
+      "anchor_level": 2,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "justification",
+      "anchor_level": 3,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    },
+    {
+      "task_id": "critical-review-audit",
+      "dimension_id": "justification",
+      "anchor_level": 4,
+      "reviewer_count": 0,
+      "mean_score": null,
+      "range": null,
+      "status": "pending"
+    }
+  ],
+  "generated_at": "2026-08-02T23:04:39Z"
+}

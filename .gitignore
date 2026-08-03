@@ -1,0 +1,15 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.venv/
+**/__pycache__/
+*.pyc
+*.egg-info/
+tmp-dhevals-*.png
+.DS_Store
+.env
+.env.*
+!.env.example
+.impeccable/
+artifacts/phase-0/

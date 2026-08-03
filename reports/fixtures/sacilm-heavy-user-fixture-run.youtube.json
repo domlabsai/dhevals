@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_youtube_pack",
+  "title": "DHEvals · sacilm · dhevals-heavy-user-ptbr v0.1.0",
+  "run_id": "e2e-fixture-refresh",
+  "hook": "sacilm alcançou 100.0/100 em 6 tarefas heavy-user.",
+  "facts": [
+    "Modelo avaliado: sacilm.",
+    "Suíte: dhevals-heavy-user-ptbr v0.1.0.",
+    "Tarefas concluídas: 6 de 6.",
+    "Score médio determinístico: 100.0/100."
+  ],
+  "category_breakdown": [
+    {
+      "category": "Code",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Communication",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Data",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Documents",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Planning",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Research",
+      "score": 100.0,
+      "task_count": 1
+    }
+  ],
+  "methodology": {
+    "suite_hash": "6aec244ca9cb9eac03b1862b38ab9616c30ddef6cdb2398c332e533ca44c9fe1",
+    "suite_version": "0.1.0",
+    "runner_version": "0.1.0",
+    "model": {
+      "model_id": "sacilm",
+      "provider": "fixture",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {
+        "checkpoint": "fixture-snapshot",
+        "runtime": "offline-fixture",
+        "training_commit": "fixture-development"
+      }
+    }
+  },
+  "limitations": [
+    "Esta rodada usa fixture offline e não representa a qualidade do endpoint real.",
+    "O score determinístico não substitui a revisão humana da rubrica.",
+    "Comparações públicas exigem a mesma versão de suíte e configuração."
+  ]
+}

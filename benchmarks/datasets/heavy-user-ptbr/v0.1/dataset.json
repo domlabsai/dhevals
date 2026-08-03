@@ -1,0 +1,36 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_dataset_manifest",
+  "id": "domhubs-heavy-user-ptbr",
+  "version": "0.1.0",
+  "status": "draft",
+  "locale": "pt-BR",
+  "purpose": "heavy-user benchmark inputs and calibration examples",
+  "source_type": "synthetic",
+  "license": "Dom Hubs internal-generated",
+  "privacy": {
+    "pii_allowed": false,
+    "personal_data": "prohibited",
+    "review_status": "pending-human-review"
+  },
+  "source_artifacts": [
+    "benchmarks/suites/heavy-user-ptbr/v0.2/suite.json",
+    "benchmarks/suites/heavy-user-ptbr/v0.2/fixtures/sacilm-calibration-fixture.json",
+    "benchmarks/suites/heavy-user-ptbr/v0.3/suite.json",
+    "benchmarks/suites/heavy-user-ptbr/v0.3/fixtures/sacilm-calibration-fixture.json"
+  ],
+  "consumers": [
+    "dhevals-heavy-user-ptbr@0.2.0",
+    "dhevals-heavy-user-ptbr@0.3.0",
+    "sacilm-post-training-draft"
+  ],
+  "provenance": {
+    "legal_entity": "Dom Hubs",
+    "product": "Dom Labs",
+    "owner": "DomHubs AI team"
+  },
+  "notes": [
+    "A versão inicial usa casos sintéticos; nenhum PII é permitido.",
+    "Não publicar como dataset de treinamento até revisão de licença, qualidade e LGPD."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_judge_artifact",
+  "status": "not_evaluated",
+  "generated_at": "2026-08-03T01:20:00Z",
+  "judge_model": {
+    "id": "not-configured"
+  },
+  "rubric_hash": "not-configured",
+  "evaluations": [],
+  "score": null,
+  "metadata": {
+    "independent_from_quality": true,
+    "reason": "No independent LLM-as-a-Judge artifact has been configured for the public baseline.",
+    "source": "public contract placeholder"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "kind": "dhevals_release_gate",
+  "status": "blocked",
+  "publication": "blocked",
+  "checks": {
+    "suite": {
+      "status": "valid",
+      "id": "dhevals-heavy-user-ptbr",
+      "version": "0.2.0",
+      "hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9"
+    },
+    "run_report_identity": {
+      "status": "valid",
+      "errors": []
+    },
+    "verification": {
+      "status": "valid",
+      "run_id": "fixture-20260803162842",
+      "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9"
+    },
+    "audit": {
+      "status": "ready",
+      "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9"
+    },
+    "calibration": {
+      "status": "pending",
+      "ready": false,
+      "completed_groups": 0.0,
+      "required_groups": 150.0
+    },
+    "leaderboard": {
+      "status": "draft_locked",
+      "entry_count": 2,
+      "eligible_count": 0,
+      "locked_count": 2,
+      "fixture_count": 2
+    },
+    "model_manifest": {
+      "status": "not_required_for_fixture"
+    },
+    "run": {
+      "status": "review",
+      "run_id": "fixture-20260803162842",
+      "model_id": "sacilm",
+      "provider": "fixture"
+    }
+  },
+  "errors": [
+    "human calibration is not ready",
+    "human calibration does not cover every anchor group",
+    "human calibration still has missing groups",
+    "leaderboard is not ready",
+    "leaderboard contains locked entries",
+    "leaderboard contains fixture entries",
+    "leaderboard calibration gate is not ready",
+    "offline fixture runs cannot be published"
+  ],
+  "paths": {
+    "run": "public/data/latest-run.json",
+    "suite": "benchmarks/suites/heavy-user-ptbr/v0.2/suite.json",
+    "report": "public/data/latest-report.json",
+    "verification": "public/data/latest-verification.json",
+    "audit": "public/data/latest-audit.json",
+    "calibration": "public/data/latest-calibration.json",
+    "leaderboard": "public/data/leaderboard.json"
+  },
+  "generated_at": "2026-08-03T16:28:43Z"
+}

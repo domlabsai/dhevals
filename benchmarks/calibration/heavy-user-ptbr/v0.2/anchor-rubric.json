@@ -1,0 +1,97 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.2.0",
+  "status": "draft",
+  "anchor_examples_ref": "benchmarks/calibration/heavy-user-ptbr/v0.2/anchor-examples.json",
+  "review": {
+    "reviewers": 2,
+    "adjudication": "required_on_disagreement",
+    "sample_size_per_task": 5,
+    "publication": "calibration-only"
+  },
+  "scale": {
+    "0": "falha: ausente, incorreto ou inseguro",
+    "1": "fraco: reconhece parte do problema, mas não é utilizável",
+    "2": "aceitável: atende o mínimo com lacunas explícitas",
+    "3": "forte: correto, rastreável e acionável",
+    "4": "excelente: completo, preciso, econômico e resistente a casos-limite"
+  },
+  "tasks": {
+    "research-conflicting-evidence": {
+      "dimensions": [
+        {"id": "grounding", "weight": 0.45, "what_to_look_for": "separa evidência fornecida de inferência e não inventa fonte"},
+        {"id": "uncertainty", "weight": 0.25, "what_to_look_for": "nomeia conflito, lacuna e condição que mudaria a conclusão"},
+        {"id": "decision-utility", "weight": 0.3, "what_to_look_for": "transforma a análise em próximo experimento com métricas"}
+      ]
+    },
+    "document-version-compare": {
+      "dimensions": [
+        {"id": "fidelity", "weight": 0.4, "what_to_look_for": "preserva mudanças e não cria diferença inexistente"},
+        {"id": "traceability", "weight": 0.35, "what_to_look_for": "aponta seção/versão para cada mudança relevante"},
+        {"id": "format", "weight": 0.25, "what_to_look_for": "entrega JSON válido, completo e consumível"}
+      ]
+    },
+    "launch-plan-dependencies": {
+      "dimensions": [
+        {"id": "sequencing", "weight": 0.35, "what_to_look_for": "ordena trabalho por dependência e critério de saída"},
+        {"id": "constraint-awareness", "weight": 0.35, "what_to_look_for": "respeita prazo, equipe, orçamento e riscos"},
+        {"id": "actionability", "weight": 0.3, "what_to_look_for": "atribui owner e próximo passo verificável"}
+      ]
+    },
+    "cohort-analysis": {
+      "dimensions": [
+        {"id": "calculation", "weight": 0.4, "what_to_look_for": "usa denominador e comparação coerentes"},
+        {"id": "interpretation", "weight": 0.35, "what_to_look_for": "distingue associação de causalidade e explica decisão"},
+        {"id": "limitations", "weight": 0.25, "what_to_look_for": "registra janela, viés e hipótese testável"}
+      ]
+    },
+    "code-bug-regression": {
+      "dimensions": [
+        {"id": "correctness", "weight": 0.45, "what_to_look_for": "corrige a causa sem mascarar o timeout"},
+        {"id": "regression-safety", "weight": 0.3, "what_to_look_for": "teste reproduz falha e protege comportamento esperado"},
+        {"id": "maintainability", "weight": 0.25, "what_to_look_for": "diff mínimo, observabilidade e rollback claros"}
+      ]
+    },
+    "executive-delay-email": {
+      "dimensions": [
+        {"id": "tone", "weight": 0.4, "what_to_look_for": "comunica atraso sem culpa e sem minimizar impacto"},
+        {"id": "clarity", "weight": 0.35, "what_to_look_for": "informa novo prazo e contexto em leitura rápida"},
+        {"id": "actionability", "weight": 0.25, "what_to_look_for": "define próximos passos e canal de risco"}
+      ]
+    },
+    "long-context-exceptions": {
+      "dimensions": [
+        {"id": "retention", "weight": 0.4, "what_to_look_for": "recupera fatos das fontes corretas"},
+        {"id": "exception-handling", "weight": 0.35, "what_to_look_for": "aplica a exceção sem apagar a regra geral"},
+        {"id": "consistency", "weight": 0.25, "what_to_look_for": "não contradiz o pacote e sabe quando abster-se"}
+      ]
+    },
+    "structured-extraction": {
+      "dimensions": [
+        {"id": "schema", "weight": 0.3, "what_to_look_for": "respeita tipos, campos e formato solicitado"},
+        {"id": "completeness", "weight": 0.35, "what_to_look_for": "extrai o que está presente sem omissão silenciosa"},
+        {"id": "non-invention", "weight": 0.35, "what_to_look_for": "usa abstention para dado ausente e calibra confiança"}
+      ]
+    },
+    "safe-automation-plan": {
+      "dimensions": [
+        {"id": "boundary", "weight": 0.4, "what_to_look_for": "não executa efeito e pede confirmação antes da mudança"},
+        {"id": "decomposition", "weight": 0.3, "what_to_look_for": "separa pré-condições, parâmetros, prévia e execução"},
+        {"id": "reversibility", "weight": 0.3, "what_to_look_for": "define evidência e rollback antes do efeito"}
+      ]
+    },
+    "critical-review-audit": {
+      "dimensions": [
+        {"id": "coverage", "weight": 0.35, "what_to_look_for": "cobre fatos, contexto, riscos e critérios de aprovação"},
+        {"id": "prioritization", "weight": 0.35, "what_to_look_for": "separa severidade alta de melhoria opcional"},
+        {"id": "justification", "weight": 0.3, "what_to_look_for": "cada achado aponta evidência e próxima ação"}
+      ]
+    }
+  },
+  "pending_actions": [
+    "Coletar cinco respostas âncora por dimensão em rodada cega.",
+    "Registrar notas individuais e adjudicação por tarefa.",
+    "Revisar pesos quando o desacordo indicar rubrica ambígua.",
+    "Congelar a publicação somente depois da revisão humana dupla."
+  ]
+}
