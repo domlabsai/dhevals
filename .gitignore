@@ -13,3 +13,4 @@ tmp-dhevals-*.png
 !.env.example
 .impeccable/
 artifacts/phase-0/
+artifacts/private/

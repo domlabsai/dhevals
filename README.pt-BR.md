@@ -205,13 +205,6 @@ gravação em 16:9. Consulte:
   artefatos e publicação;
 - [model adapters](./docs/dhevals-model-adapters.md) — configuração de CLI,
   HTTP, isolamento e comparações.
-- [SDD da plataforma pública](./docs/dhevals-public-platform-sdd.md) —
-  arquitetura, rotas, contrato de dados e requisitos de release;
-- [Design System da plataforma pública](./docs/dhevals-public-platform-design-system.md)
-  — marca, tokens, componentes, visualização, motion e social cards;
-- [prompt para LLM de design](./docs/dhevals-public-platform-design-prompt.md)
-  — briefing pronto para copiar e gerar o design da plataforma;
-- [assets da marca](./public/brand/) — SVGs versionados do logo DHEvals.
 
 ## Estrutura do repositório
 
