@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">DHEvals video title card</title>
+  <desc id="desc">YouTube title card template in the DHEvals brand system.</desc>
+  <rect width="1920" height="1080" fill="#050607"/>
+  <rect x="40" y="40" width="1840" height="1000" fill="none" stroke="#1A2730" stroke-width="1"/>
+  <g transform="translate(128 128) scale(1.2)">
+    <path fill="#DFFF00" d="M12 76 L30 20 H48 L30 76 Z"/>
+    <path fill="#DFFF00" d="M48 76 L66 20 H84 L66 76 Z"/>
+    <text x="104" y="63" fill="#F1F5F4" font-family="IBM Plex Sans, Inter, system-ui, sans-serif" font-size="42" font-weight="600" letter-spacing="-0.5">DHEvals</text>
+  </g>
+  <circle cx="1488" cy="169" r="6" fill="#FFB547"/>
+  <text x="1792" y="178" text-anchor="end" fill="#FFB547" font-family="IBM Plex Sans, Inter, system-ui, sans-serif" font-size="30" font-weight="600" letter-spacing="4">ARCHIVE ONLY</text>
+  <text x="128" y="500" fill="#F1F5F4" font-family="IBM Plex Sans, Inter, system-ui, sans-serif" font-size="88" font-weight="600" letter-spacing="-2">Real heavy-user tasks.</text>
+  <text x="128" y="608" fill="#F1F5F4" font-family="IBM Plex Sans, Inter, system-ui, sans-serif" font-size="88" font-weight="600" letter-spacing="-2">Verified evidence.</text>
+  <text x="128" y="872" fill="#718792" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="28">SaciLM · Heavy-user pt-BR v0.2 · Aug 3, 2026</text>
+  <line x1="128" y1="916" x2="1792" y2="916" stroke="#1A2730" stroke-width="1"/>
+  <text x="128" y="946" fill="#4C6068" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="20">dhevals</text>
+</svg>

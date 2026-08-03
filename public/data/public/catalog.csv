@@ -1,0 +1,6 @@
+run_id,model_id,suite_version,run_status,quality_score,coverage,verified,completed_at
+opencode-deepseek-v4-flash-free-v03-final,opencode/deepseek-v4-flash-free,0.3.0,archive_only,70,1,true,2026-08-03T19:31:40Z
+opencode-deepseek-v4-flash-free-v02-final,opencode/deepseek-v4-flash-free,0.2.0,locked,60,1,true,2026-08-03T19:07:16Z
+opencode-deepseek-v4-flash-free-v01-rerun,opencode/deepseek-v4-flash-free,0.1.0,archive_only,66.7,1,true,2026-08-03T16:26:18Z
+negative-fixture-v0.3,negative-fixture-v0.3,0.3.0,invalid,,1,true,2026-08-03T02:18:27Z
+verify-negative,negative-fixture,0.2.0,invalid,,1,false,2026-08-02T23:43:40Z

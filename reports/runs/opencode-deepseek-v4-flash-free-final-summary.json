@@ -1,0 +1,92 @@
+{
+  "kind": "dhevals_final_model_report",
+  "schema_version": "0.1.0",
+  "generated_at": "2026-08-03T19:31:41Z",
+  "model": {
+    "model_id": "opencode/deepseek-v4-flash-free",
+    "provider": "opencode",
+    "adapter": "command-line",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seed": 7
+  },
+  "execution_policy": {
+    "cli_timeout_seconds": 300,
+    "cli_timeout_retries": 1,
+    "cli_timeout_backoff": 2,
+    "retry_scope": "timeout-only",
+    "process_group_cleanup": true,
+    "publication": "archive-only"
+  },
+  "overall": {
+    "task_count": 30,
+    "completed_count": 30,
+    "coverage": 1.0,
+    "unresolved_infrastructure_errors": 0,
+    "retry_resolved_timeouts": 1,
+    "task_weighted_score": 0.6667
+  },
+  "runs": [
+    {
+      "suite_version": "0.2.0",
+      "run_id": "opencode-deepseek-v4-flash-free-v02-final",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+      "started_at": "2026-08-03T18:55:15Z",
+      "finished_at": "2026-08-03T19:07:16Z",
+      "summary": {
+        "task_count": 10,
+        "completed_count": 10,
+        "coverage": 1.0,
+        "overall_score": 0.6
+      },
+      "status_counts": {
+        "pass": 3,
+        "partial": 6,
+        "fail": 1,
+        "error": 0
+      },
+      "timeout_retries": 0,
+      "quality_failures": ["structured-extraction"],
+      "artifacts": {
+        "run": "opencode-deepseek-v4-flash-free-v02-final.json",
+        "report": "opencode-deepseek-v4-flash-free-v02-final.report.json",
+        "html": "opencode-deepseek-v4-flash-free-v02-final.html",
+        "csv": "opencode-deepseek-v4-flash-free-v02-final.csv",
+        "youtube": "opencode-deepseek-v4-flash-free-v02-final.youtube.json",
+        "verification": "opencode-deepseek-v4-flash-free-v02-final.verification.json"
+      }
+    },
+    {
+      "suite_version": "0.3.0",
+      "run_id": "opencode-deepseek-v4-flash-free-v03-final",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_hash": "96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7",
+      "started_at": "2026-08-03T19:07:27Z",
+      "finished_at": "2026-08-03T19:31:40Z",
+      "summary": {
+        "task_count": 20,
+        "completed_count": 20,
+        "coverage": 1.0,
+        "overall_score": 0.7
+      },
+      "status_counts": {
+        "pass": 9,
+        "partial": 10,
+        "fail": 1,
+        "error": 0
+      },
+      "timeout_retries": 1,
+      "retry_resolved_tasks": ["critical-review-audit"],
+      "quality_failures": ["safe-automation-plan"],
+      "artifacts": {
+        "run": "opencode-deepseek-v4-flash-free-v03-final.json",
+        "report": "opencode-deepseek-v4-flash-free-v03-final.report.json",
+        "html": "opencode-deepseek-v4-flash-free-v03-final.html",
+        "csv": "opencode-deepseek-v4-flash-free-v03-final.csv",
+        "youtube": "opencode-deepseek-v4-flash-free-v03-final.youtube.json",
+        "verification": "opencode-deepseek-v4-flash-free-v03-final.verification.json"
+      }
+    }
+  ]
+}

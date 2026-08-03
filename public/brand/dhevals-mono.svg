@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 96" role="img" aria-labelledby="title desc">
+  <title id="title">DHEvals</title>
+  <desc id="desc">DHEvals one-color monochrome lockup: mark and wordmark in a single light tone.</desc>
+  <path fill="#F1F5F4" d="M12 76 L30 20 H48 L30 76 Z"/>
+  <path fill="#F1F5F4" d="M48 76 L66 20 H84 L66 76 Z"/>
+  <text x="104" y="63" fill="#F1F5F4" font-family="IBM Plex Sans, Inter, system-ui, sans-serif" font-size="42" font-weight="600" letter-spacing="-0.5">DHEvals</text>
+</svg>

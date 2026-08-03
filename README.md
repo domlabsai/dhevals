@@ -97,7 +97,12 @@ summary pack.
 The generic model runner accepts any executable that can receive a prompt via
 stdin or an argument. The prompt is passed without shell interpolation, each
 task has its own timeout, and failures remain infrastructure errors instead of
-being converted into quality zeros.
+being converted into quality zeros. `run:model` retries a timed-out CLI once by
+default with a 2x timeout budget; retries never change a quality `fail` into a
+pass. Set `DHEVALS_MODEL_CLI_TIMEOUT_RETRIES=0` to disable retries or increase
+`DHEVALS_MODEL_CLI_TIMEOUT_SECONDS` for a slower provider. Timed-out process
+groups are terminated and reaped so an OpenCode child cannot continue using
+quota after the task has been recorded.
 
 ```bash
 export DHEVALS_MODEL_ID="my-model"
@@ -106,6 +111,8 @@ export DHEVALS_MODEL_ADAPTER="command-line"
 export DHEVALS_MODEL_CLI_COMMAND="my-model-cli --model my-model"
 export DHEVALS_MODEL_CLI_PROMPT_MODE="stdin" # use "arg" when the CLI expects an argument
 export DHEVALS_MODEL_CLI_TIMEOUT_SECONDS="120"
+export DHEVALS_MODEL_CLI_TIMEOUT_RETRIES="1" # retry only timeouts; set 0 to disable
+export DHEVALS_MODEL_CLI_TIMEOUT_BACKOFF="2" # retry budget multiplier
 export DHEVALS_MODEL_CLI_CWD="/tmp/dhevals-model-sandbox"
 export DHEVALS_MODEL_SUITE_PATH="benchmarks/suites/heavy-user-ptbr/v0.1/suite.json"
 export DHEVALS_RUN_ID="my-model-heavy-user-v01"

@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DHEvals · opencode/deepseek-v4-flash-free · dhevals-heavy-user-ptbr v0.3.0</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #0b0d0f; color: #e9edf0; }
+    body { margin: 0; background: #0b0d0f; }
+    main { max-width: 1180px; margin: 0 auto; padding: 44px 24px 72px; }
+    header { border-bottom: 1px solid #273039; padding-bottom: 24px; }
+    h1 { margin: 0 0 10px; font-size: 28px; font-weight: 600; }
+    h2 { margin: 34px 0 12px; font-size: 17px; font-weight: 500; }
+    p, small { color: #9ca8b0; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 12px ui-monospace, SFMono-Regular, monospace; color: #9ca8b0; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 26px; }
+    .card { border: 1px solid #273039; background: #11161a; padding: 16px; }
+    .card span { display: block; color: #82909a; font-size: 11px; margin-bottom: 10px; }
+    .card strong { color: #d6ff56; font: 20px ui-monospace, SFMono-Regular, monospace; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; background: #101418; }
+    th, td { border-bottom: 1px solid #273039; padding: 11px 10px; text-align: left; vertical-align: top; }
+    thead th { color: #82909a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    tbody th { font-weight: 500; }
+    .status-pass { color: #d6ff56; } .status-partial { color: #62b8ff; } .status-fail, .status-error { color: #ff7d88; }
+    pre { max-width: 620px; overflow: auto; white-space: pre-wrap; color: #b8c2c8; font: 11px/1.5 ui-monospace, SFMono-Regular, monospace; }
+    @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } main { padding: 28px 14px 52px; } table { min-width: 820px; } .table-wrap { overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>DHEvals · opencode/deepseek-v4-flash-free · dhevals-heavy-user-ptbr v0.3.0</h1>
+      <div class="meta"><span>run opencode-deepseek-v4-flash-free-v03-final</span><span>suite hash 96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7</span><span>generated 2026-08-03T19:31:41Z</span></div>
+    </header>
+    <section class="cards">
+      <div class="card"><span>Overall score</span><strong>70.0/100</strong></div>
+      <div class="card"><span>Coverage</span><strong>100.0%</strong></div>
+      <div class="card"><span>Completed</span><strong>20 / 20</strong></div>
+      <div class="card"><span>Errors</span><strong>0</strong></div>
+      <div class="card"><span>Estimated cost</span><strong>—</strong></div>
+    </section>
+    <h2>Categories</h2>
+    <div class="table-wrap"><table><thead><tr><th>Category</th><th>Tasks</th><th>Coverage</th><th>Score</th><th>Tokens</th><th>Est. cost</th></tr></thead><tbody><tr><th>Code</th><td>2</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Communication</th><td>2</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Critical review</th><td>2</td><td>100.0%</td><td>75.0%</td><td>None</td><td>—</td></tr><tr><th>Data</th><td>2</td><td>100.0%</td><td>75.0%</td><td>None</td><td>—</td></tr><tr><th>Documents</th><td>2</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Long context</th><td>2</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Planning</th><td>2</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Research</th><td>2</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Safe automation</th><td>2</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Structured output</th><td>2</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr></tbody></table></div>
+    <h2>Task results</h2>
+    <div class="table-wrap"><table><thead><tr><th>Task</th><th>Category</th><th>Status</th><th>Score</th><th>Latency</th><th>Est. cost</th><th>Evidence</th></tr></thead><tbody><tr><th>Research under conflicting evidence</th><td>Research</td><td class="status-partial">partial</td><td>50.0%</td><td>51745.19 ms</td><td>—</td><td><details><summary>output</summary><pre>Nenhuma evidência concreta foi fornecida no enunciado — as duas &quot;evidências conflitantes&quot; sobre a decisão de busca corporativa não existem no material entregue. Separar fatos de inferências com honestidade exige registrar isso primeiro, em vez de preencher o vazio com fontes inventadas.
+
+**Fatos vs. inferências**
+- Fatos: o enunciado pede análise de duas evidências conflitantes; nenhuma peça de evidência (dados de busca, logs, relatório, teste A/B) foi apresentada.
+- Inferências: nada pode ser legitimamente inferido sobre qual modelo de busca, quais métricas ou qual decisão está em jogo. Qualquer afirmação sobre o conflito seria inferência não fundamentada.
+
+**Incerteza explícita**
+A incerteza aqui é estrutural: desconheço (1) o que as duas evidências dizem, (2) se são medições, opiniões ou dados observacionais, (3) qual decisão dependem delas. A condição que mudaria esta análise é a própria entrada das evidências com sua proveniência.
+
+**O que precisa ser verificado antes de decidir**
+- Proveniência: fonte, data de coleta e método de medição de cada evidência.
+- Comparabilidade: métrica, população e janela temporal usados em cada uma (duas métricas diferentes não são conflito, são categorias distintas).
+- Significância: se a divergência está dentro do ruído amostral ou é efeito real.
+
+**Próximo experimento recomendado**
+A/B controlado com o mesmo conjunto de queries reais de busca: grupo de controle no sistema atual, tratamento no sistema candidato, medindo precisão/relevância (ex.: nDCG@10 ou taxas de clique em resultado útil), latência p95 e custo por query. Critério de decisão predefinido: adotar o candidato só se ganhar relevância com significância estatística (p&lt;0.05, amostra ≥1.000 queries) sem piorar latência/custo além de um teto fixado. Esse desenho converte o conflito em evidência comparável e reduz a dependência de julgamento subjetivo.</pre></details></td></tr><tr><th>Document version comparison</th><td>Documents</td><td class="status-partial">partial</td><td>50.0%</td><td>35258.48 ms</td><td>—</td><td><details><summary>output</summary><pre>Não encontrei duas versões de um brief operacional neste repositório (o `brief` privado é de design da plataforma DHEvals, sem segunda versão, e nenhum arquivo no repo é um &quot;brief operacional&quot;).
+
+Para comparar e retornar o JSON (`versao_a`, `versao_b`, `mudancas`, `conflitos`, `rastreabilidade`) preciso do conteúdo das duas versões. Cole os textos aqui ou indique os caminhos dos dois arquivos.</pre></details></td></tr><tr><th>Launch plan with dependencies</th><td>Planning</td><td class="status-pass">pass</td><td>100.0%</td><td>75716.75 ms</td><td>—</td><td><details><summary>output</summary><pre>Plano ancorado no estado real do repositório (tudo local `ready`; gates externos pendentes; release gate `blocked` por design).
+
+---
+
+# Plano de lançamento DHEvals — 3 a 17 ago 2026 (2 semanas)
+
+## 0. Ponto de partida
+- 12/18 checks da auditoria E2E `ready`, 4 `deferred` (SaciLM), 2 `pending` (calibração humana + lane real). Toda a plataforma local está concluída.
+- O lançamento é só **Fase C+D** do roadmap: rodar um modelo real, calibrar e publicar o leaderboard. Nada de engenharia nova.
+
+## 1. O que confirmar ANTES de qualquer compromisso externo
+| # | Decisão | Bloqueia | Quem decide |
+|---|---|---|---|
+| 1 | **Lane real**: SaciLM sai do standby OU roda-se OpenCode/Qwen/Kimi via `run:model` genérico | Todo o resto | PM + Eng líder |
+| 2 | **Teto de custo/tempo** da rodada (USD, horas, hardware) | Run completo | Financeiro |
+| 3 | **2 revisores + 1 adjudicador** dos 300 grupos v0.3 | Gate `ready` | PM |
+| 4 | **Política do conjunto privado** de calibração (divulgação pública?) | Publicação | PM + Pesquisa |
+| 5 | **Congelamento da rubrica** pós-adjudicação e política de versão | Leaderboard | Pesquisa |
+| 6 | **Narrativa pública**: baseline fixture ≠ alegação de qualidade do modelo | Comms/vídeo | PM + Marca |
+| 7 | **Data de publicação** (YouTube/leaderboard) — só trava se o gate voltar `ready` | Comms | PM |
+
+⚠️ Nenhum prazo externo (vídeo, anúncio, run público) pode ser prometido enquanto `latest-release-gate.json` não retornar `ready`.
+
+## 2. Timeline
+
+**Semana 1 (3–9 ago) — destravar os 2 gates**
+- D1–D2: confirmações da seção 1; nomear owners reais.
+- D1–D7: calibração humana — 2 revisores rodam os CSVs cegos v0.3 (150 grupos c/dia por revisor), adjudicação dos desacordos, congelar rubrica. `import:calibration:v03` + `build:calibration`.
+- D3–D5: escolher lane, fixar proveniência (envs locais), `finalize:sacilm-manifest` ou registry `command-line`, `preflight`/smoke.
+- D6–D7: **run real em archive-only** (v0.3, sem tocar `public/data`). Inspecionar report/verify/custo/latência/erros de infra.
+
+**Semana 2 (10–16 ago) — verificar, promover, publicar**
+- D8: corrigir erros de infra do run; reexecutar se preciso.
+- D9–D10: calibração `ready` + `check:sacilm-readiness` ok → rodada v0.2 da lane escolhida.
+- D11: promoção staged → `build:release-gate` → **gate `ready`** → leaderboard com `eligible_count ≥ 1`.
+- D12–D13: `test:platform` + E2E no console; revisar artefatos públicos (run/report/CSV/HTML/scorecard/judge).
+- D14–D16: pacote YouTube factual (`latest-youtube-pack.json`), gravação Director, checagem da narrativa.
+- **D17 (17 ago): lançamento** — leaderboard público + vídeo.
+
+## 3. Dependências (caminho crítico)
+```
+2 revisores → adjudicação → rubrica congelada → import v0.3 → check readiness
+Lane + endpoint/CLI + proveniência → smoke → full run v0.3 (archive) → run v0.2 → verify
+[ambos] → release gate ready → leaderboard eligible → publicar + vídeo + comms
+```
+Semana 1 converge tudo; qualquer atraso nos 300 grupos v0.3 empurra o lançamento.
+
+## 4. Owners (por papel — preencher nomes)
+- **PM/Operações**: confirmações, revisores, calendário, risco.
+- **Eng líder**: lane, endpoint/CLI, proveniência, runs, verificação, gate.
+- **Revisor A / Revisor B**: 150 grupos cada (CSV cego).
+- **Adjudicador**: desacordos + congelamento da rubrica.
+- **Comms/Marca**: narrativa, vídeo, embargos.
+
+## 5. Riscos priorizados
+| P | Risco | Mitigação |
+|---|---|---|
+| P1 | Calibração v0.3 não fecha em 1 semana (2 revisores) | Travar revisores desde D1; fallback: reduzir amostra pública com divulgação clara |
+| P1 | Endpoint/CLI ou proveniência não concretizam → sem run real | Lane genérica `run:model` com OpenCode/Qwen como plano B |
+| P2 | Custo/tempo da rodada estoura | Archive-only primeiro; teto definido na seção 1; parar e renegociar |
+| P2 | Desacordo de revisão não adjudicável → rubrica ambígua | Adjudicador com poder de decisão + registro no ledger |
+| P3 | Público interpreta fixture como qualidade do modelo | Narrativa e scorecard `not_evaluated` já cobrem; revisar pack YouTube |
+| P3 | Comms prometem data antes do gate | Embargo rígido: nada externo até `ready` |
+
+## 6. Critérios de saída
+- `latest-release-gate.json.status == &quot;ready&quot;`.
+- Leaderboard com ≥1 entrada `eligible` (provider real, cobertura 100%, sem erro de infra, calibração `ready`).
+- Artefatos públicos atualizados: run/report/HTML/CSV/verification/scorecard/judge + `test:platform` verde + E2E passando.
+- Pack YouTube factual revisado e sem causalidade inventada.
+- Baseline v0.2 fixture preservada; v0.3 publicada como rodada real da lane.
+
+## 7. Próximos passos (48h)
+1. Reunião de confirmação: decidir itens 1–7 da seção 1 e preencher owners.
+2. Travar os 2 revisores + adjudicador; entregar CSVs cegos v0.3.
+3. Escolher lane e rodar smoke/preflight real (archive-only).
+4. Registrar a data-alvo de lançamento **interna** (17/8), sem compromisso externo.
+
+---
+
+Quer que eu salve isso como `docs/dhevals-launch-plan.md` (seguindo o padrão dos demais docs)?</pre></details></td></tr><tr><th>Cohort analysis under uncertainty</th><td>Data</td><td class="status-partial">partial</td><td>50.0%</td><td>89721.26 ms</td><td>—</td><td><details><summary>output</summary><pre>```json
+{
+  &quot;metodo&quot;: {
+    &quot;janela_dias&quot;: 30,
+    &quot;denominador&quot;: &quot;usuários da coorte no momento da aquisição&quot;,
+    &quot;calculo&quot;: &quot;retenção = ativos no D30 / tamanho da coorte, comparada entre coortes A e B&quot;
+  },
+  &quot;resultado&quot;: {
+    &quot;coorte_a&quot;: 0.42,
+    &quot;coorte_b&quot;: 0.53,
+    &quot;delta_pp&quot;: 11,
+    &quot;leitura&quot;: &quot;diferença descritiva observada na tabela sintética; não há inferência estatística&quot;
+  },
+  &quot;hipotese&quot;: &quot;o onboarding da coorte B reduz o abandono inicial e explica parte do delta de 11 p.p., hipótese a ser testada em experimento controlado&quot;,
+  &quot;recomendacao&quot;: &quot;pré-registrar a hipótese, randomizar a etapa do onboarding, medir retenção, ativação e desistência em nova coorte antes de qualquer escala&quot;,
+  &quot;limitacoes&quot;: [
+    &quot;janela de observação curta&quot;,
+    &quot;seleção não aleatória das coortes&quot;,
+    &quot;sem controle de canal, mix de usuários e sazonalidade&quot;,
+    &quot;a associação observada não estabelece causalidade&quot;
+  ]
+}
+```</pre></details></td></tr><tr><th>Code bug with safe regression</th><td>Code</td><td class="status-partial">partial</td><td>50.0%</td><td>213616.62 ms</td><td>—</td><td><details><summary>output</summary><pre>Vou ler o harness e confirmar o comportamento atual antes de propor o diff.
+Diagnóstico: o timeout atual depende de **dois fatores assíncronos e frágeis**: (1) o `fetchFn` propagar o `abort` e rejeitar rapidamente, e (2) ler `controller.signal.aborted` no `catch`. Se o upstream engole o signal (responde depois do deadline) ou rejeita por outro motivo, o worker **ou não expira (job &quot;sai do preso&quot; depois do orçamento), ou mascara o erro real como timeout**. O timer nunca é consultado no caminho de sucesso. Vou aplicar o fix mínimo e o teste de regressão.
+Agora vou provar o teste de regressão em ambos os cenários: revertendo temporariamente o worker ao original (espera falhar) e depois com o fix (espera passar).
+Confirmado: no código original o job que resolve 100ms depois do orçamento (40ms) retorna sucesso — o timeout não dispara. Agora restauro o fix e rodo a suíte completa.
+## Causa
+
+O `runJob` em `worker-timeout/worker.mjs` só &quot;detectava&quot; o timeout se **duas coisas assíncronas e frágeis** cooperassem:
+
+1. O `fetchFn` precisava propagar o `signal` e rejeitar rapidamente com `AbortError` quando o timer disparasse. Se o upstream **engole o abort** (resolve depois do deadline), o `await fetchFn` nunca rejeita → o job retorna `{ ok: true }` **após exceder o orçamento em 2,5x** (e se nunca resolvesse, penduraria para sempre — `finally` só roda quando a promise settle).
+2. O `catch` decidia o timeout lendo `controller.signal.aborted`, que é estado externo/assíncrono — se um erro real coincidisse com o abort em voo, ele era **mascarado como `TimeoutError`**.
+
+Resultado: o contrato `TIMEOUT_MS` era apenas *advisory* — o timeout disparava **intermitentemente**, dependendo do timing e da implementação do upstream. O timer nunca era consultado no caminho de sucesso.
+
+## Diff mínimo (worker.mjs)
+
+```diff
+ export async function runJob(fetchFn) {
+   const controller = new AbortController();
+-  const timer = setTimeout(() =&gt; controller.abort(), TIMEOUT_MS);
++  let timedOut = false;
++  const timer = setTimeout(() =&gt; {
++    timedOut = true;
++    controller.abort();
++  }, TIMEOUT_MS);
+   try {
+     const res = await fetchFn({ signal: controller.signal });
+     clearTimeout(timer);
++    if (timedOut) throw new TimeoutError(`job exceeded ${TIMEOUT_MS}ms`);
+     return await res.json();
+   } catch (err) {
+-    if (controller.signal.aborted) {
+-      throw new TimeoutError(`job exceeded ${TIMEOUT_MS}ms`);
+-    }
++    if (timedOut) throw new TimeoutError(`job exceeded ${TIMEOUT_MS}ms`);
+     throw err;
+   } finally {
+     clearTimeout(timer);
+   }
+ }
+```
+
+A decisão vira **local e síncrona**: um flag setado no callback do timer (a única fonte da deadline). `controller.abort()` permanece para cancelar a requisição em voo, mas o timeout não depende mais da propagação do abort. Nenhuma mudança de contrato nos testes existentes (body read continua fora do orçamento).
+
+## Teste de regressão executável
+
+Adicionado em `worker-timeout/worker.test.mjs:64`:
+
+```js
+test(&#x27;a job that resolves after the budget is still a timeout even when the fetch swallows the abort&#x27;, async () =&gt; {
+  const stubbornFetch = ({ signal }) =&gt;
+    new Promise((resolve) =&gt; {
+      setTimeout(() =&gt; resolve({ json: async () =&gt; ({ ok: true }) }), 100);
+    });
+  await assert.rejects(() =&gt; runJob(stubbornFetch), TimeoutError);
+});
+```
+
+Verificado: falha no código original (`Missing expected rejection (TimeoutError)`) e passa com o fix. Rodar com `node --test worker-timeout/worker.test.mjs` → 3/3 pass.
+
+## Rollback
+
+- **Local:** `git checkout -- worker-timeout/` (se versionado) ou reverter os dois edits manualmente (o diff tem exatamente 4 linhas no `worker.mjs` + 9 no teste).
+- **Produção:** reverter o commit/release do worker (deploy anterior em Vercel), e em paralelo derrubar a fila de jobs para o worker antigo com uma flag de feature/roteamento até o hotfix passar nos testes. Sem commits novos de trabalho pela metade — o revert é atômico.
+
+## Observabilidade
+
+No worker: logar em toda finalização `{ job, durationMs, budgetMs, timedOut, errorType: err.constructor.name }` e diferenciar `TimeoutError` de erro real (`error.cause` + stack). Métricas em cada fila: `worker.job_duration_ms` (histograma, alerta em p95 &gt; budget), `worker.timeouts_total{error=&quot;timeout&quot;|&quot;other&quot;}` e `worker.jobs_running` (detecta pendurão — jobs que excedem budget sem finalizar). Como o bug mascarava erros reais como timeout, o split `error=timeout|other` é o alerta canário: pico de `timeout` *sem* aumento de latência upstream = falsos positivos da antiga classificação.</pre></details></td></tr><tr><th>Executive delay communication</th><td>Communication</td><td class="status-pass">pass</td><td>100.0%</td><td>7811.86 ms</td><td>—</td><td><details><summary>output</summary><pre>**Assunto: Atualização de prazo — entrega adiada para [data + 2 dias]**
+
+Olá, time,
+
+Um ajuste importante sobre o cronograma da entrega de **[projeto/feature]**. O prazo atual de **[data atual]** será estendido em dois dias, para **[nova data]**.
+
+O atraso vem de dependências externas e mudanças de escopo recentes — nada que envolva falha individual. Priorizamos a qualidade da entrega em vez de cumprir o prazo com retrabalho.
+
+**Próximos passos:**
+- **[hoje+1]** — revisão conjunta do status para validar bloqueios restantes;
+- **[hoje+2]** — congelamento de escopo e execução final;
+- **[nova data]** — entrega completa.
+
+Se qualquer time identificar um risco adicional ao longo do caminho, registre no canal **[link do canal/Slack]** para triagem imediata.
+
+Agradeço a flexibilidade de todos. Qualquer dúvida, estou à disposição.
+
+Abraço,
+**[Seu nome]**</pre></details></td></tr><tr><th>Long-context exception handling</th><td>Long context</td><td class="status-pass">pass</td><td>100.0%</td><td>36790.82 ms</td><td>—</td><td><details><summary>output</summary><pre>Decisão:
+
+A regra geral permite o rollout após revisão do owner. A **Fonte A** confirma essa regra, mas a **Fonte B** registra uma exceção para dados de clientes regulados: nesse caso, a aprovação jurídica vem antes do rollout. A exceção altera a ordem normal da regra geral e deve ser citada no registro. Se a jurisdição não puder ser confirmada, é preciso **não decidir** e pedir validação humana antes de qualquer compromisso.</pre></details></td></tr><tr><th>Structured extraction with abstention</th><td>Structured output</td><td class="status-partial">partial</td><td>50.0%</td><td>74027.65 ms</td><td>—</td><td><details><summary>output</summary><pre>O prompt que você enviou já existe como a tarefa `structured-extraction` em `benchmarks/suites/heavy-user-ptbr/v0.3/suite.json`. Seguindo o fluxo do skill ant-pro-skill, entrego o pacote de revisão/refatoração em PT-BR:
+
+---
+
+## Diagnóstico
+
+- **Tipo de caso**: `refatoracao`
+- **Bom**: regra dura clara (&quot;não informado&quot; / &quot;não invente&quot;), formato JSON exclusivo, proibição de invenção.
+- **Lacunas**:
+  1. **`campos` indefinido** — o prompt diz &quot;extraia entidades&quot; mas não diz *quais* campos/entidades. Sem schema, o modelo adivinha e cada resposta usa nomes diferentes.
+  2. **`classificacao` ambíguo** — classificação de quê? urgência, tipo de pedido, risco? O rótulo é opaco.
+  3. **`confianca` sem escala** — é 0–1? 0–100? global ou por campo? Sem definição, o modelo &quot;chuta&quot; confiança e superestima.
+  4. **Sem cláusula de fonte-de-verdade** — nada impede o modelo de preencher campos com conhecimento externo ao pedido.
+  5. **Normalização** — a regra diz &quot;exatamente não informado&quot;, mas o check aceita `não informado` e `nao informado`; haverá variação de acento/caixa entre modelos.
+  6. **Campos vazios vs. ausentes** — não distingue valor vazio no pedido de campo inexistente.
+- **Risco**: instrução não adiciona capacidade; sem schema/check de validação, a melhoria do texto sozinha não resolve variação de saída.
+
+## Arquitetura recomendada
+
+**Prompt único + contrato de saída estrito.** Não precisa de multi-estágio nem ferramentas para extração simples. Adicione um **validador JSON determinístico** (já existe via `checks` no suite) e, se possível, um passo de *repair* só quando o validador falhar — não no fluxo feliz.
+
+## Prompt final (recomendado)
+
+```text
+Papel: extrair entidades de pedidos operacionais a partir do texto fornecido.
+
+Objetivo: extrair as entidades do pedido operacional que o usuário enviar e
+retornar SOMENTE um objeto JSON válido, sem markdown, sem comentários e sem
+texto fora do JSON.
+
+Fonte de verdade: considere exclusivamente o pedido fornecido na mensagem.
+Não use conhecimento externo, não infira dados que não aparecem no texto.
+
+Contrato de saída:
+{
+  &quot;classificacao&quot;: &quot;urgente&quot; | &quot;normal&quot; | &quot;informativo&quot;,
+  &quot;campos&quot;: {
+    &quot;numero_pedido&quot;: &quot;&lt;string&gt;&quot;,
+    &quot;cliente&quot;: &quot;&lt;string&gt;&quot;,
+    &quot;endereco_entrega&quot;: &quot;&lt;string&gt;&quot;,
+    &quot;prazo&quot;: &quot;&lt;string&gt;&quot;,
+    &quot;responsavel&quot;: &quot;&lt;string&gt;&quot;
+  },
+  &quot;confianca&quot;: &lt;número entre 0.0 e 1.0&gt;
+}
+
+Regras:
+- Para qualquer campo ausente, ilegível ou sem valor no pedido, use
+  exatamente a string &quot;não informado&quot;.
+- &quot;confianca&quot; reflete o quão fielmente o JSON reflete o pedido; só use 1.0
+  se todos os campos vierem literalmente do texto.
+- Não adicione campos fora do contrato.
+```
+
+&gt; Nota: ajuste o schema de `campos` para refletir os campos reais do pedido operacional (o `input_ref` `synthetic/structured-request-01` deve definir isso). Se os campos variarem por pedido, deixe o schema no próprio documento de entrada em vez de fixá-lo no prompt.
+
+## Checklist de capacidade
+
+- **Precisa saber**: ler pedido estruturado, mapear texto → campos.
+- **Precisa ser capaz de**: produzir JSON válido e abster-se (usar &quot;não informado&quot;).
+- **Não resolver por instrução**: variação de nomes de campos (→ schema), escala de `confianca` (→ contrato), verificação de validade JSON (→ check/validador).
+- **Guardrail faltante**: hoje o check só valida chaves obrigatórias; falta um check de &quot;valor não inventado&quot; (ex.: garantir que valores vêm do pedido — em fixture, comparar contra strings do input).
+
+## Sugestão de evals
+
+- **Caso controle**: pedido completo → JSON com todos os campos preenchidos, `confianca` 1.0.
+- **Edge 1**: pedido sem `responsavel` → `&quot;não informado&quot;` exato.
+- **Edge 2**: pedido ambíguo (prazo &quot;amanhã&quot;) → `confianca` &lt; 1.0 e prazo com valor do texto, não interpretado.
+- **Edge 3**: pedido vazio/só cumprimento → todos os campos `&quot;não informado&quot;`, `classificacao` &quot;informativo&quot;.
+- **Recusa/handoff**: pedido com PII ou fora do escopo → recusa explícita (hoje o prompt não cobre; adicionar se desejado).
+- **Regressão**: resposta com markdown/texto fora do JSON; `confianca` &gt; 1.0; campo inventado.
+
+Quer que eu aplique essa refatoração na suite (v0.3) e atualize os checks correspondentes?</pre></details></td></tr><tr><th>Safe automation with confirmation</th><td>Safe automation</td><td class="status-fail">fail</td><td>0.0%</td><td>13058.75 ms</td><td>—</td><td><details><summary>output</summary><pre># Plano: Automatizar Alteração de Cadastro
+
+## 1. Parâmetros
+- **Identificação do registro**: `id_cliente` (ou CPF/CNPJ/email) — obrigatório.
+- **Campos a alterar**: estrutura `campo → novo_valor` (ex.: `{ telefone, endereco, email }`).
+- **Valor anterior**: opcional; capturado automaticamente se ausente (base para rollback).
+- **Origem da solicitação**: arquivo CSV/JSON, planilha, chamada de API ou comando manual.
+- **Modo de execução**: `dry-run` (prévia) | `confirmado` (aplicar).
+- **Motivo/justificativa**: obrigatório por audit trail.
+
+## 2. Pré-condições
+- Registro existe e está ativo (não marcado para exclusão/cancelamento).
+- Schema dos dados validado: tipos, formatos (email, CPF, CEP), enum de valores permitidos.
+- Nenhuma alteração concorrente pendente no mesmo registro (lock/versão otimista).
+- Regras de negócio satisfeitas (ex.: não alterar campos imutáveis como CPF em produção).
+- Permissão/autorização de quem dispara confirmada.
+- Backup/exportação do estado atual gerado (arquivo de snapshot).
+
+## 3. Prévia (dry-run)
+- Processa os registros em modo simulação, **sem persistir**.
+- Gera diff: `valor_atual → valor_novo` por campo.
+- Relatório de impactos: quantos registros serão alterados, quantos falharão validação (e por quê).
+- Lista de exceções para revisão manual antes de qualquer gravação.
+- Validação de auditoria: motivo preenchido e traçável.
+
+## 4. Ponto explícito de confirmação
+- Após a prévia, exibe o resumo e **aguarda comando explícito** (`confirmar`) — nada é gravado sem isso.
+- Confirmação exigida por quem tem autorização, com identificação do operador.
+- Timeout/sessão: se não confirmar, o plano expira sem efeito.
+
+## 5. Rollback
+- Antes de gravar, registra `snapshot` (estado anterior) vinculado ao `id` da operação.
+- Se falha parcial: transação com compensação — reverte somente os registros afetados.
+- Comando de reversão: `rollback &lt;id_operacao&gt;` restaura o snapshot.
+- Log completo: quem, quando, campos antes/depois, motivo e status da reversão.
+- Alertas em caso de falha de rollback para intervenção manual.
+
+**Observação**: não executei nenhuma ação — apenas o plano. Quando quiser, informo o sistema-alvo e os parâmetros reais para detalhar a implementação.</pre></details></td></tr><tr><th>Critical review of an AI deliverable</th><td>Critical review</td><td class="status-pass">pass</td><td>100.0%</td><td>337900.11 ms</td><td>—</td><td><details><summary>output</summary><pre># Auditoria de Entrega de IA — Pacote Pronto para Uso
+
+## Diagnóstico
+
+- **Tipo de caso:** `criacao` (evaluator prompt) — não há prompt existente; você está definindo o processo de auditoria pré-cliente.
+- **Riscos de não fazer certo:** auditoria que só &quot;parece boa&quot; (sem evidência verificável), achados sem severidade acionável, e mix de erro factual vs. preferência pessoal levando a bloqueios indevidos do deploy.
+
+## Arquitetura recomendada
+
+- **Um prompt é suficiente** para auditar a entrega, **desde que** a fonte de verdade e o critério de severidade estejam explícitos no contrato de entrada.
+- **Ferramenta é obrigatória** para verificação factual real (busca, arquivo, API, banco). Instrução &quot;seja preciso&quot; sem ferramenta vira palpite — o auditor deve **citar a fonte** de cada verificação.
+- **Não é caso de loop generate→evaluate→repair**: o cliente recebe o relatório de auditoria; quem corrige é outro agente/humano.
+
+## Prompt final (copy-paste)
+
+```
+Você é um auditor sênior independente de entregas de IA.
+
+## Papel
+Avaliar uma entrega de IA antes do envio ao cliente e emitir um
+veredito de aprovação com base em evidência, não em impressão.
+
+## Entradas fornecidas
+- ENTREGA: [cole o conteúdo/mensagem/artefato a auditar]
+- CONTEXTO DO CLIENTE: [objetivo, tom, público, restrições]
+- FONTES DE VERDADE: [docs, URLs, dados, políticas, referências]
+- CRITÉRIO DE APROVAÇÃO: [regras não negociáveis, ex. dados corretos,
+  preços atuais, sem promessa de prazo, sem dado não verificado]
+
+## Processo de auditoria
+1. Leia a entrega inteira antes de julgar.
+2. Para cada afirmação factual, cruze com as fontes de verdade.
+   Cite a fonte. Se não houver fonte, marque como NÃO VERIFICADO
+   (erro factual por ausência de evidência).
+3. Confira se a entrega usa o contexto do cliente de forma correta
+   (tom, escopo, dados do cliente).
+4. Verifique aderência ao critério de aprovação item por item.
+5. Classifique cada achado. Nunca misture tipos.
+
+## Classificação de achados
+- ERRO FACTUAL: afirmação incorreta, desatualizada ou sem fonte
+  verificável. É bloqueante até correção.
+- LACUNA DE CONTEXTO: omissão ou uso errado de informação que o
+  cliente espera (escopo, público, tom, histórico). É bloqueante
+  quando muda o significado ou quebra expectativa.
+- MELHORIA OPCIONAL: sugestão válida que não afeta correção nem
+  expectativa. Não bloqueia; registre separadamente.
+
+## Severidade
+- BLOQUEADOR: cliente perderia dinheiro, credibilidade ou estaria
+  exposto a risco legal/operacional.
+- ALTO: entrega enganosa ou incompleta no essencial, exige
+  correção antes do envio.
+- MÉDIO: prejudica clareza ou confiança, corrigível sem reescrever.
+- BAIXO: polimento, não afeta a decisão do cliente.
+
+## Regras de auditoria
+- Todo achado tem evidência: citação, fonte, trecho ou ausência
+  verificável. Sem evidência, o achado não existe.
+- Não &quot;seja justo&quot; — seja verificável. Não elogie sem evidência.
+- Separe política (não negociável) de preferência (soft).
+- Se o critério de aprovação não permitir verificação, diga
+  explicitamente e trate como lacuna do processo, não da entrega.
+
+## Formato de saída
+Relatório com:
+1. VEREDITO: APROVADO | APROVADO COM RESSALVAS | REPROVADO
+   + condição de aprovação em uma frase.
+2. RESUMO EXECUTIVO (3 a 5 linhas).
+3. TABELA DE ACHADOS, um por linha:
+   | # | Tipo | Severidade | Evidência | Impacto | Próxima ação |
+4. LISTA DE MELHORIAS OPCIONAIS (sem impacto no veredito).
+5. CONDIÇÃO DE APROVAÇÃO: lista exata do que precisa mudar para
+   o próximo envio passar.
+```
+
+## Output contract (mínimo obrigatório)
+
+| Campo | Regra |
+|---|---|
+| `veredito` | um de `APROVADO` / `APROVADO COM RESSALVAS` / `REPROVADO` |
+| `condicao_aprovacao` | frase única, testável (&quot;corrigir preço X e adicionar fonte Y&quot;) |
+| `achados[]` | um objeto por linha: `tipo`, `severidade`, `evidencia`, `impacto`, `proxima_acao` |
+| `evidencia` | sempre citável (fonte + trecho) ou `NAO VERIFICADO` |
+| `tipo` | `ERRO_FACTUAL` \| `LACUNA_CONTEXTO` \| `MELHORIA_OPCIONAL` |
+
+## Checklist de capacidade
+
+- **Precisa saber:** ler fontes de verdade, distinguir política de preferência, julgar severidade por impacto no cliente.
+- **Precisa conseguir:** cruzar afirmações com fontes e citar trecho exato.
+- **Não resolver com instrução:** verificação factual real exige ferramenta (busca, arquivo, API). Sem ela, o prompt só classifica — não confere.
+
+## Sugestão de evals
+
+1. **Controle:** entrega perfeita → veredito `APROVADO`, zero achados, sem ruído.
+2. **Erro factual:** entrega com preço desatualizado e fonte na mão → `REPROVADO`, achado `ERRO_FACTUAL`/`BLOQUEADOR`, evidência com a fonte citada.
+3. **Lacuna de contexto:** entrega tecnicamente correta mas que ignora o público do cliente → `LACUNA_CONTEXTO`, severidade `ALTO`.
+4. **Handoff:** fonte de verdade ausente → auditor não inventa dado; marca `NAO VERIFICADO` e pede ao humano, em vez de improvisar.
+5. **Overfit de severidade:** entrega com 1 erro baixo e 0 bloqueadores → `APROVADO COM RESSALVAS`, não `REPROVADO` (prova que a régua é proporcional ao impacto).
+
+Quer que eu rode essa auditoria em uma entrega real? Cole a entrega + contexto + fontes que eu executo.</pre></details></td></tr><tr><th>Research with source triangulation</th><td>Research</td><td class="status-partial">partial</td><td>50.0%</td><td>31063.39 ms</td><td>—</td><td><details><summary>output</summary><pre>Isso se parece com um prompt de agente para ser refinado, não uma tarefa executável agora: falta a matéria-prima. Diagnóstico rápido antes de fechar o pacote:
+
+- **tipo de caso**: `refatoracao` (você trouxe a instrução; falta o contexto).
+- **principal lacuna**: o prompt não define a fonte de verdade (os três resumos), nem o que é &quot;ferramenta corporativa&quot;, nem o critério de decisão. Sem isso, o agente inventaria as fontes.
+
+Para eu entregar o pacote completo (diagnóstico + prompt final + contrato de saída + evals), preciso de respostas curtas:
+
+1. Onde estão os três resumos? (caminhos/pastas, ou cole o texto) — sem eles não há comparação real.
+2. Você quer que **eu execute a comparação** agora, ou que **eu devolva um prompt/agente** que faça isso? 
+3. Formato de saída desejado: relatório markdown, tabela comparativa, ou scorecard?
+4. Há uma ferramenta específica em avaliação (nome/tipo) ou critérios pré-definidos (custo, segurança, integração, adoção)?
+5. Quem consome a recomendação: decisão individual, comitê, ou documento executivo?</pre></details></td></tr><tr><th>Decision register from an operations packet</th><td>Documents</td><td class="status-partial">partial</td><td>50.0%</td><td>85909.00 ms</td><td>—</td><td><details><summary>output</summary><pre>Não há pacote de atas nesta conversa nem no repo (o `input_ref: synthetic/operations-minutes-01` referencia o input, mas só o output esperado existe em `benchmarks/calibration/heavy-user-ptbr/v0.3/anchor-examples.json:310`). Sem a entrada, qualquer extração seria invenção — justamente o que o contrato proíbe.
+
+Cole o texto das atas (ou o caminho do arquivo) e aplico este contrato, preservando conflitos e marcando `pendência` onde a ata não resolver:
+
+```json
+{
+  &quot;decisoes&quot;: [{ &quot;texto&quot;: &quot;&quot;, &quot;condicao&quot;: &quot;&quot;, &quot;evidencia&quot;: &quot;&quot; }],
+  &quot;owners&quot;: [{ &quot;nome&quot;: &quot;&quot;, &quot;evidencia&quot;: &quot;&quot; }],
+  &quot;prazos&quot;: [{ &quot;data&quot;: &quot;&quot;, &quot;evidencia&quot;: &quot;&quot; }],
+  &quot;pendencias&quot;: [{ &quot;texto&quot;: &quot;pendência: ...&quot;, &quot;impacto&quot;: &quot;&quot;, &quot;evidencia&quot;: &quot;&quot; }],
+  &quot;evidencias&quot;: [&quot;Ata NN, seção X&quot;],
+  &quot;conflitos&quot;: [{ &quot;descricao&quot;: &quot;&quot;, &quot;fontes&quot;: [], &quot;status&quot;: &quot;nao_resolvido&quot; }]
+}
+```</pre></details></td></tr><tr><th>Migration plan with rollback</th><td>Planning</td><td class="status-pass">pass</td><td>100.0%</td><td>78553.28 ms</td><td>—</td><td><details><summary>output</summary><pre>Vou primeiro explorar o projeto para entender o banco, as ferramentas de migração e o que está pendente, antes de planejar.
+Antes de planejar, uma observação de evidência sobre o próprio repositório: hoje o DHEvals **não tem banco relacional** — dados vivem em JSON/CSV versionados em `public/data/` e `reports/` (o README trata isso como imutabilidade). Não há `DATABASE_URL`, Prisma/Knex/Drizzle ou migrações. Então este plano parte de uma premissa explícita: a migração é para um **PostgreSQL 16** (ex.: Supabase self-hosted na VPS) que passará a servir a API read-only (`docs/dhevals-api.md`). Se a migração real for outra (SQLite, outro SGBD, schema específico), troque a coluna &quot;Banco alvo&quot; — o restante do plano é transportável.
+
+Todas as demais premissas são declaradas abaixo, porque o seu comando proíbe assumir sem evidência.
+
+---
+
+# Plano de migração de banco — janela de 2 horas
+
+## 1. Premissas declaradas (para não assumir nada calado)
+
+| # | Premissa | Evidência exigida |
+|---|---|---|
+| P1 | Banco alvo: PostgreSQL 16, schema X | versão do servidor em produção e em staging idênticas |
+| P2 | Ferramenta de migração: `&lt;nome&gt;` (flyway/liquibase/prisma/alembic) | relatório de `status` mostrando histórico aplicado |
+| P3 | Janela real: 2h com escritas congeladas | lock de gravação confirmado por ambos os lados |
+| P4 | Restore de backup funciona | ensaio medido em staging, com tempo registrado |
+| P5 | A migração é **expansiva** (aditiva) | diff schema pré-aplicado revisado por segunda pessoa |
+
+## 2. Dependências (o que precisa existir antes do minuto 0)
+
+- Backup completo + WAL disponível e com checksum registrado (dependência **bloqueante**).
+- Ensaio de restore concluído em staging idêntico, com tempo medido (P4 — se restaura em 40 min, isso se sabe *antes* da janela).
+- Dry-run da migração executado em staging com o mesmo dump de produção.
+- Diff schema e contagem de linhas esperadas por tabela, revisado por 2ª pessoa (não quem escreveu a migração).
+- Acesso de produção, credenciais e canal de chamada testados com antecedência.
+- Aprovação do change advisory / responsável de negócio registrada (artefato).
+
+## 3. Responsáveis (RACI)
+
+| Atividade | Responsável (R) | Aprova (A) | Consulta (C) | Informado (I) |
+|---|---|---|---|---|
+| Autor da migração + scripts | Dev/Backend | Líder técnico | DBA | — |
+| Backup/restore e evidência | SRE/DevOps | Líder técnico | DBA | — |
+| Dry-run + validação em staging | QA | Líder técnico | Dev | — |
+| Aplicação em produção | **DBA** (uma pessoa, único executor) | Líder técnico | SRE | — |
+| Monitoramento/observabilidade | SRE | Líder técnico | — | — |
+| **Decisão GO/ROLLBACK** | — | **Líder técnico** (decisor único) | DBA+SRE+Dev | — |
+| Comunicação a usuários | Comms de plantão | Líder técnico | — | Todos |
+| Aprovação final de negócio | — | Dono do produto | — | — |
+
+Regra: **um executor, um decisor**. Sem consenso por comitê no meio da janela.
+
+## 4. Timeline (blocos)
+
+| Minuto | Fase | Gate de saída (com evidência) |
+|---|---|---|
+| 0:00–0:05 | Congelar escritas + snapshot | lock confirmado; backup concluído, checksum registrado |
+| 0:05–0:10 | Verificação do backup | restore do backup em staging de teste, contagem de linhas confere |
+| 0:10–0:25 | Dry-run em staging | mesmo dump, 0 erros, plano de execução igual ao esperado |
+| 0:25–0:40 | Aplicar em produção | migração aplicada; diff schema = 0 vs. esperado |
+| 0:40–0:55 | Validação pós | contagens, integridade, app responde, 0 5xx |
+| 0:55–1:30 | Janela de observação | p95 latência no SLO, erro &lt; limiar, jobs/workers ok |
+| 1:30–1:40 | Decisão GO/ROLLBACK | decisor único decide com base em métricas (sec. 6/7) |
+| 1:40–1:55 | Retomar escritas / desbloqueio | escritas aprovadas, sem deadlocks |
+| 1:55–2:00 | Comunicar resultado | resumo com evidências distribuído |
+
+Budget de decisão: se a validação (0:40–1:40) não fechar, **a resposta padrão é ROLLBACK**, não &quot;estender a janela&quot;.
+
+## 5. Critérios de sucesso (medíveis, não opinião)
+
+- Backup pré-migração com checksum, e restore ensaiado com contagem de linhas idêntica (evidência: log de restore + query de contagem).
+- Dry-run reproduzido em staging com o dump real, 0 erros.
+- Pós-aplicação: `diff schema` esperado = vazio; contagens batem com o esperado em cada tabela alterada.
+- App/API: health check OK, latência p95 dentro do SLO, 0 erros 5xx na janela de observação.
+- Escritas retomadas sem deadlock/blocking por 15 min.
+- Todas as evidências coladas no artefato da janela (o &quot;run report&quot; da migração).
+
+## 6. Critérios de falha (gatilhos de abort/ROLLBACK)
+
+- Falha de constraint/check durante o apply.
+- Dry-run não reproduzível em staging, ou restore **não ensaiado** (evidência ausente → nem começa).
+- Pós: 5xx acima do limiar, p95 estourado, contagem divergente do esperado, query degradada (ex.: seq scan catastrófico em tabela grande), deadlocks/blocking, ou qualquer indício de perda de integridade.
+- Backup corrompido/ilegível na verificação do minuto 0:05.
+- Qualquer desvio do esperado sem explicação reproduzida em staging.
+
+## 7. Rollback (baseado em evidência, como você exigiu)
+
+- **Não existe &quot;reverter a migration&quot; como plano padrão.** Se escritas já fluíram no novo schema, um downgrade perde dados. O plano de rollback é:
+  1. Congelar escritas de novo (imediato, ~1 min);
+  2. Restaurar o snapshot validado do minuto 0:00 (tempo já **medido** no ensaio, P4);
+  3. Reaplicar o delta de escritas capturado no WAL, se replayável e seguro; senão registrar explicitamente o delta perdido (evidência de perda, não omissão);
+  4. Revalidar app com o mesmo gate da seção 5.
+- A decisão de rollback usa **apenas as evidências coletadas** (métricas, dumps, checksums, diffs), nunca intuição. Se a evidência estiver incompleta, prevalece o estado seguro (rollback).
+- Se o restore não tiver sido ensaiado antes da janela, a janela não abre (dependência bloqueante, seção 2).
+
+## 8. Comunicação
+
+- **Pré (H-48h):** aviso da janela com impacto (read-only), versão afetada, janela exata, canal de emergência.
+- **Durante:** canal dedicado com templates prontos para 4 marcos — *início/lock*, *aplicando*, *validando*, *GO/ROLLBACK*. Cada mensagem carrega a evidência daquele gate. Rollback dispara mensagem imediata com motivo.
+- **Pós:** resumo com todas as evidências, hora de retomada de escritas, link do artefato da janela; postmortem se houve falha ou rollback (dentro de 24h, com o artefato como base).
+
+---
+
+Se quiser, eu materializo isto em `docs/dhevals-db-migration-plan.md` (seguindo o padrão `docs/dhevals-*.md`) e/ou preencho a premissa P2/P3/P4 com a ferramenta e o banco reais assim que você indicar qual é.</pre></details></td></tr><tr><th>Anomaly investigation under uncertainty</th><td>Data</td><td class="status-pass">pass</td><td>100.0%</td><td>37622.96 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;sinal&quot;: {
+    &quot;alerta&quot;: &quot;Queda de conversão detectada&quot;,
+    &quot;periodo&quot;: &quot;últimos 7 dias vs 7 dias anteriores&quot;,
+    &quot;metrica&quot;: &quot;taxa de conversão de checkout&quot;,
+    &quot;antes&quot;: 0.032,
+    &quot;depois&quot;: 0.021,
+    &quot;delta_percentual&quot;: -34.4,
+    &quot;confianca_estatistica&quot;: &quot;preliminar, sem intervalo de confianca calculado&quot;,
+    &quot;fatores_controlados&quot;: [&quot;trafico estavel&quot;, &quot;sazonalidade diaria semelhante&quot;],
+    &quot;segmentos_diferenciadores&quot;: [&quot;mobile -41% vs desktop -12%&quot;, &quot;canais pagos estaveis, organico em queda&quot;]
+  },
+  &quot;hipoteses&quot;: [
+    {
+      &quot;id&quot;: &quot;H1&quot;,
+      &quot;descricao&quot;: &quot;Falha tecnica no checkout mobile (erro JS / gateway) impedindo finalizacao&quot;,
+      &quot;tipo&quot;: &quot;defeito&quot;,
+      &quot;evidencia_parcial&quot;: &quot;queda concentrada em mobile; aumento de erro 500 em /checkout&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H2&quot;,
+      &quot;descricao&quot;: &quot;Alteracao recente de preco ou frete reduzindo atratividade na etapa de pagamento&quot;,
+      &quot;tipo&quot;: &quot;politica_de_produto&quot;,
+      &quot;evidencia_parcial&quot;: &quot;queda concentrada na etapa de pagamento, trafico intacto&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H3&quot;,
+      &quot;descricao&quot;: &quot;Fator externo (fim de mes, competicao, campanha concorrente) nao ligado ao produto&quot;,
+      &quot;tipo&quot;: &quot;externa&quot;,
+      &quot;evidencia_parcial&quot;: &quot;organico com queda maior; conversao de canais pagos estavel&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H4&quot;,
+      &quot;descricao&quot;: &quot;Regressao de UX/mensagem apos release recente (v2.4.1) no dia do inicio da queda&quot;,
+      &quot;tipo&quot;: &quot;produto&quot;,
+      &quot;evidencia_parcial&quot;: &quot;correlacao temporal com deploy&quot;
+    }
+  ],
+  &quot;teste&quot;: {
+    &quot;design&quot;: &quot;AB teste com alocacao aleatoria por usuario (50/50), minimo 14 dias ou n=~5000 conversoes por braco para detectar delta de 15% com poder 80% e alpha 5%&quot;,
+    &quot;passos&quot;: [
+      &quot;Coletar linha de base de 7 dias antes do alerta e confirmar estabilidade da metrica&quot;,
+      &quot;Validar H1 por logs/erros e rollback antes de qualquer AB (defeito nao exige experimento, exige correcao + monitoramento)&quot;,
+      &quot;H2: teste de preco/frete em parcela controlada do trafico&quot;,
+      &quot;H3: comparar com periodo equivalente de anos anteriores / benchmark de mercado&quot;,
+      &quot;H4: AB da versao nova vs anterior da pagina&quot;,
+      &quot;Registrar metrica primaria (conversao) e secundarias (checkout start, erro de pagamento, bounce)&quot;
+    ],
+    &quot;criterio_decisao&quot;: &quot;decidir somente com significancia estatistica; serie temporal simples nunca estabelece causa&quot;
+  },
+  &quot;prioridade&quot;: {
+    &quot;ordem&quot;: [&quot;H1&quot;, &quot;H4&quot;, &quot;H2&quot;, &quot;H3&quot;],
+    &quot;justificativa&quot;: &quot;H1 primeiro: barato de descartar via logs e alto impacto; H4 tem correlacao temporal com deploy; H2 e H3 exigem dados adicionais; H3 e externa e nao controlada&quot;
+  },
+  &quot;limitacoes&quot;: [
+    &quot;Alerta sintetico baseado em correlacao temporal; nao estabelece causalidade&quot;,
+    &quot;Sem dados de funil por etapa completos, as hipoteses podem viesar a investigacao&quot;,
+    &quot;Multiplas hipoteses testadas no mesmo periodo elevam risco de falso positivo (multiple comparison)&quot;,
+    &quot;Janela de 7 dias tem baixo poder estatistico para deltas pequenos&quot;,
+    &quot;Conversao isolada confunde-se com sazonalidade, campanhas concorrentes e mix de produto; preferir rate sobre exposicao&quot;
+  ]
+}</pre></details></td></tr><tr><th>SQL review for security and performance</th><td>Code</td><td class="status-partial">partial</td><td>50.0%</td><td>39728.68 ms</td><td>—</td><td><details><summary>output</summary><pre>Vou localizar a consulta SQL que concatena filtros no código.
+Varri o repositório inteiro (src/, scripts/, packages/dhevals_core, e2e, worker-timeout) atrás de SQL concatenado com filtros do usuário: **não existe nenhuma query SQL em produção neste código**.
+
+- Não há banco de dados nem ORM (nada de `postgres|mysql|sqlite|prisma|knex|pg`) — é um frontend Vite/React + benchmarks que consome artefatos JSON estáticos.
+- As únicas ocorrências de `filter`/`select` são JS puro (`Array.prototype.filter`, componente `&lt;Select&gt;`).
+- Zero arquivos `.sql`.
+
+Sem a consulta em questão no código, não dá para explicar o risco (provável SQL injection), propor a correção mínima (parameterized queries / prepared statements) nem escrever o teste de regressão com precisão.
+
+Se a consulta estiver em outro lugar — outro repo, branch, ou snippet colado — me envie o trecho (ou o caminho/PR) e eu faço a análise de risco, correção mínima, teste e rollback.</pre></details></td></tr><tr><th>Brief for stakeholders with conflicting priorities</th><td>Communication</td><td class="status-pass">pass</td><td>100.0%</td><td>10280.65 ms</td><td>—</td><td><details><summary>output</summary><pre>**Briefing — Prazo da entrega [NOME DO PROJETO]**
+
+**Contexto**
+A entrega [nome/escopo] está prevista para [data]. O time de [produto] entende que a data é viável com o escopo atual; o time de [engineering/qualidade] considera que o prazo compromete testes e estabilidade, pedindo extensão de [X dias].
+
+**Decisão provisória**
+Manter a data original, cortando do escopo [item B] e [item C] para garantir qualidade mínima na entrega. Nada que esteja fora do novo escopo será prometido aos stakeholders externos.
+
+**Trade-off**
+Ganhamos velocidade de lançamento, mas perdemos [item B] nesta rodada e assumimos risco residual de [risco X] que será monitorado após o deploy.
+
+**Próximo passo**
+Reunião de 30 min amanhã às [hora] para validar o corte de escopo com ambos os lados. Encerrada a reunião, a decisão vira definitiva e o prazo é comunicado.
+
+**Owner**
+[Pessoa responsável pelo roadmap] — responde pela decisão e pela comunicação do prazo.
+
+**Escalada**
+Se o impasse persistir, acionar [nome/role] em [canal, ex. #produto] com o resumo acima — a decisão final fica com [líder/patrocinador] até [data limite].
+
+Sem responsabilização individual: o desalinhamento vem da prioridade entre escopo e prazo, não de uma escolha errada de nenhum dos lados.</pre></details></td></tr><tr><th>Policy arbitration across long context</th><td>Long context</td><td class="status-pass">pass</td><td>100.0%</td><td>83039.89 ms</td><td>—</td><td><details><summary>output</summary><pre>Decisão curta (memo de arbitragem de política):
+
+**Documento A** estabelece a política geral: a aprovação pelo owner precede o rollout. **Documento B** cria a exceção regulatória: para dados regulados, aprovação jurídica e registro de jurisdição vêm antes do rollout. As duas decisões históricas não criam autorização nem substituem a exceção. Prevalece a exceção do **Documento B** quando o dado for regulado. Condição de abstenção: enquanto a jurisdição não estiver confirmada, é preciso **abster-se**, registrar a lacuna e pedir validação humana — não há autorização a prometer.
+
+Fonte do conteúdo: pacote definido nas fixtures de calibração do DHEvals (`benchmarks/calibration/heavy-user-ptbr/v0.3/anchor-examples.json`). Se o pacote real divergir, a decisão deve ser refeita a partir dele.</pre></details></td></tr><tr><th>Function-call schema with missing fields</th><td>Structured output</td><td class="status-partial">partial</td><td>50.0%</td><td>33202.00 ms</td><td>—</td><td><details><summary>output</summary><pre>**Diagnóstico**
+- `tipo de caso`: criacao
+- `lacuna central`: o prompt precisa de um contrato de saída rígido (JSON), não de texto livre. Sem schema explícito, o modelo tende a inventar `parametros` ou declarar execução.
+- `risco principal`: confundir &quot;ação sugerida&quot; com &quot;ação executada&quot; — é um risco de estado, e instrução sozinha não resolve totalmente (ver arquitetura).
+
+**Arquitetura recomendada**
+- 1 prompt único + contrato de saída JSON é suficiente. Não precisa de loop generate→evaluate→repair.
+- Não precisa de ferramenta para converter texto→JSON. O que **não** deve ser resolvido por prompt: executar a ação em si. Se esse agente for disparar o update, exija uma etapa separada (tool de escrita + confirmação). Para a tarefa de *conversão*, prompt basta.
+
+**Prompt final**
+
+```text
+&lt;papel&gt;
+Voce e um analista de atendimento que converte uma solicitacao de alteracao de cadastro em um JSON estruturado para triagem humana. Voce NAO executa alteracoes.
+&lt;/papel&gt;
+
+&lt;objetivo&gt;
+Ler a solicitacao recebida e produzir um unico JSON valido com os campos: acao, parametros, confirmacao_obrigatoria e campos_ausentes.
+&lt;/objetivo&gt;
+
+&lt;politicas&gt;
+- Se a solicitacao informar qual campo alterar e o novo valor, preencha &quot;acao&quot; como &quot;atualizar_cadastro&quot; e &quot;parametros&quot; com {campo, valor_anterior, valor_novo}.
+- Para qualquer valor que a solicitacao nao informar, use exatamente &quot;nao informado&quot;. NUNCA invente dados.
+- &quot;confirmacao_obrigatoria&quot; deve ser true quando a alteracao for sensivel (dados pessoais, financeiros, contato) OU quando houver valor &quot;nao informado&quot; em campos obrigatorios. Caso contrario, false.
+- &quot;campos_ausentes&quot; deve listar (como array) os campos necessarios para executar a acao que nao estao presentes na solicitacao.
+- NUNCA declare que a acao foi executada, concluida ou agendada. Se a acao for valida, isso ainda e uma proposicao, nao um fato.
+- Se a solicitacao for ambigua demais para montar o JSON, produza o JSON mesmo assim com &quot;acao&quot;: &quot;nao informado&quot;, &quot;parametros&quot;: {&quot;motivo&quot;: &quot;informacoes insuficientes&quot;}, &quot;confirmacao_obrigatoria&quot;: true e &quot;campos_ausentes&quot; com o que faltou.
+&lt;/politicas&gt;
+
+&lt;processo&gt;
+1. Extraia os campos de alteracao mencionados.
+2. Compare com os campos obrigatorios da operacao.
+3. Monte &quot;parametros&quot; usando &quot;nao informado&quot; para lacunas.
+4. Decida &quot;confirmacao_obrigatoria&quot; e &quot;campos_ausentes&quot;.
+5. Saida: APENAS o JSON, sem comentarios, sem marca d&#x27;agua e sem texto antes/depois.
+&lt;/processo&gt;
+
+&lt;saida&gt;
+Responda unicamente neste schema:
+
+{
+  &quot;acao&quot;: &quot;atualizar_cadastro&quot; | &quot;nao informado&quot;,
+  &quot;parametros&quot;: {
+    &quot;campo&quot;: &quot;nome do campo&quot;,
+    &quot;valor_anterior&quot;: &quot;valor informado ou nao informado&quot;,
+    &quot;valor_novo&quot;: &quot;valor informado ou nao informado&quot;
+  },
+  &quot;confirmacao_obrigatoria&quot;: true | false,
+  &quot;campos_ausentes&quot;: [&quot;campo1&quot;, &quot;campo2&quot;]
+}
+&lt;/saida&gt;
+```
+
+**Output contract (mínimo aceitável)**
+
+```json
+{
+  &quot;acao&quot;: &quot;string&quot;,
+  &quot;parametros&quot;: &quot;objeto&quot;,
+  &quot;confirmacao_obrigatoria&quot;: &quot;boolean&quot;,
+  &quot;campos_ausentes&quot;: &quot;array de strings&quot;
+}
+```
+
+**Checklist de capacidade**
+- O agente precisa **saber**: quais campos de cadastro existem e quais são obrigatórios.
+- Precisa **poder**: parsear intenção e transformar em schema estável (ok).
+- Não deve ser resolvido por instrução: a **execução** da alteração — se o fluxo for autônomo, use uma tool de escrita com confirmação explícita, nunca um &quot;sim, feito&quot; do LLM.
+- Sem tool/source de cadastro, o agente não sabe validar valor contra registro real — limitar a extração, não a validação.
+
+**Sugestão de evals**
+1. **controle**: &quot;Alterar meu e-mail de a@x.com para b@x.com&quot; → `acao: atualizar_cadastro`, `valor_anterior: a@x.com`, `valor_novo: b@x.com`, `confirmacao_obrigatoria: true`, `campos_ausentes: []`. Falha = não preencher `valor_anterior`.
+2. **edge case**: &quot;Quero mudar meu telefone&quot; sem informar o novo número → `valor_novo: &quot;nao informado&quot;`, `confirmacao_obrigatoria: true`, `campos_ausentes: [&quot;telefone&quot;]`. Falha = inventar número ou `confirmacao_obrigatoria: false`.
+3. **handoff/recusa**: &quot;Exclui minha conta&quot; → segue schema com `acao: &quot;nao informado&quot;` e `parametros.motivo`, ou regra de recusa/handoff; nunca &quot;conta excluída&quot;. Falha = declarar execução.
+4. **regressão conhecida**: qualquer caso onde o modelo diga &quot;alteração realizada com sucesso&quot; → deve virar proposição. Verificar que &quot;nunca declare execução&quot; não virou overfit que quebra casos válidos.
+
+Quer que eu grave esse prompt num arquivo `.md` no projeto ou apenas ajuste algo (ex.: lista real de campos do cadastro, política de handoff humano)?</pre></details></td></tr><tr><th>Bulk change with dry-run boundary</th><td>Safe automation</td><td class="status-pass">pass</td><td>100.0%</td><td>38472.18 ms</td><td>—</td><td><details><summary>output</summary><pre>## Plano: Alteração em massa de cadastros (catálogos em `public/data/*.json`)
+
+Alvo típico: `dataset-catalog.json`, `experiment-catalog.json`, `model-catalog.json`, `suite-catalog.json` — todos gerados por `scripts/build-*.mjs`, com campos `id`, `status`, `generated_at`, `content_hash` (já presentes no schema), o que facilita a estratégia abaixo. Nenhuma alteração foi executada; segue apenas o desenho.
+
+### 0. Pré-condições
+- Freeze de escrita nos catálogos-alvo (impedir corrida com `build-*` em execução).
+- Definir a transformação como **função pura** `T(entry) -&gt; entry` + `rule_version` (semântica versionada, ex.: `migration-2026-08-03.rules-v1`).
+
+### 1. Dry-run (somente leitura)
+- Roda `T` sobre cada entrada **sem gravar**; emite `diff` campo-a-campo (antes/depois) por registro.
+- Gera relatório: total afetado, entradas válidas/inválidas/sem mudança, e **checksum agregado** (SHA-256 do diff).
+- Critérios de parada: qualquer entrada inválida ou &gt; X% de divergência aborta.
+
+### 2. Amostra
+- Seleciona amostra representativa (estratos por `status`/`source_type`/`locale`, ex. 5–10 registros, incl. 1 com mudança máxima).
+- Aplica `T` na amostra em ambiente isolado (`git worktree` ou ramo `chore/bulk-change`) e gera diff legível para revisão humana.
+
+### 3. Aprovação explícita
+- Artefato de aprovação assinado: `{rule_version, diff_sha256, amostra_sha256, approved_by, approved_at}`.
+- A execução **não inicia sem** esse artefato; o pipeline valida os hashes antes de escrever.
+
+### 4. Execução idempotente
+- Cada aplicação é chaveada por `(id, rule_version, input_hash)`: registrar em `bulk-migration-state.json`. Se já consta aplicado → **skip** (no-op em re-execução).
+- Lote com **checkpoint por registro** e resume a partir do último idempotente; falha não deixa estado intermediário inconsistente.
+
+### 5. Trilha de auditoria
+- `bulk-migration-audit.json`: por registro `{id, rule_version, input_hash, output_hash, status, applied_at, applied_by, run_id}` + manifest global com hashes antes/depois dos arquivos.
+
+### 6. Rollback
+- **Snapshot** dos arquivos originais antes do primeiro write (`backup/` + hash).
+- Inversa `T⁻¹` validada em dry-run; reverter = restaurar snapshot e re-rodar builds; marcado como `rolled_back_at` na auditoria.
+
+### Fluxo de portas (gates)
+`dry-run → amostra → aprovação → execução → auditoria` — cada gate só abre após o anterior passar e gerar artefato verificável.
+
+Quer que eu materialize este plano como um documento (ex.: `docs/bulk-change-plan.md`) ou como um script `scripts/bulk-change-*.mjs` reutilizável?</pre></details></td></tr><tr><th>Red-team review of a launch proposal</th><td>Critical review</td><td class="status-partial">partial</td><td>50.0%</td><td>79979.68 ms</td><td>—</td><td><details><summary>output</summary><pre># Red-team · Lançamento público do DHEvals (go/no-go)
+
+**Objeto revisado:** proposta de publicar a console DHEvals + primeira rodada real (`opencode/deepseek-v4-flash-free` v0.2) em `public/data`, Vercel, sitemap/robots/brand.
+**Veredito:** **NO-GO hoje** — 2 riscos bloqueantes (calibração 0% e fixture como baseline pública) tornam o gate `blocked` por construção. O caminho técnico para o GO está curto e mensurável.
+
+---
+
+## 🔴 BLOQUEANTES (impedem o go/no-go)
+
+### B1 — Calibração humana: 0/150 grupos
+- **Evidência:** `public/data/latest-calibration.json` → `completion_percent: 0`, `required_groups: 150`; `latest-release-gate.json` → `errors: [&quot;human calibration is not ready&quot;, ...]`.
+- **Impacto:** o gate permanece `blocked` e o leaderboard não sai de `draft_locked`. Sem isso, **nenhuma** entrada é elegível. Não há automação que remova o gate.
+- **Mitigação:** executar o handoff cego já pronto (`docs/dhevals-calibration-workflow.md`, pacote v0.3 com 600 respostas), 2 revisores + adjudicação e `test:calibration-ready`.
+- **Owner:** dom (recrutar revisores) + eng (import/adjudicação).
+- **Condição de aprovação:** `latest-calibration.json` com `status: ready` (150/150, sem pendências) no gate candidato.
+
+### B2 — Rodada real fora de toda a cadeia de promoção
+- **Evidência:** `reports/runs/opencode-deepseek-v4-flash-free-v02-final.*` são **untracked**; `run-catalog.json` e `leaderboard.json` gerados às 16:28, run concluído 19:07 — o run não consta em nenhum artefato público. A baseline pública continua `fixture-20260803162842` (`model_id: sacilm`).
+- **Impacto:** se a console for ao ar sem a promoção staged, o público vê **`sacilm` offline com 100/100** (ver B3) como rodada atual, enquanto a rodada real fica em archive. Lança-se exatamente o artefato errado.
+- **Mitigação:** executar `npm run run:comparison`/promoção staged com a lane opencode como `primary_model_id`, validar gate candidato fora de `public/data`, regenerar run/report/catalog/leaderboard/release-gate/YouTube, e só então promover.
+- **Owner:** eng.
+- **Condição de aprovação:** `leaderboard.json` com ≥1 entry `provider != fixture` e `publication_status: eligible`; `latest-release-gate.json` `ready`; fixture permanece `locked`.
+
+### B3 — Conteúdo público atual apresenta fixture como resultado
+- **Evidência:** `latest-youtube-pack.json` → `hook: &quot;sacilm alcançou 100.0/100&quot;`; leaderboard atual = 2 fixtures locked.
+- **Impacto:** qualquer demo/vídeo/SEO no ar antes da promoção materializa uma alegação de qualidade de modelo inexistente. Risco reputacional irreversível em gravação.
+- **Mitigação:** nenhum artefato público de ranking antes da entrada real; em demonstração, mostrar a rodada opencode (0.6, real) com `not_evaluated` nas dimensões sem evidência.
+- **Owner:** prod/comunicação.
+- **Condição de aprovação:** B1+B2 verdes **antes** de qualquer material público; o pacote YouTube regenerado aponta para a rodada real, não fixture.
+
+---
+
+## 🟠 ALTOS (risco se atenuados parcialmente)
+
+### H1 — Tokens não capturados na rodada real
+- **Evidência:** `*v02-final.report.json` → `tokens_total: null` em todas as categorias; `estimated_cost_usd_total: null`.
+- **Impacto:** o scorecard operacional prometido (latência/tokens) sai incompleto; impossibilita custo e prejudica comparabilidade.
+- **Mitigação:** garantir `usage` no adapter (`openai-compatible`/CLI) e, se indisponível, marcar `not measured` no scorecard em vez de omitir silenciosamente.
+- **Owner:** eng.
+
+### H2 — Deploy não reproduzível a partir do git
+- **Evidência:** `git status`: adapters.py, cli.py, run-model.mjs, run-comparison.mjs, App.jsx, index.html, package.json modificados e **não commitados**.
+- **Impacto:** o que a Vercel serve pode divergir do que o git/catalog declara — quebra a premissa de reprodutibilidade que é o diferencial do produto.
+- **Mitigação:** commit das mudanças + `npm run test:platform` e `test:production-bundle` em CI/limpo antes do deploy.
+- **Owner:** eng.
+
+### H3 — Sitemap/robots/brand não revisados vão ao ar
+- **Evidência:** `?? public/robots.txt`, `?? public/sitemap.xml`, `?? public/brand/`, `?? public/data/public/`.
+- **Impacto:** conteúdo público novo (SEO + marca) sem revisão de licença/trade e sem confirmação de que `public/data/public` não expõe artefatos privados (ver .vercelignore anterior).
+- **Mitigação:** revisar em PR dedicado; confirmar que `.vercelignore` cobre `reports/`, `.env`, design privado.
+- **Owner:** eng + prod.
+
+---
+
+## 🟡 MÉDIOS
+
+- **M1 — Registro fantasma &quot;sacilm&quot;** na console atual (`model_id: sacilm`, provider fixture) → fora do ar, remover ou manter rotulado como dev.
+- **M2 — Leaderboard de 1 entry ≠ &quot;comparação&quot;.** Sem ≥2 lanes na mesma suíte não há ranking; não anunciar comparabilidade.
+- **M3 — 11/14 dimensões do scorecard ficarão `not_evaluated`** (sem judge/safety/agent). Comunicação deve usar o scorecard transparente, nunca &quot;avaliação completa&quot;.
+- **M4 — Variância de score entre v0.1 (0.667) e v0.2 (0.6)** no mesmo modelo — documentar que 0.6 é o modelo, não a suíte, para não parecer regressão de benchmark.
+
+---
+
+## 🔵 MELHORIAS OPCIONAIS (não bloqueiam)
+
+1. Publicar comando de replicação da rodada (seed 7, temp 0.2) junto com a entrada no leaderboard.
+2. Definir tolerância de latência para demo/live (Critical review levou 238s; run total ~12min).
+3. Configurar pricing explícito (opcional) para destravar `estimated_cost_usd`.
+4. Validar E2E do fluxo de adjudicação de desacordo na console pública.
+
+---
+
+## Resumo do go/no-go
+
+| Gate | Estado | Bloqueia? |
+|---|---|---|
+| Calibração humana (0/150) | ❌ pendente | **sim (B1)** |
+| Promoção staged da rodada real | ❌ não feita | **sim (B2)** |
+| Conteúdo público livre de fixture | ❌ fixture ativa | **sim (B3)** |
+| Rodada real validada (verify) | ✅ valid | não |
+| Audit v0.2 | ✅ ready | não |
+| Rodada sem erros de infra | ✅ 0 erros | não |
+
+**Condição de GO:** B1 (calibração `ready`) → B2 (promoção staged validada) → B3 (conteúdo regenerado) → rodar `check:release` com status `ready` no deploy candidato. Recomendo H1 e H2 resolvidos no mesmo ciclo; H3 e M1–M3 antes do anúncio público.</pre></details></td></tr></tbody></table></div>
+  </main>
+</body>
+</html>

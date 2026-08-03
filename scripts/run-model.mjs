@@ -46,6 +46,11 @@ if (adapter === 'command-line' || adapter === 'cli') {
   args.push('--cli-command', command)
   args.push('--cli-prompt-mode', process.env.DHEVALS_MODEL_CLI_PROMPT_MODE || 'stdin')
   args.push('--cli-timeout-seconds', process.env.DHEVALS_MODEL_CLI_TIMEOUT_SECONDS || '120')
+  // A timeout is an infrastructure event, not a quality failure. Retry it
+  // once with a larger budget by default so slow provider responses do not
+  // invalidate an otherwise useful benchmark run. Set retries=0 to disable.
+  args.push('--cli-timeout-retries', process.env.DHEVALS_MODEL_CLI_TIMEOUT_RETRIES || '1')
+  args.push('--cli-timeout-backoff', process.env.DHEVALS_MODEL_CLI_TIMEOUT_BACKOFF || '2')
   if (process.env.DHEVALS_MODEL_CLI_CWD) args.push('--cli-cwd', process.env.DHEVALS_MODEL_CLI_CWD)
 } else if (adapter === 'openai-compatible' || adapter === 'http') {
   const baseUrl = process.env.DHEVALS_MODEL_BASE_URL
@@ -71,8 +76,14 @@ mkdirSync(runsDirectory, { recursive: true })
 const runCommand = spawnSync('uv', args, { cwd: root, encoding: 'utf8', stdio: 'pipe' })
 process.stdout.write(runCommand.stdout || '')
 process.stderr.write(runCommand.stderr || '')
-if (runCommand.status !== 0) process.exit(runCommand.status ?? 1)
-if (!existsSync(archiveOutput)) fail(`Runner completed without writing ${archiveOutput}`)
+const runnerStatus = runCommand.status ?? 1
+if (!existsSync(archiveOutput)) {
+  if (runnerStatus !== 0) fail(`Model runner exited ${runnerStatus} without writing ${archiveOutput}`)
+  fail(`Runner completed without writing ${archiveOutput}`)
+}
+if (runnerStatus !== 0) {
+  console.error(`Model runner exited ${runnerStatus}; preserving the archive and continuing with verification/report generation.`)
+}
 
 const verificationStatus = verifyRunArtifact({ artifactPath: archiveOutput, suitePath: suiteAbsolutePath, outputPath: verificationOutput })
 if (verificationStatus !== 0) fail('Model run failed reproducibility verification.')
@@ -100,7 +111,8 @@ for (const script of ['build-dataset-catalog.mjs', 'build-experiment-catalog.mjs
 }
 
 console.log(JSON.stringify({
-  status: 'archived',
+  status: runnerStatus === 0 ? 'archived' : 'archived_with_task_errors',
+  runner_status: runnerStatus,
   model_id: modelId,
   provider,
   adapter: adapter === 'cli' ? 'command-line' : adapter,
@@ -112,6 +124,8 @@ console.log(JSON.stringify({
   verification: verificationOutput,
   publication: 'archive-only',
 }, null, 2))
+
+if (runnerStatus !== 0) process.exit(runnerStatus)
 
 function readJson(path, label) {
   try {

@@ -29,6 +29,18 @@ def build_parser() -> argparse.ArgumentParser:
         help="Send each task prompt over stdin (default) or as a CLI argument",
     )
     parser.add_argument("--cli-timeout-seconds", type=float, default=120.0, help="Timeout for each local CLI call")
+    parser.add_argument(
+        "--cli-timeout-retries",
+        type=int,
+        default=0,
+        help="Additional attempts after a CLI timeout (default: 0)",
+    )
+    parser.add_argument(
+        "--cli-timeout-backoff",
+        type=float,
+        default=2.0,
+        help="Multiplier applied to the timeout for each retry (default: 2)",
+    )
     parser.add_argument("--cli-cwd", help="Working directory for each local CLI call")
     parser.add_argument("--model-id", default="sacilm", help="Model identifier sent to the adapter")
     parser.add_argument("--provider", default=None, help="Provider label stored in the manifest")
@@ -60,6 +72,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             args.cli_command,
             prompt_mode=args.cli_prompt_mode,
             timeout_seconds=args.cli_timeout_seconds,
+            timeout_retries=args.cli_timeout_retries,
+            timeout_backoff=args.cli_timeout_backoff,
             cwd=args.cli_cwd,
         )
         provider = args.provider or "command-line"

@@ -1,5 +1,7 @@
 import sys
+import tempfile
 import unittest
+from pathlib import Path
 
 from dhevals_core.adapters import AdapterError, CommandLineAdapter
 from dhevals_core.models import TaskSpec
@@ -53,6 +55,32 @@ class CommandLineAdapterTests(unittest.TestCase):
         command = [sys.executable, "-c", "print({prompt})"]
         with self.assertRaisesRegex(AdapterError, "stdin prompt mode"):
             CommandLineAdapter(command).complete(self.task, self.config)
+
+    def test_timeout_retries_with_escalating_budget(self):
+        with tempfile.TemporaryDirectory() as directory:
+            marker = Path(directory) / "attempt"
+            command = [
+                sys.executable,
+                "-c",
+                "import pathlib,sys,time; p=pathlib.Path(sys.argv[1]); first=not p.exists(); p.touch(); time.sleep(0.2) if first else None; print('ok')",
+                str(marker),
+            ]
+            response = CommandLineAdapter(
+                command,
+                timeout_seconds=0.05,
+                timeout_retries=1,
+                timeout_backoff=6,
+            ).complete(self.task, self.config)
+
+        self.assertEqual(response.output, "ok")
+        self.assertEqual(response.provider_metadata["attempt"], 2)
+        self.assertEqual(response.provider_metadata["timeout_retries"], 1)
+        self.assertAlmostEqual(response.provider_metadata["timeout_seconds"], 0.3)
+
+    def test_exhausted_timeout_is_explicit_infrastructure_error(self):
+        command = [sys.executable, "-c", "import time; time.sleep(0.2)"]
+        with self.assertRaisesRegex(AdapterError, r"timed out.*attempt 1/1"):
+            CommandLineAdapter(command, timeout_seconds=0.05).complete(self.task, self.config)
 
 
 if __name__ == "__main__":

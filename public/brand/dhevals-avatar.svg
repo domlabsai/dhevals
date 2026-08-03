@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">DHEvals avatar</title>
+  <desc id="desc">DHEvals acid-lime double-slash mark centered on a dark field.</desc>
+  <rect width="1024" height="1024" fill="#050607"/>
+  <g transform="translate(161.6 161.6) scale(7.3)">
+    <path fill="#DFFF00" d="M12 76 L30 20 H48 L30 76 Z"/>
+    <path fill="#DFFF00" d="M48 76 L66 20 H84 L66 76 Z"/>
+  </g>
+</svg>

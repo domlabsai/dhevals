@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "dhevals_public_overview",
+  "generated_at": "2026-08-03T21:35:27.887Z",
+  "source_revision": "f98ef2f",
+  "latest_signal": {
+    "run_id": "opencode-deepseek-v4-flash-free-v03-final",
+    "model_id": "opencode/deepseek-v4-flash-free",
+    "model_name": "opencode/deepseek-v4-flash-free",
+    "provider": "opencode",
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "suite_version": "0.3.0",
+    "score": null,
+    "coverage": 1,
+    "evidence_status": "locked",
+    "is_fixture": false,
+    "date": "2026-08-03T19:31:40Z"
+  },
+  "calibration": {
+    "status": "pending",
+    "completed_groups": 0,
+    "required_groups": 300
+  },
+  "counts": {
+    "suites": 3,
+    "models": 2,
+    "runs": 5,
+    "promoted_runs": 0
+  },
+  "methodology_version": "0.1.0"
+}
