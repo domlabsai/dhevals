@@ -1,0 +1,11 @@
+# Local-only material for design agents; never upload to Vercel.
+artifacts/private/
+.impeccable/
+
+# Local environments and generated files.
+.env
+.env.*
+.venv/
+node_modules/
+dist/
+.DS_Store
