@@ -49,6 +49,15 @@ export DHEVALS_MODEL_CLI_PROMPT_MODE="arg"
 export DHEVALS_MODEL_CLI_CWD="/tmp/dhevals-opencode-sandbox"
 npm run run:model
 
+# OpenCode Go alternativo gratuito — DeepSeek V4 Flash
+export DHEVALS_MODEL_ID="opencode/deepseek-v4-flash-free"
+export DHEVALS_MODEL_PROVIDER="opencode"
+export DHEVALS_MODEL_ADAPTER="command-line"
+export DHEVALS_MODEL_CLI_COMMAND="opencode run --pure --variant minimal --model opencode/deepseek-v4-flash-free"
+export DHEVALS_MODEL_CLI_PROMPT_MODE="arg"
+export DHEVALS_MODEL_CLI_CWD="/tmp/dhevals-opencode-sandbox"
+npm run run:model
+
 # Qwen — exemplo com prompt como argumento
 export DHEVALS_MODEL_ID="qwen-local"
 export DHEVALS_MODEL_PROVIDER="qwen-cli"
