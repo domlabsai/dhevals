@@ -69,6 +69,7 @@ export function DataPage() {
     { name: 'runs.json', href: '/data/public/runs.json', kind: 'JSON', note: 'Run index' },
     { name: 'leaderboard.json', href: '/data/public/leaderboard.json', kind: 'JSON', note: 'Ranked + not-ranked models' },
     { name: 'inauguration.json', href: '/data/public/inauguration.json', kind: 'JSON', note: 'Three-stage inauguration report' },
+    { name: 'comparison.json', href: '/data/public/comparison.json', kind: 'JSON', note: 'GPT-5.6 Luna vs DeepSeek V4 Flash' },
     { name: 'catalog.csv', href: '/data/public/catalog.csv', kind: 'CSV', note: 'Flat run catalog' },
     ...runEntries.map((run) => ({
       name: `runs/${run.id}.json`,

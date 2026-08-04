@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DHEvals · codex/gpt-5.6-luna · dhevals-heavy-user-ptbr v0.1.0</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #0b0d0f; color: #e9edf0; }
+    body { margin: 0; background: #0b0d0f; }
+    main { max-width: 1180px; margin: 0 auto; padding: 44px 24px 72px; }
+    header { border-bottom: 1px solid #273039; padding-bottom: 24px; }
+    h1 { margin: 0 0 10px; font-size: 28px; font-weight: 600; }
+    h2 { margin: 34px 0 12px; font-size: 17px; font-weight: 500; }
+    p, small { color: #9ca8b0; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 12px ui-monospace, SFMono-Regular, monospace; color: #9ca8b0; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 26px; }
+    .card { border: 1px solid #273039; background: #11161a; padding: 16px; }
+    .card span { display: block; color: #82909a; font-size: 11px; margin-bottom: 10px; }
+    .card strong { color: #d6ff56; font: 20px ui-monospace, SFMono-Regular, monospace; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; background: #101418; }
+    th, td { border-bottom: 1px solid #273039; padding: 11px 10px; text-align: left; vertical-align: top; }
+    thead th { color: #82909a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    tbody th { font-weight: 500; }
+    .status-pass { color: #d6ff56; } .status-partial { color: #62b8ff; } .status-fail, .status-error { color: #ff7d88; }
+    pre { max-width: 620px; overflow: auto; white-space: pre-wrap; color: #b8c2c8; font: 11px/1.5 ui-monospace, SFMono-Regular, monospace; }
+    @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } main { padding: 28px 14px 52px; } table { min-width: 820px; } .table-wrap { overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>DHEvals · codex/gpt-5.6-luna · dhevals-heavy-user-ptbr v0.1.0</h1>
+      <div class="meta"><span>run codex-gpt-5.6-luna-max-heavy-user-ptbr-v01</span><span>suite hash 154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3</span><span>generated 2026-08-03T22:01:02Z</span></div>
+    </header>
+    <section class="cards">
+      <div class="card"><span>Overall score</span><strong>91.7/100</strong></div>
+      <div class="card"><span>Coverage</span><strong>100.0%</strong></div>
+      <div class="card"><span>Completed</span><strong>6 / 6</strong></div>
+      <div class="card"><span>Errors</span><strong>0</strong></div>
+      <div class="card"><span>Estimated cost</span><strong>—</strong></div>
+    </section>
+    <h2>Categories</h2>
+    <div class="table-wrap"><table><thead><tr><th>Category</th><th>Tasks</th><th>Coverage</th><th>Score</th><th>Tokens</th><th>Est. cost</th></tr></thead><tbody><tr><th>Code</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Communication</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Data</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Documents</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Planning</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Research</th><td>1</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr></tbody></table></div>
+    <h2>Task results</h2>
+    <div class="table-wrap"><table><thead><tr><th>Task</th><th>Category</th><th>Status</th><th>Score</th><th>Latency</th><th>Est. cost</th><th>Evidence</th></tr></thead><tbody><tr><th>Research &amp; synthesis</th><td>Research</td><td class="status-partial">partial</td><td>50.0%</td><td>49214.98 ms</td><td>—</td><td><details><summary>output</summary><pre>## Decisão provisória
+
+Recomendo usar busca híbrida como baseline para busca corporativa, mantendo dense-only apenas como rota candidata para FAQs curtas e de menor risco. A razão principal é que nomes próprios, códigos, siglas, IDs e filtros exatos são justamente os casos em que dense-only apresentou fragilidade [Fonte A] [Fonte B].
+
+## Comparação
+
+| Critério | Híbrida | Dense-only |
+|---|---|---|
+| Recall | Recall@10 14% maior em 600 consultas corporativas, sobretudo com nomes, códigos e siglas [Fonte A] | Inferior nesses tipos de consulta [Fonte A] |
+| Latência | Não foi medida na Fonte A; impacto ainda desconhecido | Latência mediana 32% menor no piloto [Fonte B] |
+| FAQs curtas | Não há evidência específica | Precisão@5 semelhante e menor latência [Fonte B] |
+| IDs, negações e departamentos | Potencialmente mais adequada, mas ainda não validada diretamente | Falhou mais nesses casos [Fonte B] |
+| Duplicatas | O efeito não foi medido [Fonte A] | O piloto continha 40% de documentos duplicados, o que limita a interpretação dos resultados [Fonte B] |
+
+### Fatos observados
+
+- A busca híbrida aumentou o recall@10 em 14% contra dense-only [Fonte A].
+- O ganho híbrido foi maior para nomes próprios, códigos e siglas [Fonte A].
+- Dense-only reduziu a latência mediana em 32% e alcançou precisão@5 semelhante em perguntas curtas [Fonte B].
+- Dense-only falhou mais frequentemente com IDs exatos, negações e filtros por departamento [Fonte B].
+- O piloto dense-only tinha 40% de documentos duplicados [Fonte B].
+- Nenhum dos experimentos mediu factualidade das respostas; a Fonte A também não removeu duplicatas [Fonte A].
+
+### Inferências e trade-offs
+
+A busca híbrida parece oferecer melhor cobertura para consultas corporativas com termos exatos e restrições estruturadas. Isso sugere menor risco de não recuperar o documento correto, mas não prova que a resposta gerada será factual ou estará devidamente fundamentada.
+
+Dense-only oferece uma vantagem clara de latência e pode ser suficiente para FAQs curtas. Porém, seus erros em IDs, negações e filtros departamentais representam risco elevado de recuperar contexto incorreto — especialmente quando a resposta depende de uma distinção exata.
+
+O impacto das duplicatas permanece ambíguo: elas podem fazer uma estratégia parecer mais precisa por repetir o mesmo conteúdo, ou podem ocupar posições do ranking e reduzir a diversidade do contexto. Essa conclusão é uma inferência, não um fato medido diretamente [Fonte A] [Fonte B].
+
+## Riscos de grounding
+
+O ganho de recall da busca híbrida não deve ser tratado como prova de melhor grounding: a Fonte A não avaliou factualidade. Um sistema pode recuperar mais documentos e ainda assim gerar uma resposta incorreta, contraditória ou baseada no documento errado [Fonte A].
+
+No dense-only, os erros observados em IDs, negações e departamentos elevam o risco de grounding incorreto, pois pequenas diferenças no contexto recuperado podem alterar completamente a resposta [Fonte B].
+
+## Próximo experimento recomendado
+
+Executaria um teste controlado com:
+
+1. Corpus deduplicado, além de uma condição separada com duplicatas para medir sua influência.
+2. Consultas estratificadas em:
+   - FAQs curtas;
+   - nomes próprios, códigos e siglas;
+   - IDs exatos;
+   - negações;
+   - filtros por departamento.
+3. Mesmas condições de geração para as duas estratégias.
+4. Métricas de:
+   - recall@10;
+   - precisão@5;
+   - latência mediana e p95;
+   - factualidade da resposta;
+   - suporte explícito da resposta pelos trechos recuperados;
+   - contradições e respostas indevidamente confiantes.
+
+A decisão final deveria depender principalmente da combinação entre factualidade e cobertura nos casos de alto risco. Se a busca híbrida mantiver vantagem nesses grupos com latência aceitável, deve ser adotada como padrão. Dense-only poderia permanecer como otimização específica para FAQs curtas, desde que seu grounding seja equivalente após a deduplicação do corpus.</pre></details></td></tr><tr><th>Document Q&amp;A</th><td>Documents</td><td class="status-pass">pass</td><td>100.0%</td><td>17899.28 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;decisoes&quot;:[{&quot;secao&quot;:&quot;Escopo aprovado&quot;,&quot;decisao&quot;:&quot;Lançar um piloto para 30 usuários internos, limitado ao fluxo de busca de políticas.&quot;},{&quot;secao&quot;:&quot;Cronograma&quot;,&quot;decisao&quot;:&quot;A revisão de segurança deve terminar em 18/08/2026.&quot;}],&quot;pendencias&quot;:[{&quot;secao&quot;:&quot;Cronograma&quot;,&quot;pendencia&quot;:&quot;Confirmar quem será o owner da aprovação jurídica.&quot;}],&quot;riscos&quot;:[{&quot;secao&quot;:&quot;Riscos e bloqueios&quot;,&quot;risco&quot;:&quot;Conflito não resolvido: Operações registra go-live em 12/08/2026, enquanto Engenharia registra go-live em 19/08/2026.&quot;,&quot;conflito&quot;:true},{&quot;secao&quot;:&quot;Riscos e bloqueios&quot;,&quot;risco&quot;:&quot;Não há plano de rollback documentado para o índice de busca.&quot;}]}</pre></details></td></tr><tr><th>Plan &amp; outline</th><td>Planning</td><td class="status-pass">pass</td><td>100.0%</td><td>132339.34 ms</td><td>—</td><td><details><summary>output</summary><pre># Plano de lançamento — Projeto Atlas
+
+## Objetivo e gates
+
+Lançar, em 10 dias úteis, um piloto interno de busca de políticas para 30 usuários, com:
+
+- 200 documentos carregados no índice;
+- aprovação de segurança antes do primeiro usuário;
+- canal de suporte ativo;
+- fonte rastreável em pelo menos 90% das consultas de validação;
+- nenhum incidente crítico aberto ao final.
+
+A aprovação jurídica será tratada como gate adicional se o processo interno exigir sua formalização. Essa exigência deve ser confirmada no primeiro dia.
+
+## Cronograma acionável
+
+| Período | Atividades principais | Responsável | Entregável |
+|---|---|---|---|
+| Dia 1 | Travar escopo, critérios de aceite, conjunto de validação e definição de incidente crítico. Solicitar aprovações. | Produto + Engenharia | Escopo de uma página e plano de validação |
+| Dias 1–2 | Inventariar os 200 documentos, identificar versões desatualizadas e preparar evidências de segurança. Selecionar os 30 usuários. | Operações + Engenharia | Inventário, lista piloto e pacote de aprovação |
+| Dia 2 | Definir canal de suporte, fluxo de triagem e comunicação aos usuários. | Operações | Canal e procedimento de suporte |
+| Dia 3 | Carregar os 200 documentos e executar teste de integridade do índice. | Engenharia | Índice v0 funcional |
+| Dia 4 | Implementar ou validar busca, exibição da fonte e controles de acesso. | Engenharia | Fluxo ponta a ponta |
+| Dia 5 | Rodar o conjunto de validação, corrigir falhas de rastreabilidade e classificar documentos problemáticos. | Produto + Engenharia | Resultado preliminar da validação |
+| Dia 6 | Revisar prontidão: segurança, jurídico, índice, suporte, usuários e comunicação. | Todos | Go/no-go documentado |
+| Dia 7 | Liberar o piloto somente após aprovação de segurança e demais gates aplicáveis. Fazer onboarding dos 30 usuários. | Produto + Operações | Piloto iniciado |
+| Dia 8 | Monitorar consultas, adesão, dúvidas e incidentes. Corrigir apenas problemas ligados ao critério de saída. | Engenharia + Operações | Registro de uso e correções |
+| Dia 9 | Reexecutar a validação, revisar incidentes e consolidar evidências. | Produto + Engenharia | Relatório final |
+| Dia 10 | Decidir encerramento: atingir 90% de rastreabilidade e zero incidente crítico aberto. | Produto | Aprovação ou plano de remediação |
+
+## Orçamento fixo
+
+| Frente | Limite |
+|---|---:|
+| Engenharia, indexação e correções | R$ 7.000 |
+| Produto, validação e definição de escopo | R$ 3.500 |
+| Operações, onboarding e suporte | R$ 2.500 |
+| Segurança e jurídico | R$ 2.000 |
+| Reserva para riscos | R$ 3.000 |
+| **Total** | **R$ 18.000** |
+
+A reserva só pode ser usada para corrigir riscos que ameacem os critérios de saída. Não deve financiar novas funcionalidades, integrações ou expansão de escopo. Se houver falta de capacidade, reduzir escopo antes de aumentar o orçamento.
+
+## Dependências e datas-limite
+
+| Dependência | Dono | Data-limite | Consequência |
+|---|---|---:|---|
+| Aprovação de segurança | Engenharia + Produto | Dia 6 | Sem aprovação, não há usuários |
+| Índice com 200 documentos | Engenharia + Operações | Dia 3 | Bloqueia validação e piloto |
+| Grupo de 30 usuários | Operações | Lista até Dia 2; convite após aprovação | Bloqueia o início do piloto |
+| Canal de suporte | Operações | Dia 2 | Bloqueia o convite aos usuários |
+| Aprovação jurídica, se aplicável | Produto | Decisão até Dia 4; conclusão até Dia 6 | Pode bloquear o lançamento |
+
+## Riscos priorizados
+
+| Prioridade | Risco | Mitigação | Gatilho de escalonamento |
+|---|---|---|---|
+| P0 | Aprovação de segurança atrasada | Enviar evidências no Dia 1 e revisar pendências diariamente | Sem decisão até o Dia 5 |
+| P0 | Aprovação jurídica atrasada | Confirmar necessidade no Dia 1, fornecer escopo fechado e obter decisão formal | Sem posicionamento até o Dia 4 |
+| P1 | Dados desatualizados | Inventariar versões, sinalizar documentos sem validação e priorizar fontes claramente identificadas | Conflito entre versões ou ausência de fonte rastreável |
+| P1 | Baixa adesão dos usuários | Explicar casos de uso, fazer onboarding curto, nomear pontos focais e acompanhar ativação diária | Menos de 21 dos 30 usuários ativos até o Dia 8 |
+| P1 | Falha na qualidade do índice | Smoke test no Dia 3 e validação formal no Dia 5; usar a reserva somente para correções críticas | Menos de 90% de rastreabilidade no Dia 5 |
+
+## Forma de trabalho da equipe
+
+- Reunião diária de 15 minutos entre produto, engenharia e operações.
+- Produto mantém escopo, decisões e critério de aceite.
+- Engenharia mantém índice, busca, fontes e correções técnicas.
+- Operações mantém documentos, usuários, suporte e comunicação.
+- Nenhuma mudança de escopo após o Dia 2 sem retirar outra entrega equivalente.
+- Qualquer incidente crítico interrompe a expansão do piloto até ser resolvido.
+
+## Próximos passos imediatos
+
+1. Produto fechar o escopo e o conjunto de validação no Dia 1.
+2. Engenharia enviar o pacote de aprovação de segurança.
+3. Operações iniciar o inventário dos 200 documentos e selecionar os 30 usuários.
+4. Confirmar se a aprovação jurídica é um gate obrigatório.
+5. Agendar o primeiro go/no-go para o final do Dia 2.</pre></details></td></tr><tr><th>Data analysis</th><td>Data</td><td class="status-pass">pass</td><td>100.0%</td><td>83487.11 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;metodo&quot;: {
+    &quot;abordagem&quot;: &quot;Comparação descritiva entre coortes, usando diferenças em pontos percentuais e variações relativas.&quot;,
+    &quot;observacao&quot;: &quot;Não foi inferida causalidade, pois não houve randomização nem controle do mix de usuários.&quot;
+  },
+  &quot;resultado&quot;: {
+    &quot;diferencas&quot;: {
+      &quot;Fev_vs_Jan&quot;: {
+        &quot;D7_pontos_percentuais&quot;: 6,
+        &quot;D7_variacao_relativa_percentual&quot;: 14.3,
+        &quot;D30_pontos_percentuais&quot;: 5,
+        &quot;D30_variacao_relativa_percentual&quot;: 23.8
+      },
+      &quot;Mar_vs_Fev&quot;: {
+        &quot;D7_pontos_percentuais&quot;: -9,
+        &quot;D7_variacao_relativa_percentual&quot;: -18.8,
+        &quot;D30_pontos_percentuais&quot;: -8,
+        &quot;D30_variacao_relativa_percentual&quot;: -30.8
+      },
+      &quot;Abr_vs_Mar&quot;: {
+        &quot;D7_pontos_percentuais&quot;: 12,
+        &quot;D7_variacao_relativa_percentual&quot;: 30.8,
+        &quot;D30_pontos_percentuais&quot;: 11,
+        &quot;D30_variacao_relativa_percentual&quot;: 61.1
+      },
+      &quot;Abr_vs_Jan&quot;: {
+        &quot;D7_pontos_percentuais&quot;: 9,
+        &quot;D7_variacao_relativa_percentual&quot;: 21.4,
+        &quot;D30_pontos_percentuais&quot;: 8,
+        &quot;D30_variacao_relativa_percentual&quot;: 38.1
+      }
+    },
+    &quot;leitura&quot;: [
+      &quot;Fevereiro apresentou melhora em relação a janeiro.&quot;,
+      &quot;Março apresentou queda de D7 e D30 em relação a fevereiro, coincidindo com a mudança de onboarding.&quot;,
+      &quot;Abril apresentou os melhores resultados, mas a mudança simultânea no canal de aquisição impede atribuir a melhora ao onboarding.&quot;,
+      &quot;D1 permaneceu em 100% em todas as coortes e não diferencia os períodos.&quot;
+    ]
+  },
+  &quot;recomendacao&quot;: {
+    &quot;hipotese_testavel&quot;: &quot;Entre usuários do mesmo canal e perfil, o novo onboarding altera a retenção D7 e D30 em relação ao onboarding anterior; a queda observada de fevereiro para março sugere, como hipótese direcional, possível efeito negativo.&quot;,
+    &quot;teste_recomendado&quot;: &quot;Executar um experimento A/B randomizado, no mesmo período e dentro dos mesmos canais, atribuindo usuários ao onboarding antigo ou novo. Medir D7 e D30, estimar a diferença entre grupos com intervalos de confiança e analisar os resultados por canal e segmento.&quot;,
+    &quot;o_que_tambem_precisa_ser_testado&quot;: [
+      &quot;Efeito independente da mudança de canal de aquisição em abril.&quot;,
+      &quot;Diferenças de qualidade e composição entre os usuários de cada coorte.&quot;,
+      &quot;Possíveis efeitos de sazonalidade ou outras mudanças ocorridas no período.&quot;
+    ],
+    &quot;limitacoes&quot;: [
+      &quot;A análise usa apenas quatro coortes agregadas.&quot;,
+      &quot;Não há dados individuais, intervalos de confiança, significância estatística ou informação sobre o mix de usuários.&quot;,
+      &quot;As mudanças de onboarding e canal estão confundidas com o tempo.&quot;,
+      &quot;As taxas podem estar arredondadas, e a definição de usuário ativo não foi detalhada.&quot;
+    ]
+  }
+}</pre></details></td></tr><tr><th>Code generation</th><td>Code</td><td class="status-pass">pass</td><td>100.0%</td><td>191037.14 ms</td><td>—</td><td><details><summary>output</summary><pre>Correção mínima: criar um `AbortController`, passar o sinal ao cliente e abortar quando a `race` rejeitar. O erro original do timeout continua sendo propagado.
+
+```ts
+// process-job.ts
+export async function processJob(id: string, deps: Deps) {
+  const controller = new AbortController();
+
+  const result = await Promise.race([
+    deps.client.fetch(id, controller.signal),
+    timeout(5_000),
+  ]).catch((error) =&gt; {
+    controller.abort();
+    throw error;
+  });
+
+  await deps.queue.ack(id);
+  return result;
+}
+```
+
+O `catch` aborta somente quando a operação falha — inclusive por timeout — evitando abortar uma requisição que já terminou. O trade-off é que o cliente HTTP precisa respeitar `AbortSignal`; caso contrário, o sinal será marcado como abortado, mas a requisição subjacente poderá continuar.
+
+Teste de regressão com Vitest:
+
+```ts
+// process-job.test.ts
+import { afterEach, describe, expect, it, vi } from &quot;vitest&quot;;
+import { processJob } from &quot;./process-job&quot;;
+
+describe(&quot;processJob&quot;, () =&gt; {
+  afterEach(() =&gt; vi.useRealTimers());
+
+  it(&quot;aborta o sinal após 5 segundos&quot;, async () =&gt; {
+    vi.useFakeTimers();
+
+    let signal!: AbortSignal;
+
+    const fetch = vi.fn((_id: string, receivedSignal: AbortSignal) =&gt; {
+      signal = receivedSignal;
+      return new Promise&lt;never&gt;(() =&gt; {});
+    });
+
+    const ack = vi.fn(async () =&gt; {});
+
+    const job = processJob(&quot;job-1&quot;, {
+      client: { fetch },
+      queue: { ack },
+    });
+
+    await vi.advanceTimersByTimeAsync(4_999);
+    expect(signal.aborted).toBe(false);
+
+    await vi.advanceTimersByTimeAsync(1);
+    expect(signal.aborted).toBe(true);
+
+    await expect(job).rejects.toThrow();
+    expect(ack).not.toHaveBeenCalled();
+  });
+});
+```
+
+Executar com:
+
+```bash
+npx vitest run process-job.test.ts
+```</pre></details></td></tr><tr><th>Email draft</th><td>Communication</td><td class="status-pass">pass</td><td>100.0%</td><td>25120.01 ms</td><td>—</td><td><details><summary>output</summary><pre>**Assunto:** Projeto Atlas: piloto reagendado para 16/08
+
+Olá, equipes de Produto, Engenharia, Segurança e Operações,
+
+O piloto do Projeto Atlas, inicialmente previsto para 14/08/2026, será entregue em 16/08/2026. O prazo foi ajustado para permitir uma rodada adicional de validação de segurança após uma inconsistência identificada no ambiente de staging.
+
+Próximos passos:
+
+- Concluir a validação em 15/08;
+- Publicar o checklist revisado e confirmar os primeiros usuários em 16/08.
+
+Obrigado pela compreensão e colaboração de todos.</pre></details></td></tr></tbody></table></div>
+  </main>
+</body>
+</html>

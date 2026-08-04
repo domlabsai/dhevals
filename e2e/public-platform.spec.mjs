@@ -90,7 +90,7 @@ test('leaderboard is honestly empty and filters round-trip through the URL', asy
   await page.getByRole('button', { name: /Remove filter Search/ }).click()
   await expect(page).toHaveURL((url) => !url.searchParams.has('q') && url.searchParams.get('evidence') === 'locked')
   await expect(page.getByTestId('filter-chip')).toHaveCount(1)
-  await expect(table.locator('tbody tr')).toHaveCount(1)
+  await expect(table.locator('tbody tr')).toHaveCount(2)
 
   // Reset filters clears the query string entirely.
   await page.getByRole('button', { name: 'Reset filters' }).click()
@@ -134,7 +134,7 @@ test('compare canonicalizes the pair and never declares a winner', async ({ page
   await expect(page.getByRole('heading', { name: 'Side-by-side evidence' })).toBeVisible()
 
   // Canonical ordering is alphabetical: the reversed pair redirects.
-  const slugs = ['baseline-gpt-4-turbo', 'opencode-deepseek-v4-flash-free']
+  const slugs = ['codex-gpt-5-6-luna', 'opencode-deepseek-v4-flash-free']
   const canonical = [...slugs].sort().join('-vs-')
   const reversed = [...slugs].reverse().join('-vs-')
   await page.goto(`/compare/${reversed}`)
@@ -253,13 +253,15 @@ test('reports index, methodology, data downloads, about, and 404', async ({ page
   await expect(page.getByTestId('data-page')).toBeVisible()
   await expect(page.getByTestId('data-table')).toContainText('overview.json')
   await expect(page.getByTestId('data-table')).toContainText('catalog.csv')
-  for (const href of ['/data/public/overview.json', '/data/public/runs.json', '/data/public/catalog.csv', '/data/public/inauguration.json']) {
+  await expect(page.getByTestId('data-table')).toContainText('comparison.json')
+  for (const href of ['/data/public/overview.json', '/data/public/runs.json', '/data/public/catalog.csv', '/data/public/inauguration.json', '/data/public/comparison.json']) {
     const response = await page.request.get(href)
     expect(response.status(), `${href} should download`).toBe(200)
   }
 
   const publicProjection = await page.request.get('/data/public/models.json')
   expect(await publicProjection.text()).not.toMatch(/sacilm/i)
+  expect(await publicProjection.text()).not.toMatch(/baseline-gpt-4-turbo|GPT-4 Turbo baseline/i)
 
   // About links the public repository.
   await page.goto('/about')
@@ -286,6 +288,7 @@ test('mobile leaderboard uses a details drawer and never overflows horizontally'
   const table = page.getByTestId('leaderboard-table')
   await expect(table).toContainText('deepseek')
   await expect(table).toContainText('opencode')
+  await expect(table).toContainText('GPT-5.6 Luna')
 
   // "Details" opens the drawer with operational metrics; Escape closes it.
   await page.getByRole('button', { name: /Details for/ }).first().click()
@@ -381,6 +384,7 @@ test('SEO metadata, JSON-LD, sitemap, and robots', async ({ page }) => {
   expect(sitemapText).toContain('<urlset')
   expect(sitemapText).toContain('https://dhevals.ai/leaderboard')
   expect(sitemapText).not.toMatch(/sacilm/i)
+  expect(sitemapText).not.toMatch(/baseline-gpt-4-turbo|GPT-4 Turbo baseline/i)
 
   const robots = await page.request.get('/robots.txt')
   expect(robots.status()).toBe(200)

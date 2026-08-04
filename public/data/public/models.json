@@ -1,29 +1,5 @@
 [
   {
-    "id": "baseline-gpt-4-turbo",
-    "slug": "baseline-gpt-4-turbo",
-    "name": "GPT-4 Turbo baseline",
-    "provider": "openai-compatible",
-    "status": "not_configured",
-    "license": "unknown",
-    "capabilities": [],
-    "quality_score": null,
-    "evidence_status": "pending",
-    "evidence_coverage": null,
-    "last_verified_at": null,
-    "metrics": {
-      "input_cost_per_1k": null,
-      "output_cost_per_1k": null,
-      "latency_ms": null,
-      "tokens_per_second": null,
-      "context_tokens": null,
-      "observed_from_runs": false
-    },
-    "sources": [],
-    "notes": "Endpoint not configured; comparison baseline only, no runs executed.",
-    "last_activity_at": null
-  },
-  {
     "id": "opencode/deepseek-v4-flash-free",
     "slug": "opencode-deepseek-v4-flash-free",
     "name": "opencode/deepseek-v4-flash-free",
@@ -61,5 +37,44 @@
     ],
     "notes": "Archive-only runs exist, but the promotion gate is closed; no promoted public score yet.",
     "last_activity_at": "2026-08-03T19:31:40Z"
+  },
+  {
+    "id": "codex/gpt-5.6-luna",
+    "slug": "codex-gpt-5-6-luna",
+    "name": "GPT-5.6 Luna (Codex)",
+    "provider": "codex",
+    "status": "calibration_pending",
+    "license": "unknown",
+    "capabilities": [
+      "Code",
+      "Communication",
+      "Critical review",
+      "Data",
+      "Documents",
+      "Long context",
+      "Planning",
+      "Research",
+      "Safe automation",
+      "Structured output"
+    ],
+    "quality_score": null,
+    "evidence_status": "locked",
+    "evidence_coverage": 1,
+    "last_verified_at": "2026-08-03T23:12:54Z",
+    "metrics": {
+      "input_cost_per_1k": null,
+      "output_cost_per_1k": null,
+      "latency_ms": 130513,
+      "tokens_per_second": null,
+      "context_tokens": null,
+      "observed_from_runs": true
+    },
+    "sources": [
+      "reports/runs/codex-gpt-5.6-luna-max-heavy-user-ptbr-v03.report.json",
+      "reports/runs/codex-gpt-5.6-luna-max-heavy-user-ptbr-v02.report.json",
+      "reports/runs/codex-gpt-5.6-luna-max-heavy-user-ptbr-v01.report.json"
+    ],
+    "notes": "Archive-only runs exist, but the promotion gate is closed; no promoted public score yet.",
+    "last_activity_at": "2026-08-03T23:12:53Z"
   }
 ]

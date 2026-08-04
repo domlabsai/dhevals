@@ -10,6 +10,7 @@ const modelCatalogPath = resolve(root, 'public/data/model-catalog.json')
 const runCatalogPath = resolve(root, 'public/data/run-catalog.json')
 const publicReportPath = resolve(root, 'public/data/latest-report.json')
 const inaugurationSourcePath = resolve(root, 'reports/runs/opencode-deepseek-v4-flash-free-inaugural-report.json')
+const comparisonSourcePath = resolve(root, 'reports/comparisons/dhevals-gpt-5-6-luna-vs-deepseek-v4-flash.json')
 
 const EVIDENCE_STATUSES = ['supported', 'estimated', 'pending', 'locked', 'invalid']
 const SUITE_TITLE = 'Heavy-user tasks — Brazilian Portuguese'
@@ -28,6 +29,7 @@ function main() {
   const modelCatalog = readRequiredJson(modelCatalogPath)
   const runCatalog = readRequiredJson(runCatalogPath)
   const inauguration = readRequiredJson(inaugurationSourcePath)
+  const comparison = readRequiredJson(comparisonSourcePath)
   if (!Array.isArray(suiteCatalog.suites)) fail('suite-catalog.json is missing a suites array')
   if (!Array.isArray(modelCatalog.models)) fail('model-catalog.json is missing a models array')
   if (!Array.isArray(runCatalog.entries)) fail('run-catalog.json is missing an entries array')
@@ -71,6 +73,7 @@ function main() {
   })
   writeJson(resolve(outputDirectory, 'leaderboard.json'), leaderboard)
   writeJson(resolve(outputDirectory, 'inauguration.json'), inauguration)
+  writeJson(resolve(outputDirectory, 'comparison.json'), sanitizeDeferredModelReferences(comparison))
   writeFileSync(resolve(outputDirectory, 'catalog.csv'), buildCatalogCsv(runEntries), 'utf8')
 
   console.log(JSON.stringify({
@@ -90,7 +93,7 @@ function collectRuns(runCatalog) {
   const seen = new Set()
   for (const entry of runCatalog.entries) {
     if (!entry.run_id || !entry.source) fail('run-catalog entry is missing run_id or source')
-    if (isHiddenModel(entry.model_id)) continue
+    if (isHiddenModel(entry.model_id) || isSuppressedPublicModel(entry.model_id)) continue
     const reportPath = resolve(root, entry.source)
     const report = readRequiredJson(reportPath)
     if (report?.run?.id !== entry.run_id) fail(`report ${entry.source} does not match run ${entry.run_id}`)
@@ -240,7 +243,11 @@ function buildRunDetail(run) {
 // evidence public while redacting deferred-model references at the projection
 // boundary; source reports remain unchanged for internal auditability.
 function sanitizeDeferredModelReferences(value) {
-  if (typeof value === 'string') return value.replace(/sacilm/gi, 'deferred model')
+  if (typeof value === 'string') {
+    return value
+      .replace(/sacilm/gi, 'deferred model')
+      .replace(/\/Users\/[^\s"'`<>)\]]*/g, '[local path redacted]')
+  }
   if (Array.isArray(value)) return value.map(sanitizeDeferredModelReferences)
   if (value && typeof value === 'object') {
     return Object.fromEntries(Object.entries(value).map(([key, child]) => [key, sanitizeDeferredModelReferences(child)]))
@@ -252,18 +259,18 @@ function buildModels(modelCatalog, runs, suiteCatalog) {
   const models = []
   const seen = new Set()
   for (const model of modelCatalog.models) {
-    if (isHiddenModel(model.id)) continue
+    if (isHiddenModel(model.id) || isSuppressedPublicModel(model.id)) continue
     if (!model.id || model.id.includes('fixture') || model.id.includes('negative')) continue
     seen.add(model.id)
     models.push(buildModelEntry(model.id, model.label || model.id, model.provider || 'unknown', model, runs, suiteCatalog))
   }
   for (const run of runs) {
     const modelId = run.entry.model_id
-    if (isHiddenModel(modelId)) continue
+    if (isHiddenModel(modelId) || isSuppressedPublicModel(modelId)) continue
     if (!modelId || seen.has(modelId)) continue
     if (modelId.includes('fixture') || modelId.includes('negative')) continue
     seen.add(modelId)
-    models.push(buildModelEntry(modelId, modelId, run.entry.provider || 'unknown', null, runs, suiteCatalog))
+    models.push(buildModelEntry(modelId, modelName(modelId), run.entry.provider || 'unknown', null, runs, suiteCatalog))
   }
   return models
 }
@@ -452,11 +459,19 @@ function csvCell(value) {
 function modelName(modelId) {
   if (modelId === 'sacilm') return 'SaciLM'
   if (modelId === 'baseline-gpt-4-turbo') return 'GPT-4 Turbo baseline'
+  if (modelId === 'codex/gpt-5.6-luna') return 'GPT-5.6 Luna (Codex)'
   return modelId || 'unknown'
 }
 
 function isHiddenModel(modelId) {
   return String(modelId || '').toLowerCase().includes('sacilm')
+}
+
+// Historical comparison baselines remain in the internal catalog, but are
+// intentionally excluded from the public model surface once live model runs
+// are available for the comparison set.
+function isSuppressedPublicModel(modelId) {
+  return String(modelId || '').toLowerCase() === 'baseline-gpt-4-turbo'
 }
 
 function modelLicense(catalogModel) {

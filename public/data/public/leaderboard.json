@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_leaderboard",
-  "generated_at": "2026-08-03T21:35:27.887Z",
+  "generated_at": "2026-08-03T23:19:23.555Z",
   "methodology": {
     "ranking_field": "quality_score",
     "requires_full_coverage": true,
@@ -11,20 +11,20 @@
   "ranked": [],
   "not_ranked": [
     {
-      "model_id": "baseline-gpt-4-turbo",
-      "model_name": "GPT-4 Turbo baseline",
-      "provider": "openai-compatible",
-      "reason": "not_configured",
-      "evidence_status": "pending",
-      "last_activity_at": null
-    },
-    {
       "model_id": "opencode/deepseek-v4-flash-free",
       "model_name": "opencode/deepseek-v4-flash-free",
       "provider": "opencode",
       "reason": "locked",
       "evidence_status": "locked",
       "last_activity_at": "2026-08-03T19:31:40Z"
+    },
+    {
+      "model_id": "codex/gpt-5.6-luna",
+      "model_name": "GPT-5.6 Luna (Codex)",
+      "provider": "codex",
+      "reason": "locked",
+      "evidence_status": "locked",
+      "last_activity_at": "2026-08-03T23:12:53Z"
     }
   ]
 }
