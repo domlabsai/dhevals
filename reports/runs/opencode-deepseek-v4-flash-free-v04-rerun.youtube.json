@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_youtube_pack",
+  "title": "DHEvals · opencode/deepseek-v4-flash-free · dhevals-heavy-user-ptbr v0.4.0",
+  "run_id": "opencode-deepseek-v4-flash-free-v04-rerun",
+  "hook": "opencode/deepseek-v4-flash-free alcançou 81.7/100 em 20 tarefas heavy-user.",
+  "facts": [
+    "Modelo avaliado: opencode/deepseek-v4-flash-free.",
+    "Suíte: dhevals-heavy-user-ptbr v0.4.0.",
+    "Tarefas concluídas: 20 de 20.",
+    "Score médio determinístico: 81.7/100.",
+    "Custo estimado da rodada: US$ 0.000000."
+  ],
+  "category_breakdown": [
+    {
+      "category": "Code",
+      "score": 83.3,
+      "task_count": 2
+    },
+    {
+      "category": "Communication",
+      "score": 100.0,
+      "task_count": 2
+    },
+    {
+      "category": "Critical review",
+      "score": 100.0,
+      "task_count": 2
+    },
+    {
+      "category": "Data",
+      "score": 83.3,
+      "task_count": 2
+    },
+    {
+      "category": "Documents",
+      "score": 66.7,
+      "task_count": 2
+    },
+    {
+      "category": "Long context",
+      "score": 83.3,
+      "task_count": 2
+    },
+    {
+      "category": "Planning",
+      "score": 100.0,
+      "task_count": 2
+    },
+    {
+      "category": "Research",
+      "score": 66.7,
+      "task_count": 2
+    },
+    {
+      "category": "Safe automation",
+      "score": 66.7,
+      "task_count": 2
+    },
+    {
+      "category": "Structured output",
+      "score": 66.7,
+      "task_count": 2
+    }
+  ],
+  "methodology": {
+    "suite_hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e",
+    "suite_version": "0.4.0",
+    "runner_version": "0.1.0",
+    "model": {
+      "model_id": "opencode/deepseek-v4-flash-free",
+      "provider": "opencode",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {
+        "context_tokens": 200000,
+        "pricing_provenance": {
+          "source": "models.dev-api",
+          "model_id": "opencode/deepseek-v4-flash-free",
+          "fetched_at": "2026-08-04T16:53:12.131Z",
+          "unit": "usd_per_million_tokens",
+          "input_per_million_usd": 0.0,
+          "output_per_million_usd": 0.0,
+          "estimated": true
+        }
+      },
+      "pricing": {
+        "input_per_1k_tokens_usd": 0.0,
+        "output_per_1k_tokens_usd": 0.0
+      }
+    }
+  },
+  "limitations": [
+    "O score determinístico não substitui a revisão humana da rubrica.",
+    "Comparações públicas exigem a mesma versão de suíte e configuração."
+  ]
+}

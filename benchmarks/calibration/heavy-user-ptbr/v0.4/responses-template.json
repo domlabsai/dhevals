@@ -1,0 +1,11 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.4.0",
+  "status": "pending_review",
+  "instructions": [
+    "Cada combinação task_id + dimension_id + anchor_level precisa de dois revisores independentes.",
+    "A nota é de 0 a 4 e deve citar a evidência observada na resposta.",
+    "Qualquer divergência de interpretação deve ser adjudicada antes do congelamento."
+  ],
+  "responses": []
+}

@@ -31,7 +31,7 @@ export function AboutPage() {
         <p className="body-lg muted">
           DHEvals exists so that a claim about an AI model can be checked, not just read. The lab
           runs versioned Brazilian-Portuguese task suites, records the evidence, and publishes it
-          with provenance — or publishes the honest “not yet” instead.
+          with provenance — or publishes the honest archive-only / “not yet” state instead.
         </p>
       </header>
 
@@ -40,7 +40,7 @@ export function AboutPage() {
         <p>
           Show how AI models behave when the work is real, multi-step, and worth checking — and make
           the evidence as easy to inspect as the claim. Missing data is shown as “—”, never zero;
-          fixtures are labeled, never promoted; and no score ships before the release gate passes.
+          fixtures are labeled, never promoted; and no score is promoted before the release gate passes.
         </p>
 
         <h2 id="context">Project context</h2>

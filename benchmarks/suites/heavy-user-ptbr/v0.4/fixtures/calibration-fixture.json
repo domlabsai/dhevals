@@ -1,0 +1,122 @@
+{
+  "research-conflicting-evidence": {
+    "output": "As evidências são conflitantes: a fonte A aponta ganho de recall, enquanto a fonte B registra aumento de falsos positivos. A incerteza principal é o efeito do domínio e do tamanho da consulta, que não foram controlados. Não há base para afirmar causalidade fora do conjunto observado. Minha recomendação é repetir um experimento A/B com métricas de precisão, custo e taxa de respostas com evidência, registrando os casos em que a decisão deve ser revisada.",
+    "input_tokens": 1180,
+    "output_tokens": 142,
+    "latency_ms": 1820
+  },
+  "document-version-compare": {
+    "output": "{\"versao_a\":\"2026-07-01\",\"versao_b\":\"2026-07-08\",\"mudancas\":[\"prazo da seção 3 mudou de sexta para segunda\",\"owner do alerta foi incluído\"],\"conflitos\":[\"Conflito: a seção 7 mantém o prazo antigo e precisa de adjudicação\"],\"rastreabilidade\":[\"seção 3\",\"seção 7\"]}",
+    "input_tokens": 980,
+    "output_tokens": 92,
+    "latency_ms": 1240
+  },
+  "launch-plan-dependencies": {
+    "output": "Semana 1: confirmar owners, escopo e dependências de dados; Dia 2: validar o fluxo crítico; Dia 4: revisar riscos e critérios de saída. Semana 2: executar piloto, medir o resultado e preparar o rollout. Riscos: aprovação atrasada, dado incompleto e suporte sem escala. Próximos passos: registrar owners, confirmar o orçamento e só assumir compromisso externo depois da validação do piloto.",
+    "input_tokens": 1060,
+    "output_tokens": 118,
+    "latency_ms": 1490
+  },
+  "cohort-analysis": {
+    "output": "{\"metodo\":\"comparação de retenção em 30 dias por coorte, com denominador explícito\",\"resultado\":\"a coorte B tem 11 pontos percentuais a mais que A no recorte observado\",\"hipotese\":\"o onboarding de B reduziu o abandono inicial, mas isso precisa de teste controlado\",\"recomendacao\":\"replicar o fluxo de B em uma nova coorte e medir retenção e ativação\",\"limitacoes\":\"a janela é curta, há viés de seleção e a associação não prova causalidade\"}",
+    "input_tokens": 1430,
+    "output_tokens": 112,
+    "latency_ms": 2160
+  },
+  "code-bug-regression": {
+    "output": "Causa provável: o timeout não é propagado ao worker e o retry duplicado mascara a falha. Proponho um patch mínimo e um diff mínimo: encaminhar AbortSignal, remover o retry duplicado e registrar a duração do job. O teste de regressão deve simular o limite e afirmar cancelamento, erro observável e ausência de segundo processamento. Rollback: reverter o patch por flag e acompanhar a taxa de timeout no painel antes do rollout completo.",
+    "input_tokens": 1280,
+    "output_tokens": 137,
+    "latency_ms": 2030
+  },
+  "executive-delay-email": {
+    "output": "Assunto: Atualização do prazo do rollout\n\nOlá, equipe. A validação final levou dois dias a mais do que o previsto; não é necessário atribuir culpa a pessoas. O novo prazo é sexta-feira, às 17h.\n\nPróximos passos: Ana confirma o checklist, Bruno atualiza o ambiente e eu envio um status amanhã. Se surgir qualquer risco adicional, sinalizem no canal do projeto antes do novo prazo.",
+    "input_tokens": 720,
+    "output_tokens": 108,
+    "latency_ms": 970
+  },
+  "long-context-exceptions": {
+    "output": "A regra geral permite o rollout após revisão do owner. A Fonte A confirma essa regra, mas a Fonte B registra uma exceção para dados de clientes regulados: nesse caso, a aprovação jurídica vem antes do rollout. A exceção altera a ordem normal e deve ser citada no registro. Se não for possível confirmar a jurisdição, é preciso não decidir e pedir validação humana antes de qualquer compromisso.",
+    "input_tokens": 2140,
+    "output_tokens": 103,
+    "latency_ms": 2860
+  },
+  "structured-extraction": {
+    "output": "{\"classificacao\":\"pedido_operacional\",\"campos\":{\"cliente\":\"DomHubs\",\"prazo\":\"não informado\",\"owner\":\"Marina\"},\"confianca\":{\"nivel\":\"media\",\"motivo\":\"o prazo não aparece no texto de origem\"}}",
+    "input_tokens": 910,
+    "output_tokens": 72,
+    "latency_ms": 1160
+  },
+  "safe-automation-plan": {
+    "output": "Plano sem executar: primeiro validar identidade e permissões; depois registrar os parâmetros (registro, campos, valor anterior e novo valor); gerar uma prévia; pedir confirmação explícita; aplicar uma única alteração; registrar evidência e preparar rollback. A confirmação precisa ocorrer antes do efeito e o rollback deve restaurar o valor anterior. Sem confirmação, o sistema apenas simula e não executa.",
+    "input_tokens": 1030,
+    "output_tokens": 104,
+    "latency_ms": 1370
+  },
+  "critical-review-audit": {
+    "output": "Severidade alta: há uma afirmação factual sem evidência; próxima ação é localizar a fonte ou remover a frase antes do envio. Severidade média: a entrega não explicita a limitação do conjunto; evidência é a ausência de denominador na seção de resultados; próxima ação é inserir a limitação. Melhoria opcional: reduzir repetição no resumo. A condição de aprovação é resolver o achado alto, registrar a fonte e fazer nova revisão independente.",
+    "input_tokens": 1220,
+    "output_tokens": 128,
+    "latency_ms": 1780
+  },
+  "research-source-triangulation": {
+    "output": "Fonte A relata adoção de 68% no segmento observado; Fonte B registra queda de produtividade no primeiro mês; Fonte C descreve melhora somente após treinamento. As afirmações não são diretamente comparáveis porque usam janelas e amostras diferentes. A evidência sustenta uma hipótese de benefício condicionado à implantação, não uma conclusão causal geral. Antes da decisão, é preciso verificar denominadores, perfil das equipes e custo do treinamento; recomendo um piloto estratificado com produtividade, adoção e custo como métricas.",
+    "input_tokens": 1240,
+    "output_tokens": 154,
+    "latency_ms": 1920
+  },
+  "document-decision-register": {
+    "output": "{\"decisoes\":[\"pilotar o novo fluxo após revisão jurídica\"],\"owners\":[\"Marina\"],\"prazos\":[\"2026-08-14\"],\"pendencias\":[\"pendência: confirmar se o SLA da equipe de suporte vale para o canal parceiro\"],\"evidencias\":[\"Ata 03, seção 2; Ata 04, seção 5\"]}",
+    "input_tokens": 1110,
+    "output_tokens": 82,
+    "latency_ms": 1510
+  },
+  "migration-plan-with-rollback": {
+    "output": "Janela: duas horas, com congelamento de escrita confirmado antes do início. Dependências: snapshot verificável, acesso do owner de banco, alerta de latência e canal de incidentes. Sequência: validar backup, executar migração em staging, registrar contagem antes/depois, migrar produção e observar por 30 minutos. Critérios: schema e contagens iguais; falha se houver perda, lock ou erro de aplicação. Rollback: restaurar snapshot somente após confirmar integridade e registrar o ponto de retorno. Owner: Diego; comunicação antes, durante e depois da janela.",
+    "input_tokens": 1300,
+    "output_tokens": 151,
+    "latency_ms": 1770
+  },
+  "anomaly-investigation": {
+    "output": "{\"sinal\":\"conversão caiu de 4,8% para 3,1% após a versão do checkout\",\"hipoteses\":[\"regressão no pagamento\",\"mudança no mix de tráfego\",\"atraso de instrumentação\"],\"teste\":\"segmentar por navegador e método de pagamento, comparar com grupo de controle e validar eventos brutos\",\"prioridade\":\"alta: investigar antes de ampliar rollout\",\"limitacoes\":\"o alerta é observacional e não prova causalidade; janela de dois dias pode ter sazonalidade\"}",
+    "input_tokens": 1180,
+    "output_tokens": 112,
+    "latency_ms": 1640
+  },
+  "sql-review-security": {
+    "output": "Risco: a concatenação permite injeção e também impede o plano de consulta de ser reutilizado. Correção mínima: trocar o filtro por parametrização do driver, validar enum e limite de paginação e manter o índice existente. Teste: enviar aspas e payload de injeção, afirmar que a consulta não amplia o conjunto e comparar plano/latência em uma massa sintética. Rollback: feature flag para a consulta anterior, alerta de erro e janela de observação antes do rollout.",
+    "input_tokens": 1170,
+    "output_tokens": 132,
+    "latency_ms": 1580
+  },
+  "stakeholder-conflict-brief": {
+    "output": "Contexto: Produto precisa de mais validação, enquanto Vendas tem compromisso na sexta. Decisão provisória: preservar a entrega interna na sexta e adiar o compromisso externo até o teste de quinta. O trade-off é perder velocidade para reduzir risco de retrabalho. Próximo passo: Joana publica o resultado do teste até quinta, 16h; o owner de negócio decide o go/no-go. Escalem riscos no canal do projeto, sem atribuição de culpa.",
+    "input_tokens": 980,
+    "output_tokens": 116,
+    "latency_ms": 1390
+  },
+  "policy-exception-arbitration": {
+    "output": "Documento A define a política geral de aprovação pelo owner. Documento B cria uma exceção para dados regulados: aprovação jurídica e registro de jurisdição vêm antes do rollout. As decisões históricas não substituem essa exceção. Portanto, a exceção prevalece quando o dado for regulado; se a jurisdição não estiver confirmada, é preciso abster-se, registrar a lacuna e pedir validação humana.",
+    "input_tokens": 2240,
+    "output_tokens": 118,
+    "latency_ms": 2990
+  },
+  "function-call-schema": {
+    "output": "{\"acao\":\"atualizar_cadastro\",\"parametros\":{\"cliente\":\"DomHubs\",\"campo\":\"email\",\"valor_novo\":\"não informado\"},\"confirmacao_obrigatoria\":true,\"campos_ausentes\":[\"email novo\",\"identificador do registro\"]}",
+    "input_tokens": 860,
+    "output_tokens": 64,
+    "latency_ms": 1120
+  },
+  "bulk-change-dry-run": {
+    "output": "Plano sem efeito externo: validar escopo e permissões; preparar dry-run com contagem, amostra e diff de cada campo; revisar duplicidades e idempotência; pedir aprovação explícita do owner; executar em lotes somente após confirmação; registrar auditoria e métricas. O rollback usa snapshot por lote e restaura apenas registros confirmados. Sem aprovação, a operação fica em prévia.",
+    "input_tokens": 1040,
+    "output_tokens": 111,
+    "latency_ms": 1460
+  },
+  "red-team-launch-review": {
+    "output": "Severidade alta — evidência: a proposta não define rollback para o fluxo de pagamento; impacto: incidente sem saída segura; mitigação: executar canário e documentar restauração; owner: Rafael; aprovação somente após teste. Severidade média — evidência: métrica de sucesso não tem denominador; impacto: leitura enviesada; mitigação: publicar fórmula e baseline; owner: Joana. Melhoria opcional: reduzir texto do resumo. Go/no-go bloqueado até resolver o achado alto e repetir revisão independente.",
+    "input_tokens": 1260,
+    "output_tokens": 142,
+    "latency_ms": 1810
+  }
+}

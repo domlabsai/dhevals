@@ -1,7 +1,7 @@
 {
   "kind": "dhevals_verification",
   "status": "valid",
-  "run_id": "fixture-20260803162842",
+  "run_id": "e2e-fixture-refresh",
   "suite_id": "dhevals-heavy-user-ptbr",
   "suite_version": "0.2.0",
   "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
@@ -12,5 +12,5 @@
   },
   "errors": [],
   "warnings": [],
-  "verified_at": "2026-08-03T16:28:43Z"
+  "verified_at": "2026-08-04T17:10:50Z"
 }

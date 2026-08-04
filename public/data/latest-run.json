@@ -1,6 +1,6 @@
 {
   "run": {
-    "id": "fixture-20260803162842",
+    "id": "e2e-fixture-refresh",
     "suite_id": "dhevals-heavy-user-ptbr",
     "suite_version": "0.2.0",
     "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
@@ -17,14 +17,15 @@
       }
     },
     "runner_version": "0.1.0",
-    "started_at": "2026-08-03T16:28:42Z",
-    "finished_at": "2026-08-03T16:28:42Z"
+    "started_at": "2026-08-04T17:10:49Z",
+    "finished_at": "2026-08-04T17:10:49Z"
   },
   "summary": {
     "task_count": 10,
     "completed_count": 10,
     "coverage": 1.0,
-    "overall_score": 1.0
+    "overall_score": 1.0,
+    "error_count": 0
   },
   "results": [
     {
@@ -57,6 +58,9 @@
         "output_tokens": 142,
         "total_tokens": 1322,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -94,6 +98,9 @@
         "output_tokens": 92,
         "total_tokens": 1072,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -131,6 +138,9 @@
         "output_tokens": 118,
         "total_tokens": 1178,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -168,6 +178,9 @@
         "output_tokens": 112,
         "total_tokens": 1542,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -205,6 +218,9 @@
         "output_tokens": 137,
         "total_tokens": 1417,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -242,6 +258,9 @@
         "output_tokens": 108,
         "total_tokens": 828,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -279,6 +298,9 @@
         "output_tokens": 103,
         "total_tokens": 2243,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -316,6 +338,9 @@
         "output_tokens": 72,
         "total_tokens": 982,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -353,6 +378,9 @@
         "output_tokens": 104,
         "total_tokens": 1134,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"
@@ -390,6 +418,9 @@
         "output_tokens": 128,
         "total_tokens": 1348,
         "estimated_cost_usd": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
         "finish_reason": "stop",
         "provider_metadata": {
           "adapter": "fixture"

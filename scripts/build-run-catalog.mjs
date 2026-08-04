@@ -49,7 +49,15 @@ function buildEntry(report, reportPath, leaderboardEntry, currentPublic) {
   const summary = report.summary || {}
   const provider = model.provider || 'unknown'
   const fixture = provider === 'fixture'
-  const publicationStatus = leaderboardEntry?.publication_status || (fixture ? 'locked' : 'candidate')
+  const verification = readVerification(reportPath, run.id)
+  const verified = verification?.status === 'valid'
+  const qualityEligible = !fixture && summary.coverage === 1 && summary.error_count === 0 && verified
+  // A stale leaderboard entry must not be able to revive an incomplete run.
+  // Invalid artifacts remain discoverable for auditability, but their quality
+  // score is withheld from the catalog and from any ranking surface.
+  const publicationStatus = fixture ? 'locked' : qualityEligible
+    ? (leaderboardEntry?.publication_status || 'candidate')
+    : 'invalid'
   return {
     run_id: run.id,
     suite_id: run.suite_id,
@@ -57,7 +65,7 @@ function buildEntry(report, reportPath, leaderboardEntry, currentPublic) {
     suite_hash: run.suite_hash || null,
     model_id: model.model_id || 'unknown',
     provider,
-    score: typeof summary.overall_score === 'number' ? summary.overall_score : null,
+    score: (fixture || qualityEligible) && typeof summary.overall_score === 'number' ? summary.overall_score : null,
     coverage: typeof summary.coverage === 'number' ? summary.coverage : null,
     task_count: summary.task_count ?? 0,
     completed_count: summary.completed_count ?? 0,
@@ -68,8 +76,25 @@ function buildEntry(report, reportPath, leaderboardEntry, currentPublic) {
     source: relative(root, reportPath),
     current_public: currentPublic,
     archive_only: !currentPublic && reportPath.includes(`${separator()}reports${separator()}runs${separator()}`),
+    verified,
+    quality_eligible: qualityEligible,
     publication_status: publicationStatus,
-    lock_reason: leaderboardEntry?.lock_reason || (fixture ? 'offline fixture' : null),
+    lock_reason: fixture ? 'offline fixture' : qualityEligible
+      ? (leaderboardEntry?.lock_reason || null)
+      : 'incomplete or unverifiable run',
+  }
+}
+
+function readVerification(reportPath, runId) {
+  const verificationPath = reportPath === publicReportPath
+    ? resolve(root, 'public/data/latest-verification.json')
+    : reportPath.replace(/\.report\.json$/, '.verification.json')
+  if (!existsSync(verificationPath)) return null
+  try {
+    const verification = readJson(verificationPath)
+    return verification?.run_id && verification.run_id !== runId ? null : verification
+  } catch {
+    return null
   }
 }
 

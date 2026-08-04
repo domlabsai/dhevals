@@ -1,9 +1,12 @@
 run_id,model_id,suite_version,run_status,quality_score,coverage,verified,completed_at
-opencode-deepseek-v4-flash-free-v03-final,opencode/deepseek-v4-flash-free,0.3.0,archive_only,70,1,true,2026-08-03T19:31:40Z
-opencode-deepseek-v4-flash-free-v02-final,opencode/deepseek-v4-flash-free,0.2.0,locked,60,1,true,2026-08-03T19:07:16Z
-opencode-deepseek-v4-flash-free-v01-rerun,opencode/deepseek-v4-flash-free,0.1.0,archive_only,66.7,1,true,2026-08-03T16:26:18Z
+opencode-deepseek-v4-flash-free-v04-rerun,opencode/deepseek-v4-flash-free,0.4.0,archive_only,81.7,1,true,2026-08-04T17:03:55Z
 codex-gpt-5.6-luna-max-heavy-user-ptbr-v03,codex/gpt-5.6-luna,0.3.0,archive_only,80,1,true,2026-08-03T23:12:53Z
 codex-gpt-5.6-luna-max-heavy-user-ptbr-v02,codex/gpt-5.6-luna,0.2.0,archive_only,85,1,true,2026-08-03T22:25:57Z
 codex-gpt-5.6-luna-max-heavy-user-ptbr-v01,codex/gpt-5.6-luna,0.1.0,archive_only,91.7,1,true,2026-08-03T22:01:02Z
+opencode-deepseek-v4-flash-free-v03-final,opencode/deepseek-v4-flash-free,0.3.0,archive_only,70,1,true,2026-08-03T19:31:40Z
+opencode-deepseek-v4-flash-free-v02-final,opencode/deepseek-v4-flash-free,0.2.0,archive_only,60,1,true,2026-08-03T19:07:16Z
+opencode-deepseek-v4-flash-free-v03,opencode/deepseek-v4-flash-free,0.3.0,invalid,,0.95,true,2026-08-03T18:43:07Z
+opencode-deepseek-v4-flash-free-v02,opencode/deepseek-v4-flash-free,0.2.0,invalid,,0.9,true,2026-08-03T18:23:54Z
+opencode-deepseek-v4-flash-free-v01-rerun,opencode/deepseek-v4-flash-free,0.1.0,archive_only,66.7,1,true,2026-08-03T16:26:18Z
 negative-fixture-v0.3,negative-fixture-v0.3,0.3.0,invalid,,1,true,2026-08-03T02:18:27Z
 verify-negative,negative-fixture,0.2.0,invalid,,1,false,2026-08-02T23:43:40Z

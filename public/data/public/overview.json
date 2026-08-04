@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_overview",
-  "generated_at": "2026-08-03T23:19:23.555Z",
-  "source_revision": "a5bac0e",
+  "generated_at": "2026-08-04T17:10:42.853Z",
+  "source_revision": "ea367b5",
   "latest_signal": {
-    "run_id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v03",
-    "model_id": "codex/gpt-5.6-luna",
-    "model_name": "GPT-5.6 Luna (Codex)",
-    "provider": "codex",
+    "run_id": "opencode-deepseek-v4-flash-free-v04-rerun",
+    "model_id": "opencode/deepseek-v4-flash-free",
+    "model_name": "opencode/deepseek-v4-flash-free",
+    "provider": "opencode",
     "suite_id": "dhevals-heavy-user-ptbr",
-    "suite_version": "0.3.0",
+    "suite_version": "0.4.0",
     "score": null,
     "coverage": 1,
     "evidence_status": "locked",
     "is_fixture": false,
-    "date": "2026-08-03T23:12:53Z"
+    "date": "2026-08-04T17:03:55Z"
   },
   "calibration": {
     "status": "pending",
@@ -22,9 +22,9 @@
     "required_groups": 300
   },
   "counts": {
-    "suites": 3,
+    "suites": 4,
     "models": 2,
-    "runs": 8,
+    "runs": 11,
     "promoted_runs": 0
   },
   "methodology_version": "0.1.0"

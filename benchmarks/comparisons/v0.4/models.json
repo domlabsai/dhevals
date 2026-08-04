@@ -1,0 +1,38 @@
+{
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.4.0",
+  "policy": {
+    "same_suite_hash_required": true,
+    "same_generation_config_required": true,
+    "fixture_scores_public": false,
+    "human_calibration_required": true,
+    "ranking_policy": "archive-only until human calibration is complete"
+  },
+  "generation": {
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seed": 7
+  },
+  "models": [
+    {
+      "id": "codex/gpt-5.6-luna",
+      "label": "GPT-5.6 Luna (Codex)",
+      "provider": "codex",
+      "adapter": "command-line",
+      "cli_command_env": "DHEVALS_MODEL_CLI_COMMAND",
+      "base_url_env": "DHEVALS_MODEL_BASE_URL",
+      "api_key_env": "DHEVALS_MODEL_API_KEY_ENV",
+      "publication": "comparison-only"
+    },
+    {
+      "id": "opencode/deepseek-v4-flash-free",
+      "label": "DeepSeek V4 Flash (OpenCode)",
+      "provider": "opencode",
+      "adapter": "command-line",
+      "cli_command_env": "DHEVALS_MODEL_CLI_COMMAND",
+      "base_url_env": "DHEVALS_MODEL_BASE_URL",
+      "api_key_env": "DHEVALS_MODEL_API_KEY_ENV",
+      "publication": "comparison-only"
+    }
+  ]
+}

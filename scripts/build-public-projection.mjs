@@ -120,11 +120,17 @@ function classifyRun(run) {
   const isFixture = entry.provider === 'fixture' || isNegative || String(entry.run_id).includes('fixture')
   let runStatus
   if (isNegative) runStatus = 'invalid'
+  else if (entry.archive_only && isArchiveRankEligible(run)) runStatus = 'archive_only'
+  else if (entry.archive_only && (entry.error_count > 0 || entry.coverage !== 1 || run.verification?.status !== 'valid')) runStatus = 'invalid'
   else if (entry.publication_status === 'candidate' && entry.archive_only) runStatus = 'archive_only'
   else if (entry.publication_status === 'locked') runStatus = 'locked'
   else if (entry.publication_status === 'promoted') runStatus = 'promoted'
   else runStatus = 'locked'
   return { isFixture, runStatus }
+}
+
+function isArchiveRankEligible(run) {
+  return run.entry.provider !== 'fixture' && !String(run.entry.model_id || '').toLowerCase().includes('negative') && !String(run.entry.run_id || '').includes('fixture') && run.entry.archive_only === true && run.entry.coverage === 1 && run.entry.error_count === 0 && run.verification?.status === 'valid'
 }
 
 function buildRunIndexEntry(run) {
@@ -161,6 +167,12 @@ function buildRunDetail(run) {
   const summary = report.summary || {}
   const model = reportRun.model || {}
   const publicSuite = reportRun.suite_id === 'dhevals-heavy-user-ptbr'
+  const resultMetrics = Array.isArray(report.results) ? report.results.map((result) => result.metrics || {}) : []
+  const tokenSources = new Set(resultMetrics.map((metrics) => metrics.provider_metadata?.token_count_source).filter(Boolean))
+  const costSources = new Set(resultMetrics.map((metrics) => metrics.cost_source).filter(Boolean))
+  const costIsEstimate = resultMetrics.some((metrics) => metrics.cost_is_estimate === true) || model.extra?.pricing_provenance?.estimated === true
+  const tokensTotal = resultMetrics.reduce((total, metrics) => total + (typeof metrics.total_tokens === 'number' ? metrics.total_tokens : 0), 0)
+  const hasTokens = resultMetrics.some((metrics) => typeof metrics.total_tokens === 'number')
   return sanitizeDeferredModelReferences({
     schema_version: '1.0.0',
     kind: 'dhevals_public_run',
@@ -187,9 +199,16 @@ function buildRunDetail(run) {
       task_count: summary.task_count ?? 0,
       completed_count: summary.completed_count ?? 0,
       coverage: typeof summary.coverage === 'number' ? summary.coverage : null,
-      overall_score: typeof summary.overall_score === 'number' ? toHundred(summary.overall_score) : null,
+      overall_score: runStatus === 'invalid' ? null : (typeof summary.overall_score === 'number' ? toHundred(summary.overall_score) : null),
       error_count: summary.error_count ?? 0,
       estimated_cost_usd_total: typeof summary.estimated_cost_usd_total === 'number' ? summary.estimated_cost_usd_total : null,
+      tokens_total: hasTokens ? tokensTotal : null,
+      token_count_source: hasTokens ? ([...tokenSources].sort().join(',') || null) : null,
+      cost_source: [...costSources].sort().join(',') || model.extra?.pricing_provenance?.source || null,
+      cost_is_estimate: costIsEstimate,
+      cost_estimate_warning: costIsEstimate
+        ? 'Base model-list price multiplied by token count; final billed cost may differ.'
+        : null,
     },
     categories: (Array.isArray(report.categories) ? report.categories : []).map((category) => ({
       category: category.category,
@@ -209,6 +228,9 @@ function buildRunDetail(run) {
       score: typeof result.score === 'number' ? result.score : null,
       latency_ms: typeof result.metrics?.latency_ms === 'number' ? result.metrics.latency_ms : null,
       tokens: typeof result.metrics?.total_tokens === 'number' ? result.metrics.total_tokens : null,
+      token_count_source: result.metrics?.provider_metadata?.token_count_source || null,
+      estimated_cost_usd: typeof result.metrics?.estimated_cost_usd === 'number' ? result.metrics.estimated_cost_usd : null,
+      cost_is_estimate: result.metrics?.cost_is_estimate === true,
       failure_reason: failureReason(result),
       prompt: publicSuite && typeof result.prompt === 'string' ? result.prompt : null,
       output: typeof result.output === 'string' ? result.output : null,
@@ -278,6 +300,7 @@ function buildModels(modelCatalog, runs, suiteCatalog) {
 function buildModelEntry(id, name, provider, catalogModel, runs, suiteCatalog) {
   const modelRuns = runs.filter((run) => run.entry.model_id === id)
   const realRuns = modelRuns.filter((run) => !classifyRun(run).isFixture)
+  const archiveRuns = realRuns.filter(isArchiveRankEligible)
   const categories = new Set()
   for (const run of modelRuns) {
     const suite = suiteCatalog.suites.find((entry) => entry.suite_id === run.entry.suite_id && entry.version === run.entry.suite_version)
@@ -286,15 +309,78 @@ function buildModelEntry(id, name, provider, catalogModel, runs, suiteCatalog) {
   const verifiedRuns = realRuns.filter((run) => run.verification?.status === 'valid')
   const latestVerified = latestBy(verifiedRuns, (run) => run.verification.verified_at)
   const latestActivity = latestBy(modelRuns, (run) => run.entry.finished_at)
+  const signalRuns = archiveRuns.length ? archiveRuns : realRuns
   const latencies = []
   const tokens = []
-  for (const run of realRuns) {
+  const categoryAggregates = new Map()
+  let totalCostUsd = 0
+  let costObserved = false
+  let inputCostPer1k = null
+  let outputCostPer1k = null
+  const contextCandidates = []
+  const tokenSources = new Set()
+  const costSources = new Set()
+  let costIsEstimate = false
+  let pricingFetchedAt = null
+  for (const run of signalRuns) {
+    for (const category of run.report.categories || []) {
+      if (typeof category.score !== 'number' || !Number.isFinite(category.score)) continue
+      const taskCount = Number(category.task_count) || 0
+      const current = categoryAggregates.get(category.category) || { weightedScore: 0, taskCount: 0 }
+      current.weightedScore += category.score * taskCount
+      current.taskCount += taskCount
+      categoryAggregates.set(category.category, current)
+    }
+    const pricing = run.report.run?.model?.pricing || {}
+    const pricingProvenance = run.report.run?.model?.extra?.pricing_provenance || {}
+    if (typeof pricing.input_per_1k_tokens_usd === 'number') inputCostPer1k = pricing.input_per_1k_tokens_usd
+    if (typeof pricing.output_per_1k_tokens_usd === 'number') outputCostPer1k = pricing.output_per_1k_tokens_usd
+    if (typeof pricingProvenance.source === 'string') costSources.add(pricingProvenance.source)
+    if (pricingProvenance.estimated === true) costIsEstimate = true
+    if (typeof pricingProvenance.fetched_at === 'string') pricingFetchedAt = pricingProvenance.fetched_at
+    for (const candidate of [
+      run.report.run?.model?.context_tokens,
+      run.report.run?.model?.extra?.context_tokens,
+      run.entry.context_tokens,
+    ]) {
+      if (typeof candidate === 'number' && Number.isFinite(candidate)) contextCandidates.push(candidate)
+    }
+    let runCostObserved = false
     for (const result of run.report.results || []) {
       if (typeof result.metrics?.latency_ms === 'number') latencies.push(result.metrics.latency_ms)
       if (typeof result.metrics?.total_tokens === 'number') tokens.push(result.metrics.total_tokens)
+      if (typeof result.metrics?.provider_metadata?.token_count_source === 'string') tokenSources.add(result.metrics.provider_metadata.token_count_source)
+      if (typeof result.metrics?.estimated_cost_usd === 'number') {
+        totalCostUsd += result.metrics.estimated_cost_usd
+        runCostObserved = true
+      }
+      if (typeof result.metrics?.cost_source === 'string') costSources.add(result.metrics.cost_source)
+      if (result.metrics?.cost_is_estimate === true) costIsEstimate = true
     }
+    if (!runCostObserved && typeof run.report.summary?.estimated_cost_usd_total === 'number') {
+      totalCostUsd += run.report.summary.estimated_cost_usd_total
+      runCostObserved = true
+    }
+    costObserved = costObserved || runCostObserved
   }
   const observed = latencies.length > 0 || tokens.length > 0
+  const archiveTaskCount = archiveRuns.reduce((total, run) => total + (Number(run.entry.task_count) || 0), 0)
+  const archiveScore = archiveTaskCount
+    ? archiveRuns.reduce((total, run) => total + (Number(run.entry.score) || 0) * (Number(run.entry.task_count) || 0), 0) / archiveTaskCount
+    : null
+  const rankingStatus = archiveRuns.length ? 'archive_only_ranked' : 'not_ranked'
+  const categoryScores = Object.fromEntries(
+    [...categoryAggregates.entries()]
+      .filter(([, aggregate]) => aggregate.taskCount > 0)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([category, aggregate]) => [category, toHundred(aggregate.weightedScore / aggregate.taskCount)]),
+  )
+  const totalTokens = tokens.length ? tokens.reduce((sum, value) => sum + value, 0) : null
+  const costPer1k = costObserved && typeof totalTokens === 'number' && totalTokens > 0
+    ? (totalCostUsd / totalTokens) * 1000
+    : null
+  const latestBenchRun = latestBy(archiveRuns.length ? archiveRuns : realRuns, (run) => run.entry.finished_at)
+  const benchRunDate = latestBenchRun?.entry?.finished_at || latestActivity?.entry?.finished_at || null
   const status = catalogModel?.status === 'endpoint-not-configured' ? 'not_configured' : 'calibration_pending'
   let evidenceStatus
   if (realRuns.length === 0) evidenceStatus = 'pending'
@@ -308,20 +394,37 @@ function buildModelEntry(id, name, provider, catalogModel, runs, suiteCatalog) {
     status,
     license: modelLicense(catalogModel),
     capabilities: [...categories].sort(),
-    quality_score: null,
+    category_scores: categoryScores,
+    quality_score: archiveScore === null ? null : toHundred(archiveScore),
+    ranking_status: rankingStatus,
+    ranking_runs: archiveRuns.map((run) => run.entry.run_id),
+    ranking_task_count: archiveTaskCount,
+    ranking_coverage: archiveRuns.length ? Math.min(...archiveRuns.map((run) => run.entry.coverage)) : null,
+    promoted: false,
     evidence_status: EVIDENCE_STATUSES.includes(evidenceStatus) ? evidenceStatus : 'pending',
     evidence_coverage: realRuns.length ? Math.max(...realRuns.map((run) => (typeof run.entry.coverage === 'number' ? run.entry.coverage : 0))) : null,
     last_verified_at: latestVerified?.verification?.verified_at || null,
+    bench_run_date: benchRunDate,
     metrics: {
-      input_cost_per_1k: null,
-      output_cost_per_1k: null,
+      input_cost_per_1k: inputCostPer1k,
+      output_cost_per_1k: outputCostPer1k,
+      cost_per_1k: costPer1k,
+      run_cost_usd: costObserved ? Math.round(totalCostUsd * 10000) / 10000 : null,
+      tokens_total: totalTokens,
       latency_ms: latencies.length ? Math.round(latencies.reduce((sum, value) => sum + value, 0) / latencies.length) : null,
       tokens_per_second: null,
-      context_tokens: null,
+      context_tokens: contextCandidates.length ? Math.max(...contextCandidates) : null,
+      token_count_source: tokens.length ? ([...tokenSources].sort().join(',') || 'provider_or_adapter') : null,
+      cost_source: costObserved ? ([...costSources].sort().join(',') || 'provider_or_adapter') : null,
+      cost_is_estimate: costObserved ? costIsEstimate : false,
+      cost_estimate_warning: costObserved && costIsEstimate
+        ? 'Base model-list price multiplied by token count; final billed cost may differ.'
+        : null,
+      pricing_fetched_at: pricingFetchedAt,
       observed_from_runs: observed,
     },
     sources: modelSources(catalogModel, realRuns),
-    notes: modelNotes(id, evidenceStatus, status, realRuns),
+    notes: modelNotes(id, evidenceStatus, status, realRuns, archiveRuns),
     last_activity_at: latestActivity?.entry?.finished_at || null,
   }
 }
@@ -413,13 +516,38 @@ function buildOverview(runCatalog, runs, suiteCatalog, modelEntries, sourceRevis
 }
 
 function buildLeaderboard(modelEntries, runs) {
-  const notRanked = modelEntries.map((model) => ({
+  const rankedModels = modelEntries.filter((model) => model.ranking_status === 'archive_only_ranked' && typeof model.quality_score === 'number')
+  const ranked = [...rankedModels]
+    .sort((left, right) => right.quality_score - left.quality_score || left.name.localeCompare(right.name))
+    .map((model, index) => ({
+      rank: index + 1,
+      model_id: model.id,
+      model_name: model.name,
+      provider: model.provider,
+      quality_score: model.quality_score,
+      coverage: model.ranking_coverage,
+      verified: true,
+      is_fixture: false,
+      archive_only: true,
+      promoted: false,
+      ranking_status: 'archive_only_ranked',
+      evidence_status: model.evidence_status,
+      ranking_task_count: model.ranking_task_count,
+      category_scores: model.category_scores,
+      metrics: model.metrics,
+      license: model.license,
+      bench_run_date: model.bench_run_date,
+      run_ids: model.ranking_runs,
+      last_verified_at: model.last_verified_at,
+    }))
+  const notRanked = modelEntries.filter((model) => !rankedModels.includes(model)).map((model) => ({
     model_id: model.id,
     model_name: model.name,
     provider: model.provider,
     reason: model.status === 'not_configured' ? 'not_configured' : model.evidence_status === 'locked' ? 'locked' : 'pending',
     evidence_status: model.evidence_status,
     last_activity_at: model.last_activity_at,
+    ranking_status: model.ranking_status,
   }))
   return {
     schema_version: '1.0.0',
@@ -427,11 +555,15 @@ function buildLeaderboard(modelEntries, runs) {
     generated_at: GENERATED_AT,
     methodology: {
       ranking_field: 'quality_score',
+      displayed_fields: ['quality_score', 'category_scores', 'cost_per_1k', 'latency_ms', 'context_tokens', 'license', 'bench_run_date'],
       requires_full_coverage: true,
-      requires_promotion: true,
+      requires_promotion: false,
+      archive_only_rankings_allowed: true,
+      archive_only_label: 'observed_archive_only',
+      promoted_scores_require_human_calibration: true,
       fixture_scores_never_published: true,
     },
-    ranked: [],
+    ranked,
     not_ranked: notRanked,
   }
 }
@@ -491,8 +623,9 @@ function modelSources(catalogModel, realRuns) {
   return [...new Set(sources)]
 }
 
-function modelNotes(id, evidenceStatus, status, realRuns) {
+function modelNotes(id, evidenceStatus, status, realRuns, archiveRuns = []) {
   if (status === 'not_configured') return 'Endpoint not configured; comparison baseline only, no runs executed.'
+  if (archiveRuns.length) return 'Observed archive-only ranking from verified full-coverage runs; human calibration is still pending and the score is not promoted.'
   if (evidenceStatus === 'locked') return 'Archive-only runs exist, but the promotion gate is closed; no promoted public score yet.'
   if (realRuns.length === 0) return 'Calibration in progress; no promoted public score yet.'
   return 'Calibration in progress; no promoted public score yet.'

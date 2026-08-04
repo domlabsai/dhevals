@@ -128,14 +128,24 @@ function checkInauguration(report) {
 function checkModels(models) {
   for (const model of models) {
     const label = `models.json ${model?.id ?? '?'}`
-    requireFields(label, model, ['id', 'slug', 'name', 'provider', 'status', 'license', 'capabilities', 'quality_score', 'evidence_status', 'evidence_coverage', 'last_verified_at', 'metrics', 'sources', 'notes'])
+    requireFields(label, model, ['id', 'slug', 'name', 'provider', 'status', 'license', 'capabilities', 'category_scores', 'quality_score', 'ranking_status', 'ranking_runs', 'ranking_task_count', 'ranking_coverage', 'promoted', 'evidence_status', 'evidence_coverage', 'last_verified_at', 'bench_run_date', 'metrics', 'sources', 'notes'])
     if (!EVIDENCE_STATUSES.includes(model.evidence_status)) errors.push(`${label}: evidence_status "${model.evidence_status}" is not in the allowed enum`)
     if (!['current', 'calibration_pending', 'not_configured'].includes(model.status)) errors.push(`${label}: status "${model.status}" is not in the allowed enum`)
     checkScore(`${label} quality_score`, model.quality_score)
+    if (!['archive_only_ranked', 'not_ranked'].includes(model.ranking_status)) errors.push(`${label}: ranking_status must be archive_only_ranked or not_ranked`)
+    if (!Array.isArray(model.ranking_runs)) errors.push(`${label}: ranking_runs must be an array`)
+    if (typeof model.promoted !== 'boolean' || model.promoted) errors.push(`${label}: promoted must remain false in the archive-only projection`)
+    if (model.ranking_coverage !== null && (typeof model.ranking_coverage !== 'number' || model.ranking_coverage < 0 || model.ranking_coverage > 1)) errors.push(`${label}: ranking_coverage must be null or 0-1`)
+    if (model.ranking_status === 'archive_only_ranked' && (typeof model.quality_score !== 'number' || !model.ranking_runs.length || model.ranking_coverage !== 1)) errors.push(`${label}: archive-only ranked models need a score, run ids and full ranking coverage`)
     if (model.evidence_coverage !== null && (typeof model.evidence_coverage !== 'number' || model.evidence_coverage < 0 || model.evidence_coverage > 1)) {
       errors.push(`${label}: evidence_coverage must be null or 0-1`)
     }
-    if (model.metrics) requireFields(`${label} metrics`, model.metrics, ['input_cost_per_1k', 'output_cost_per_1k', 'latency_ms', 'tokens_per_second', 'context_tokens'])
+    checkCategoryScores(`${label} category_scores`, model.category_scores)
+    if (model.bench_run_date !== null && typeof model.bench_run_date !== 'string') errors.push(`${label}: bench_run_date must be a timestamp string or null`)
+    if (model.metrics) {
+      requireFields(`${label} metrics`, model.metrics, ['input_cost_per_1k', 'output_cost_per_1k', 'cost_per_1k', 'run_cost_usd', 'tokens_total', 'latency_ms', 'tokens_per_second', 'context_tokens', 'token_count_source', 'cost_source', 'cost_is_estimate', 'cost_estimate_warning', 'pricing_fetched_at'])
+      if (typeof model.metrics.cost_is_estimate !== 'boolean') errors.push(`${label}: metrics.cost_is_estimate must be boolean`)
+    }
     if (String(model.id).includes('fixture') || String(model.id).includes('negative')) errors.push(`${label}: fixture or negative model leaked into the public model list`)
   }
 }
@@ -163,6 +173,7 @@ function checkRunsIndex(runsIndex) {
     checkScore(`${label} quality_score`, entry.quality_score)
     if (typeof entry.verified !== 'boolean' || typeof entry.is_fixture !== 'boolean') errors.push(`${label}: verified and is_fixture must be booleans`)
     if (entry.is_fixture && entry.quality_score !== null) errors.push(`${label}: fixture runs must not publish a quality_score`)
+    if (entry.run_status === 'invalid' && entry.quality_score !== null) errors.push(`${label}: invalid runs must not publish a quality_score`)
     if (entry.artifacts?.json !== `/data/public/runs/${entry.id}.json`) errors.push(`${label}: artifacts.json must point at /data/public/runs/${entry.id}.json`)
   }
 }
@@ -176,10 +187,19 @@ function checkLeaderboard(leaderboard) {
   }
   for (const entry of leaderboard.ranked) {
     const label = `leaderboard.json ranked ${entry?.model_id ?? '?'}`
+    requireFields(label, entry, ['model_id', 'model_name', 'provider', 'quality_score', 'category_scores', 'metrics', 'license', 'bench_run_date', 'run_ids', 'last_verified_at'])
     if (entry.verified !== true) errors.push(`${label}: ranked entries must be verified`)
     if (entry.coverage !== 1) errors.push(`${label}: ranked entries must have full coverage`)
     if (entry.is_fixture === true) errors.push(`${label}: fixture runs must never be ranked`)
+    if (entry.archive_only !== true || entry.promoted !== false || entry.ranking_status !== 'archive_only_ranked') errors.push(`${label}: ranked entries must be explicitly archive-only and not promoted`)
+    if (!Array.isArray(entry.run_ids) || !entry.run_ids.length) errors.push(`${label}: ranked entries need source run ids`)
     checkScore(`${label} quality_score`, entry.quality_score)
+    checkCategoryScores(`${label} category_scores`, entry.category_scores)
+    if (entry.bench_run_date !== null && typeof entry.bench_run_date !== 'string') errors.push(`${label}: bench_run_date must be a timestamp string or null`)
+    if (entry.metrics) {
+      requireFields(`${label} metrics`, entry.metrics, ['cost_per_1k', 'run_cost_usd', 'tokens_total', 'latency_ms', 'context_tokens', 'token_count_source', 'cost_source', 'cost_is_estimate', 'cost_estimate_warning', 'pricing_fetched_at'])
+      if (typeof entry.metrics.cost_is_estimate !== 'boolean') errors.push(`${label}: metrics.cost_is_estimate must be boolean`)
+    }
   }
   for (const entry of leaderboard.not_ranked) {
     const label = `leaderboard.json not_ranked ${entry?.model_id ?? '?'}`
@@ -196,12 +216,14 @@ function checkRunDetail(id, detail) {
   if (detail.run) requireFields(label, detail.run, ['id', 'suite_id', 'suite_version', 'suite_hash', 'model', 'runner_version', 'started_at', 'finished_at'])
   if (detail.run?.id && detail.run.id !== id) errors.push(`${label}: run.id does not match the file name`)
   if (detail.summary) {
-    requireFields(label, detail.summary, ['task_count', 'completed_count', 'coverage', 'overall_score', 'error_count', 'estimated_cost_usd_total'])
+    requireFields(label, detail.summary, ['task_count', 'completed_count', 'coverage', 'overall_score', 'error_count', 'estimated_cost_usd_total', 'tokens_total', 'token_count_source', 'cost_source', 'cost_is_estimate', 'cost_estimate_warning'])
     checkScore(`${label} summary.overall_score`, detail.summary.overall_score)
+    if (typeof detail.summary.cost_is_estimate !== 'boolean') errors.push(`${label}: summary.cost_is_estimate must be boolean`)
+    if (detail.run_status === 'invalid' && detail.summary.overall_score !== null) errors.push(`${label}: invalid run detail must not expose an overall score`)
   }
   if (Array.isArray(detail.tasks)) {
     for (const task of detail.tasks) {
-      requireFields(`${label} task ${task?.task_id ?? '?'}`, task, ['task_id', 'title', 'category', 'status', 'score', 'latency_ms', 'tokens', 'failure_reason', 'prompt', 'output', 'checks'])
+      requireFields(`${label} task ${task?.task_id ?? '?'}`, task, ['task_id', 'title', 'category', 'status', 'score', 'latency_ms', 'tokens', 'token_count_source', 'estimated_cost_usd', 'cost_is_estimate', 'failure_reason', 'prompt', 'output', 'checks'])
     }
   } else {
     errors.push(`${label}: tasks must be an array`)
@@ -224,6 +246,14 @@ function requireFields(label, value, fields) {
 function checkScore(label, score) {
   if (score === null) return
   if (typeof score !== 'number' || Number.isNaN(score) || score < 0 || score > 100) errors.push(`${label}: scores must be 0-100 or null`)
+}
+
+function checkCategoryScores(label, scores) {
+  if (!scores || typeof scores !== 'object' || Array.isArray(scores)) {
+    errors.push(`${label}: must be an object of category scores`)
+    return
+  }
+  for (const [category, score] of Object.entries(scores)) checkScore(`${label}.${category}`, score)
 }
 
 function scanForForbidden(text, label) {
