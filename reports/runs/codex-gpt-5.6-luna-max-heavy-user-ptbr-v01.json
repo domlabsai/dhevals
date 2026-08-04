@@ -1,0 +1,279 @@
+{
+  "run": {
+    "id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v01",
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "suite_version": "0.1.0",
+    "suite_hash": "154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3",
+    "model": {
+      "model_id": "codex/gpt-5.6-luna",
+      "provider": "codex",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {}
+    },
+    "runner_version": "0.1.0",
+    "started_at": "2026-08-03T21:52:43Z",
+    "finished_at": "2026-08-03T22:01:02Z"
+  },
+  "summary": {
+    "task_count": 6,
+    "completed_count": 6,
+    "coverage": 1.0,
+    "overall_score": 0.9167
+  },
+  "results": [
+    {
+      "task_id": "research-synthesis",
+      "title": "Research & synthesis",
+      "category": "Research",
+      "prompt": "Você é responsável por uma decisão de busca corporativa. Compare estratégias híbridas e dense-only para RAG, explicite trade-offs, riscos de grounding e recomende um próximo experimento. Inclua citações internas aos trechos fornecidos.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nFonte A — experimento offline sintético: em 600 consultas corporativas, a busca híbrida aumentou o recall@10 em 14% contra dense-only. O ganho foi maior em consultas com nomes próprios, códigos e siglas. O experimento não mediu factualidade da resposta nem removeu duplicatas do corpus.\n\nFonte B — piloto sintético de FAQ: dense-only reduziu a latência mediana em 32% e teve precisão@5 semelhante para perguntas curtas. Falhou com mais frequência em IDs exatos, negações e filtros por departamento. O corpus do piloto tinha 40% de documentos duplicados.\n\nUse somente essas duas fontes, cite-as como [Fonte A] e [Fonte B] e diferencie fatos, inferências e pontos que ainda precisam de validação.",
+      "output": "## Decisão provisória\n\nRecomendo usar busca híbrida como baseline para busca corporativa, mantendo dense-only apenas como rota candidata para FAQs curtas e de menor risco. A razão principal é que nomes próprios, códigos, siglas, IDs e filtros exatos são justamente os casos em que dense-only apresentou fragilidade [Fonte A] [Fonte B].\n\n## Comparação\n\n| Critério | Híbrida | Dense-only |\n|---|---|---|\n| Recall | Recall@10 14% maior em 600 consultas corporativas, sobretudo com nomes, códigos e siglas [Fonte A] | Inferior nesses tipos de consulta [Fonte A] |\n| Latência | Não foi medida na Fonte A; impacto ainda desconhecido | Latência mediana 32% menor no piloto [Fonte B] |\n| FAQs curtas | Não há evidência específica | Precisão@5 semelhante e menor latência [Fonte B] |\n| IDs, negações e departamentos | Potencialmente mais adequada, mas ainda não validada diretamente | Falhou mais nesses casos [Fonte B] |\n| Duplicatas | O efeito não foi medido [Fonte A] | O piloto continha 40% de documentos duplicados, o que limita a interpretação dos resultados [Fonte B] |\n\n### Fatos observados\n\n- A busca híbrida aumentou o recall@10 em 14% contra dense-only [Fonte A].\n- O ganho híbrido foi maior para nomes próprios, códigos e siglas [Fonte A].\n- Dense-only reduziu a latência mediana em 32% e alcançou precisão@5 semelhante em perguntas curtas [Fonte B].\n- Dense-only falhou mais frequentemente com IDs exatos, negações e filtros por departamento [Fonte B].\n- O piloto dense-only tinha 40% de documentos duplicados [Fonte B].\n- Nenhum dos experimentos mediu factualidade das respostas; a Fonte A também não removeu duplicatas [Fonte A].\n\n### Inferências e trade-offs\n\nA busca híbrida parece oferecer melhor cobertura para consultas corporativas com termos exatos e restrições estruturadas. Isso sugere menor risco de não recuperar o documento correto, mas não prova que a resposta gerada será factual ou estará devidamente fundamentada.\n\nDense-only oferece uma vantagem clara de latência e pode ser suficiente para FAQs curtas. Porém, seus erros em IDs, negações e filtros departamentais representam risco elevado de recuperar contexto incorreto — especialmente quando a resposta depende de uma distinção exata.\n\nO impacto das duplicatas permanece ambíguo: elas podem fazer uma estratégia parecer mais precisa por repetir o mesmo conteúdo, ou podem ocupar posições do ranking e reduzir a diversidade do contexto. Essa conclusão é uma inferência, não um fato medido diretamente [Fonte A] [Fonte B].\n\n## Riscos de grounding\n\nO ganho de recall da busca híbrida não deve ser tratado como prova de melhor grounding: a Fonte A não avaliou factualidade. Um sistema pode recuperar mais documentos e ainda assim gerar uma resposta incorreta, contraditória ou baseada no documento errado [Fonte A].\n\nNo dense-only, os erros observados em IDs, negações e departamentos elevam o risco de grounding incorreto, pois pequenas diferenças no contexto recuperado podem alterar completamente a resposta [Fonte B].\n\n## Próximo experimento recomendado\n\nExecutaria um teste controlado com:\n\n1. Corpus deduplicado, além de uma condição separada com duplicatas para medir sua influência.\n2. Consultas estratificadas em:\n   - FAQs curtas;\n   - nomes próprios, códigos e siglas;\n   - IDs exatos;\n   - negações;\n   - filtros por departamento.\n3. Mesmas condições de geração para as duas estratégias.\n4. Métricas de:\n   - recall@10;\n   - precisão@5;\n   - latência mediana e p95;\n   - factualidade da resposta;\n   - suporte explícito da resposta pelos trechos recuperados;\n   - contradições e respostas indevidamente confiantes.\n\nA decisão final deveria depender principalmente da combinação entre factualidade e cobertura nos casos de alto risco. Se a busca híbrida mantiver vantagem nesses grupos com latência aceitável, deve ser adotada como padrão. Dense-only poderia permanecer como otimização específica para FAQs curtas, desde que seu grounding seja equivalente após a deduplicação do corpus.",
+      "score": 0.5,
+      "status": "partial",
+      "checks": [
+        {
+          "id": "required-terms",
+          "type": "contains_all",
+          "passed": false,
+          "score": 0.0,
+          "details": "missing: citações"
+        },
+        {
+          "id": "minimum-evidence",
+          "type": "min_length",
+          "passed": true,
+          "score": 1.0,
+          "details": "length 3969 >= 240"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 49214.98,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "estimated_cost_usd": null,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "command-line",
+          "command": "codex",
+          "prompt_mode": "stdin",
+          "attempt": 1,
+          "timeout_seconds": 900.0,
+          "timeout_retries": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "document-qa",
+      "title": "Document Q&A",
+      "category": "Documents",
+      "prompt": "Extraia de um brief operacional as decisões, pendências e riscos. Retorne somente JSON válido com as chaves decisoes, pendencias e riscos; preserve nomes de seção e sinalize conflitos.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nBrief operacional — Projeto Atlas\n\nSeção: Escopo aprovado\nDecisão: lançar um piloto para 30 usuários internos, limitado ao fluxo de busca de políticas.\n\nSeção: Cronograma\nDecisão: a revisão de segurança deve terminar em 18/08/2026.\nPendência: confirmar quem será o owner da aprovação jurídica.\n\nSeção: Riscos e bloqueios\nRisco: a equipe de Operações registra go-live em 12/08/2026, enquanto Engenharia registra go-live em 19/08/2026. O conflito não foi resolvido.\nRisco: não há plano de rollback documentado para o índice de busca.",
+      "output": "{\"decisoes\":[{\"secao\":\"Escopo aprovado\",\"decisao\":\"Lançar um piloto para 30 usuários internos, limitado ao fluxo de busca de políticas.\"},{\"secao\":\"Cronograma\",\"decisao\":\"A revisão de segurança deve terminar em 18/08/2026.\"}],\"pendencias\":[{\"secao\":\"Cronograma\",\"pendencia\":\"Confirmar quem será o owner da aprovação jurídica.\"}],\"riscos\":[{\"secao\":\"Riscos e bloqueios\",\"risco\":\"Conflito não resolvido: Operações registra go-live em 12/08/2026, enquanto Engenharia registra go-live em 19/08/2026.\",\"conflito\":true},{\"secao\":\"Riscos e bloqueios\",\"risco\":\"Não há plano de rollback documentado para o índice de busca.\"}]}",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": true,
+          "score": 1.0,
+          "details": "valid object with required keys"
+        },
+        {
+          "id": "has-conflict",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1.0,
+          "details": "found: conflito"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 17899.28,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "estimated_cost_usd": null,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "command-line",
+          "command": "codex",
+          "prompt_mode": "stdin",
+          "attempt": 1,
+          "timeout_seconds": 900.0,
+          "timeout_retries": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "plan-outline",
+      "title": "Plan & outline",
+      "category": "Planning",
+      "prompt": "Monte um plano de lançamento em duas semanas, com orçamento fixo, dependências, riscos priorizados e próximos passos. O plano deve ser acionável por uma equipe pequena.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nCenário sintético — Projeto Atlas\n\nObjetivo: lançar um piloto interno de busca de políticas em 10 dias úteis.\nOrçamento fixo: R$ 18.000; não pode ser ampliado durante o piloto.\nEquipe disponível: uma pessoa de produto, uma de engenharia e uma de operações, em dedicação parcial.\nDependências: aprovação de segurança antes do primeiro usuário; índice carregado com 200 documentos; grupo piloto de 30 usuários; canal de suporte definido.\nRiscos conhecidos: dados desatualizados, atraso da aprovação jurídica e baixa adesão dos usuários.\nCritério de saída: 90% das consultas do conjunto de validação retornam uma fonte rastreável e nenhum incidente crítico aberto.",
+      "output": "# Plano de lançamento — Projeto Atlas\n\n## Objetivo e gates\n\nLançar, em 10 dias úteis, um piloto interno de busca de políticas para 30 usuários, com:\n\n- 200 documentos carregados no índice;\n- aprovação de segurança antes do primeiro usuário;\n- canal de suporte ativo;\n- fonte rastreável em pelo menos 90% das consultas de validação;\n- nenhum incidente crítico aberto ao final.\n\nA aprovação jurídica será tratada como gate adicional se o processo interno exigir sua formalização. Essa exigência deve ser confirmada no primeiro dia.\n\n## Cronograma acionável\n\n| Período | Atividades principais | Responsável | Entregável |\n|---|---|---|---|\n| Dia 1 | Travar escopo, critérios de aceite, conjunto de validação e definição de incidente crítico. Solicitar aprovações. | Produto + Engenharia | Escopo de uma página e plano de validação |\n| Dias 1–2 | Inventariar os 200 documentos, identificar versões desatualizadas e preparar evidências de segurança. Selecionar os 30 usuários. | Operações + Engenharia | Inventário, lista piloto e pacote de aprovação |\n| Dia 2 | Definir canal de suporte, fluxo de triagem e comunicação aos usuários. | Operações | Canal e procedimento de suporte |\n| Dia 3 | Carregar os 200 documentos e executar teste de integridade do índice. | Engenharia | Índice v0 funcional |\n| Dia 4 | Implementar ou validar busca, exibição da fonte e controles de acesso. | Engenharia | Fluxo ponta a ponta |\n| Dia 5 | Rodar o conjunto de validação, corrigir falhas de rastreabilidade e classificar documentos problemáticos. | Produto + Engenharia | Resultado preliminar da validação |\n| Dia 6 | Revisar prontidão: segurança, jurídico, índice, suporte, usuários e comunicação. | Todos | Go/no-go documentado |\n| Dia 7 | Liberar o piloto somente após aprovação de segurança e demais gates aplicáveis. Fazer onboarding dos 30 usuários. | Produto + Operações | Piloto iniciado |\n| Dia 8 | Monitorar consultas, adesão, dúvidas e incidentes. Corrigir apenas problemas ligados ao critério de saída. | Engenharia + Operações | Registro de uso e correções |\n| Dia 9 | Reexecutar a validação, revisar incidentes e consolidar evidências. | Produto + Engenharia | Relatório final |\n| Dia 10 | Decidir encerramento: atingir 90% de rastreabilidade e zero incidente crítico aberto. | Produto | Aprovação ou plano de remediação |\n\n## Orçamento fixo\n\n| Frente | Limite |\n|---|---:|\n| Engenharia, indexação e correções | R$ 7.000 |\n| Produto, validação e definição de escopo | R$ 3.500 |\n| Operações, onboarding e suporte | R$ 2.500 |\n| Segurança e jurídico | R$ 2.000 |\n| Reserva para riscos | R$ 3.000 |\n| **Total** | **R$ 18.000** |\n\nA reserva só pode ser usada para corrigir riscos que ameacem os critérios de saída. Não deve financiar novas funcionalidades, integrações ou expansão de escopo. Se houver falta de capacidade, reduzir escopo antes de aumentar o orçamento.\n\n## Dependências e datas-limite\n\n| Dependência | Dono | Data-limite | Consequência |\n|---|---|---:|---|\n| Aprovação de segurança | Engenharia + Produto | Dia 6 | Sem aprovação, não há usuários |\n| Índice com 200 documentos | Engenharia + Operações | Dia 3 | Bloqueia validação e piloto |\n| Grupo de 30 usuários | Operações | Lista até Dia 2; convite após aprovação | Bloqueia o início do piloto |\n| Canal de suporte | Operações | Dia 2 | Bloqueia o convite aos usuários |\n| Aprovação jurídica, se aplicável | Produto | Decisão até Dia 4; conclusão até Dia 6 | Pode bloquear o lançamento |\n\n## Riscos priorizados\n\n| Prioridade | Risco | Mitigação | Gatilho de escalonamento |\n|---|---|---|---|\n| P0 | Aprovação de segurança atrasada | Enviar evidências no Dia 1 e revisar pendências diariamente | Sem decisão até o Dia 5 |\n| P0 | Aprovação jurídica atrasada | Confirmar necessidade no Dia 1, fornecer escopo fechado e obter decisão formal | Sem posicionamento até o Dia 4 |\n| P1 | Dados desatualizados | Inventariar versões, sinalizar documentos sem validação e priorizar fontes claramente identificadas | Conflito entre versões ou ausência de fonte rastreável |\n| P1 | Baixa adesão dos usuários | Explicar casos de uso, fazer onboarding curto, nomear pontos focais e acompanhar ativação diária | Menos de 21 dos 30 usuários ativos até o Dia 8 |\n| P1 | Falha na qualidade do índice | Smoke test no Dia 3 e validação formal no Dia 5; usar a reserva somente para correções críticas | Menos de 90% de rastreabilidade no Dia 5 |\n\n## Forma de trabalho da equipe\n\n- Reunião diária de 15 minutos entre produto, engenharia e operações.\n- Produto mantém escopo, decisões e critério de aceite.\n- Engenharia mantém índice, busca, fontes e correções técnicas.\n- Operações mantém documentos, usuários, suporte e comunicação.\n- Nenhuma mudança de escopo após o Dia 2 sem retirar outra entrega equivalente.\n- Qualquer incidente crítico interrompe a expansão do piloto até ser resolvido.\n\n## Próximos passos imediatos\n\n1. Produto fechar o escopo e o conjunto de validação no Dia 1.\n2. Engenharia enviar o pacote de aprovação de segurança.\n3. Operações iniciar o inventário dos 200 documentos e selecionar os 30 usuários.\n4. Confirmar se a aprovação jurídica é um gate obrigatório.\n5. Agendar o primeiro go/no-go para o final do Dia 2.",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "operational-coverage",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1.0,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "actionable",
+          "type": "regex",
+          "passed": true,
+          "score": 1.0,
+          "details": "pattern matched"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 132339.34,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "estimated_cost_usd": null,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "command-line",
+          "command": "codex",
+          "prompt_mode": "stdin",
+          "attempt": 1,
+          "timeout_seconds": 900.0,
+          "timeout_retries": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "data-analysis",
+      "title": "Data analysis",
+      "category": "Data",
+      "prompt": "Analise uma tabela sintética de retenção por coorte. Retorne JSON válido com metodo, resultado e recomendacao, incluindo uma hipótese testável e suas limitações.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nTabela sintética de retenção (percentual de usuários ativos)\n\ncoorte | tamanho | D1 | D7 | D30\nJan/2026 | 1000 | 100% | 42% | 21%\nFev/2026 | 1100 | 100% | 48% | 26%\nMar/2026 | 1050 | 100% | 39% | 18%\nAbr/2026 | 1200 | 100% | 51% | 29%\n\nEm março houve uma mudança de onboarding; em abril também foi alterado o canal de aquisição. Não há randomização nem informação de mix de usuários. Calcule diferenças descritivas, não trate correlação como causalidade e declare o que precisa ser testado.",
+      "output": "{\n  \"metodo\": {\n    \"abordagem\": \"Comparação descritiva entre coortes, usando diferenças em pontos percentuais e variações relativas.\",\n    \"observacao\": \"Não foi inferida causalidade, pois não houve randomização nem controle do mix de usuários.\"\n  },\n  \"resultado\": {\n    \"diferencas\": {\n      \"Fev_vs_Jan\": {\n        \"D7_pontos_percentuais\": 6,\n        \"D7_variacao_relativa_percentual\": 14.3,\n        \"D30_pontos_percentuais\": 5,\n        \"D30_variacao_relativa_percentual\": 23.8\n      },\n      \"Mar_vs_Fev\": {\n        \"D7_pontos_percentuais\": -9,\n        \"D7_variacao_relativa_percentual\": -18.8,\n        \"D30_pontos_percentuais\": -8,\n        \"D30_variacao_relativa_percentual\": -30.8\n      },\n      \"Abr_vs_Mar\": {\n        \"D7_pontos_percentuais\": 12,\n        \"D7_variacao_relativa_percentual\": 30.8,\n        \"D30_pontos_percentuais\": 11,\n        \"D30_variacao_relativa_percentual\": 61.1\n      },\n      \"Abr_vs_Jan\": {\n        \"D7_pontos_percentuais\": 9,\n        \"D7_variacao_relativa_percentual\": 21.4,\n        \"D30_pontos_percentuais\": 8,\n        \"D30_variacao_relativa_percentual\": 38.1\n      }\n    },\n    \"leitura\": [\n      \"Fevereiro apresentou melhora em relação a janeiro.\",\n      \"Março apresentou queda de D7 e D30 em relação a fevereiro, coincidindo com a mudança de onboarding.\",\n      \"Abril apresentou os melhores resultados, mas a mudança simultânea no canal de aquisição impede atribuir a melhora ao onboarding.\",\n      \"D1 permaneceu em 100% em todas as coortes e não diferencia os períodos.\"\n    ]\n  },\n  \"recomendacao\": {\n    \"hipotese_testavel\": \"Entre usuários do mesmo canal e perfil, o novo onboarding altera a retenção D7 e D30 em relação ao onboarding anterior; a queda observada de fevereiro para março sugere, como hipótese direcional, possível efeito negativo.\",\n    \"teste_recomendado\": \"Executar um experimento A/B randomizado, no mesmo período e dentro dos mesmos canais, atribuindo usuários ao onboarding antigo ou novo. Medir D7 e D30, estimar a diferença entre grupos com intervalos de confiança e analisar os resultados por canal e segmento.\",\n    \"o_que_tambem_precisa_ser_testado\": [\n      \"Efeito independente da mudança de canal de aquisição em abril.\",\n      \"Diferenças de qualidade e composição entre os usuários de cada coorte.\",\n      \"Possíveis efeitos de sazonalidade ou outras mudanças ocorridas no período.\"\n    ],\n    \"limitacoes\": [\n      \"A análise usa apenas quatro coortes agregadas.\",\n      \"Não há dados individuais, intervalos de confiança, significância estatística ou informação sobre o mix de usuários.\",\n      \"As mudanças de onboarding e canal estão confundidas com o tempo.\",\n      \"As taxas podem estar arredondadas, e a definição de usuário ativo não foi detalhada.\"\n    ]\n  }\n}",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": true,
+          "score": 1.0,
+          "details": "valid object with required keys"
+        },
+        {
+          "id": "limitation",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1.0,
+          "details": "found: hipótese, hipotese"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 83487.11,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "estimated_cost_usd": null,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "command-line",
+          "command": "codex",
+          "prompt_mode": "stdin",
+          "attempt": 1,
+          "timeout_seconds": 900.0,
+          "timeout_retries": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "code-generation",
+      "title": "Code generation",
+      "category": "Code",
+      "prompt": "Você recebeu um worker TypeScript com timeout intermitente. Proponha uma correção mínima, explique o trade-off e inclua um teste de regressão executável.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nWorker TypeScript sintético:\n\n```ts\nexport async function processJob(id: string, deps: Deps) {\n  const result = await Promise.race([\n    deps.client.fetch(id),\n    timeout(5_000),\n  ]);\n  await deps.queue.ack(id);\n  return result;\n}\n```\n\nO timeout apenas rejeita a Promise; ele não cancela a requisição HTTP. Em produção, o worker recebe o mesmo job novamente quando o ack não acontece a tempo, e duas requisições podem continuar consumindo recursos. `deps.client.fetch` aceita um `AbortSignal`. A correção deve ser mínima, manter o contrato de retorno e incluir um teste que prove que o sinal é abortado após 5 segundos.",
+      "output": "Correção mínima: criar um `AbortController`, passar o sinal ao cliente e abortar quando a `race` rejeitar. O erro original do timeout continua sendo propagado.\n\n```ts\n// process-job.ts\nexport async function processJob(id: string, deps: Deps) {\n  const controller = new AbortController();\n\n  const result = await Promise.race([\n    deps.client.fetch(id, controller.signal),\n    timeout(5_000),\n  ]).catch((error) => {\n    controller.abort();\n    throw error;\n  });\n\n  await deps.queue.ack(id);\n  return result;\n}\n```\n\nO `catch` aborta somente quando a operação falha — inclusive por timeout — evitando abortar uma requisição que já terminou. O trade-off é que o cliente HTTP precisa respeitar `AbortSignal`; caso contrário, o sinal será marcado como abortado, mas a requisição subjacente poderá continuar.\n\nTeste de regressão com Vitest:\n\n```ts\n// process-job.test.ts\nimport { afterEach, describe, expect, it, vi } from \"vitest\";\nimport { processJob } from \"./process-job\";\n\ndescribe(\"processJob\", () => {\n  afterEach(() => vi.useRealTimers());\n\n  it(\"aborta o sinal após 5 segundos\", async () => {\n    vi.useFakeTimers();\n\n    let signal!: AbortSignal;\n\n    const fetch = vi.fn((_id: string, receivedSignal: AbortSignal) => {\n      signal = receivedSignal;\n      return new Promise<never>(() => {});\n    });\n\n    const ack = vi.fn(async () => {});\n\n    const job = processJob(\"job-1\", {\n      client: { fetch },\n      queue: { ack },\n    });\n\n    await vi.advanceTimersByTimeAsync(4_999);\n    expect(signal.aborted).toBe(false);\n\n    await vi.advanceTimersByTimeAsync(1);\n    expect(signal.aborted).toBe(true);\n\n    await expect(job).rejects.toThrow();\n    expect(ack).not.toHaveBeenCalled();\n  });\n});\n```\n\nExecutar com:\n\n```bash\nnpx vitest run process-job.test.ts\n```",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "test-present",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1.0,
+          "details": "found: teste, describe("
+        },
+        {
+          "id": "fix-present",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1.0,
+          "details": "found: correção"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 191037.14,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "estimated_cost_usd": null,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "command-line",
+          "command": "codex",
+          "prompt_mode": "stdin",
+          "attempt": 1,
+          "timeout_seconds": 900.0,
+          "timeout_retries": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "task_id": "email-draft",
+      "title": "Email draft",
+      "category": "Communication",
+      "prompt": "Escreva um email curto para uma equipe multifuncional comunicando um atraso de dois dias. Inclua assunto, contexto sem culpar pessoas, próximos passos e prazo revisado.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nProjeto Atlas — comunicação sintética\n\nO piloto estava previsto para 14/08/2026 e será entregue em 16/08/2026. A causa é a necessidade de uma rodada adicional de validação de segurança após uma inconsistência encontrada no ambiente de staging. A equipe não deve ser culpabilizada. Próximos passos: concluir a validação em 15/08, publicar o checklist revisado e confirmar os primeiros usuários em 16/08. O email será enviado para Produto, Engenharia, Segurança e Operações.",
+      "output": "**Assunto:** Projeto Atlas: piloto reagendado para 16/08\n\nOlá, equipes de Produto, Engenharia, Segurança e Operações,\n\nO piloto do Projeto Atlas, inicialmente previsto para 14/08/2026, será entregue em 16/08/2026. O prazo foi ajustado para permitir uma rodada adicional de validação de segurança após uma inconsistência identificada no ambiente de staging.\n\nPróximos passos:\n\n- Concluir a validação em 15/08;\n- Publicar o checklist revisado e confirmar os primeiros usuários em 16/08.\n\nObrigado pela compreensão e colaboração de todos.",
+      "score": 1.0,
+      "status": "pass",
+      "checks": [
+        {
+          "id": "message-structure",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1.0,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-copy",
+          "type": "min_length",
+          "passed": true,
+          "score": 1.0,
+          "details": "length 535 >= 120"
+        }
+      ],
+      "metrics": {
+        "latency_ms": 25120.01,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "estimated_cost_usd": null,
+        "finish_reason": "stop",
+        "provider_metadata": {
+          "adapter": "command-line",
+          "command": "codex",
+          "prompt_mode": "stdin",
+          "attempt": 1,
+          "timeout_seconds": 900.0,
+          "timeout_retries": 0
+        }
+      },
+      "error": null
+    }
+  ]
+}

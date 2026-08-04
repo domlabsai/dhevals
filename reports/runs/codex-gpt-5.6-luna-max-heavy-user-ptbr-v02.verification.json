@@ -1,0 +1,16 @@
+{
+  "kind": "dhevals_verification",
+  "status": "valid",
+  "run_id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v02",
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.2.0",
+  "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+  "checked": {
+    "task_count": 10,
+    "result_count": 10,
+    "report": true
+  },
+  "errors": [],
+  "warnings": [],
+  "verified_at": "2026-08-03T22:25:58Z"
+}

@@ -27,6 +27,7 @@ function main() {
   const runsIndex = readJson('runs.json', true)
   const leaderboard = readJson('leaderboard.json', true)
   const inauguration = readJson('inauguration.json', true)
+  const comparison = readJson('comparison.json', true)
   if (!existsSync(resolve(publicDirectory, 'catalog.csv'))) errors.push('catalog.csv: file is missing')
 
   if (overview) checkOverview(overview)
@@ -35,12 +36,14 @@ function main() {
   if (runsIndex) checkRunsIndex(runsIndex)
   if (leaderboard) checkLeaderboard(leaderboard)
   if (inauguration) checkInauguration(inauguration)
+  if (comparison) checkComparison(comparison)
 
-  for (const file of ['overview.json', 'models.json', 'suites.json', 'runs.json', 'leaderboard.json', 'inauguration.json', 'catalog.csv']) {
+  for (const file of ['overview.json', 'models.json', 'suites.json', 'runs.json', 'leaderboard.json', 'inauguration.json', 'comparison.json', 'catalog.csv']) {
     const path = resolve(publicDirectory, file)
     if (!existsSync(path)) continue
     scanForForbidden(readFileSync(path, 'utf8'), file)
     scanForHiddenModel(readFileSync(path, 'utf8'), file)
+    scanForSuppressedBaseline(readFileSync(path, 'utf8'), file)
   }
 
   if (runsIndex && Array.isArray(runsIndex.entries)) {
@@ -60,6 +63,7 @@ function main() {
       const raw = readFileSync(detailPath, 'utf8')
       scanForForbidden(raw, `runs/${entry.id}.json`)
       scanForHiddenModel(raw, `runs/${entry.id}.json`)
+      scanForSuppressedBaseline(raw, `runs/${entry.id}.json`)
       let detail = null
       try {
         detail = JSON.parse(raw)
@@ -78,10 +82,19 @@ function main() {
   console.log(JSON.stringify({
     status: 'passed',
     kind: 'dhevals_public_projection_test',
-    files: 7 + (runsIndex?.entries?.length || 0),
+    files: 8 + (runsIndex?.entries?.length || 0),
     runs: runsIndex?.entries?.length || 0,
     ranked: Array.isArray(leaderboard?.ranked) ? leaderboard.ranked.length : 0,
   }, null, 2))
+}
+
+function checkComparison(report) {
+  requireFields('comparison.json', report, ['kind', 'schema_version', 'title', 'generated_at', 'publication', 'benchmark', 'candidates', 'comparison', 'limitations'])
+  if (report.kind !== 'dhevals_model_comparison_report') errors.push('comparison.json: kind is invalid')
+  if (report.publication !== 'archive-only') errors.push('comparison.json: publication must remain archive-only')
+  if (!Array.isArray(report.candidates) || report.candidates.length !== 2) errors.push('comparison.json: expected exactly two candidates')
+  if (report.benchmark?.coverage !== undefined && report.benchmark.coverage !== 1) errors.push('comparison.json: coverage must be full when present')
+  if (report.comparison?.winner_declared === true) errors.push('comparison.json: comparative report must not declare a winner')
 }
 
 function checkOverview(overview) {
@@ -225,6 +238,12 @@ function scanForForbidden(text, label) {
 
 function scanForHiddenModel(text, label) {
   if (/sacilm/i.test(text)) errors.push(`${label}: contains a deferred model reference`)
+}
+
+function scanForSuppressedBaseline(text, label) {
+  if (/baseline-gpt-4-turbo|GPT-4 Turbo baseline/i.test(text)) {
+    errors.push(`${label}: contains the retired GPT-4 baseline reference`)
+  }
 }
 
 function readJson(file, required) {

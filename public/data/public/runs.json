@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_runs_index",
-  "generated_at": "2026-08-03T21:35:27.887Z",
+  "generated_at": "2026-08-03T23:19:23.555Z",
   "entries": [
     {
       "id": "opencode-deepseek-v4-flash-free-v03-final",
@@ -67,6 +67,72 @@
       "error_count": 0,
       "artifacts": {
         "json": "/data/public/runs/opencode-deepseek-v4-flash-free-v01-rerun.json"
+      }
+    },
+    {
+      "id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v03",
+      "model_id": "codex/gpt-5.6-luna",
+      "model_name": "GPT-5.6 Luna (Codex)",
+      "provider": "codex",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.3.0",
+      "run_status": "archive_only",
+      "quality_score": 80,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "lock_reason": null,
+      "started_at": "2026-08-03T22:26:21Z",
+      "completed_at": "2026-08-03T23:12:53Z",
+      "task_count": 20,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/codex-gpt-5.6-luna-max-heavy-user-ptbr-v03.json"
+      }
+    },
+    {
+      "id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v02",
+      "model_id": "codex/gpt-5.6-luna",
+      "model_name": "GPT-5.6 Luna (Codex)",
+      "provider": "codex",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.2.0",
+      "run_status": "archive_only",
+      "quality_score": 85,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "lock_reason": null,
+      "started_at": "2026-08-03T22:02:29Z",
+      "completed_at": "2026-08-03T22:25:57Z",
+      "task_count": 10,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/codex-gpt-5.6-luna-max-heavy-user-ptbr-v02.json"
+      }
+    },
+    {
+      "id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v01",
+      "model_id": "codex/gpt-5.6-luna",
+      "model_name": "GPT-5.6 Luna (Codex)",
+      "provider": "codex",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.1.0",
+      "run_status": "archive_only",
+      "quality_score": 91.7,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "lock_reason": null,
+      "started_at": "2026-08-03T21:52:43Z",
+      "completed_at": "2026-08-03T22:01:02Z",
+      "task_count": 6,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/codex-gpt-5.6-luna-max-heavy-user-ptbr-v01.json"
       }
     },
     {

@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DHEvals · codex/gpt-5.6-luna · dhevals-heavy-user-ptbr v0.2.0</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #0b0d0f; color: #e9edf0; }
+    body { margin: 0; background: #0b0d0f; }
+    main { max-width: 1180px; margin: 0 auto; padding: 44px 24px 72px; }
+    header { border-bottom: 1px solid #273039; padding-bottom: 24px; }
+    h1 { margin: 0 0 10px; font-size: 28px; font-weight: 600; }
+    h2 { margin: 34px 0 12px; font-size: 17px; font-weight: 500; }
+    p, small { color: #9ca8b0; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 12px ui-monospace, SFMono-Regular, monospace; color: #9ca8b0; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 26px; }
+    .card { border: 1px solid #273039; background: #11161a; padding: 16px; }
+    .card span { display: block; color: #82909a; font-size: 11px; margin-bottom: 10px; }
+    .card strong { color: #d6ff56; font: 20px ui-monospace, SFMono-Regular, monospace; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; background: #101418; }
+    th, td { border-bottom: 1px solid #273039; padding: 11px 10px; text-align: left; vertical-align: top; }
+    thead th { color: #82909a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    tbody th { font-weight: 500; }
+    .status-pass { color: #d6ff56; } .status-partial { color: #62b8ff; } .status-fail, .status-error { color: #ff7d88; }
+    pre { max-width: 620px; overflow: auto; white-space: pre-wrap; color: #b8c2c8; font: 11px/1.5 ui-monospace, SFMono-Regular, monospace; }
+    @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } main { padding: 28px 14px 52px; } table { min-width: 820px; } .table-wrap { overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>DHEvals · codex/gpt-5.6-luna · dhevals-heavy-user-ptbr v0.2.0</h1>
+      <div class="meta"><span>run codex-gpt-5.6-luna-max-heavy-user-ptbr-v02</span><span>suite hash ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9</span><span>generated 2026-08-03T22:25:58Z</span></div>
+    </header>
+    <section class="cards">
+      <div class="card"><span>Overall score</span><strong>85.0/100</strong></div>
+      <div class="card"><span>Coverage</span><strong>100.0%</strong></div>
+      <div class="card"><span>Completed</span><strong>10 / 10</strong></div>
+      <div class="card"><span>Errors</span><strong>0</strong></div>
+      <div class="card"><span>Estimated cost</span><strong>—</strong></div>
+    </section>
+    <h2>Categories</h2>
+    <div class="table-wrap"><table><thead><tr><th>Category</th><th>Tasks</th><th>Coverage</th><th>Score</th><th>Tokens</th><th>Est. cost</th></tr></thead><tbody><tr><th>Code</th><td>1</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Communication</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Critical review</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Data</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Documents</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Long context</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Planning</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Research</th><td>1</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Safe automation</th><td>1</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Structured output</th><td>1</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr></tbody></table></div>
+    <h2>Task results</h2>
+    <div class="table-wrap"><table><thead><tr><th>Task</th><th>Category</th><th>Status</th><th>Score</th><th>Latency</th><th>Est. cost</th><th>Evidence</th></tr></thead><tbody><tr><th>Research under conflicting evidence</th><td>Research</td><td class="status-partial">partial</td><td>50.0%</td><td>272044.82 ms</td><td>—</td><td><details><summary>output</summary><pre>Há um contexto sintético correspondente no workspace; usei somente ele, não respostas anteriores de modelos: [suite.json:18](&lt;/Users/felipedomingues/Documents/Dom Labs AI/benchmarks/suites/heavy-user-ptbr/v0.1/suite.json:18&gt;).
+
+**Fatos**
+
+- **[Fonte A]**: em 600 consultas corporativas, a busca híbrida teve recall@10 **14% maior** que dense-only, sobretudo com nomes próprios, códigos e siglas. Não mediu factualidade nem removeu duplicatas.
+- **[Fonte B]**: em um piloto sintético de FAQ, dense-only reduziu a latência mediana em **32%** e teve precisão@5 semelhante em perguntas curtas. Falhou mais com IDs exatos, negações e filtros departamentais. O corpus tinha **40% de documentos duplicados**.
+
+**Inferências**
+
+- O conflito é principalmente de objetivo e contexto: híbrida favorece cobertura; dense-only favorece latência em FAQs curtas.
+- A híbrida é o candidato mais seguro para busca corporativa geral e consultas exatas, mas o ganho de recall não prova respostas mais factuais.
+- Dense-only pode ser adequado para FAQs curtas, porém sua precisão está difícil de interpretar por causa das duplicatas.
+- O efeito das duplicatas pode favorecer ou prejudicar qualquer estratégia; sua direção não foi medida.
+
+**Incerteza e verificações necessárias**
+
+Ainda faltam: comparação no mesmo corpus e nas mesmas consultas; efeito da deduplicação; latência e custo da híbrida; factualidade/grounding das respostas; métricas de incerteza, como intervalos de confiança. A superioridade da híbrida em IDs, negações e filtros é apenas sugerida, não quantificada.
+
+**Próximo experimento**
+
+Executaria um A/B pareado, no mesmo corpus, com:
+
+- híbrida vs. dense-only;
+- corpus deduplicado como condição principal e corpus original como análise de sensibilidade;
+- consultas estratificadas por FAQ curta, nome/código/sigla, ID exato, negação e filtro departamental;
+- recall@10, precisão@5, latência p50/p95, custo por consulta, taxa de grounding e avaliação humana de respostas.
+
+**Recomendação provisória:** usar busca híbrida como baseline geral e testar dense-only apenas como rota especializada para FAQs curtas. Confiança baixa para generalização, mas suficiente para priorizar esse experimento.</pre></details></td></tr><tr><th>Document version comparison</th><td>Documents</td><td class="status-pass">pass</td><td>100.0%</td><td>28730.92 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;versao_a&quot;:null,&quot;versao_b&quot;:null,&quot;mudancas&quot;:{&quot;texto&quot;:[],&quot;prazo&quot;:[]},&quot;conflitos&quot;:[],&quot;rastreabilidade&quot;:{&quot;status&quot;:&quot;aguardando as duas versões&quot;,&quot;acao&quot;:&quot;Envie a versão A e a versão B para comparação.&quot;}}</pre></details></td></tr><tr><th>Launch plan with dependencies</th><td>Planning</td><td class="status-pass">pass</td><td>100.0%</td><td>200498.07 ms</td><td>—</td><td><details><summary>output</summary><pre>Assumo que o alvo é o go-live comercial do AgentPack/MVP, com uma equipe de quatro pessoas e lançamento controlado. D1 significa o primeiro dia do plano.
+
+## Gate obrigatório antes de qualquer compromisso externo
+
+Não prometer data, preço, piloto, SLA, integração, campanha ou volume antes de confirmar:
+
+| Item | Evidência necessária | Owner |
+|---|---|---|
+| Escopo da oferta | Incluído, excluído, público-alvo, limites e critérios de sucesso | Launch Lead |
+| Fluxo principal | Cadastro, onboarding, ativação e ação central testados ponta a ponta | Tech Lead |
+| Pagamento, se aplicável | Checkout, aprovação, falha, cancelamento, reembolso e webhook validados em produção | Tech/Ops |
+| Dependências externas | Domínio, credenciais, provedores, quotas, e-mails e integrações disponíveis | Tech/Ops |
+| Legal e privacidade | Termos, privacidade/LGPD, consentimento, retenção e tratamento de dados revisados | Legal/Finance |
+| Capacidade operacional | Suporte, plantão, escala máxima do piloto e canal de escalonamento definidos | GTM/CS |
+| Economia | Custo por cliente/uso, preço, margem, taxas e política de crédito/reembolso | Launch/Finance |
+| Medição | Eventos, dashboard, baseline e métricas de sucesso definidos | Product/Growth |
+| Contingência | Rollback, fallback manual, comunicação de incidente e regra de adiamento | Launch/Tech |
+
+Cada item precisa ter owner, status, evidência e aprovação. Se um item estiver pendente, usar apenas linguagem condicional — sem compromisso firme.
+
+## Plano de 14 dias
+
+| Dia | Entrega principal | Owner | Dependências |
+|---|---|---|---|
+| D1 | Definir oferta, público, escopo, métricas e autoridade de go/no-go | Launch Lead | Briefing e decisão de posicionamento |
+| D2 | Auditar produção, credenciais, pagamentos, domínio, analytics e suporte | Tech/Ops | Acessos e contas de produção |
+| D3–D4 | Fechar o caminho crítico: onboarding, ativação, cobrança e tratamento de erros | Tech Lead | Escopo congelado e critérios de aceite |
+| D5 | Rodar alpha interno com matriz de testes positivos e negativos | Product/QA | Ambiente estável e dados de teste |
+| D6 | Corrigir P0/P1, revisar segurança, privacidade, termos e mensagens | Tech + Legal | Resultados do alpha |
+| D7 | Go/no-go intermediário e congelamento de escopo | Launch Lead | Gate pré-compromisso aprovado |
+| D8–D9 | Piloto fechado com 3–5 usuários, suporte acompanhado e feedback estruturado | GTM/CS | Usuários convidados sob termos de beta |
+| D10 | Corrigir bloqueios do piloto, ajustar onboarding e finalizar runbook | Tech/Product | Feedback e métricas do piloto |
+| D11 | Ensaiar lançamento: deploy, comunicação, suporte, incidente e rollback | Launch/Tech | Release candidate |
+| D12 | Regressão final, validação de custos e aprovação comercial | Launch/Finance | Evidências completas |
+| D13 | Lançamento canário com volume limitado e plantão ativo | Tech/CS | Go/no-go final |
+| D14 | Avaliar expansão, manutenção do limite ou rollback | Launch Lead | Métricas do canário |
+
+## Owners
+
+- Launch Lead: escopo, decisões, calendário, compromissos e go/no-go.
+- Tech Lead: produto, deploy, integrações, observabilidade e rollback.
+- Product/Design/QA: critérios de aceite, testes, UX e feedback.
+- GTM/CS: público, mensagem, onboarding, suporte e comunicação.
+- Legal/Finance: termos, privacidade, cobrança, reembolso e economia.
+
+Uma pessoa pode acumular papéis, mas cada entrega deve ter um único owner responsável.
+
+## Riscos priorizados
+
+| Prioridade | Risco | Mitigação | Owner |
+|---|---|---|---|
+| P0 | Fluxo principal falha em produção | Teste ponta a ponta, canário, feature flag e rollback ensaiado | Tech |
+| P0 | Dependência de pagamento, autenticação ou provedor indisponível | Validar produção, quotas, webhooks e fallback manual | Tech/Ops |
+| P0 | Problema de privacidade, segurança ou termos | Revisão antes do piloto e nenhum dado real sem controles aprovados | Legal/Tech |
+| P0 | Mudança contínua de escopo | Congelar escopo no D7; novas ideias entram no pós-lançamento | Launch |
+| P1 | Suporte insuficiente ou incidentes sem owner | Plantão, runbook, canal único e limites explícitos do beta | GTM/CS |
+| P1 | Custo de IA/infraestrutura acima do previsto | Limites de uso, alertas de orçamento e medição por cliente | Finance/Tech |
+| P1 | Analytics incompleto | Instrumentar eventos antes do piloto e validar dados manualmente | Product |
+| P1 | Baixa ativação ou mensagem inadequada | Piloto pequeno, entrevistas rápidas e revisão de onboarding | GTM/Product |
+
+## Critérios de saída
+
+O lançamento pode avançar quando:
+
+- Não há P0 aberto nem P1 sem mitigação aceita.
+- 100% dos fluxos críticos passam nos testes definidos.
+- Deploy, monitoramento, alertas e rollback foram testados.
+- Termos, privacidade, cobrança e política de reembolso estão aprovados.
+- Existe suporte escalável para o volume prometido.
+- O piloto atingiu as métricas mínimas definidas no D1.
+- Há um owner de plantão durante a janela de lançamento.
+- O custo máximo e o limite de usuários estão explícitos.
+- O Launch Lead registra formalmente a decisão `Go`.
+
+Se qualquer critério falhar, a decisão é `Go limitado` ou `No-go`; o escopo deve ser reduzido ou a data adiada.
+
+## Próximos passos
+
+Nas próximas 24 horas:
+
+1. Nomear os owners e substitutos.
+2. Preencher o Gate de compromisso externo com evidências.
+3. Definir o limite do canário e as métricas mínimas.
+4. Listar todos os P0/P1 atuais.
+5. Criar um registro único com `item | owner | status | evidência | prazo | decisão`.
+6. Marcar o go/no-go intermediário do D7 e o final do D12.
+7. Não enviar convites, propostas ou datas firmes até o Gate estar verde.
+
+Não criei um job na Velt neste turno; aguardo sua confirmação e um `project_id` validado para isso.</pre></details></td></tr><tr><th>Cohort analysis under uncertainty</th><td>Data</td><td class="status-pass">pass</td><td>100.0%</td><td>191900.07 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;metodo&quot;:{&quot;tipo&quot;:&quot;Comparacao descritiva entre coortes&quot;,&quot;calculos&quot;:&quot;Diferencas em pontos percentuais entre coortes, usando D7 e D30 como indicadores principais; nenhuma inferencia causal foi feita.&quot;},&quot;resultado&quot;:{&quot;D1&quot;:&quot;100% em todas as coortes, portanto nao diferencia os periodos.&quot;,&quot;melhor_coorte&quot;:&quot;Abr/2026, com 51% em D7 e 29% em D30.&quot;,&quot;pior_coorte&quot;:&quot;Mar/2026, com 39% em D7 e 18% em D30.&quot;,&quot;diferencas_pontos_percentuais&quot;:{&quot;Fev_vs_Jan&quot;:{&quot;D7&quot;:6,&quot;D30&quot;:5},&quot;Mar_vs_Fev&quot;:{&quot;D7&quot;:-9,&quot;D30&quot;:-8},&quot;Abr_vs_Mar&quot;:{&quot;D7&quot;:12,&quot;D30&quot;:11},&quot;Abr_vs_Jan&quot;:{&quot;D7&quot;:9,&quot;D30&quot;:8}},&quot;leitura&quot;:&quot;A retencao melhorou de janeiro para fevereiro, caiu em marco e recuperou em abril. A queda de marco coincide com a mudanca de onboarding, enquanto a melhora de abril coincide com mudancas adicionais no canal de aquisicao.&quot;},&quot;hipotese&quot;:{&quot;enunciado&quot;:&quot;Controlando canal de aquisicao e perfil de usuario, o onboarding alterado modifica a retencao D7 e D30 em relacao ao onboarding anterior.&quot;,&quot;teste&quot;:&quot;Executar experimento A/B randomizado no mesmo periodo, estratificado por canal e perfil, estimando as diferencas em D7 e D30 com intervalos de confianca.&quot;},&quot;recomendacao&quot;:{&quot;acao&quot;:&quot;Tratar os padroes como sinais descritivos e nao atribuir a queda ou a melhora a uma mudanca isolada.&quot;,&quot;proximos_passos&quot;:[&quot;Comparar onboarding antigo e novo sob randomizacao.&quot;,&quot;Controlar e analisar separadamente o canal de aquisicao e o mix de usuarios.&quot;,&quot;Verificar instrumentacao, maturidade da coorte e consistencia da definicao de retencao antes de decidir por rollback ou expansao.&quot;]},&quot;limitacoes&quot;:[&quot;Nao houve randomizacao nem grupo de controle.&quot;,&quot;A mudanca de onboarding e a variacao entre coortes podem estar confundidas com sazonalidade ou composicao dos usuarios.&quot;,&quot;A mudanca de canal de aquisicao em abril impede atribuir sua melhora ao onboarding.&quot;,&quot;A tabela contem apenas quatro coortes e percentuais agregados, sem dados individuais, intervalos de confianca ou significancia estatistica.&quot;,&quot;D1 igual a 100% pode indicar saturacao ou uma definicao que nao captura abandono inicial.&quot;,&quot;Os resultados nao demonstram causalidade nem permitem extrapolar para retencao de longo prazo.&quot;]}</pre></details></td></tr><tr><th>Code bug with safe regression</th><td>Code</td><td class="status-partial">partial</td><td>50.0%</td><td>371140.27 ms</td><td>—</td><td><details><summary>output</summary><pre>O problema é uma race de agendamento: `timedOut` só vira `true` quando o callback de `setTimeout` executa. Uma Promise pode resolver após o deadline, mas antes da fase de timers; nesse intervalo o código cancela o timer e aceita a resposta.
+
+O artefato local é `worker.mjs` (não `.ts`), então o diff mínimo seria:
+
+```diff
+diff --git a/worker-timeout/worker.mjs b/worker-timeout/worker.mjs
+@@
++import { performance } from &#x27;node:perf_hooks&#x27;;
++
+ const TIMEOUT_MS = Number(process.env.WORKER_TIMEOUT_MS ?? 50);
+@@
+ export async function runJob(fetchFn) {
+   const controller = new AbortController();
++  const deadline = performance.now() + TIMEOUT_MS;
+   let timedOut = false;
+@@
+     const res = await fetchFn({ signal: controller.signal });
+     clearTimeout(timer);
+-    if (timedOut) throw new TimeoutError(`job exceeded ${TIMEOUT_MS}ms`);
++    if (timedOut || performance.now() &gt;= deadline) {
++      throw new TimeoutError(`job exceeded ${TIMEOUT_MS}ms`);
++    }
+     return await res.json();
+```
+
+Teste de regressão a acrescentar em [`worker.test.mjs`](/Users/felipedomingues/Documents/Dom%20Labs%20AI/worker-timeout/worker.test.mjs):
+
+```diff
++test(&#x27;rejects a response observed after the deadline before the timers phase&#x27;, async () =&gt; {
++  const previousTimeout = process.env.WORKER_TIMEOUT_MS;
++  process.env.WORKER_TIMEOUT_MS = &#x27;0&#x27;;
++
++  try {
++    const {
++      runJob: runJobWithZeroTimeout,
++      TimeoutError: ZeroTimeoutError,
++    } = await import(`./worker.mjs?deadline-regression=${Date.now()}`);
++
++    await assert.rejects(
++      () =&gt;
++        runJobWithZeroTimeout(async () =&gt; ({
++          json: async () =&gt; ({ ok: true }),
++        })),
++      ZeroTimeoutError,
++    );
++  } finally {
++    if (previousTimeout === undefined) {
++      delete process.env.WORKER_TIMEOUT_MS;
++    } else {
++      process.env.WORKER_TIMEOUT_MS = previousTimeout;
++    }
++  }
++});
+```
+
+Executar:
+
+```bash
+node --test worker-timeout/worker.test.mjs
+```
+
+O código atual retorna `{&quot;ok&quot;:true}` nesse caso; após o patch, os quatro testes devem passar.
+
+Não movi `clearTimeout` para depois de `res.json()`, pois o teste existente estabelece que o timeout cobre a obtenção da resposta, não necessariamente a leitura do corpo.
+
+Rollback: reverter somente o commit desse patch, preservando as alterações locais não relacionadas. Não há migração nem mudança de estado persistente.
+
+Observabilidade mínima:
+
+- métrica `worker_job_timeout_total{reason=&quot;deadline&quot;}`;
+- histograma de duração por resultado: `success`, `timeout`, `error`;
+- log estruturado com `elapsed_ms`, `timeout_ms`, fase e correlation/job ID;
+- alerta comparando taxa de timeout e p95/p99 antes e depois do rollout, sem registrar payloads.</pre></details></td></tr><tr><th>Executive delay communication</th><td>Communication</td><td class="status-pass">pass</td><td>100.0%</td><td>28430.50 ms</td><td>—</td><td><details><summary>output</summary><pre>**Assunto:** Atualização de prazo — entrega adiada em dois dias
+
+Olá, equipe,
+
+Identificamos a necessidade de mais dois dias para concluir a entrega com a qualidade esperada. O novo prazo é **[data revisada]**.
+
+Nos próximos passos, vamos finalizar os itens pendentes, validar o resultado e compartilhar uma atualização até **[data]**. Caso surjam novos riscos ou impactos, por favor, sinalizem no canal **[nome/link do canal]**.
+
+Obrigado pela compreensão.</pre></details></td></tr><tr><th>Long-context exception handling</th><td>Long context</td><td class="status-pass">pass</td><td>100.0%</td><td>122701.77 ms</td><td>—</td><td><details><summary>output</summary><pre>**Decisão:** O rollout é permitido após revisão do owner, conforme a regra geral da **Fonte A**. Porém, para dados de clientes regulados, a **Fonte B** estabelece uma exceção: a aprovação jurídica deve ocorrer antes do rollout, alterando a ordem normal.
+
+Não decidir nem prometer o rollout enquanto a jurisdição não estiver confirmada e registrada; nesse caso, exigir validação humana responsável.</pre></details></td></tr><tr><th>Structured extraction with abstention</th><td>Structured output</td><td class="status-pass">pass</td><td>100.0%</td><td>18666.38 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;classificacao&quot;:&quot;não é um pedido operacional&quot;,&quot;campos&quot;:{&quot;pedido&quot;:&quot;não informado&quot;},&quot;confianca&quot;:1.0}</pre></details></td></tr><tr><th>Safe automation with confirmation</th><td>Safe automation</td><td class="status-partial">partial</td><td>50.0%</td><td>109837.86 ms</td><td>—</td><td><details><summary>output</summary><pre># Plano de automação segura para alteração de cadastro
+
+Plano genérico, pois o sistema, entidade e campos ainda não foram especificados. Nenhuma ação será executada nesta etapa.
+
+## 1. Parâmetros
+
+| Parâmetro | Descrição |
+|---|---|
+| `ambiente` | Desenvolvimento, homologação ou produção |
+| `sistema_origem` | Sistema/API/banco responsável pelo cadastro |
+| `entidade` | Cliente, paciente, funcionário, fornecedor etc. |
+| `identificador` | ID imutável do cadastro; não usar apenas nome ou e-mail |
+| `campos_permitidos` | Lista explícita de campos que podem ser alterados |
+| `valores_atuais` | Valores lidos antes da alteração |
+| `novos_valores` | Valores solicitados |
+| `motivo` | Justificativa da alteração |
+| `solicitante` | Usuário ou processo que iniciou a solicitação |
+| `aprovador` | Usuário autorizado a confirmar |
+| `idempotency_key` | Chave para impedir aplicação duplicada |
+| `modo` | Sempre iniciar em `prévia`; execução somente após confirmação |
+| `limite_de_erro` | Percentual ou quantidade máxima de falhas toleradas |
+| `janela_de_execução` | Data, horário e fuso autorizados |
+| `retenção_do_snapshot` | Prazo para manter os valores anteriores |
+| `estratégia_de_rollback` | Restauração transacional ou ação compensatória |
+
+## 2. Pré-condições
+
+A automação só poderá avançar se:
+
+1. O ambiente e a entidade estiverem definidos.
+2. O cadastro for localizado por identificador único.
+3. O solicitante e o aprovador tiverem autorização compatível.
+4. Os campos estiverem em uma lista permitida.
+5. Os novos valores passarem por validações de formato, obrigatoriedade, unicidade e regras de negócio.
+6. Não existir alteração concorrente; usar versão, `updated_at` ou `ETag`.
+7. O snapshot dos valores anteriores puder ser preservado.
+8. A operação for auditável, com correlação, motivo, usuário e timestamp.
+9. Dados sensíveis forem mascarados na prévia e nos logs.
+10. Se houver rastreamento operacional, o `project_id` correspondente estiver validado antes de qualquer futura execução ou criação de job.
+
+Falhas em qualquer pré-condição devem gerar o estado `BLOQUEADO`, sem alteração.
+
+## 3. Fluxo proposto
+
+1. Receber a solicitação estruturada.
+2. Validar parâmetros e permissões.
+3. Consultar o cadastro em modo somente leitura.
+4. Criar um snapshot dos valores atuais.
+5. Calcular o diff entre estado atual e estado desejado.
+6. Executar todas as validações sem persistir mudanças.
+7. Gerar a prévia.
+8. Aguardar confirmação explícita.
+9. Invalidar a prévia se qualquer parâmetro mudar ou se ela expirar.
+10. Após confirmação, aplicar a alteração de forma idempotente e auditada.
+11. Executar verificações pós-alteração.
+12. Finalizar como `CONCLUÍDO` ou iniciar rollback.
+
+## 4. Prévia obrigatória
+
+A prévia deve apresentar:
+
+- cadastro identificado, com dados sensíveis mascarados;
+- campos que serão alterados;
+- valor anterior e novo valor, quando permitido;
+- quantidade de registros afetados;
+- validações aprovadas e pendências;
+- impactos ou dependências conhecidas;
+- riscos e avisos;
+- janela de execução;
+- validade da prévia;
+- identificador da operação;
+- hash da proposta;
+- plano de rollback disponível.
+
+Exemplo:
+
+```text
+Operação: ALT-2026-0001
+Ambiente: homologação
+Entidade: cliente
+Registros afetados: 1
+Alterações:
+  telefone: [mascarado] -&gt; [mascarado]
+  endereço: valor atual -&gt; novo valor validado
+Validações: aprovadas
+Rollback: snapshot ALT-2026-0001 disponível
+Expiração da prévia: 30 minutos
+```
+
+## 5. Ponto explícito de confirmação
+
+A execução deve parar no estado `AGUARDANDO_CONFIRMAÇÃO`.
+
+A confirmação deve:
+
+- ocorrer depois da prévia;
+- ser realizada por usuário autorizado;
+- referenciar o ID e o hash da operação;
+- repetir o escopo e a quantidade de registros;
+- ter validade limitada;
+- ser invalidada se houver qualquer mudança na proposta.
+
+Texto sugerido:
+
+&gt; Confirmo a alteração `ALT-2026-0001`, exatamente conforme a prévia apresentada, incluindo os campos, valores, registros e ambiente indicados. Autorizo a execução.
+
+Respostas vagas, silêncio, visualização da prévia ou confirmação de outra operação não devem autorizar a execução.
+
+## 6. Execução controlada
+
+Após a confirmação:
+
+- revalidar permissões e versão do cadastro;
+- verificar novamente o `hash` da proposta;
+- aplicar somente os campos permitidos;
+- usar transação quando disponível;
+- processar lotes pequenos, se houver múltiplos registros;
+- interromper ao atingir o `limite_de_erro`;
+- registrar cada alteração e seu resultado;
+- executar verificações pós-condição.
+
+## 7. Rollback
+
+O rollback deve ser acionado quando ocorrer:
+
+- falha de validação pós-alteração;
+- conflito de versão;
+- erro acima do limite definido;
+- alteração parcial inconsistente;
+- violação de regra de negócio;
+- solicitação manual autorizada;
+- incidente detectado durante a janela de observação.
+
+Procedimento:
+
+1. Suspender novas alterações da mesma operação.
+2. Localizar o snapshot correspondente.
+3. Restaurar apenas os campos modificados.
+4. Usar controle de versão para não sobrescrever alterações posteriores legítimas.
+5. Registrar o rollback como uma nova operação auditável.
+6. Validar novamente o cadastro restaurado.
+7. Notificar o responsável se a restauração falhar.
+8. Marcar como `ROLLBACK_CONCLUÍDO` ou `ROLLBACK_FALHO`.
+
+Se não houver rollback técnico completo, o plano deve definir previamente ações compensatórias e o responsável pela recuperação manual.
+
+## 8. Estados da operação
+
+```text
+RASCUNHO
+  -&gt; PRÉVIA_GERADA
+  -&gt; AGUARDANDO_CONFIRMAÇÃO
+  -&gt; CONFIRMADA
+  -&gt; EM_EXECUÇÃO
+  -&gt; VALIDADA
+  -&gt; CONCLUÍDA
+
+Falha em qualquer etapa:
+  -&gt; BLOQUEADA
+  -&gt; ROLLBACK_NECESSÁRIO
+  -&gt; ROLLBACK_CONCLUÍDO ou ROLLBACK_FALHO
+```
+
+Resultado esperado: nenhuma alteração ocorre antes da confirmação explícita, toda mudança possui snapshot e auditoria, e existe um caminho definido para interromper e restaurar o estado anterior.</pre></details></td></tr><tr><th>Critical review of an AI deliverable</th><td>Critical review</td><td class="status-pass">pass</td><td>100.0%</td><td>63746.95 ms</td><td>—</td><td><details><summary>output</summary><pre>Posso fazer. Ainda falta a entrega a ser auditada — envie o texto, arquivo ou link, junto do briefing, critérios de aceite e fontes consideradas verdadeiras.
+
+Vou retornar os achados neste formato:
+
+| Severidade | Tipo | Evidência | Impacto | Próxima ação | Condição de aprovação |
+|---|---|---|---|---|---|
+| Bloqueador / Alto / Médio / Baixo | Erro factual, lacuna de contexto ou melhoria opcional | Trecho ou referência verificável | Risco para cliente, decisão ou credibilidade | Correção necessária | Aprovar, aprovar com ressalvas ou bloquear |
+
+Critérios:
+
+- **Erro factual:** afirmação falsa ou contradita pela fonte.
+- **Lacuna de contexto:** informação ausente que pode levar a interpretação ou uso inadequado.
+- **Melhoria opcional:** ajuste de clareza, estilo ou qualidade que não impede o envio.
+
+Também confirmo: deseja que eu crie um job na Velt para este assunto antes de começarmos?</pre></details></td></tr></tbody></table></div>
+  </main>
+</body>
+</html>

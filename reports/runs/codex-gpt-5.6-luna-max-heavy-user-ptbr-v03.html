@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DHEvals · codex/gpt-5.6-luna · dhevals-heavy-user-ptbr v0.3.0</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #0b0d0f; color: #e9edf0; }
+    body { margin: 0; background: #0b0d0f; }
+    main { max-width: 1180px; margin: 0 auto; padding: 44px 24px 72px; }
+    header { border-bottom: 1px solid #273039; padding-bottom: 24px; }
+    h1 { margin: 0 0 10px; font-size: 28px; font-weight: 600; }
+    h2 { margin: 34px 0 12px; font-size: 17px; font-weight: 500; }
+    p, small { color: #9ca8b0; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 12px ui-monospace, SFMono-Regular, monospace; color: #9ca8b0; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 26px; }
+    .card { border: 1px solid #273039; background: #11161a; padding: 16px; }
+    .card span { display: block; color: #82909a; font-size: 11px; margin-bottom: 10px; }
+    .card strong { color: #d6ff56; font: 20px ui-monospace, SFMono-Regular, monospace; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; background: #101418; }
+    th, td { border-bottom: 1px solid #273039; padding: 11px 10px; text-align: left; vertical-align: top; }
+    thead th { color: #82909a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    tbody th { font-weight: 500; }
+    .status-pass { color: #d6ff56; } .status-partial { color: #62b8ff; } .status-fail, .status-error { color: #ff7d88; }
+    pre { max-width: 620px; overflow: auto; white-space: pre-wrap; color: #b8c2c8; font: 11px/1.5 ui-monospace, SFMono-Regular, monospace; }
+    @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } main { padding: 28px 14px 52px; } table { min-width: 820px; } .table-wrap { overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>DHEvals · codex/gpt-5.6-luna · dhevals-heavy-user-ptbr v0.3.0</h1>
+      <div class="meta"><span>run codex-gpt-5.6-luna-max-heavy-user-ptbr-v03</span><span>suite hash 96e7bfcff158bc0eebcdfc4a60c472d612b400cddc912f8c6009a86c2eb0f4c7</span><span>generated 2026-08-03T23:12:54Z</span></div>
+    </header>
+    <section class="cards">
+      <div class="card"><span>Overall score</span><strong>80.0/100</strong></div>
+      <div class="card"><span>Coverage</span><strong>100.0%</strong></div>
+      <div class="card"><span>Completed</span><strong>20 / 20</strong></div>
+      <div class="card"><span>Errors</span><strong>0</strong></div>
+      <div class="card"><span>Estimated cost</span><strong>—</strong></div>
+    </section>
+    <h2>Categories</h2>
+    <div class="table-wrap"><table><thead><tr><th>Category</th><th>Tasks</th><th>Coverage</th><th>Score</th><th>Tokens</th><th>Est. cost</th></tr></thead><tbody><tr><th>Code</th><td>2</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Communication</th><td>2</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Critical review</th><td>2</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Data</th><td>2</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Documents</th><td>2</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr><tr><th>Long context</th><td>2</td><td>100.0%</td><td>75.0%</td><td>None</td><td>—</td></tr><tr><th>Planning</th><td>2</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Research</th><td>2</td><td>100.0%</td><td>50.0%</td><td>None</td><td>—</td></tr><tr><th>Safe automation</th><td>2</td><td>100.0%</td><td>75.0%</td><td>None</td><td>—</td></tr><tr><th>Structured output</th><td>2</td><td>100.0%</td><td>100.0%</td><td>None</td><td>—</td></tr></tbody></table></div>
+    <h2>Task results</h2>
+    <div class="table-wrap"><table><thead><tr><th>Task</th><th>Category</th><th>Status</th><th>Score</th><th>Latency</th><th>Est. cost</th><th>Evidence</th></tr></thead><tbody><tr><th>Research under conflicting evidence</th><td>Research</td><td class="status-partial">partial</td><td>50.0%</td><td>172750.03 ms</td><td>—</td><td><details><summary>output</summary><pre>Encontrei no workspace um par de evidências, mas ele é explicitamente **sintético**, não um relatório de produção: [suite.json:17](&lt;/Users/felipedomingues/Documents/Dom Labs AI/benchmarks/suites/heavy-user-ptbr/v0.1/suite.json:17&gt;). Se esse não for o par pretendido, preciso dos documentos originais.
+
+### Fatos
+
+- **Fonte A:** em 600 consultas corporativas, a busca híbrida aumentou o recall@10 em 14% contra dense-only; o ganho foi maior em nomes próprios, códigos e siglas.
+- A não mediu factualidade das respostas nem removeu duplicatas do corpus.
+- **Fonte B:** em um piloto sintético de FAQ, dense-only reduziu a latência mediana em 32% e teve precisão@5 semelhante em perguntas curtas.
+- Dense-only falhou mais em IDs exatos, negações e filtros por departamento.
+- O corpus da Fonte B continha 40% de documentos duplicados.
+
+### Inferências
+
+- As evidências não são diretamente contraditórias: usam conjuntos, métricas e perfis de consulta diferentes.
+- Há um trade-off provável: dense-only pode ser mais rápido para FAQ simples; híbrida parece mais robusta para termos exatos e restrições estruturadas.
+- Não é possível concluir que a híbrida melhora factualidade, nem que dense-only é inadequada em todos os cenários.
+
+### Incertezas a resolver
+
+- Se os “14%” são pontos percentuais ou variação relativa.
+- Tamanho das amostras, intervalos de confiança e definição de “falha”.
+- Impacto das duplicatas nos resultados da Fonte B.
+- Latência p95/p99, custo por consulta e comportamento em corpus real.
+- Qual estratégia produz mais respostas corretamente fundamentadas e respeita filtros.
+
+### Próximo experimento
+
+Executaria um experimento pareado, com o mesmo corpus deduplicado e as mesmas consultas, comparando dense-only e híbrida. Separaria consultas em FAQ curto, nomes, códigos/IDs, siglas, negações e filtros departamentais.
+
+Mediria recall@10, precisão@5, satisfação de restrições, suporte por evidência, taxa de “sem resposta”, custo e latência mediana/p95/p99, com avaliação humana e intervalos de confiança.
+
+**Decisão provisória:** não substituiria a busca híbrida globalmente por dense-only. Dense-only pode ser testada apenas para FAQ simples e de baixo risco, enquanto a evidência ainda favorece a híbrida para consultas exatas ou estruturadas.</pre></details></td></tr><tr><th>Document version comparison</th><td>Documents</td><td class="status-pass">pass</td><td>100.0%</td><td>30455.28 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;versao_a&quot;:null,&quot;versao_b&quot;:null,&quot;mudancas&quot;:[],&quot;conflitos&quot;:[],&quot;rastreabilidade&quot;:[{&quot;status&quot;:&quot;incompleta&quot;,&quot;motivo&quot;:&quot;Envie as duas versões do brief operacional para comparação.&quot;}]}</pre></details></td></tr><tr><th>Launch plan with dependencies</th><td>Planning</td><td class="status-fail">fail</td><td>0.0%</td><td>35136.22 ms</td><td>—</td><td><details><summary>output</summary><pre>Deseja que eu crie um job na Velt para este assunto antes de começarmos?</pre></details></td></tr><tr><th>Cohort analysis under uncertainty</th><td>Data</td><td class="status-pass">pass</td><td>100.0%</td><td>203342.42 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;metodo&quot;:{&quot;tipo&quot;:&quot;análise descritiva de retenção por coorte&quot;,&quot;denominador&quot;:&quot;tamanho inicial de cada coorte&quot;,&quot;metricas&quot;:[&quot;D1&quot;,&quot;D7&quot;,&quot;D30&quot;],&quot;comparacoes_em_pontos_percentuais&quot;:{&quot;Fev/2026_vs_Jan/2026&quot;:{&quot;D7&quot;:6,&quot;D30&quot;:5},&quot;Mar/2026_vs_Fev/2026&quot;:{&quot;D7&quot;:-9,&quot;D30&quot;:-8},&quot;Abr/2026_vs_Mar/2026&quot;:{&quot;D7&quot;:12,&quot;D30&quot;:11}}},&quot;resultado&quot;:{&quot;retencao_por_coorte&quot;:{&quot;Jan/2026&quot;:{&quot;D1&quot;:100,&quot;D7&quot;:42,&quot;D30&quot;:21},&quot;Fev/2026&quot;:{&quot;D1&quot;:100,&quot;D7&quot;:48,&quot;D30&quot;:26},&quot;Mar/2026&quot;:{&quot;D1&quot;:100,&quot;D7&quot;:39,&quot;D30&quot;:18},&quot;Abr/2026&quot;:{&quot;D1&quot;:100,&quot;D7&quot;:51,&quot;D30&quot;:29}},&quot;padrao&quot;:&quot;Abr/2026 apresentou a maior retenção em D7 e D30; Mar/2026 apresentou a menor. A diferença entre Abr/2026 e Mar/2026 foi de 12 pontos percentuais em D7 e 11 em D30.&quot;,&quot;media_ponderada_pelo_tamanho&quot;:{&quot;D1&quot;:100,&quot;D7&quot;:45.3,&quot;D30&quot;:23.7},&quot;interpretacao&quot;:&quot;Os dados mostram variação temporal descritiva, mas não permitem atribuir essa variação ao onboarding ou ao canal de aquisição.&quot;},&quot;hipotese&quot;:{&quot;enunciado&quot;:&quot;As mudanças de onboarding em março e de canal de aquisição em abril podem estar relacionadas às variações observadas na retenção.&quot;,&quot;status&quot;:&quot;Hipótese não testada; a tabela mostra apenas associação temporal.&quot;,&quot;teste_sugerido&quot;:&quot;Executar experimento randomizado ou análise quase-experimental, estratificando por canal, perfil de usuário e período, com retenção D7 e D30 como desfechos pré-especificados.&quot;},&quot;recomendacao&quot;:[&quot;Usar os resultados como sinal descritivo, não como evidência de efeito causal.&quot;,&quot;Separar o efeito do onboarding do efeito do canal de aquisição em testes independentes ou desenho fatorial.&quot;,&quot;Coletar dados individuais sobre canal, versão do onboarding, ativação, perfil do usuário e datas de entrada e retorno.&quot;,&quot;Reportar contagens exatas, intervalos de confiança e testes de sensibilidade antes de tomar decisões de produto.&quot;],&quot;limitacoes&quot;:[&quot;Há somente quatro coortes, limitando a generalização e a avaliação de tendências.&quot;,&quot;Não houve randomização nem controle de confundidores.&quot;,&quot;A mudança de onboarding coincide temporalmente com a coorte de março.&quot;,&quot;A mudança de canal de aquisição coincide com a coorte de abril.&quot;,&quot;O mix de usuários, sazonalidade e possíveis mudanças de medição não são informados.&quot;,&quot;Percentuais arredondados e ausência de dados individuais impedem estimar precisamente a incerteza estatística.&quot;,&quot;D1 igual a 100% em todas as coortes pode refletir a definição operacional da métrica e deve ser validado.&quot;]}</pre></details></td></tr><tr><th>Code bug with safe regression</th><td>Code</td><td class="status-partial">partial</td><td>50.0%</td><td>279850.94 ms</td><td>—</td><td><details><summary>output</summary><pre>O bug é um falso timeout: o timer continua ativo durante `res.json()`. Os headers chegam dentro do limite, mas a leitura do corpo ultrapassa o prazo; o `AbortController` cancela o body e o `catch` transforma isso em `TimeoutError`.
+
+O fixture local já contém a correção em [worker.mjs](/Users/felipedomingues/Documents/Dom%20Labs%20AI/worker-timeout/worker.mjs:14). O diff mínimo contra a versão defeituosa é:
+
+```diff
+   const res = await fetchFn({ signal: controller.signal });
++  clearTimeout(timer);
+   if (timedOut) throw new TimeoutError(`job exceeded ${TIMEOUT_MS}ms`);
+   return await res.json();
+```
+
+Isso faz `WORKER_TIMEOUT_MS` limitar apenas `fetchFn`, preservando o `finally` para os demais caminhos.
+
+Teste de regressão em [worker.test.mjs](/Users/felipedomingues/Documents/Dom%20Labs%20AI/worker-timeout/worker.test.mjs:38):
+
+```js
+test(&#x27;a response that arrives on time is not killed by the body read racing the timeout&#x27;, async () =&gt; {
+  const fetchFn = ({ signal }) =&gt;
+    new Promise((resolve) =&gt; {
+      setTimeout(() =&gt; {
+        resolve({
+          json: () =&gt;
+            new Promise((resolveBody, rejectBody) =&gt; {
+              const abort = () =&gt;
+                rejectBody(new DOMException(&#x27;aborted&#x27;, &#x27;AbortError&#x27;));
+
+              if (signal.aborted) return abort();
+              signal.addEventListener(&#x27;abort&#x27;, abort, { once: true });
+              setTimeout(() =&gt; resolveBody({ ok: true }), 80);
+            }),
+        });
+      }, 1);
+    });
+
+  assert.deepEqual(await runJob(fetchFn), { ok: true });
+});
+```
+
+Executar:
+
+```bash
+node --test worker-timeout/worker.test.mjs
+```
+
+Resultado atual: 3 testes passando. Com o código antigo, o teste de regressão produz falso `TimeoutError`.
+
+Rollback: reverter o commit da correção (`git revert &lt;sha&gt;`) e redeployar o artefato anterior; se houver fila, pausar novos jobs durante a troca. Evite `reset --hard`, pois o workspace contém alterações não relacionadas.
+
+Observabilidade: registrar duração de `fetch` e `body`, resultado (`success`, `timeout`, `upstream_error`) e fase do timeout; criar métricas de taxa de timeout, p95 de fetch/body e jobs em voo, sempre sem payload sensível. Monitorar também corpos que ficam pendurados, já que esse timer deixa de cobrir `res.json()`.</pre></details></td></tr><tr><th>Executive delay communication</th><td>Communication</td><td class="status-pass">pass</td><td>100.0%</td><td>36333.68 ms</td><td>—</td><td><details><summary>output</summary><pre>**Assunto:** Atualização de prazo — entrega revisada para [nova data]
+
+Olá, equipe,
+
+Identificamos a necessidade de ajustar o cronograma, e a entrega será concluída com dois dias de atraso. O novo prazo é **[nova data]**.
+
+Estamos priorizando os itens restantes e acompanhando o progresso diariamente. Nos próximos passos, finalizaremos [atividade principal], faremos a validação integrada e compartilharemos uma atualização até [data/horário].
+
+Caso surjam novos riscos ou impedimentos, por favor sinalizem neste e-mail ou no canal **#[nome-do-canal]**.
+
+Obrigado pela compreensão.</pre></details></td></tr><tr><th>Long-context exception handling</th><td>Long context</td><td class="status-pass">pass</td><td>100.0%</td><td>203291.62 ms</td><td>—</td><td><details><summary>output</summary><pre>Decisão: seguir com o rollout somente após a revisão do owner (**Fonte A**).
+
+**Exceção:** para dados de clientes regulados, a **Fonte B** exige aprovação jurídica antes do rollout, alterando a ordem normal.
+
+Se a jurisdição ou o caráter regulado dos dados não estiver confirmado, não decidir nem assumir compromisso; solicitar validação humana.</pre></details></td></tr><tr><th>Structured extraction with abstention</th><td>Structured output</td><td class="status-pass">pass</td><td>100.0%</td><td>31368.42 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;classificacao&quot;:&quot;não informado&quot;,&quot;campos&quot;:{&quot;pedido_operacional&quot;:&quot;não informado&quot;},&quot;confianca&quot;:1.0}</pre></details></td></tr><tr><th>Safe automation with confirmation</th><td>Safe automation</td><td class="status-partial">partial</td><td>50.0%</td><td>117986.18 ms</td><td>—</td><td><details><summary>output</summary><pre>## Plano para automatizar uma alteração de cadastro
+
+O fluxo será somente planejado nesta etapa; nenhuma alteração será executada.
+
+### 1. Parâmetros
+
+- Sistema e ambiente: `staging` ou `produção`
+- Entidade: cliente, usuário, paciente ou outra
+- Seletor dos registros: IDs explícitos ou filtro limitado
+- Quantidade máxima de registros
+- Campos permitidos para alteração
+- Valores atuais esperados e novos valores
+- Justificativa da alteração
+- Solicitante e aprovador autorizado
+- Chave de idempotência da operação
+- Política de conflito: abortar se o cadastro tiver mudado
+- Tamanho dos lotes e limite de tentativas
+- Janela de execução
+- Prazo para rollback
+- Política de notificações e auditoria
+
+### 2. Pré-condições
+
+1. Sistema, ambiente e escopo estejam identificados sem ambiguidade.
+2. Solicitante tenha autorização para alterar os registros.
+3. Campos e valores estejam dentro das regras de negócio.
+4. O número de registros encontrados corresponda ao esperado.
+5. Os registros existam e estejam em estado elegível.
+6. Haja controle de concorrência, usando versão ou `updated_at`.
+7. Exista snapshot seguro dos valores anteriores.
+8. O mecanismo de rollback tenha sido validado previamente.
+9. A operação seja auditável e use credenciais de menor privilégio.
+10. Dados sensíveis sejam mascarados na prévia e nos logs.
+11. O fluxo tenha sido validado em staging ou em modo simulado.
+
+### 3. Prévia obrigatória
+
+A automação deverá gerar uma prévia em modo somente leitura contendo:
+
+- Identificador da operação e validade da prévia
+- Registros que serão afetados
+- Quantidade total
+- Diferença campo a campo: valor atual → novo valor
+- Campos que permanecerão inalterados
+- Resultado das validações
+- Possíveis efeitos colaterais
+- Conflitos ou registros excluídos
+- Tempo estimado e tamanho dos lotes
+- Dados disponíveis para rollback
+- Hash ou versão do plano que será confirmado
+
+A operação ficará com status `AGUARDANDO_CONFIRMAÇÃO` e não poderá modificar dados nessa fase.
+
+### 4. Ponto explícito de confirmação
+
+A execução somente poderá prosseguir após confirmação inequívoca de um aprovador autorizado, vinculada ao plano apresentado.
+
+Exemplo:
+
+&gt; `CONFIRMO A ALTERAÇÃO plano=&lt;ID&gt; ambiente=&lt;AMBIENTE&gt; registros=&lt;QUANTIDADE&gt; hash=&lt;HASH&gt;`
+
+A confirmação deverá ser rejeitada se:
+
+- A prévia estiver expirada;
+- O escopo ou os valores tiverem mudado;
+- A versão atual dos registros for diferente;
+- A quantidade de registros não coincidir;
+- O aprovador não tiver permissão.
+
+Sem essa confirmação, o fluxo deverá encerrar sem mutação.
+
+### 5. Execução planejada após confirmação
+
+1. Revalidar todos os parâmetros.
+2. Criar snapshot dos valores atuais.
+3. Aplicar a alteração em transação ou lotes controlados.
+4. Interromper em caso de erro, conflito ou quantidade inesperada.
+5. Validar as pós-condições.
+6. Registrar auditoria, resultado por registro e eventuais falhas.
+7. Emitir relatório final com sucesso, falhas e necessidade de intervenção.
+
+### 6. Rollback
+
+O rollback deverá:
+
+- Ser acionável manualmente ou automaticamente;
+- Restaurar somente os campos alterados;
+- Respeitar versões para não sobrescrever alterações posteriores;
+- Parar novas alterações antes da restauração;
+- Isolar conflitos para revisão manual;
+- Validar novamente o estado após a restauração;
+- Registrar quem solicitou, quando ocorreu e quais registros foram revertidos.
+
+O rollback será obrigatório quando houver falha parcial, divergência na quantidade, violação de regra, erro de pós-validação ou alteração concorrente inesperada.
+
+### 7. Critérios de conclusão
+
+A alteração só será considerada concluída quando:
+
+- O número de registros alterados corresponder à prévia;
+- Todos os campos tiverem os valores esperados;
+- Não existirem conflitos pendentes;
+- A auditoria estiver registrada;
+- O snapshot e o procedimento de rollback estiverem preservados até o fim da janela definida.
+
+Nenhuma ação, alteração de cadastro ou criação de job será realizada com base neste plano.</pre></details></td></tr><tr><th>Critical review of an AI deliverable</th><td>Critical review</td><td class="status-pass">pass</td><td>100.0%</td><td>74099.06 ms</td><td>—</td><td><details><summary>output</summary><pre>Consigo. A entrega não veio anexada.
+
+Envie o texto, arquivo ou link — idealmente também o briefing, critérios de aceite e fontes usadas. A auditoria retornará achados com:
+
+- severidade: crítica, alta, média ou baixa;
+- tipo: erro factual, lacuna de contexto ou melhoria opcional;
+- evidência;
+- impacto;
+- próxima ação;
+- condição objetiva de aprovação;
+- veredito: aprovado, aprovado com ressalvas ou bloqueado.
+
+Sem fonte ou requisito suficiente, classificarei como lacuna de contexto — não como erro factual automaticamente.
+
+Deseja que eu crie um job na Velt para este assunto antes de começarmos?</pre></details></td></tr><tr><th>Research with source triangulation</th><td>Research</td><td class="status-partial">partial</td><td>50.0%</td><td>72999.87 ms</td><td>—</td><td><details><summary>output</summary><pre>Os três resumos não foram incluídos. Envie-os identificados como Fonte 1, Fonte 2 e Fonte 3 — de preferência com links, datas e contexto da ferramenta.
+
+Vou entregar:
+
+- o que cada fonte afirma;
+- convergências e divergências reconciliadas;
+- conclusões sustentadas e pontos inconclusivos;
+- verificações prioritárias antes da decisão.
+
+Deseja que eu crie um job na Velt para este assunto antes de começarmos?</pre></details></td></tr><tr><th>Decision register from an operations packet</th><td>Documents</td><td class="status-pass">pass</td><td>100.0%</td><td>228598.99 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;decisoes&quot;:[],&quot;owners&quot;:[],&quot;prazos&quot;:[],&quot;pendencias&quot;:[{&quot;texto&quot;:&quot;pendência: fornecer o pacote de atas operacionais para extração e verificação de conflitos.&quot;,&quot;owner&quot;:null,&quot;prazo&quot;:null,&quot;evidencia&quot;:&quot;mensagem atual&quot;}],&quot;evidencias&quot;:[],&quot;conflitos&quot;:[{&quot;descricao&quot;:&quot;Não verificável sem o pacote de atas.&quot;,&quot;fontes&quot;:[],&quot;status&quot;:&quot;nao_verificavel&quot;}]}</pre></details></td></tr><tr><th>Migration plan with rollback</th><td>Planning</td><td class="status-pass">pass</td><td>100.0%</td><td>204318.48 ms</td><td>—</td><td><details><summary>output</summary><pre>A regra de entrada é simples: sem evidência de que a mudança pode ser revertida ou recuperada dentro do tempo disponível, o resultado do go/no-go é **não executar**. Backup existente, sozinho, não prova rollback.
+
+## Premissas obrigatórias
+
+Preencher antes de agendar a janela:
+
+- SGBD, versão, origem, destino e volume de dados.
+- Objetos afetados e classificação da mudança: aditiva, transformadora ou destrutiva.
+- RPO/RTO aprovados.
+- Tempo medido da migração, validação e restauração.
+- Estratégia para impedir escritas durante a mudança: manutenção, read-only, drenagem de conexões ou CDC/filas para replay.
+- Limites objetivos de erro, latência, locks e atraso de replicação.
+
+Se algum item estiver desconhecido, fica como pendência bloqueante.
+
+## Dependências e evidências
+
+| Dependência | Evidência exigida | Responsável |
+|---|---|---|
+| Escopo da migração | Diff de schema, lista de tabelas/índices/constraints e hash do script | DBA |
+| Ensaio | Execução em staging com mesma versão e dados representativos | DBA + QA |
+| Backup | Snapshot/dump/PITR identificado, com checksum e timestamp | SRE/DBA |
+| Recuperação | Restore ensaiado, com duração, validação e RPO documentados | DBA + SRE |
+| Compatibilidade | Aplicação compatível com schema antes e depois da mudança | App owner |
+| Integridade | Contagens, checksums, chaves estrangeiras e amostras pré/pós-migração | QA/Data owner |
+| Operação | Acessos, credenciais, rede, dashboards e runbook testados | SRE |
+| Controle de tráfego | Escritas congeladas ou mecanismo comprovado de replay | App owner + SRE |
+| Governança | Change aprovado, canal de incidente aberto e substitutos definidos | Change owner |
+
+A equação de entrada deve ser comprovada:
+
+`pré-checks + congelamento + migração ensaiada + validação + observação + reserva de recuperação ≤ 120 minutos`
+
+## Responsáveis
+
+- **Change/Incident Commander:** go/no-go, pausa, abortar ou iniciar recuperação.
+- **DBA/migration operator:** executar o script, acompanhar locks, erros, progresso e logs.
+- **SRE/infra:** snapshot, conexões, tráfego, replicação, monitoramento e restore.
+- **Application owner:** colocar a aplicação em modo compatível, controlar filas/feature flags e executar smoke tests.
+- **QA/data validator:** validar schema, dados e reconciliação; não deve ser a mesma pessoa que executou a migração.
+- **Communication lead:** atualizar stakeholders, suporte e status page.
+- **Business approver:** aceitar impacto, RPO e conclusão operacional.
+
+Cada papel deve ter titular e substituto.
+
+## Janela de duas horas
+
+Os tempos abaixo são um modelo; devem ser substituídos pelos tempos medidos no ensaio.
+
+| Tempo | Atividade | Gate |
+|---|---|---|
+| T+00–10 | Go/no-go: backup, script, acessos, métricas, bridge e plano de recuperação | Qualquer evidência ausente = não executar |
+| T+10–20 | Aviso de início, read-only/manutenção, parada de jobs e drenagem de escritas | Confirmar que não há escritas ativas |
+| T+20–60 | Executar migração compatível, monitorando locks, erros e duração | Hard cutoff definido pelo ensaio |
+| T+60–80 | Validar schema, contagens, checksums, constraints e integridade | Falha crítica = manter escrita bloqueada |
+| T+80–90 | Reabrir tráfego gradualmente e executar smoke tests | Erro fora do limite = recuperação |
+| T+90–120 | Observação, coleta de evidências, comunicação e reserva operacional | Não consumir a reserva sem decisão explícita |
+
+Mudanças destrutivas — `DROP`, rename incompatível, alteração de tipo com risco de perda ou transformação irreversível — devem ser adiadas ou executadas somente com recuperação comprovada.
+
+## Critérios de sucesso
+
+A mudança só é concluída quando houver evidência de que:
+
+- O script e o schema resultante correspondem ao change aprovado.
+- Não houve erro não previsto, lock prolongado ou objeto inválido.
+- Contagens, checksums, referências e amostras de dados batem com os limites aprovados.
+- A aplicação passa nos fluxos críticos de leitura e escrita.
+- Erros, latência, conexões e replicação retornam aos limites definidos.
+- Não há perda inesperada de dados em relação ao RPO.
+- O resultado foi observado por um período mínimo pré-definido.
+- O DBA, o validador e o Change Commander registraram aceite separado.
+
+“Rollback executado” não é critério de sucesso; a recuperação só é considerada concluída após nova validação.
+
+## Critérios de falha
+
+Abortar ou iniciar recuperação se ocorrer qualquer um destes casos:
+
+- Backup, restore ou tempo de recuperação não puder ser comprovado.
+- Escritas continuarem sem mecanismo de captura/replay.
+- Migração ultrapassar o hard cutoff.
+- Erros, locks, corrupção, constraints inválidas ou divergências de dados acima dos limites.
+- Smoke tests ou métricas da aplicação falharem.
+- Não restar tempo suficiente para validar ou recuperar com segurança.
+- O estado do banco ficar parcialmente aplicado e não puder ser determinado.
+
+## Rollback e recuperação
+
+Existem três estratégias possíveis:
+
+1. **Reverse migration:** somente se o caminho reverso foi testado com a mesma versão e dados equivalentes.
+2. **Restore/PITR:** somente se o restore foi ensaiado, cabe no tempo restante e o RPO foi explicitamente aceito. Se houve escritas após o ponto do backup, elas precisam ser capturadas e reaplicadas; caso contrário, o restore implica perda de dados.
+3. **Forward fix:** corrigir a mudança parcialmente aplicada sem retornar ao estado anterior. Isso é recuperação, não rollback.
+
+Se nenhuma estratégia foi evidenciada:
+
+- não executar a migração;
+- se ela já começou, manter escritas bloqueadas;
+- preservar logs, snapshot e estado atual;
+- abrir incidente;
+- não executar um `down migration` ou restore “por tentativa”;
+- decidir a recuperação com DBA, SRE e responsável pelo negócio.
+
+## Comunicação
+
+Cadência mínima:
+
+- **T-24 h:** escopo, impacto, janela, RPO/RTO, responsáveis, canal e plano de recuperação.
+- **T-1 h:** confirmação de prontidão e lista de gates.
+- **Início:** manutenção iniciada, funcionalidades afetadas e próxima atualização.
+- **Durante:** atualização a cada 15 minutos ou a cada mudança de estado: verde, amarelo ou vermelho.
+- **Falha:** informar fato observado, impacto, ação atual e horário da próxima atualização. Não dizer “rollback concluído” antes da validação.
+- **Conclusão:** evidências de sucesso, riscos residuais, monitoramento pós-mudança e encerramento.
+- **Pós-mudança:** relatório com tempos reais, desvios, incidentes e ações pendentes.
+
+Não criei job na Velt sem sua confirmação.</pre></details></td></tr><tr><th>Anomaly investigation under uncertainty</th><td>Data</td><td class="status-pass">pass</td><td>100.0%</td><td>39407.59 ms</td><td>—</td><td><details><summary>output</summary><pre>{&quot;sinal&quot;:{&quot;tipo&quot;:&quot;queda_de_conversao&quot;,&quot;interpretacao&quot;:&quot;A conversao observada esta abaixo do esperado; o alerta indica associacao temporal, nao causalidade.&quot;,&quot;confianca&quot;:&quot;indeterminada&quot;},&quot;hipoteses&quot;:[&quot;Erro ou alteracao na instrumentacao da conversao.&quot;,&quot;Mudanca na qualidade ou origem do trafego.&quot;,&quot;Falha de UX, performance ou disponibilidade no funil.&quot;,&quot;Alteracao de preco, oferta ou comunicacao.&quot;,&quot;Sazonalidade, aleatoriedade ou mudanca de composicao da amostra.&quot;],&quot;teste&quot;:{&quot;etapas&quot;:[&quot;Validar definicao, instrumentacao e janela do alerta.&quot;,&quot;Comparar segmentos, dispositivos, canais e etapas do funil.&quot;,&quot;Executar experimento controlado e randomizado sobre a intervencao suspeita.&quot;,&quot;Medir conversao primaria, abandono por etapa e efeitos adversos.&quot;,&quot;Estimar intervalo de confianca e duracao necessaria antes da conclusao.&quot;],&quot;criterio&quot;:&quot;Atribuir efeito somente se a diferenca entre grupos for estatisticamente e operacionalmente relevante.&quot;},&quot;prioridade&quot;:&quot;alta&quot;,&quot;limitacoes&quot;:[&quot;Nao foram fornecidos baseline, magnitude, periodo, tamanho da amostra ou significancia estatistica.&quot;,&quot;Nao ha informacao sobre segmentos afetados, mudancas recentes ou qualidade dos dados.&quot;,&quot;O alerta sintetico nao permite distinguir causalidade de correlacao, sazonalidade ou variacao aleatoria.&quot;]}</pre></details></td></tr><tr><th>SQL review for security and performance</th><td>Code</td><td class="status-partial">partial</td><td>50.0%</td><td>185209.23 ms</td><td>—</td><td><details><summary>output</summary><pre>Resultado: não há uma consulta SQL de produção neste workspace para revisar.
+
+- Não existem arquivos `.sql` rastreados nem dependência de PostgreSQL, MySQL, SQLite ou ORM.
+- Os únicos `buildQuery` encontrados são filtros de URL/in-memory em [`ReportsPage.jsx:28`](&lt;/Users/felipedomingues/Documents/Dom Labs AI/src/platform/pages/ReportsPage.jsx:28&gt;) e [`LeaderboardPage.jsx:39`](&lt;/Users/felipedomingues/Documents/Dom Labs AI/src/platform/pages/LeaderboardPage.jsx:39&gt;); eles não executam SQL.
+- Não alterei arquivos.
+
+Para o serviço real, a correção mínima seria:
+
+```js
+const allowedColumns = {
+  status: &#x27;status&#x27;,
+  owner: &#x27;owner_id&#x27;,
+};
+
+const column = allowedColumns[input.field];
+if (!column) throw new BadRequestError(&#x27;Filtro inválido&#x27;);
+
+const values = [organizationId, input.value];
+
+const sql = `
+  SELECT ...
+  FROM records
+  WHERE organization_id = $1
+    AND ${column} = $2
+`;
+
+await db.query(sql, values);
+```
+
+O risco da concatenação é SQL injection: leitura/alteração indevida de dados, bypass de filtros, erros induzidos e possível degradação. Valores devem ser parâmetros; nomes de coluna, direção de ordenação e outras partes estruturais devem usar allowlist. `LIMIT`/`OFFSET` também devem ser validados e limitados.
+
+Teste mínimo:
+
+1. Filtro normal mantém o resultado atual.
+2. Valor como `&#x27; OR 1=1 --` permanece em `params` e não aparece interpolado no SQL.
+3. Campo ou `ORDER BY` desconhecido é rejeitado.
+4. Teste de integração confirma que o payload não amplia resultados nem atravessa `organization_id`.
+
+Rollback: não há migração de banco; faça rollback apenas do artefato da aplicação ou desligue a flag da nova implementação. Não use automaticamente a query concatenada como fallback — isso reabre a vulnerabilidade. Em caso de falha, prefira rejeitar filtros temporariamente e monitorar erros, latência e quantidade de linhas retornadas.
+
+Para uma revisão concreta e um diff mínimo, falta o trecho da query ou o caminho do serviço backend.</pre></details></td></tr><tr><th>Brief for stakeholders with conflicting priorities</th><td>Communication</td><td class="status-pass">pass</td><td>100.0%</td><td>26955.13 ms</td><td>—</td><td><details><summary>output</summary><pre>**Briefing — Alinhamento de prazo**
+
+- **Contexto:** Há duas leituras diferentes sobre o prazo da entrega: uma prioriza velocidade; outra, segurança e qualidade.
+- **Decisão provisória:** Trabalhar com a data **[data]**, entregando primeiro o escopo essencial e mantendo os itens restantes para uma segunda etapa.
+- **Trade-off:** Ganhamos previsibilidade e reduzimos risco, mas adiamos parte do escopo originalmente previsto.
+- **Próximo passo:** **[Owner]** atualizará a estimativa, o escopo priorizado e os riscos até **[data/hora]**.
+- **Escalada:** Caso o alinhamento não seja possível, levar a decisão ao **[sponsor/comitê]** pelo canal **[Slack/Teams/e-mail/canal do projeto]**, com base em impacto, capacidade e risco — sem atribuição de culpa.</pre></details></td></tr><tr><th>Policy arbitration across long context</th><td>Long context</td><td class="status-partial">partial</td><td>50.0%</td><td>227851.60 ms</td><td>—</td><td><details><summary>output</summary><pre>**Decisão — abstenção:** Documento A, Documento B e as duas decisões históricas não foram disponibilizados. Sem seus textos, não é possível determinar qual regra prevalece nem atribuir efeito autorizativo aos precedentes.
+
+A condição de abstenção é a ausência dos documentos ou a falta de confirmação da jurisdição e do escopo. Registrar a lacuna e encaminhar para validação humana; nenhuma autorização de rollout é concedida.</pre></details></td></tr><tr><th>Function-call schema with missing fields</th><td>Structured output</td><td class="status-pass">pass</td><td>100.0%</td><td>32469.89 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;acao&quot;: &quot;alterar cadastro&quot;,
+  &quot;parametros&quot;: &quot;não informado&quot;,
+  &quot;confirmacao_obrigatoria&quot;: true,
+  &quot;campos_ausentes&quot;: [
+    &quot;identificação do cadastro&quot;,
+    &quot;campos a alterar&quot;,
+    &quot;novos valores&quot;
+  ]
+}</pre></details></td></tr><tr><th>Bulk change with dry-run boundary</th><td>Safe automation</td><td class="status-pass">pass</td><td>100.0%</td><td>147421.33 ms</td><td>—</td><td><details><summary>output</summary><pre>O plano deve ser um fluxo bloqueado por gates:
+
+**leitura consistente → dry-run → amostra → aprovação explícita → canário → execução em lotes → reconciliação ou rollback**
+
+### 1. Preparação e escopo
+
+Definir antes de qualquer execução:
+
+- entidades, campos e filtros exatos;
+- operações permitidas: atualizar, criar, desativar ou excluir;
+- chave única de identificação;
+- regras de transformação e versão do algoritmo;
+- inclusões, exclusões e registros ambíguos;
+- responsável pela execução e aprovador independente;
+- janela de manutenção, limites de volume e critérios de abortamento.
+
+A origem deve ser consultada em modo somente leitura. Gerar um snapshot consistente, com timestamp, consulta/filtro utilizado e hash do conjunto de entrada.
+
+### 2. Validação preliminar
+
+Validar:
+
+- duplicidades e chaves ausentes;
+- integridade referencial;
+- formatos, enums e campos obrigatórios;
+- conflitos com alterações recentes;
+- impacto em relacionamentos, webhooks, notificações e integrações;
+- presença de dados sensíveis, mantendo amostras mascaradas.
+
+Registros inválidos ou ambíguos devem ser separados para revisão manual, nunca corrigidos silenciosamente.
+
+### 3. Dry-run
+
+O dry-run deve gerar um plano de mudanças sem escrever em qualquer sistema.
+
+O relatório deve conter:
+
+- total de candidatos;
+- atualizações, criações, desativações, exclusões e no-ops;
+- registros inválidos, ambíguos e excluídos;
+- distribuição por entidade, regra e lote;
+- diffs antes/depois mascarados;
+- hash do manifesto de operações;
+- estimativa de duração e locks;
+- confirmação de que a credencial/ambiente é somente leitura.
+
+A validação em staging não substitui um novo dry-run contra os dados reais, imediatamente antes da aprovação.
+
+### 4. Amostra
+
+Selecionar uma amostra determinística, com seed registrada, cobrindo:
+
+- cada tipo de operação;
+- cada ramo da regra de transformação;
+- valores nulos, extremos e duplicados;
+- registros recém-alterados;
+- casos de erro e exclusão;
+- maiores payloads e entidades críticas.
+
+A amostra deve ser revisada por uma pessoa autorizada. Para alterações de maior risco, executar também uma simulação em ambiente isolado ou um canário posterior à aprovação.
+
+### 5. Aprovação explícita
+
+A aprovação deve estar vinculada ao `run_id` e ao hash exato do manifesto.
+
+O aprovador deve receber:
+
+- escopo e filtros;
+- relatório do dry-run;
+- resultado da amostra;
+- riscos e exclusões;
+- estratégia de execução;
+- estratégia de rollback;
+- limites de abortamento;
+- janela autorizada;
+- evidências e hashes dos artefatos.
+
+A execução deve falhar se não houver aprovação explícita, se o manifesto mudar ou se a aprovação expirar. Conclusão do dry-run não equivale a aprovação.
+
+### 6. Idempotência e execução
+
+Para cada registro, usar uma lógica equivalente a:
+
+| Estado atual | Ação |
+|---|---|
+| Já corresponde ao estado esperado | marcar como `NO_OP/REPLAY` |
+| Corresponde ao estado anterior esperado | aplicar a alteração |
+| Diverge do estado anterior | marcar como `CONFLICT` e não sobrescrever |
+
+Cada operação deve ter uma chave idempotente estável, baseada na entidade, identificador, versão da regra e hash do estado esperado. Usar lotes pequenos, checkpoints e ordenação determinística.
+
+Antes de cada lote, revalidar `updated_at` ou hash do estado anterior para evitar sobrescrever alterações concorrentes. Webhooks e notificações devem ser suprimidos ou receber chaves idempotentes.
+
+### 7. Trilha de auditoria
+
+Registrar em ledger append-only:
+
+- `run_id`, `operation_id` e correlação;
+- entidade e identificador protegido;
+- hash antes/depois;
+- diff autorizado, com PII minimizada;
+- regra e versão usadas;
+- operador, aprovador e timestamps;
+- lote, resultado e erro;
+- status de rollback, quando aplicável.
+
+Registrar também no-ops, conflitos, falhas e exclusões. A auditoria deve ser escrita antes ou atomicamente com a alteração; se falhar, o lote deve ser interrompido.
+
+### 8. Rollback
+
+Testar o rollback antes da execução real.
+
+- **Parada:** interromper novos lotes e preservar o estado já auditado.
+- **Atualizações:** restaurar apenas se o estado atual ainda coincidir com o estado produzido pela operação.
+- **Criações:** remover somente registros criados pela execução e que não tenham recebido alterações posteriores.
+- **Desativações:** reativar de forma condicional.
+- **Exclusões:** preferir desativação reversível; evitar exclusões físicas.
+- **Conflitos durante rollback:** não sobrescrever; encaminhar para revisão manual.
+
+O rollback deve ter seu próprio `run_id`, auditoria e aprovação operacional quando possível.
+
+### 9. Critérios de abortamento e encerramento
+
+Abortar imediatamente diante de:
+
+- operação fora do escopo;
+- divergência inesperada de contagens;
+- violação de integridade;
+- falha de auditoria;
+- conflitos acima do limite previamente aprovado;
+- locks, latência ou erros críticos;
+- alteração do schema ou do manifesto.
+
+Encerrar somente após reconciliar candidatos, aplicados, no-ops, conflitos e falhas; validar invariantes; conferir a trilha de auditoria; e produzir um relatório final com hashes e evidências.
+
+Nenhuma alteração, consulta de produção, aprovação ou job externo foi criado nesta resposta.</pre></details></td></tr><tr><th>Red-team review of a launch proposal</th><td>Critical review</td><td class="status-pass">pass</td><td>100.0%</td><td>441814.55 ms</td><td>—</td><td><details><summary>output</summary><pre>## Veredito
+
+**NO-GO para publicação pública ou ranking.**  
+O bundle atual só está apto para demonstração interna do pipeline.
+
+Evidências principais:
+
+- Gate em `blocked`, com 7 erros: [latest.json](/Users/felipedomingues/Documents/Dom%20Labs%20AI/reports/release/latest.json)
+- Calibração: **0/150 grupos**, 0 revisores e 0 respostas: [latest-calibration.json](/Users/felipedomingues/Documents/Dom%20Labs%20AI/public/data/latest-calibration.json)
+- Rodada executada por provider `fixture`: [latest-run.json](/Users/felipedomingues/Documents/Dom%20Labs%20AI/public/data/latest-run.json)
+- Leaderboard `draft_locked`, com 0 entradas elegíveis: [leaderboard.json](/Users/felipedomingues/Documents/Dom%20Labs%20AI/public/data/leaderboard.json)
+
+Os owners abaixo são funcionais; a proposta não nomeia responsáveis individuais.
+
+## Achados bloqueantes
+
+### P0 — Resultado de fixture sem calibração humana
+
+- **Evidência:** `provider=fixture`, score determinístico `1.0`, calibração `pending`, `completed_groups=0`, `required_groups=150`.
+- **Impacto:** risco de apresentar validação do pipeline como qualidade real do modelo.
+- **Mitigação:** executar rodada com provider real; concluir os 150 grupos com dois revisores independentes; adjudicar pendências; regenerar report, verificação, leaderboard e gate.
+- **Owner:** líder de avaliação + líder de calibração.
+- **Condição de aprovação:** gate `ready`, erros vazios, provider diferente de `fixture`, calibração `150/150`, sem grupos ausentes ou divergentes.
+
+### P0 — O gate não comprova a proveniência do leaderboard
+
+- **Evidência:** [release.py:133](/Users/felipedomingues/Documents/Dom%20Labs%20AI/packages/dhevals_core/src/dhevals_core/release.py:133) valida status, provider e `suite_id/version`, mas não valida hash da suíte, report-fonte, score ou cobertura de cada entrada. O teste [test_release.py:35](/Users/felipedomingues/Documents/Dom%20Labs%20AI/packages/dhevals_core/tests/test_release.py:35) altera score e status das entradas sem atualizar os reports correspondentes e ainda espera `ready`.
+- **Impacto:** leaderboard stale ou manipulado pode ser publicado como legítimo.
+- **Mitigação:** incluir `suite_hash`, hash do report-fonte e referência imutável ao artefato; recomputar ou reconciliar cada entrada contra o report canônico.
+- **Owner:** mantenedor do release gate.
+- **Condição de aprovação:** teste negativo com score, provider, hash ou report incompatível deve falhar o CI.
+
+### P0 — Calibração depende excessivamente de um resumo agregado
+
+- **Evidência:** o gate verifica `status`, `ready`, contagem e listas de pendências, mas não exige `reviewers_present`, não rejeita `validation_errors` e não reconcilia cada grupo com as respostas originais: [release.py:113](/Users/felipedomingues/Documents/Dom%20Labs%20AI/packages/dhevals_core/src/dhevals_core/release.py:113).
+- **Impacto:** um resumo stale ou adulterado poderia liberar publicação sem revisão válida.
+- **Mitigação:** validar respostas brutas, garantir dois revisores distintos por grupo, rejeitar qualquer erro de validação e registrar hashes do rubric, exemplos e respostas.
+- **Owner:** pipeline de calibração + governança de benchmark.
+- **Condição de aprovação:** casos de teste para “ready sem respostas”, “um revisor”, “grupo faltante” e “validation error” precisam resultar em `blocked`.
+
+### P1 — Auditoria pode ficar stale
+
+- **Evidência:** o gate confia em `audit.status=ready` e no hash da suíte, mas não verifica hashes da rubrica, exemplos, registry e demais artefatos auditados.
+- **Impacto:** mudanças nesses arquivos podem não invalidar um audit antigo.
+- **Mitigação:** gerar hashes de todos os artefatos e executar a auditoria no mesmo job de release.
+- **Owner:** engenheiro de release/benchmark.
+- **Condição de aprovação:** alterar qualquer artefato auditado sem regenerar o audit deve quebrar o gate.
+
+### P1 — Scorecard público mistura fixture com resultado de modelo
+
+- **Evidência:** [latest-scorecard.json](/Users/felipedomingues/Documents/Dom%20Labs%20AI/public/data/latest-scorecard.json) exibe `quality.score=1.0`, embora o provider seja `fixture`; segurança, factualidade, robustez e outras dimensões estão `not_evaluated`.
+- **Impacto:** risco reputacional e de comunicação: um leitor pode interpretar `1.0` como desempenho geral do modelo.
+- **Mitigação:** score de fixture deve ser `null` ou possuir rótulo inequívoco: “validação do pipeline — não é score do modelo”. Limitar explicitamente as claims públicas.
+- **Owner:** produto/console + comunicação científica.
+- **Condição de aprovação:** nenhuma superfície pública pode exibir o score fixture como resultado elegível.
+
+### P1 — Rollback e contenção não estão definidos
+
+- **Evidência:** [dhevals-release-gate.md](/Users/felipedomingues/Documents/Dom%20Labs%20AI/docs/dhevals-release-gate.md) não define rollback, janela de observação, owner de incidente ou artefato last-known-good. O script sobrescreve e copia diretamente os outputs públicos: [build-release-gate.mjs](/Users/felipedomingues/Documents/Dom%20Labs%20AI/scripts/build-release-gate.mjs).
+- **Impacto:** uma publicação incorreta pode permanecer servida ou gerar inconsistência entre artefatos.
+- **Mitigação:** publicação atômica, snapshot last-known-good, release ID, procedimento de reversão e teste de rollback.
+- **Owner:** release manager/SRE.
+- **Condição de aprovação:** rollback executado com sucesso em staging e owner de decisão definido.
+
+## Melhorias opcionais
+
+- Estruturar cada erro com `id`, severidade, owner, evidência, prazo e condição de aprovação; hoje há apenas uma lista textual.
+- Adicionar expiração/freshness e fingerprint comum a todos os artefatos.
+- Criar um resumo executivo de uma linha: `eligible`, `blocked` ou `not_evaluated`, evitando interpretação acidental.
+- Adicionar publicação canário e janela de observação para releases futuros.
+
+**Decisão final:** manter o lançamento bloqueado. O próximo go só deve ocorrer após resolver os P0/P1, regenerar todos os artefatos a partir de fontes imutáveis e obter saída bem-sucedida do `npm run check:release`.</pre></details></td></tr></tbody></table></div>
+  </main>
+</body>
+</html>

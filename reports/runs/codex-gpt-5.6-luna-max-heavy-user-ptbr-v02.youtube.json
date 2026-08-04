@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_youtube_pack",
+  "title": "DHEvals · codex/gpt-5.6-luna · dhevals-heavy-user-ptbr v0.2.0",
+  "run_id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v02",
+  "hook": "codex/gpt-5.6-luna alcançou 85.0/100 em 10 tarefas heavy-user.",
+  "facts": [
+    "Modelo avaliado: codex/gpt-5.6-luna.",
+    "Suíte: dhevals-heavy-user-ptbr v0.2.0.",
+    "Tarefas concluídas: 10 de 10.",
+    "Score médio determinístico: 85.0/100."
+  ],
+  "category_breakdown": [
+    {
+      "category": "Code",
+      "score": 50.0,
+      "task_count": 1
+    },
+    {
+      "category": "Communication",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Critical review",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Data",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Documents",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Long context",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Planning",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Research",
+      "score": 50.0,
+      "task_count": 1
+    },
+    {
+      "category": "Safe automation",
+      "score": 50.0,
+      "task_count": 1
+    },
+    {
+      "category": "Structured output",
+      "score": 100.0,
+      "task_count": 1
+    }
+  ],
+  "methodology": {
+    "suite_hash": "ed4c29f2c37b9cb0a1a47ce0607af2c757dcd964495ecd8b35060f183cef4cf9",
+    "suite_version": "0.2.0",
+    "runner_version": "0.1.0",
+    "model": {
+      "model_id": "codex/gpt-5.6-luna",
+      "provider": "codex",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {
+        "checkpoint": "gpt-5.6-luna",
+        "runtime": "codex-cli:gpt-5.6-luna:reasoning=max"
+      }
+    }
+  },
+  "limitations": [
+    "O score determinístico não substitui a revisão humana da rubrica.",
+    "Comparações públicas exigem a mesma versão de suíte e configuração."
+  ]
+}

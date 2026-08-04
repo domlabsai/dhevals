@@ -1,0 +1,210 @@
+{
+  "kind": "dhevals_model_comparison_report",
+  "schema_version": "0.1.0",
+  "title": "DHEvals Comparative Evaluation — GPT-5.6 Luna Max vs DeepSeek V4 Flash",
+  "generated_at": "2026-08-03T23:15:00Z",
+  "publication": "archive-only",
+  "benchmark": {
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "locale": "pt-BR",
+    "stage_count": 3,
+    "task_count": 36,
+    "score_aggregation": "task-weighted mean of stage scores",
+    "calibration_status": "pending"
+  },
+  "candidates": [
+    {
+      "model_id": "codex/gpt-5.6-luna",
+      "display_name": "GPT-5.6 Luna (Codex)",
+      "provider": "codex",
+      "runtime": "Codex CLI with gpt-5.6-luna and reasoning effort max",
+      "authentication": "ChatGPT subscription via Codex CLI",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7,
+        "timeout_seconds": 900,
+        "timeout_retries": 1,
+        "retry_scope": "timeout-only"
+      },
+      "overall": {
+        "task_count": 36,
+        "completed_count": 36,
+        "coverage": 1,
+        "task_weighted_score": 0.8333,
+        "unresolved_infrastructure_errors": 0,
+        "retry_resolved_timeouts": 0,
+        "quality_failures": 1,
+        "status_counts": {
+          "pass": 25,
+          "partial": 10,
+          "fail": 1,
+          "error": 0
+        }
+      },
+      "stages": [
+        {
+          "suite_version": "0.1.0",
+          "run_id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v01",
+          "score": 0.9167,
+          "task_count": 6,
+          "completed_count": 6,
+          "coverage": 1,
+          "status_counts": {
+            "pass": 5,
+            "partial": 1,
+            "fail": 0,
+            "error": 0
+          },
+          "verification": "valid",
+          "quality_failures": [],
+          "source_report": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v01.report.json"
+        },
+        {
+          "suite_version": "0.2.0",
+          "run_id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v02",
+          "score": 0.85,
+          "task_count": 10,
+          "completed_count": 10,
+          "coverage": 1,
+          "status_counts": {
+            "pass": 7,
+            "partial": 3,
+            "fail": 0,
+            "error": 0
+          },
+          "verification": "valid",
+          "quality_failures": [],
+          "source_report": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v02.report.json"
+        },
+        {
+          "suite_version": "0.3.0",
+          "run_id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v03",
+          "score": 0.8,
+          "task_count": 20,
+          "completed_count": 20,
+          "coverage": 1,
+          "status_counts": {
+            "pass": 13,
+            "partial": 6,
+            "fail": 1,
+            "error": 0
+          },
+          "verification": "valid",
+          "quality_failures": [
+            "launch-plan-dependencies"
+          ],
+          "source_report": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v03.report.json"
+        }
+      ]
+    },
+    {
+      "model_id": "opencode/deepseek-v4-flash-free",
+      "display_name": "DeepSeek V4 Flash (OpenCode)",
+      "provider": "opencode",
+      "runtime": "OpenCode CLI with the free DeepSeek V4 Flash endpoint",
+      "authentication": "OpenCode account",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7,
+        "timeout_seconds": 300,
+        "timeout_retries": 1,
+        "retry_scope": "timeout-only"
+      },
+      "overall": {
+        "task_count": 36,
+        "completed_count": 36,
+        "coverage": 1,
+        "task_weighted_score": 0.6667,
+        "unresolved_infrastructure_errors": 0,
+        "retry_resolved_timeouts": 1,
+        "quality_failures": 2,
+        "status_counts": {
+          "pass": 14,
+          "partial": 20,
+          "fail": 2,
+          "error": 0
+        }
+      },
+      "stages": [
+        {
+          "suite_version": "0.1.0",
+          "run_id": "opencode-deepseek-v4-flash-free-v01-rerun",
+          "score": 0.6667,
+          "task_count": 6,
+          "completed_count": 6,
+          "coverage": 1,
+          "status_counts": {
+            "pass": 2,
+            "partial": 4,
+            "fail": 0,
+            "error": 0
+          },
+          "verification": "valid",
+          "quality_failures": [],
+          "source_report": "opencode-deepseek-v4-flash-free-v01-rerun.report.json"
+        },
+        {
+          "suite_version": "0.2.0",
+          "run_id": "opencode-deepseek-v4-flash-free-v02-final",
+          "score": 0.6,
+          "task_count": 10,
+          "completed_count": 10,
+          "coverage": 1,
+          "status_counts": {
+            "pass": 3,
+            "partial": 6,
+            "fail": 1,
+            "error": 0
+          },
+          "verification": "valid",
+          "quality_failures": [
+            "structured-extraction"
+          ],
+          "source_report": "opencode-deepseek-v4-flash-free-v02-final.report.json"
+        },
+        {
+          "suite_version": "0.3.0",
+          "run_id": "opencode-deepseek-v4-flash-free-v03-final",
+          "score": 0.7,
+          "task_count": 20,
+          "completed_count": 20,
+          "coverage": 1,
+          "status_counts": {
+            "pass": 9,
+            "partial": 10,
+            "fail": 1,
+            "error": 0
+          },
+          "verification": "valid",
+          "quality_failures": [
+            "safe-automation-plan"
+          ],
+          "retry_resolved_tasks": [
+            "critical-review-audit"
+          ],
+          "source_report": "opencode-deepseek-v4-flash-free-v03-final.report.json"
+        }
+      ]
+    }
+  ],
+  "comparison": {
+    "score_delta_gpt_minus_deepseek": 0.1666,
+    "score_delta_percentage_points": 16.66,
+    "stage_deltas_percentage_points": {
+      "0.1.0": 25,
+      "0.2.0": 25,
+      "0.3.0": 10
+    },
+    "higher_observed_score": "codex/gpt-5.6-luna",
+    "winner_declared": false,
+    "interpretation": "GPT-5.6 Luna Max scored higher on this archive-only run set; this is an observed benchmark signal, not a universal model ranking."
+  },
+  "limitations": [
+    "Both candidates have full execution coverage and valid artifact verification, but neither has passed human calibration or the promotion gate.",
+    "The providers, CLI runtimes, account plans, and timeout budgets differ; latency and cost should not be compared without a normalized protocol.",
+    "The v0.1 GPT run was executed with the pinned Codex CLI command, while runtime/checkpoint metadata was added to the v0.2 and v0.3 manifests.",
+    "Historical baseline registry material is retained internally for provenance and is excluded from the public model projection."
+  ]
+}

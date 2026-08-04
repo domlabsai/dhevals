@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_youtube_pack",
+  "title": "DHEvals · codex/gpt-5.6-luna · dhevals-heavy-user-ptbr v0.1.0",
+  "run_id": "codex-gpt-5.6-luna-max-heavy-user-ptbr-v01",
+  "hook": "codex/gpt-5.6-luna alcançou 91.7/100 em 6 tarefas heavy-user.",
+  "facts": [
+    "Modelo avaliado: codex/gpt-5.6-luna.",
+    "Suíte: dhevals-heavy-user-ptbr v0.1.0.",
+    "Tarefas concluídas: 6 de 6.",
+    "Score médio determinístico: 91.7/100."
+  ],
+  "category_breakdown": [
+    {
+      "category": "Code",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Communication",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Data",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Documents",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Planning",
+      "score": 100.0,
+      "task_count": 1
+    },
+    {
+      "category": "Research",
+      "score": 50.0,
+      "task_count": 1
+    }
+  ],
+  "methodology": {
+    "suite_hash": "154028402712c7e1caed925e78218dc16d8241bfcb7d68b7ee4f10bdff0f44b3",
+    "suite_version": "0.1.0",
+    "runner_version": "0.1.0",
+    "model": {
+      "model_id": "codex/gpt-5.6-luna",
+      "provider": "codex",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {}
+    }
+  },
+  "limitations": [
+    "O score determinístico não substitui a revisão humana da rubrica.",
+    "Comparações públicas exigem a mesma versão de suíte e configuração."
+  ]
+}
