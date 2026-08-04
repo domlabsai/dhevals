@@ -90,5 +90,37 @@
       "completed_groups": 0,
       "required_groups": 300
     }
+  },
+  {
+    "id": "dhevals-heavy-user-ptbr",
+    "version": "0.4.0",
+    "slug": "heavy-user-ptbr-v0-4-0",
+    "title": "Heavy-user tasks — Brazilian Portuguese",
+    "language": "pt-BR",
+    "task_count": 20,
+    "categories": [
+      "Research",
+      "Documents",
+      "Planning",
+      "Data",
+      "Code",
+      "Communication",
+      "Long context",
+      "Structured output",
+      "Safe automation",
+      "Critical review"
+    ],
+    "dimension_count": 41,
+    "status": "calibration_pending",
+    "manifest_hash": "sha256:c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e",
+    "last_reviewed_at": null,
+    "current_public": false,
+    "description": "Evidence-complete heavy-user tasks for reproducible model evaluation in Brazilian Portuguese.",
+    "license": "CC-BY-4.0 para o manifesto; entradas sintéticas para calibração",
+    "calibration": {
+      "status": "pending",
+      "completed_groups": 0,
+      "required_groups": 300
+    }
   }
 ]

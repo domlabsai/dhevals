@@ -51,7 +51,7 @@ export function LeaderboardPage() {
   useSeo({
     title: 'Leaderboard',
     description:
-      'The DHEvals public leaderboard. Only promoted, fully-covered, verified runs are ranked — the board is empty until the release gate opens.',
+      'The DHEvals public leaderboard. Observed archive-only rankings are shown transparently; promoted scores require calibration and review.',
     path: '/leaderboard',
   })
   const { status, data, error, stale, generatedAt } = useProjection()
@@ -71,22 +71,32 @@ export function LeaderboardPage() {
   const { ranked, not_ranked: notRanked } = data.leaderboard
   const modelsById = new Map(data.models.map((model) => [model.id, model]))
 
+  const rankedEntries = ranked.map((entry) => {
+    const model = modelsById.get(entry.model_id) ?? null
+    return {
+      ...entry,
+      slug: model?.slug ?? entry.model_id,
+      reason: 'archive_only',
+      model: model ? { ...model, quality_score: entry.quality_score } : { quality_score: entry.quality_score },
+    }
+  })
   const entries = notRanked.map((entry) => {
     const model = modelsById.get(entry.model_id) ?? null
     return { ...entry, slug: model?.slug ?? entry.model_id, model }
   })
+  const allEntries = [...rankedEntries, ...entries]
 
   /* Filter options are populated from the data itself. */
-  const providerOptions = [...new Set(entries.map((entry) => entry.provider))].sort()
+  const providerOptions = [...new Set(allEntries.map((entry) => entry.provider))].sort()
   const categoryOptions = [...new Set(data.models.flatMap((model) => model.capabilities ?? []))].sort()
   const suiteOptions = data.suites.map((suite) => ({ value: suite.slug, label: `v${suite.version} — ${suite.title}` }))
   const licenseOptions = [...new Set(data.models.map((model) => model.license).filter(Boolean))].sort()
-  const evidenceOptions = [...new Set(entries.map((entry) => entry.evidence_status))].sort()
+  const evidenceOptions = [...new Set(allEntries.map((entry) => entry.evidence_status))].sort()
 
   const suiteVersionBySlug = new Map(data.suites.map((suite) => [suite.slug, suite.version]))
   const runsIndex = data.runs.entries ?? []
 
-  const filtered = entries.filter((entry) => {
+  const filtered = allEntries.filter((entry) => {
     const model = entry.model
     if (filters.q) {
       const haystack = `${entry.model_name} ${entry.provider}`.toLowerCase()
@@ -124,8 +134,8 @@ export function LeaderboardPage() {
         if (hasA && hasB && qualityA !== qualityB) return qualityA - qualityB
         return a.model_name.localeCompare(b.model_name)
       case 'verified_desc': {
-        const timeA = Date.parse(a.model?.last_verified_at ?? 0) || 0
-        const timeB = Date.parse(b.model?.last_verified_at ?? 0) || 0
+        const timeA = Date.parse(a.model?.bench_run_date ?? a.model?.last_verified_at ?? 0) || 0
+        const timeB = Date.parse(b.model?.bench_run_date ?? b.model?.last_verified_at ?? 0) || 0
         if (timeA !== timeB) return timeB - timeA
         return a.model_name.localeCompare(b.model_name)
       }
@@ -134,6 +144,8 @@ export function LeaderboardPage() {
         return a.model_name.localeCompare(b.model_name)
     }
   })
+  const filteredRanked = sorted.filter((entry) => entry.ranking_status === 'archive_only_ranked')
+  const filteredNotRanked = sorted.filter((entry) => entry.ranking_status !== 'archive_only_ranked')
 
   const chips = []
   if (filters.q) {
@@ -166,8 +178,8 @@ export function LeaderboardPage() {
         <p className="eyebrow">Leaderboard</p>
         <h1 className="heading-xl">Public ranking</h1>
         <p className="body-lg muted">
-          Only promoted runs with full coverage and verified provenance are ranked. Fixture,
-          archive-only, and invalid runs never appear here.
+          Observed archive-only runs with full coverage and verified provenance are ranked for
+          comparison. Human calibration is still required before any score is promoted.
         </p>
       </header>
 
@@ -202,22 +214,28 @@ export function LeaderboardPage() {
       />
 
       <section className="stack" aria-label="Ranked models">
-        <p className="eyebrow">Ranked</p>
-        {ranked.length === 0 ? (
+        <p className="eyebrow">Observed archive-only ranking ({filteredRanked.length})</p>
+        {filteredRanked.length === 0 ? (
           <EmptyState
-            title="No promoted results yet."
-            body="The release gate requires verification, calibration, and human review before any score is ranked — see the methodology for the full gate."
+            title="No observed rankings match these filters."
+            body="A model needs a verified, full-coverage archive run before it can appear in this comparative view."
             action={<Button to="/methodology" variant="secondary" size="sm">Read the methodology</Button>}
           />
-        ) : null}
+        ) : (
+          <LeaderboardTable
+            entries={filteredRanked}
+            mode="ranked"
+            onOpenModel={(slug) => navigate(`/models/${slug}`)}
+          />
+        )}
       </section>
 
       <section className="stack" aria-label="Not yet ranked">
-        <p className="eyebrow">Not yet ranked ({sorted.length})</p>
-        {sorted.length === 0 ? (
+        <p className="eyebrow">Not yet ranked ({filteredNotRanked.length})</p>
+        {filteredNotRanked.length === 0 ? (
           <EmptyState
-            title="No models match these filters."
-            body="Loosen the filters or reset them to see every tracked model."
+            title="No additional models are waiting for ranking."
+            body="New models will appear here after a verified archive run or while their evidence is incomplete."
             action={
               <Button
                 variant="secondary"
@@ -230,12 +248,12 @@ export function LeaderboardPage() {
           />
         ) : (
           <LeaderboardTable
-            entries={sorted}
+            entries={filteredNotRanked}
             onOpenModel={(slug) => navigate(`/models/${slug}`)}
           />
         )}
         <p className="micro faint">
-          Ranking requires promoted, verified, full-coverage runs. Fixture scores are never published.
+          Archive-only rankings are comparative evidence, not promoted certification. Fixture scores are never published.
           {' '}<Link to="/methodology">Methodology</Link> · Generated {data.leaderboard.generated_at?.slice(0, 10)}
         </p>
       </section>

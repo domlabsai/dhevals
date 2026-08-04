@@ -138,6 +138,7 @@ export function ComparePage({ pair }) {
 
   const comparable =
     typeof A.quality_score === 'number' && typeof B.quality_score === 'number'
+  const estimatedCost = A.metrics?.cost_is_estimate || B.metrics?.cost_is_estimate
 
   const currentSuite = data.suites.find((suite) => suite.current_public)
   const heatmapRows = (currentSuite?.categories ?? []).map((category) => ({
@@ -151,8 +152,8 @@ export function ComparePage({ pair }) {
     { label: 'Quality /100', a: A.quality_score, b: B.quality_score, unit: '' },
     { label: 'Coverage', a: A.evidence_coverage, b: B.evidence_coverage, unit: '' },
     { label: 'Latency (ms)', a: A.metrics?.latency_ms, b: B.metrics?.latency_ms, unit: ' ms' },
-    { label: 'Cost in $/1k', a: A.metrics?.input_cost_per_1k, b: B.metrics?.input_cost_per_1k, unit: '' },
-    { label: 'Cost out $/1k', a: A.metrics?.output_cost_per_1k, b: B.metrics?.output_cost_per_1k, unit: '' },
+    { label: 'Cost $/1k tok', a: A.metrics?.cost_per_1k, b: B.metrics?.cost_per_1k, unit: '' },
+    { label: 'Run cost', a: A.metrics?.run_cost_usd, b: B.metrics?.run_cost_usd, unit: ' USD' },
     { label: 'Throughput (tok/s)', a: A.metrics?.tokens_per_second, b: B.metrics?.tokens_per_second, unit: '' },
     { label: 'Context (tokens)', a: A.metrics?.context_tokens, b: B.metrics?.context_tokens, unit: '' },
   ]
@@ -192,6 +193,19 @@ export function ComparePage({ pair }) {
             suite scope. Every delta below is “—”. Nothing here implies a winner.
           </span>
         </p>
+      ) : (
+        <p className="notice notice--cyan" role="status">
+          <Icon name="info" />
+          <span>
+            Observed archive-only comparison — both scores are verified and full-coverage, but human
+            calibration is pending. This view reports deltas and does not declare a winner.
+          </span>
+        </p>
+      )}
+      {estimatedCost ? (
+        <p className="notice notice--amber micro" role="status">
+          Cost figures are estimates based on model-list pricing and recorded/estimated tokens; final provider billing may differ.
+        </p>
       ) : null}
 
       <section className="stack" aria-label="Decision summary">
@@ -206,7 +220,7 @@ export function ComparePage({ pair }) {
             <p className="micro faint">No verified lead.</p>
           </div>
           <div className="lead-list">
-            <p className="label">Not comparable</p>
+            <p className="label">No promoted lead</p>
             <ul className="stack stack--2">
               {metricRows.map((row) => (
                 <li key={row.label} className="micro muted">{row.label}</li>
@@ -274,7 +288,7 @@ export function ComparePage({ pair }) {
         </p>
         <div className="row">
           <ShareMenu
-            xText={`${A.name} vs ${B.name} on DHEvals — not comparable yet: no promoted, verified scores in a shared suite scope.`}
+            xText={`${A.name} vs ${B.name} on DHEvals — observed archive-only comparison; verified deltas, no promoted winner yet.`}
             cardHref="/brand/social/social-comparison.svg"
           />
           <Button to="/compare" variant="quiet" size="sm">Pick different models</Button>

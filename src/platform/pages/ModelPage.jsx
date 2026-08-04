@@ -129,20 +129,26 @@ export function ModelPage({ slug }) {
             evidenceStatus={model.evidence_status}
             suiteName="Heavy-user pt-BR"
             suiteVersion={data.suites.find((suite) => suite.current_public)?.version}
-            date={model.last_verified_at}
+            date={model.bench_run_date ?? model.last_verified_at}
             nullExplanation={model.notes ?? 'Not evaluated in this scope yet.'}
           />
+          {model.ranking_status === 'archive_only_ranked' ? (
+            <p className="notice notice--amber micro">
+              Observed archive-only ranking — verified comparative evidence; human calibration is
+              pending and this score is not promoted.
+            </p>
+          ) : null}
         </section>
         <div style={{ gridColumn: 'span 7' }} className="stack">
           <MetricStrip
             metrics={[
               {
-                label: 'Input cost /1k tok',
-                value: typeof metrics.input_cost_per_1k === 'number' ? `$${metrics.input_cost_per_1k}` : null,
+                label: 'Cost /1k tok',
+                value: typeof metrics.cost_per_1k === 'number' ? `${metrics.cost_is_estimate ? '≈' : ''}$${metrics.cost_per_1k.toFixed(4)}` : null,
               },
               {
-                label: 'Output cost /1k tok',
-                value: typeof metrics.output_cost_per_1k === 'number' ? `$${metrics.output_cost_per_1k}` : null,
+                label: 'Run cost',
+                value: typeof metrics.run_cost_usd === 'number' ? `${metrics.cost_is_estimate ? '≈' : ''}$${metrics.run_cost_usd.toFixed(4)}` : null,
               },
               {
                 label: 'Latency',
@@ -156,6 +162,11 @@ export function ModelPage({ slug }) {
               },
             ]}
           />
+          {metrics.cost_estimate_warning ? (
+            <p className="notice notice--amber micro" role="status">
+              {metrics.cost_estimate_warning} Token counts from a plain-text CLI may also be estimated.
+            </p>
+          ) : null}
           {!hasScore ? (
             <p className="micro muted">
               {model.notes} Absence of a score is a state — not a zero.

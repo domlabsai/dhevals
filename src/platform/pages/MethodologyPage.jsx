@@ -110,8 +110,9 @@ export function MethodologyPage() {
         <h2 id="coverage">Coverage</h2>
         <p>
           Coverage is the fraction of suite tasks that produced a valid score: scored tasks ÷ total
-          tasks, from 0 to 1. Ranking requires full coverage (1.0). Partial-coverage results may exist
-          in the archive, but they cannot be promoted.
+          tasks, from 0 to 1. Ranking requires full coverage (1.0). Verified full-coverage archive
+          runs may appear in the observed comparative ranking; partial-coverage results may exist in
+          the archive, but they cannot be ranked or promoted.
         </p>
 
         <h2 id="evidence-states">Evidence states</h2>
@@ -150,8 +151,9 @@ export function MethodologyPage() {
           of anchor groups ({data.overview.calibration.required_groups} for suite v0.2.0, 300 for
           v0.3.0) so the deterministic checks are proven to line up with human judgment. Completed so
           far: {data.overview.calibration.completed_groups}. Until the gate passes and a run clears
-          verification plus human review, every score stays locked. That is why the leaderboard is
-          empty — it is working as designed.
+          verification plus human review, scores remain locked as promoted claims. Verified archive-only
+          scores can still appear in the observed ranking, explicitly labeled and without a
+          certification claim.
         </p>
 
         <h2 id="missing-data">Missing data</h2>
@@ -191,7 +193,7 @@ export function MethodologyPage() {
         <ul>
           <li>Single locale: pt-BR only. Nothing here generalizes to other languages.</li>
           <li>Small task counts (6–20 tasks per suite version); most categories have one task each.</li>
-          <li>Calibration is incomplete, so no score is promoted yet.</li>
+          <li>Calibration is incomplete, so no score is promoted yet; observed archive-only rankings are comparative evidence only.</li>
           <li>Most recorded runs are development fixtures, not real model executions.</li>
           <li>Deterministic checks reward required content; they cannot judge style or deeper correctness beyond the encoded anchors.</li>
         </ul>

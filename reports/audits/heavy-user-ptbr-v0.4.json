@@ -1,0 +1,63 @@
+{
+  "kind": "dhevals_bundle_audit",
+  "status": "ready",
+  "suite": "benchmarks/suites/heavy-user-ptbr/v0.4/suite.json",
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.4.0",
+  "checks": {
+    "suite": {
+      "status": "valid",
+      "id": "dhevals-heavy-user-ptbr",
+      "version": "0.4.0",
+      "locale": "pt-BR",
+      "task_count": 20,
+      "content_hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e"
+    },
+    "fixture": {
+      "status": "valid",
+      "path": "benchmarks/suites/heavy-user-ptbr/v0.4/fixtures/calibration-fixture.json",
+      "task_count": 20,
+      "coverage": 1.0,
+      "overall_score": 1.0,
+      "statuses": [
+        "pass"
+      ]
+    },
+    "negative_fixture": {
+      "status": "valid",
+      "path": "benchmarks/suites/heavy-user-ptbr/v0.4/fixtures/negative-fixture.json",
+      "task_count": 20,
+      "coverage": 1.0,
+      "overall_score": 0.05,
+      "statuses": [
+        "fail",
+        "partial"
+      ]
+    },
+    "rubric": {
+      "status": "valid",
+      "path": "benchmarks/calibration/heavy-user-ptbr/v0.4/anchor-rubric.json",
+      "task_count": 20,
+      "dimension_count": 60,
+      "required_anchor_groups": 300
+    },
+    "examples": {
+      "status": "valid",
+      "path": "benchmarks/calibration/heavy-user-ptbr/v0.4/anchor-examples.json",
+      "task_count": 20,
+      "levels_per_task": 5
+    },
+    "comparison_registry": {
+      "status": "valid",
+      "path": "benchmarks/comparisons/v0.4/models.json",
+      "model_count": 2,
+      "model_ids": [
+        "codex/gpt-5.6-luna",
+        "opencode/deepseek-v4-flash-free"
+      ]
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "generated_at": "2026-08-04T07:00:59Z"
+}

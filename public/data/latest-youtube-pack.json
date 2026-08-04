@@ -2,7 +2,7 @@
   "schema_version": "0.1.0",
   "kind": "dhevals_youtube_pack",
   "title": "DHEvals · sacilm · dhevals-heavy-user-ptbr v0.2.0",
-  "run_id": "fixture-20260803162842",
+  "run_id": "e2e-fixture-refresh",
   "hook": "sacilm alcançou 100.0/100 em 10 tarefas heavy-user.",
   "facts": [
     "Modelo avaliado: sacilm.",

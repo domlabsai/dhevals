@@ -16,7 +16,7 @@ function buildIndex(data) {
       to: `/models/${model.slug}`,
       haystack: `${model.name} ${model.id} ${model.provider}`.toLowerCase(),
       state: model.evidence_status,
-      date: model.last_activity_at ?? model.last_verified_at,
+      date: model.bench_run_date ?? model.last_activity_at ?? model.last_verified_at,
     })),
     suites: data.suites.map((suite) => ({
       key: `suite-${suite.slug}`,

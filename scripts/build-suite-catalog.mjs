@@ -9,10 +9,12 @@ const output = resolve(root, process.env.DHEVALS_SUITE_CATALOG_OUTPUT || 'public
 const auditMap = {
   '0.2.0': 'reports/audits/heavy-user-ptbr-v0.2.json',
   '0.3.0': 'reports/audits/heavy-user-ptbr-v0.3.json',
+  '0.4.0': 'reports/audits/heavy-user-ptbr-v0.4.json',
 }
 const calibrationMap = {
   '0.2.0': 'public/data/latest-calibration.json',
   '0.3.0': 'reports/calibration/heavy-user-ptbr-v0.3-progress.json',
+  '0.4.0': 'reports/calibration/heavy-user-ptbr-v0.4-progress.json',
 }
 
 const entries = []

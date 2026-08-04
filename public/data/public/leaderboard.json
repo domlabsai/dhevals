@@ -1,30 +1,129 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_leaderboard",
-  "generated_at": "2026-08-03T23:19:23.555Z",
+  "generated_at": "2026-08-04T17:10:42.853Z",
   "methodology": {
     "ranking_field": "quality_score",
+    "displayed_fields": [
+      "quality_score",
+      "category_scores",
+      "cost_per_1k",
+      "latency_ms",
+      "context_tokens",
+      "license",
+      "bench_run_date"
+    ],
     "requires_full_coverage": true,
-    "requires_promotion": true,
+    "requires_promotion": false,
+    "archive_only_rankings_allowed": true,
+    "archive_only_label": "observed_archive_only",
+    "promoted_scores_require_human_calibration": true,
     "fixture_scores_never_published": true
   },
-  "ranked": [],
-  "not_ranked": [
+  "ranked": [
     {
-      "model_id": "opencode/deepseek-v4-flash-free",
-      "model_name": "opencode/deepseek-v4-flash-free",
-      "provider": "opencode",
-      "reason": "locked",
-      "evidence_status": "locked",
-      "last_activity_at": "2026-08-03T19:31:40Z"
-    },
-    {
+      "rank": 1,
       "model_id": "codex/gpt-5.6-luna",
       "model_name": "GPT-5.6 Luna (Codex)",
       "provider": "codex",
-      "reason": "locked",
+      "quality_score": 83.3,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "promoted": false,
+      "ranking_status": "archive_only_ranked",
       "evidence_status": "locked",
-      "last_activity_at": "2026-08-03T23:12:53Z"
+      "ranking_task_count": 36,
+      "category_scores": {
+        "Code": 62.5,
+        "Communication": 100,
+        "Critical review": 100,
+        "Data": 100,
+        "Documents": 100,
+        "Long context": 83.3,
+        "Planning": 75,
+        "Research": 50,
+        "Safe automation": 66.7,
+        "Structured output": 100
+      },
+      "metrics": {
+        "input_cost_per_1k": null,
+        "output_cost_per_1k": null,
+        "cost_per_1k": null,
+        "run_cost_usd": null,
+        "tokens_total": null,
+        "latency_ms": 130513,
+        "tokens_per_second": null,
+        "context_tokens": null,
+        "token_count_source": null,
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
+        "pricing_fetched_at": null,
+        "observed_from_runs": true
+      },
+      "license": "unknown",
+      "bench_run_date": "2026-08-03T23:12:53Z",
+      "run_ids": [
+        "codex-gpt-5.6-luna-max-heavy-user-ptbr-v03",
+        "codex-gpt-5.6-luna-max-heavy-user-ptbr-v02",
+        "codex-gpt-5.6-luna-max-heavy-user-ptbr-v01"
+      ],
+      "last_verified_at": "2026-08-03T23:12:54Z"
+    },
+    {
+      "rank": 2,
+      "model_id": "opencode/deepseek-v4-flash-free",
+      "model_name": "opencode/deepseek-v4-flash-free",
+      "provider": "opencode",
+      "quality_score": 72,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "promoted": false,
+      "ranking_status": "archive_only_ranked",
+      "evidence_status": "locked",
+      "ranking_task_count": 56,
+      "category_scores": {
+        "Code": 69.4,
+        "Communication": 91.7,
+        "Critical review": 80,
+        "Data": 69.4,
+        "Documents": 55.6,
+        "Long context": 93.3,
+        "Planning": 100,
+        "Research": 55.6,
+        "Safe automation": 56.7,
+        "Structured output": 46.7
+      },
+      "metrics": {
+        "input_cost_per_1k": 0,
+        "output_cost_per_1k": 0,
+        "cost_per_1k": 0,
+        "run_cost_usd": 0,
+        "tokens_total": 23201,
+        "latency_ms": 52218,
+        "tokens_per_second": null,
+        "context_tokens": 200000,
+        "token_count_source": "estimated_utf8_bytes_per_4",
+        "cost_source": "models.dev-api",
+        "cost_is_estimate": true,
+        "cost_estimate_warning": "Base model-list price multiplied by token count; final billed cost may differ.",
+        "pricing_fetched_at": "2026-08-04T16:53:12.131Z",
+        "observed_from_runs": true
+      },
+      "license": "unknown",
+      "bench_run_date": "2026-08-04T17:03:55Z",
+      "run_ids": [
+        "opencode-deepseek-v4-flash-free-v04-rerun",
+        "opencode-deepseek-v4-flash-free-v03-final",
+        "opencode-deepseek-v4-flash-free-v02-final",
+        "opencode-deepseek-v4-flash-free-v01-rerun"
+      ],
+      "last_verified_at": "2026-08-04T17:03:56Z"
     }
-  ]
+  ],
+  "not_ranked": []
 }

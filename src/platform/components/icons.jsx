@@ -48,6 +48,12 @@ const PATHS = {
     </>
   ),
   tilde: <path d="M3 9.5c1.5-2.5 3-2.5 5 0s3.5 2.5 5 0" />,
+  info: (
+    <>
+      <circle cx="8" cy="8" r="5.5" />
+      <path d="M8 7.2v3.4M8 5.3v.01" />
+    </>
+  ),
 }
 
 export function Icon({ name, size = 16, ...rest }) {

@@ -58,24 +58,23 @@ test('homepage presents the claim with evidence, not promoted-score hype', async
   expect(errors).toEqual([])
 })
 
-test('leaderboard is honestly empty and filters round-trip through the URL', async ({ page }) => {
+test('leaderboard shows observed archive-only rankings and filters round-trip through the URL', async ({ page }) => {
   const errors = watchPageErrors(page)
 
   await page.goto('/leaderboard')
   await expect(page.getByTestId('leaderboard-page')).toBeVisible()
 
-  // Ranked section: designed EmptyState with a methodology link, not a table.
+  // Ranked section: verified archive-only scores are visible with an explicit
+  // non-promoted label; human calibration remains a separate gate.
   const rankedSection = page.locator('section[aria-label="Ranked models"]')
-  await expect(rankedSection.getByTestId('empty-state')).toContainText('No promoted results yet.')
-  await expect(rankedSection.getByRole('link', { name: 'Read the methodology' })).toHaveAttribute(
-    'href',
-    '/methodology',
-  )
+  await expect(rankedSection).toContainText('Observed archive-only ranking')
+  await expect(rankedSection.getByTestId('leaderboard-table').locator('tbody tr')).toHaveCount(2)
+  await expect(rankedSection).toContainText('Observed archive-only score')
 
-  // Not-yet-ranked table lists every tracked model; missing metrics are "—".
-  const table = page.getByTestId('leaderboard-table')
-  await expect(table.locator('tbody tr')).toHaveCount(2)
-  await expect(table).toContainText('—')
+  // There are no additional unranked live models in this archive snapshot.
+  const notRankedSection = page.locator('section[aria-label="Not yet ranked"]')
+  await expect(notRankedSection).toContainText('No additional models are waiting for ranking.')
+  const table = rankedSection.getByTestId('leaderboard-table')
 
   // Copy/share control exists.
   await expect(page.getByTestId('share-menu')).toBeVisible()
@@ -93,7 +92,7 @@ test('leaderboard is honestly empty and filters round-trip through the URL', asy
   await expect(table.locator('tbody tr')).toHaveCount(2)
 
   // Reset filters clears the query string entirely.
-  await page.getByRole('button', { name: 'Reset filters' }).click()
+  await page.getByTestId('filter-bar').getByRole('button', { name: 'Reset filters' }).click()
   await expect(page).toHaveURL(/\/leaderboard$/)
   await expect(page.getByTestId('filter-chip')).toHaveCount(0)
   await expect(table.locator('tbody tr')).toHaveCount(2)
@@ -101,18 +100,19 @@ test('leaderboard is honestly empty and filters round-trip through the URL', asy
   expect(errors).toEqual([])
 })
 
-test('model page shows pending evidence and a designed not-found state', async ({ page }) => {
+test('model page shows observed evidence and a designed not-found state', async ({ page }) => {
   const errors = watchPageErrors(page)
 
   await page.goto('/models/opencode-deepseek-v4-flash-free')
   await expect(page.getByTestId('model-page')).toBeVisible()
 
   const hero = page.getByTestId('score-hero')
-  await expect(hero.locator('.display-lg')).toHaveText('—')
+  await expect(hero.locator('.display-lg')).toHaveText('72.0')
   await expect(hero.getByTestId('evidence-badge')).toContainText('Locked')
+  await expect(page.getByTestId('model-page')).toContainText('Observed archive-only ranking')
 
   await expect(page.getByTestId('timeline')).toBeVisible()
-  await expect(page.getByTestId('model-page')).toContainText('Absence of a score is a state')
+  await expect(page.getByTestId('model-page')).toContainText('Observed archive-only ranking')
 
   await page.goto('/models/unknown-model')
   const notFound = page.getByTestId('model-page').getByTestId('empty-state')
@@ -140,9 +140,11 @@ test('compare canonicalizes the pair and never declares a winner', async ({ page
   await page.goto(`/compare/${reversed}`)
   await expect(page).toHaveURL(new RegExp(`/compare/${canonical}$`))
 
-  // Not-comparable guard: no promoted scores exist on either side.
+  // Archive-only comparison: scores are visible, but no promoted winner is declared.
   await expect(page.getByTestId('compare-page')).toBeVisible()
-  await expect(page.getByRole('status')).toContainText('cannot be compared yet')
+  await expect(page.getByRole('status').filter({ hasText: 'Observed archive-only comparison' })).toContainText(
+    'Observed archive-only comparison',
+  )
 
   // No winner is declared anywhere on the page.
   const pageText = await page.getByTestId('compare-page').innerText()
@@ -212,8 +214,8 @@ test('benchmarks list versioned suites and the suite page shows calibration', as
   await page.goto('/benchmarks')
   await expect(page.getByTestId('benchmarks-page')).toBeVisible()
   const suiteRows = page.locator('.suite-row')
-  await expect(suiteRows).toHaveCount(3)
-  for (let index = 0; index < 3; index += 1) {
+  await expect(suiteRows).toHaveCount(4)
+  for (let index = 0; index < 4; index += 1) {
     await expect(suiteRows.nth(index)).toContainText('sha256:')
   }
 
@@ -234,7 +236,6 @@ test('reports index, methodology, data downloads, about, and 404', async ({ page
   await page.goto('/reports')
   await expect(page.getByTestId('reports-page')).toBeVisible()
   const table = page.getByTestId('data-table')
-  await expect(table).toContainText('Locked')
   await expect(table).toContainText('Archive only')
   await expect(table).toContainText('Invalid')
   await expect(table).toContainText('Fixture')

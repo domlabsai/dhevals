@@ -1,0 +1,925 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "dhevals_public_run",
+  "generated_at": "2026-08-04T17:10:42.853Z",
+  "run": {
+    "id": "opencode-deepseek-v4-flash-free-v04-rerun",
+    "suite_id": "dhevals-heavy-user-ptbr",
+    "suite_version": "0.4.0",
+    "suite_hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e",
+    "model": {
+      "id": "opencode/deepseek-v4-flash-free",
+      "name": "opencode/deepseek-v4-flash-free",
+      "provider": "opencode"
+    },
+    "runner_version": "0.1.0",
+    "started_at": "2026-08-04T16:53:12Z",
+    "finished_at": "2026-08-04T17:03:55Z"
+  },
+  "run_status": "archive_only",
+  "is_fixture": false,
+  "archive_only": true,
+  "verified": true,
+  "summary": {
+    "task_count": 20,
+    "completed_count": 20,
+    "coverage": 1,
+    "overall_score": 81.7,
+    "error_count": 0,
+    "estimated_cost_usd_total": 0,
+    "tokens_total": 23201,
+    "token_count_source": "estimated_utf8_bytes_per_4",
+    "cost_source": "models.dev-api",
+    "cost_is_estimate": true,
+    "cost_estimate_warning": "Base model-list price multiplied by token count; final billed cost may differ."
+  },
+  "categories": [
+    {
+      "category": "Code",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 0.8334,
+      "latency_ms_total": 143990.94,
+      "tokens_total": 3379
+    },
+    {
+      "category": "Communication",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 39156.4,
+      "tokens_total": 1401
+    },
+    {
+      "category": "Critical review",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 75992.98,
+      "tokens_total": 2398
+    },
+    {
+      "category": "Data",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 0.8334,
+      "latency_ms_total": 59872.92,
+      "tokens_total": 2354
+    },
+    {
+      "category": "Documents",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 0.6667,
+      "latency_ms_total": 54273.47,
+      "tokens_total": 2170
+    },
+    {
+      "category": "Long context",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 0.8334,
+      "latency_ms_total": 28325.29,
+      "tokens_total": 1389
+    },
+    {
+      "category": "Planning",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 1,
+      "latency_ms_total": 108027.72,
+      "tokens_total": 3525
+    },
+    {
+      "category": "Research",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 0.6667,
+      "latency_ms_total": 59711.3,
+      "tokens_total": 2368
+    },
+    {
+      "category": "Safe automation",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 0.6666,
+      "latency_ms_total": 53640.18,
+      "tokens_total": 3002
+    },
+    {
+      "category": "Structured output",
+      "task_count": 2,
+      "completed_count": 2,
+      "error_count": 0,
+      "coverage": 1,
+      "score": 0.6667,
+      "latency_ms_total": 20032.65,
+      "tokens_total": 1215
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "research-conflicting-evidence",
+      "title": "Research under conflicting evidence",
+      "category": "Research",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 37242.3,
+      "tokens": 1321,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Analise duas evidências conflitantes sobre uma decisão de busca corporativa. Separe fatos de inferências, explicite incerteza, indique o que ainda precisa ser verificado e recomende o próximo experimento. Não invente fontes. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — decisão de busca corporativa.\n\nFonte A (experimento offline, 600 consultas): busca híbrida aumentou recall@10 em 14% contra dense-only; o ganho foi maior em nomes próprios, códigos e siglas. Factualidade da resposta e duplicatas do corpus não foram medidas.\n\nFonte B (piloto de FAQ): dense-only reduziu a latência mediana em 32% e teve precisão@5 semelhante em perguntas curtas; falhou mais em IDs exatos, negações e filtros por departamento. O corpus tinha 40% de documentos duplicados.\n\nRestrição: não há orçamento para uma migração completa antes de um experimento A/B. A decisão precisa preservar rastreabilidade e declarar o que ainda não pode ser concluído.",
+      "output": "# Análise das evidências — decisão de busca corporativa\n\n## 1. Fatos (apenas o que está declarado no pacote)\n\n**Fonte A (experimento offline, 600 consultas)**\n- Busca híbrida aumentou recall@10 em 14% vs. dense-only.\n- O ganho foi maior em nomes próprios, códigos e siglas.\n- Factualidade das respostas e duplicados do corpus **não foram medidos** (declarado pela própria fonte).\n\n**Fonte B (piloto de FAQ)**\n- Dense-only reduziu a latência mediana em 32% (baseline da híbrida: não informado além disso).\n- Precisão@5 semelhante em perguntas curtas.\n- Falhou mais em IDs exatos, negações e filtros por departamento.\n- Corpus tinha 40% de documentos duplicados.\n\n## 2. Inferências (não verificadas — tratar como hipóteses)\n\n- I1: O ganho de recall da híbrida (A) pode vir dos mesmos segmentos onde a dense falha (IDs, siglas, termos exatos). Plausível, mas nunca foi testado cruzando as duas avaliações.\n- I2: Os 40% de duplicados podem inflar recall em ambas as abordagens e favorecer dense em latência (menos dados a ranquear). Não demonstrado — A não mediu duplicados e não há análise de impacto.\n- I3: \"Falhou mais\" (B) sugere um trade-off entre custo operacional e qualidade em consultas específicas. É leitura interpretativa, não métrica declarada.\n\n## 3. Lacunas — não informado / ABSTENÇÃO\n\n- As mesmas consultas foram avaliadas nas duas fontes? **Não informado.**\n- Métricas comuns: recall@10 (A) e precisão@5/latência (B) não se sobrepõem; **não informado** se ambas foram computadas nos dois cenários.\n- Factualidade das respostas: **ABSTENÇÃO** — não medida em A, não informada em B.\n- Critério de \"falhou mais\": definição e contagem **não informados** (recomenda-se validação humana para rotular as falhas).\n- Composição e duplicados do corpus de A: **não informados.**\n- Volume/tráfego real, baseline operacional e custo de infraestrutura da híbrida em produção: **não informados.**\n\n## 4. Incerteza explícita\n\n- As fontes **não são comparáveis diretamente**: cenários, métricas e corpora distintos. O 14% (A) e os 32% (B) estão em réguas diferentes.\n- Nenhum experimento online foi executado; portanto **não se pode declarar efeitos externos** (satisfação, conversão, factualidade em produção).\n\n## 5. O que ainda precisa ser verificado\n\n1. Amostra comum: rodar as 600 consultas de A na pilha de FAQ de B (e vice-versa) para obter recall, precisão, latência e falhas no mesmo setup.\n2. Medir factualidade das respostas nas duas abordagens (avaliação humana em amostra estratificada).\n3. Quantificar duplicados e medir recall com/sem deduplicação, dado o 40% de B.\n4. Definir critério objetivo das falhas (IDs exatos, negações, filtros por departamento) + validação humana.\n\n## 6. Próximo experimento recomendado (respeitando a restrição de orçamento)\n\nA/B controlado em produção com fatia pequena de tráfego (ex.: 10–15%), sem migração completa:\n- **Controle**: dense-only atual; **teste**: híbrida.\n- **Métricas**: latência, recall@10/precisão@5 nas mesmas consultas, factualidade (amostra), falhas por categoria e custo operacional.\n- **Passo intermediário opcional**: roteamento condicional — usar híbrida apenas no segmento com nomes próprios, códigos, siglas e filtros por departamento (onde A e B indicam vantagem), mantendo dense-only no restante. Preserva rastreabilidade e cabe no orçamento.\n- **Critérios pré-definidos**: latência com impacto aceitável e factualidade não inferior, com ganho de recall nas categorias de falha.\n\n## 7. O que NÃO se pode concluir hoje\n\n- Não dá para afirmar que a híbrida é melhor ou pior em geral — faltam métricas comuns e factualidade.\n- **ABSTENÇÃO** quanto ao resultado de uma migração completa com o pacote atual.\n- Efeitos em usuários reais não foram executados e não devem ser declarados.",
+      "checks": [
+        {
+          "id": "source-and-decision",
+          "type": "contains_all",
+          "passed": false,
+          "score": 0,
+          "details": "missing: recomendação"
+        },
+        {
+          "id": "minimum-evidence",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 3751 >= 260"
+        },
+        {
+          "id": "no-unsupported-certainty",
+          "type": "not_contains",
+          "passed": true,
+          "score": 1,
+          "details": "forbidden phrases absent"
+        }
+      ]
+    },
+    {
+      "task_id": "document-version-compare",
+      "title": "Document version comparison",
+      "category": "Documents",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 36326.33,
+      "tokens": 1290,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Compare duas versões de um brief operacional. Retorne somente JSON válido com versao_a, versao_b, mudancas, conflitos e rastreabilidade. Diferencie mudança de texto, mudança de prazo e conflito não resolvido. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — brief operacional, duas versões.\n\nVersão A (2026-07-01): seção 3 — revisão de segurança até sexta-feira; seção 7 — go-live em 12/08; owner do alerta não definido.\n\nVersão B (2026-07-08): seção 3 — revisão de segurança até segunda-feira; seção 7 — go-live continua em 12/08; owner do alerta passa a ser Marina.\n\nRegra de rastreabilidade: preserve o texto de cada seção, diferencie mudança de prazo de mudança textual e mantenha como conflito não resolvido qualquer prazo que permaneça contraditório.",
+      "output": "```json\n{\n  \"versao_a\": {\n    \"data\": \"2026-07-01\",\n    \"secao_3\": \"revisão de segurança até sexta-feira\",\n    \"secao_7\": \"go-live em 12/08\",\n    \"owner_alerta\": \"não definido\"\n  },\n  \"versao_b\": {\n    \"data\": \"2026-07-08\",\n    \"secao_3\": \"revisão de segurança até segunda-feira\",\n    \"secao_7\": \"go-live continua em 12/08\",\n    \"owner_alerta\": \"Marina\"\n  },\n  \"mudancas\": [\n    {\n      \"id\": \"M1\",\n      \"tipo\": \"mudanca_de_prazo\",\n      \"local\": \"secao_3\",\n      \"de\": \"revisão de segurança até sexta-feira\",\n      \"para\": \"revisão de segurança até segunda-feira\",\n      \"descricao\": \"Prazo de conclusão da revisão de segurança alterado de sexta-feira para segunda-feira.\"\n    },\n    {\n      \"id\": \"M2\",\n      \"tipo\": \"mudanca_de_texto\",\n      \"local\": \"owner_alerta\",\n      \"de\": \"owner do alerta não definido\",\n      \"para\": \"owner do alerta: Marina\",\n      \"descricao\": \"Responsável (owner) pelo alerta passou de não definido para Marina.\"\n    },\n    {\n      \"id\": \"M3\",\n      \"tipo\": \"sem_mudanca\",\n      \"local\": \"secao_7\",\n      \"de\": \"go-live em 12/08\",\n      \"para\": \"go-live continua em 12/08\",\n      \"descricao\": \"Prazo de go-live permanece em 12/08 nas duas versões.\"\n    }\n  ],\n  \"conflitos\": [\n    {\n      \"id\": \"C1\",\n      \"tipo\": \"conflito_nao_resolvido\",\n      \"local\": \"secao_3\",\n      \"descricao\": \"Prazo da revisão de segurança é contraditório entre as versões: sexta-feira (A) versus segunda-feira (B). O pacote não indica qual versão é autoritativa nem que a versão B revoga a A.\",\n      \"tratamento\": \"ABSTENCAO_VALIDACAO_HUMANA\"\n    }\n  ],\n  \"rastreabilidade\": {\n    \"secao_3\": {\n      \"texto_a\": \"revisão de segurança até sexta-feira\",\n      \"texto_b\": \"revisão de segurança até segunda-feira\",\n      \"classificacao\": \"mudanca_de_prazo\",\n      \"fonte\": \"pacote de evidências — versões A (2026-07-01) e B (2026-07-08)\"\n    },\n    \"secao_7\": {\n      \"texto_a\": \"go-live em 12/08\",\n      \"texto_b\": \"go-live continua em 12/08\",\n      \"classificacao\": \"sem_mudanca\",\n      \"fonte\": \"pacote de evidências — versões A (2026-07-01) e B (2026-07-08)\"\n    },\n    \"owner_alerta\": {\n      \"texto_a\": \"owner do alerta não definido\",\n      \"texto_b\": \"owner do alerta: Marina\",\n      \"classificacao\": \"mudanca_de_texto\",\n      \"fonte\": \"pacote de evidências — versões A (2026-07-01) e B (2026-07-08)\"\n    }\n  },\n  \"analise\": {\n    \"fatos\": [\n      \"Fato: versão A datada de 2026-07-01.\",\n      \"Fato: versão B datada de 2026-07-08.\",\n      \"Fato: seção 3 da versão A fixa a revisão de segurança até sexta-feira.\",\n      \"Fato: seção 3 da versão B fixa a revisão de segurança até segunda-feira.\",\n      \"Fato: seção 7 fixa go-live em 12/08 em ambas as versões.\",\n      \"Fato: owner do alerta não está definido na versão A e é Marina na versão B.\"\n    ],\n    \"inferencias\": [\n      \"Inferência: o prazo da revisão de segurança foi deliberadamente alterado entre as versões (sexta-feira para segunda-feira), não sendo possível confirmar a intenção apenas pelo pacote.\",\n      \"Inferência: a definição do owner do alerta (Marina) indica preenchimento de lacuna previamente aberta na versão A.\"\n    ],\n    \"lacunas\": [\n      \"não informado: qual versão é autoritativa (A ou B).\",\n      \"não informado: motivo da alteração do prazo da revisão de segurança.\",\n      \"não informado: escopo da revisão de segurança.\",\n      \"não informado: se o atraso da revisão de segurança impacta o go-live em 12/08.\",\n      \"não informado: qual sexta-feira e qual segunda-feira (data absoluta dos prazos).\"\n    ]\n  },\n  \"abstencao\": [\n    \"ABSTENCAO_VALIDACAO_HUMANA: resolução do conflito C1 (seção 3) exige decisão sobre versão autoritativa.\",\n    \"ABSTENCAO_VALIDACAO_HUMANA: impacto da mudança de prazo sobre o go-live em 12/08 não foi verificado; nenhum efeito externo foi declarado por não ter sido executado no pacote.\"\n  ]\n}\n```",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": false,
+          "score": 0,
+          "details": "invalid JSON: Expecting value"
+        },
+        {
+          "id": "conflict-preserved",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: conflito, contraditório"
+        },
+        {
+          "id": "version-evidence",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        }
+      ]
+    },
+    {
+      "task_id": "launch-plan-dependencies",
+      "title": "Launch plan with dependencies",
+      "category": "Planning",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 63005.28,
+      "tokens": 1988,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Monte um plano de lançamento em duas semanas para uma equipe pequena. Inclua dependências, owners, riscos priorizados, critérios de saída e próximos passos. Mostre o que deve ser confirmado antes de qualquer compromisso externo. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — Projeto Atlas.\n\nObjetivo: lançar piloto interno de busca de políticas em 10 dias úteis, para 30 usuários.\n\nEquipe parcial: uma pessoa de Produto, uma de Engenharia e uma de Operações. Orçamento fixo: R$ 18.000.\n\nDependências: aprovação de Segurança antes do primeiro usuário; índice com 200 documentos; grupo piloto; canal de suporte; owner jurídico confirmado.\n\nRiscos: dados desatualizados, aprovação jurídica atrasada e baixa adesão. Saída: 90% das consultas de validação com fonte rastreável e nenhum incidente crítico aberto. Nenhum compromisso externo antes do piloto validado.",
+      "output": "# Plano de Lançamento — Projeto Atlas (Piloto Interno de Busca de Políticas)\n\n**Legenda:** **[F]** fato (no pacote) · **[I]** inferência (marcada como tal) · **[L]** lacuna (não informado) · **[A]** ABSTENÇÃO/validação humana necessária.\n\n---\n\n## 1. Fatos extraídos do pacote [F]\n\n- Objetivo: lançar piloto interno de busca de políticas em **10 dias úteis** para **30 usuários**.\n- Equipe: **3 pessoas**, uma por função — Produto, Engenharia, Operações (**parcial**).\n- Orçamento: **fixo, R$ 18.000**.\n- Dependências declaradas: aprovação de Segurança **antes do primeiro usuário**; índice com **200 documentos**; grupo piloto; canal de suporte; **owner jurídico confirmado**.\n- Riscos declarados: dados desatualizados; aprovação jurídica atrasada; baixa adesão.\n- Critérios de saída: **90% das consultas de validação com fonte rastreável** e **nenhum incidente crítico aberto**.\n- Regra de ouro: **nenhum compromisso externo antes do piloto validado**.\n\n---\n\n## 2. Inferências (declaradas)\n\n- **[I]** \"Equipe parcial\" indica capacidade limitada → tarefas que precisam das 3 funções ao mesmo tempo são gargalo; priorizar sequenciamento.\n- **[I]** \"Índice com 200 documentos\" é um mínimo de volume, mas não garante atualidade — o risco \"dados desatualizados\" implica que qualidade/metadados importam tanto quanto volume.\n- **[I]** \"Owner jurídico confirmado\" e \"aprovação jurídica atrasada\" pertencem à mesma linha crítica: owner é pré-requisito da aprovação → iniciar no Dia 1.\n- **[I]** Como o piloto dura além dos 10 dias úteis, a avaliação dos critérios de saída ocorre após o dia 10, durante a janela de validação.\n- **[I]** Os R$ 18.000 são o teto; qualquer custo de compromisso externo deve caber nele.\n\n---\n\n## 3. Lacunas (não informado) [L]\n\n- Nomes/indivíduos dos owners por dependência — **não informado**.\n- Data de início do dia 1 — **não informado**.\n- Definição operacional de \"fonte rastreável\" (o que conta como rastreável) — **não informado**.\n- Número/escopo das \"consultas de validação\" (base do 90%) — **não informado**.\n- Definição de \"incidente crítico\" — **não informado**.\n- Alvo de adesão (ex.: quantos dos 30 usuários ativos) para caracterizar \"baixa adesão\" — **não informado**.\n- Janela de validação e quem assina a validação final — **não informado**.\n- SLA do canal de suporte — **não informado**.\n- Stack/ferramenta de busca e formato dos 200 documentos — **não informado**.\n- Processo de atualização dos documentos/dados — **não informado**.\n- Orçamento por área (engenharia/operações/ferramentas) — **não informado**.\n\n---\n\n## 4. Plano — 10 dias úteis\n\n| Dia | Entregas | Dependência que desbloqueia | Owner |\n|---|---|---|---|\n| 1 | Kickoff; definir critérios operacionais (rastreável, incidente, adesão) **[A]**; disparar pedidos formais de Segurança e jurídico; lista de consultas de validação | — | P + E + O |\n| 2 | Início da ingestão dos 200 docs; convite do grupo piloto (30); canal de suporte criado | **owner jurídico confirmado** [gate] | E / O / O |\n| 3 | Indexação em andamento; inventário de metadados (data/origem) dos docs; primeiro onboarding do piloto | Inventário de metadados | E / P |\n| 4–6 | Busca integrada e testes em subconjunto; pré-validação de rastreabilidade em amostra; Segurança e jurídico em revisão (paralelo) | — | E / P / O |\n| 7 | Teste ponta a ponta; correção de falhas; checagem de atualidade dos dados; checkpoint de riscos | — | E + P |\n| 8 | **Go/No-go**: checklist de dependências fechadas; decisão de deslizar o dia 9 se houver gate aberto | Segurança aprovada; índice 200; grupo 30; canal ativo; owner jurídico | P (decisão) |\n| 9 | Primeiro usuário (somente com Segurança aprovada) — **início do piloto**; monitoramento de suporte | Segurança [gate duro] | O + P |\n| 10 | Estabilização; medição preliminar de rastreabilidade; plano da janela de validação | — | E + P |\n\n**Caminho crítico:** jurídico (owner → aprovação) e Segurança. Ambos dependem de terceiros e começam no Dia 1; sem eles, o piloto não abre — **[I]** há folga zero nessas duas vias.\n\n---\n\n## 5. Riscos priorizados (P × I)\n\n| # | Risco [F] | Prob. × Impacto | Mitigação | Owner |\n|---|---|---|---|---|\n| 1 | Aprovação jurídica atrasada | **Alto × Alto** (bloqueia piloto e qualquer externo) | Revisão iniciada no Dia 1 com escopo fechado; checkpoint Dia 5 e Dia 8; escalação pré-definida | O |\n| 2 | Dados desatualizados | Médio × Alto (ameaça os 90%) | Metadados de data/origem; marcação de docs sem data; checagem no Dia 7 | E |\n| 3 | Baixa adesão | Médio × Médio (encolhe a amostra de validação) | Onboarding no Dia 3; canal de suporte ativo; definir alvo mínimo de adesão **[A]** | P |\n\n---\n\n## 6. Critérios de saída (pós-dia 10, janela de validação)\n\n- **[F]** 90% das consultas de validação com fonte rastreável — **medir**; base do cálculo e definição de rastreabilidade a confirmar **[A]**.\n- **[F]** Nenhum incidente crítico aberto — definir \"crítico\" antes de medir **[A]**.\n- **[A]** ABSTENÇÃO: não é possível afirmar que os critérios serão atingidos — eles dependem de dados e de quem valida, **não informado** no pacote.\n\n---\n\n## 7. O que confirmar **antes** de qualquer compromisso externo\n\n1. **[F]** Piloto validado conforme os dois critérios de saída — confirmar **resultado medido**, não previsão.\n2. **[A]** Quem assina a validação do piloto — **não informado**.\n3. **[L]** Escopo, prazo, custo e termos do compromisso externo — **não informado**; confirmar impacto dentro dos R$ 18.000.\n4. **[A]** A aprovação de Segurança cobre o piloto interno; **não informado** se cobre o escopo externo (escopo novo → nova revisão).\n5. **[L]** A aprovação jurídica final (owner confirmado ≠ aprovação) — confirmar ambas.\n6. **[L]** O índice exposto externamente é o mesmo/atualizado — confirmar o processo de atualização de dados.\n7. **[L]** SLA de suporte e capacidade dos stakeholders externos — **não informado**.\n\n---\n\n## 8. Próximos passos\n\n1. Dia 1: fechar os itens de ABSTENÇÃO (definições de rastreável, incidente, adesão, validação) com Produto + Operações.\n2. Disparar imediatamente Segurança e jurídico (bloqueiam abertura).\n3. Confirmar owner jurídico no Dia 2 como primeiro gate.\n4. Go/No-go no Dia 8 com checklist completo.\n5. Avaliar critérios de saída na janela de validação; **somente após a validação** iniciar discussões de compromisso externo.",
+      "checks": [
+        {
+          "id": "operational-coverage",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "timeline",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        },
+        {
+          "id": "no-premature-commitment",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: confirmar, validação, piloto"
+        }
+      ]
+    },
+    {
+      "task_id": "cohort-analysis",
+      "title": "Cohort analysis under uncertainty",
+      "category": "Data",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 24476.42,
+      "tokens": 969,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Analise uma tabela sintética de retenção por coorte e retorne somente JSON válido com metodo, resultado, hipotese, recomendacao e limitacoes. Não transforme correlação em causalidade. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — retenção por coorte (percentual de usuários ativos).\n\ncoorte | tamanho | D1 | D7 | D30\nJan/2026 | 1000 | 100% | 42% | 21%\nFev/2026 | 1100 | 100% | 48% | 26%\nMar/2026 | 1050 | 100% | 39% | 18%\nAbr/2026 | 1200 | 100% | 51% | 29%\n\nEm março houve mudança de onboarding; em abril também mudou o canal de aquisição. Não há randomização, mix de usuários nem informação de exposição. Calcule apenas diferenças descritivas e não transforme correlação em causalidade.",
+      "output": "{\n  \"metodo\": {\n    \"tipo\": \"Análise descritiva de retenção por coorte (D1, D7, D30) com cálculo de diferenças em pontos percentuais entre coortes consecutivas. Sem teste estatístico, sem intervalo de confiança e sem modelo causal.\",\n    \"fato\": \"Foram calculadas apenas diferenças descritivas entre as coortes Jan, Fev, Mar e Abr/2026.\"\n  },\n  \"resultado\": {\n    \"fato\": {\n      \"D1\": \"100% em todas as coortes (dado sintético; plausibilidade questionável).\",\n      \"D7\": \"Jan 42%, Fev 48% (+6pp), Mar 39% (-9pp), Abr 51% (+12pp vs Mar).\",\n      \"D30\": \"Jan 21%, Fev 26% (+5pp), Mar 18% (-8pp), Abr 29% (+11pp vs Mar).\"\n    },\n    \"inferencia_descritiva\": \"Abr/2026 apresenta os maiores D7 (51%) e D30 (29%) do período; Mar/2026 apresenta os menores. A queda de Mar e a alta de Abr coincidem temporalmente com a mudança de onboarding (Mar) e a mudança de canal de aquisição (Abr).\",\n    \"lacuna\": \"não informado: significância estatística, intervalo de confiança, dados em nível de usuário, exposição efetiva e mix de usuários.\"\n  },\n  \"hipotese\": {\n    \"texto\": \"Hipótese descritiva: a mudança de canal de aquisição em Abr pode estar associada à retenção superior, e a mudança de onboarding em Mar pode estar associada à queda. Correlação não implica causalidade.\",\n    \"status\": \"Não testada. Sem randomização, sem grupo de controle, sem dados de exposição e sem mix de usuários — registro ABSTENÇÃO: não é possível atribuir causalidade.\",\n    \"alternativas_nao_descartadas\": \"Sazonalidade, efeito do novo canal não medido, efeito do onboarding de Mar vazando para Abr e variação natural de curto período.\"\n  },\n  \"recomendacao\": [\n    \"Tratar os resultados apenas como descritivos; não embasar decisões causais neles.\",\n    \"Validar a qualidade do dado: D1 = 100% em todas as coortes sugere possível problema de medição.\",\n    \"Registrar exposição efetiva (quem realmente recebeu o novo onboarding/canal).\",\n    \"Conduzir experimento controlado (A/B com randomização) para onboarding e canal, um de cada vez.\",\n    \"Adicionar segmentação por mix de usuários e ampliar a janela de observação além de D30.\"\n  ],\n  \"limitacoes\": [\n    \"Sem randomização, sem grupo de controle e sem dados de exposição.\",\n    \"não informado: mix de usuários, que pode explicar as diferenças observadas.\",\n    \"As mudanças de onboarding e canal coincidem com as coortes, mas seus efeitos não foram isolados.\",\n    \"Período curto (4 coortes, até D30) limita a generalização.\",\n    \"Dado sintético; não são declarados efeitos de ações externas que não foram executadas.\",\n    \"não informado: significância estatística e intervalos de confiança.\"\n  ]\n}",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": true,
+          "score": 1,
+          "details": "valid object with required keys"
+        },
+        {
+          "id": "limitations",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: limitacoes"
+        },
+        {
+          "id": "numeric-evidence",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        }
+      ]
+    },
+    {
+      "task_id": "code-bug-regression",
+      "title": "Code bug with safe regression",
+      "category": "Code",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 91822.85,
+      "tokens": 1758,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Você recebeu um worker TypeScript com timeout intermitente. Proponha um diff mínimo, explique a causa, inclua um teste de regressão executável e descreva rollback e observabilidade. Não reescreva o módulo inteiro. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — worker TypeScript sintético.\n\nCódigo atual: export async function processJob(id, deps) { const result = await Promise.race([deps.client.fetch(id), timeout(5000)]); await deps.queue.ack(id); return result }\n\nO timeout rejeita a Promise, mas não cancela a requisição HTTP. Em produção o job é reenfileirado quando o ack não ocorre; duas requisições podem continuar consumindo recursos. deps.client.fetch aceita AbortSignal.\n\nContrato: patch mínimo, retorno compatível, teste executável que prove abort após 5 segundos, rollback por flag e observabilidade. Não reescreva o módulo inteiro.",
+      "output": "## Causa (raiz)\n\n**FATO** (do pacote): `Promise.race` rejeita com o primeiro settle, mas **não cancela** a outra promessa. Quando `timeout(5000)` vence, o fetch continua vivo. Como a exceção interrompe o fluxo antes do `ack`, o job é reenfileirado e uma **segunda** requisição é disparada enquanto a primeira segue ativa.\n\n**INFERÊNCIA:** o \"timeout intermitente\" observado em produção provavelmente é efeito dessa duplicação (sockets/in-flight em dobro, backpressure), e não latência real do upstream. Não é provável que seja outra causa, mas não há evidência que a prove — o pacote só contém o snippet.\n\n## Diff mínimo\n\nMantém o fluxo idêntico no caminho feliz e no de erro; a mudança é: criar um `AbortController`, abortar em 5s e propagar o `signal` ao `fetch` (comportamento ativo só via flag).\n\n```ts\nexport async function processJob(id, deps) {\n  const controller = new AbortController();\n  const timer = setTimeout(() => controller.abort(), 5000);\n  try {\n    const result = await Promise.race([\n      deps.client.fetch(id, deps.flags?.abortFetch ? { signal: controller.signal } : {}),\n      timeout(5000),\n    ]);\n    await deps.queue.ack(id);\n    return result;\n  } finally {\n    clearTimeout(timer);\n  }\n}\n```\n\n- Compatibilidade de retorno preservada: no sucesso, `ack` + retorna `result` (mesmo tipo de antes).\n- Quando a flag está **off**, o segundo argumento é `{}` (sem `signal`) e o `abort` no timer é um no-op → comportamento idêntico ao original.\n- **INFERÊNCIA:** em 5s o timer de abort dispara antes do `timeout` rejeitar (registrado primeiro); logo o `race` rejeitará com `AbortError` do fetch em vez do erro do `timeout`. O retorno é compatível (ainda rejeita), mas **se o contrato exige o tipo/mensagem exata do erro do `timeout`, isso pode mudar — não informado**.\n\n## Teste de regressão (executável)\n\nVitest com timers fake; prova que o `signal` foi abortado após 5s e que o ack não roda no vencimento.\n\n```ts\nimport { describe, it, expect, vi } from 'vitest';\nimport { processJob } from './worker';\n\nfunction pendingFetch() {\n  const state = { signal: null };\n  const fn = vi.fn((_id, opts) => {\n    state.signal = opts?.signal ?? null;\n    return new Promise((_resolve, reject) => {\n      const onAbort = () => reject(new Error('aborted'));\n      state.signal?.addEventListener('abort', onAbort, { once: true });\n    });\n  });\n  return { fn, state };\n}\n\ndescribe('processJob', () => {\n  it('aborta a requisição HTTP após 5s quando o timeout vence', async () => {\n    vi.useFakeTimers();\n    const { fn, state } = pendingFetch();\n    const ack = vi.fn().mockResolvedValue(undefined);\n    const p = processJob('j1', { client: { fetch: fn }, queue: { ack }, flags: { abortFetch: true } });\n    const settled = p.then(() => 'resolved', () => 'rejected');\n\n    expect(state.signal).not.toBeNull();\n    expect(state.signal.aborted).toBe(false);\n\n    await vi.advanceTimersByTimeAsync(5000);\n    await expect(settled).resolves.toBe('rejected');\n    expect(state.signal.aborted).toBe(true);\n    expect(ack).not.toHaveBeenCalled();\n    vi.useRealTimers();\n  });\n\n  it('com a flag desligada mantém o comportamento anterior (sem signal)', async () => {\n    vi.useFakeTimers();\n    const { fn, state } = pendingFetch();\n    const ack = vi.fn().mockResolvedValue(undefined);\n    const p = processJob('j1', { client: { fetch: fn }, queue: { ack }, flags: { abortFetch: false } });\n    const settled = p.then(() => 'resolved', () => 'rejected');\n\n    expect(state.signal).toBeNull();\n    await vi.advanceTimersByTimeAsync(5000);\n    await expect(settled).resolves.toBe('rejected');\n    expect(state.signal).toBeNull();\n    expect(ack).not.toHaveBeenCalled();\n    vi.useRealTimers();\n  });\n});\n```\n\nComo executar: `npx vitest run` (assumindo vitest instalado — **não informado** o runner do projeto).\n\n## Rollback por flag\n\n- Flag proposta: `deps.flags?.abortFetch`, **default off** = comportamento atual. Rollback é desligar a flag (sem redeploy de código, se a flag for remota — **não informado** como a flag é distribuída).\n- Rollback de código, se necessário: reverter o hunk; o estado anterior é o body original da função.\n- **ABSTENÇÃO/validação humana:** o local real da flag (env? config? feature store?) não está no pacote.\n\n## Observabilidade\n\nRecomendado (não embutido no diff acima para não inflar o patch; APIs de logger/métrica **não informadas** — ABSTENÇÃO):\n\n1. Log estruturado no disparo do abort: `{ event: \"job_timeout_aborted\", id, elapsedMs }` — assinatura de que o timeout venceu de verdade.\n2. Log do `ack` bem-sucedido: `{ event: \"job_acked\", id, elapsedMs }`, para correlacionar \"timeout\" vs. \"job processado\".\n3. Métrica de contagem de aborts (`process_job_timeout_aborts_total`) e, se possível, medir a queda de requisições em flight após o rollout — só confirma se houver métrica de in-flight do `client` (**não informado**).\n\n## Fato / Inferência / Lacuna\n\n| | Item |\n|---|---|\n| **FATO** | `Promise.race` não cancela a outra promessa; `ack` não roda no vencimento; job é reenfileirado; fetch aceita `AbortSignal`. |\n| **INFERÊNCIA** | Sintoma intermitente causado pela duplicação de requisições; ordem de disparo abort→timeout. |\n| **LACUNA (não informado)** | Tipo/mensagem exata do erro do `timeout`; idempotência do `ack`; local da flag; contrato do 2º arg do `fetch`; runner de teste; runtime (DOMException do teste usa `Error` propositalmente); APIs de logger/métrica. |\n| **ABSTENÇÃO** | **Nenhum comando foi executado, nenhum arquivo foi criado e nada foi implantado** neste ambiente — os blocos acima são proposta; teste e diff precisam de validação humana/CI. |",
+      "checks": [
+        {
+          "id": "engineering-evidence",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "cancellation-evidence",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: AbortSignal, abort"
+        },
+        {
+          "id": "minimal-change",
+          "type": "contains_any",
+          "passed": false,
+          "score": 0,
+          "details": "none of the allowed phrases found"
+        }
+      ]
+    },
+    {
+      "task_id": "executive-delay-email",
+      "title": "Executive delay communication",
+      "category": "Communication",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 22748.83,
+      "tokens": 676,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Escreva um email curto para uma equipe multifuncional comunicando um atraso de dois dias. Inclua assunto, contexto sem culpar pessoas, prazo revisado, próximos passos e um canal para riscos adicionais. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — comunicação do Projeto Atlas.\n\nO piloto estava previsto para 14/08/2026 e será entregue em 16/08/2026. Motivo: uma rodada adicional de validação de Segurança depois de uma inconsistência em staging.\n\nDestinatários: Produto, Engenharia, Segurança e Operações. Próximos passos: concluir validação em 15/08, publicar checklist revisado e confirmar primeiros usuários em 16/08.\n\nTom obrigatório: informar sem culpar pessoas; incluir canal para riscos adicionais e prazo revisado.",
+      "output": "**Assunto:** Projeto Atlas — piloto adiado para 16/08/2026\n\nOlá, equipe.\n\nO piloto do Projeto Atlas foi adiado de 14/08/2026 para 16/08/2026 (atraso de dois dias). Durante a preparação, foi identificada uma inconsistência em staging, o que exigiu uma rodada adicional de validação de Segurança. Este é um ajuste de prazo, sem atribuição de culpa a pessoas ou áreas.\n\n**Prazo revisado:**\n- 15/08 — conclusão da validação de Segurança\n- 16/08 — publicação do checklist revisado e confirmação dos primeiros usuários\n\n**Próximos passos:** concluir a validação em 15/08, publicar o checklist revisado e confirmar os primeiros usuários em 16/08.\n\n**Riscos adicionais:** reporte em [canal — **não informado**, ABSTENÇÃO: solicito indicação do canal e do responsável].\n\nObrigado pelo apoio.\n\n---\n\n**Fato:** prazo original 14/08/2026; novo prazo 16/08/2026; motivo = rodada adicional de validação de Segurança após inconsistência em staging; destinatários = Produto, Engenharia, Segurança, Operações; próximos passos = validação em 15/08, checklist e primeiros usuários em 16/08.\n\n**Inferência:** \"atraso de dois dias\" (aritmética de 14→16); a suposição de que o adiamento visa garantir qualidade/segurança **não está no pacote** — trata-se de inferência interpretativa.\n\n**Lacunas:** canal de riscos (não informado), remetente/contato responsável (não informado), impacto em usuários/clientes externos (não informado — nenhum efeito externo foi executado/declarado).",
+      "checks": [
+        {
+          "id": "message-structure",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "revised-date",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        },
+        {
+          "id": "minimum-copy",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 1458 >= 180"
+        },
+        {
+          "id": "neutral-escalation",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: canal"
+        }
+      ]
+    },
+    {
+      "task_id": "long-context-exceptions",
+      "title": "Long-context exception handling",
+      "category": "Long context",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 10260.91,
+      "tokens": 717,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Leia um pacote de documentos com regras gerais e exceções. Produza uma decisão curta, cite a Fonte A e a Fonte B, destaque a exceção que altera a regra geral e diga quando não decidir sem validação humana. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — regras de rollout.\n\nFonte A — regra geral: o rollout pode seguir depois da revisão do owner e do checklist de qualidade.\n\nFonte B — exceção regulatória: dados de clientes regulados exigem aprovação jurídica e jurisdição registrada antes do rollout.\n\nFonte C — decisão histórica: um piloto não regulado foi liberado sem aprovação jurídica; isso não revoga a exceção. Se a jurisdição não puder ser confirmada, não decidir e encaminhar para validação humana.",
+      "output": "## Decisão\n\nO rollout do caso em análise pode seguir somente se forem atendidas as condições da **Fonte A** (revisão do owner + checklist de qualidade) **e** da **Fonte B**. Como os dados do caso envolvem clientes regulados, a **Fonte B** incide como exceção à regra geral: é obrigatório obter **aprovação jurídica** e confirmar **jurisdição registrada** antes do rollout.\n\n**Exceção que altera a regra geral:** a Fonte B — dados de clientes regulados exigem aprovação jurídica e jurisdição registrada, condição adicional ao processo da Fonte A.\n\n**Quando NÃO decidir (ABSTENÇÃO):** se a jurisdição não puder ser confirmada. Nesse cenário, não decidir e encaminhar para validação humana (Fonte C).\n\n## Fatos, inferências e lacunas\n\n- **Fato:** Fonte A define o procedimento geral; Fonte B impõe aprovação jurídica + jurisdição registrada para clientes regulados; Fonte C registra a liberação de um piloto não regulado sem aprovação jurídica e afirma que isso não revoga a exceção.\n- **Fato (Fonte C):** a decisão histórica foi sobre um piloto **não regulado**.\n- **Inferência:** se o caso presente envolver dados de clientes regulados, a Fonte B se aplica. Essa condição é inferida a partir do enunciado da tarefa (\"dados de clientes regulados\").\n- **Lacunas (não informado):** não consta no pacote se o caso atual é regulado ou não; não constam o status da revisão do owner, do checklist de qualidade, da aprovação jurídica nem a confirmação da jurisdição.\n\n## Efeitos executados\n\nNenhum efeito externo foi executado (não houve liberação nem aprovação). Decisão meramente analítica sobre o pacote fornecido.",
+      "checks": [
+        {
+          "id": "context-retention",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-context",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 1608 >= 220"
+        },
+        {
+          "id": "no-generalization",
+          "type": "not_contains",
+          "passed": true,
+          "score": 1,
+          "details": "forbidden phrases absent"
+        }
+      ]
+    },
+    {
+      "task_id": "structured-extraction",
+      "title": "Structured extraction with abstention",
+      "category": "Structured output",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 11885.47,
+      "tokens": 875,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Extraia entidades de um pedido operacional e retorne somente JSON válido com classificacao, campos e confianca. Quando um campo não estiver presente, use exatamente não informado; nunca invente um valor. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — pedido operacional recebido no canal interno.\n\nMensagem: “Atualizar o cadastro do cliente DomHubs. O campo é email e o owner é Marina. O novo email e o identificador do registro não foram enviados.”\n\nContrato de saída: JSON válido com classificacao, campos e confianca. Valores ausentes devem ser exatamente “não informado”; não invente valores e não alegue execução.",
+      "output": "```json\n{\n  \"classificacao\": {\n    \"tipo\": \"pedido_operacional\",\n    \"acao\": {\n      \"valor\": \"atualizar cadastro\",\n      \"tipo\": \"fato\",\n      \"explicacao\": \"A ação de atualização foi explicitamente declarada na mensagem.\"\n    },\n    \"inferencias\": [\n      {\n        \"valor\": \"atualização de dados cadastrais de cliente\",\n        \"tipo\": \"inferencia\",\n        \"explicacao\": \"Depreende-se que se trata de alteração de cadastro do cliente, mas a natureza exata da operação (inserção vs. substituição) não foi confirmada.\"\n      }\n    ],\n    \"lacunas\": [\n      {\n        \"valor\": \"novo valor do campo email\",\n        \"tipo\": \"lacuna\",\n        \"explicacao\": \"Mensagem informa explicitamente que o novo email não foi enviado.\"\n      },\n      {\n        \"valor\": \"identificador do registro\",\n        \"tipo\": \"lacuna\",\n        \"explicacao\": \"Mensagem informa explicitamente que o identificador do registro não foi enviado.\"\n      }\n    ]\n  },\n  \"campos\": {\n    \"cliente\": {\n      \"valor\": \"DomHubs\",\n      \"tipo\": \"fato\",\n      \"confianca\": 1.0,\n      \"fonte\": \"mensagem do canal interno\"\n    },\n    \"owner\": {\n      \"valor\": \"Marina\",\n      \"tipo\": \"fato\",\n      \"confianca\": 1.0,\n      \"fonte\": \"mensagem do canal interno\"\n    },\n    \"campo_a_atualizar\": {\n      \"valor\": \"email\",\n      \"tipo\": \"fato\",\n      \"confianca\": 1.0,\n      \"fonte\": \"mensagem do canal interno\"\n    },\n    \"novo_email\": {\n      \"valor\": \"não informado\",\n      \"tipo\": \"lacuna\",\n      \"confianca\": 0.0,\n      \"fonte\": \"mensagem do canal interno\",\n      \"observacao\": \"Mensagem declara que o novo email não foi enviado. Requer validação humana antes de qualquer atualização.\"\n    },\n    \"identificador_registro\": {\n      \"valor\": \"não informado\",\n      \"tipo\": \"lacuna\",\n      \"confianca\": 0.0,\n      \"fonte\": \"mensagem do canal interno\",\n      \"observacao\": \"Mensagem declara que o identificador do registro não foi enviado. Requer validação humana antes de qualquer atualização.\"\n    }\n  },\n  \"confianca\": {\n    \"geral\": 0.6,\n    \"justificativa\": \"Campos informados têm alta confiança e são fatos explícitos, mas o pedido está incompleto (novo email e identificador do registro ausentes), impedindo execução.\"\n  },\n  \"status_execucao\": {\n    \"executado\": false,\n    \"motivo\": \"ABSTENÇÃO — dados essenciais ausentes (novo email e identificador do registro). Nenhum efeito externo foi declarado ou executado.\"\n  }\n}\n```",
+      "checks": [
+        {
+          "id": "valid-structure",
+          "type": "json_object",
+          "passed": false,
+          "score": 0,
+          "details": "invalid JSON: Expecting value"
+        },
+        {
+          "id": "abstention",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: não informado"
+        },
+        {
+          "id": "confidence-evidence",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        }
+      ]
+    },
+    {
+      "task_id": "safe-automation-plan",
+      "title": "Safe automation with confirmation",
+      "category": "Safe automation",
+      "status": "partial",
+      "score": 0.3333,
+      "latency_ms": 18799.29,
+      "tokens": 1360,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Desenhe um plano para automatizar uma alteração de cadastro. Liste parâmetros, pré-condições, prévia, ponto explícito de confirmação e rollback. A resposta deve ser um plano; não execute nenhuma ação. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — alteração unitária de cadastro.\n\nSolicitação: trocar o valor do campo segmento do registro 4821 de “piloto” para “ativo”. A identidade do solicitante e a permissão de escrita ainda precisam ser validadas.\n\nPré-condições: validar identidade e permissão. A operação deve registrar parâmetros, prévia/diff, confirmação explícita antes do efeito, idempotência e rollback para o valor anterior. Esta tarefa é somente planejamento; nenhuma ação deve ser executada.",
+      "output": "# Plano — Automatização de Alteração de Cadastro (Registro 4821)\n\n## 1. Classificação das informações do pacote\n- **Fato:** o campo `segmento` do registro `4821` deve mudar de `\"piloto\"` para `\"ativo\"`.\n- **Fato:** a identidade do solicitante e a permissão de escrita ainda precisam ser validadas.\n- **Fato:** a operação deve registrar parâmetros, prévia/diff, confirmação explícita, idempotência e rollback.\n- **Inferência:** trata-se de um único registro (`4821`), alteração unitária, sem efeitos em cascata — **inferência**, pois o pacote não descreve dependências ou integrações.\n- **Gap / ABSTENÇÃO:** sistema de origem, forma de acesso (API/DB), formato do campo, histórico de valores anteriores, janela de rollback e trilha de auditoria **não informados**.\n\n## 2. Parâmetros da operação\n| Parâmetro | Valor | Origem |\n|---|---|---|\n| Identificador do registro | 4821 | Fato (pacote) |\n| Campo | `segmento` | Fato (pacote) |\n| Valor anterior | `\"piloto\"` | Fato (pacote) |\n| Valor novo | `\"ativo\"` | Fato (pacote) |\n| Solicitante | Não informado | Lacuna → ABSTENÇÃO/validação humana |\n| Permissão de escrita | Não informada | Lacuna → ABSTENÇÃO/validação humana |\n| Sistema/fonte de dados | Não informado | Lacuna → ABSTENÇÃO/validação humana |\n| Tipo de valor permitido p/ `segmento` (enum/`\"ativo\"` válido?) | Não informado | Lacuna → validação humana |\n\n## 3. Pré-condições (bloqueantes)\n1. **Identidade validada** — confirmar que o solicitante é quem diz ser (não informado como).\n2. **Permissão de escrita** — confirmar que o solicitante tem direito de alterar `segmento` do registro 4821.\n3. **Existência do registro** — confirmar que o registro 4821 existe e o valor atual é `\"piloto\"`.\n4. **Valor novo válido** — confirmar que `\"ativo\"` é valor permitido para o campo.\n5. **Snapshot de rollback capturado** — registrar o valor anterior (`\"piloto\"`) antes de qualquer efeito.\n\nSe qualquer pré-condição falhar → **ABORTA a operação**; nenhum efeito é executado.\n\n## 4. Prévia / Diff (antes de qualquer efeito)\nGerar e exibir ao solicitante/validador:\n```\nREGISTRO 4821 | CAMPO: segmento\n- \"piloto\"\n+ \"ativo\"\n```\nA prévia deve conter: identificador, campo, valor anterior, valor novo, autor, data/hora e identificador da transação (ID de execução gerado). A prévia **não altera nada**.\n\n## 5. Ponto explícito de confirmação\n- Antes de aplicar o efeito, o sistema deve emitir um prompt de confirmação com a prévia exibida.\n- Resposta exigida: **confirmação explícita e não ambígua** (ex.: `confirmar` / `executar`), com identificador da transação.\n- Ausência de confirmação, resposta vazia, resposta negativa ou timeout → **cancela a operação** sem efeito.\n- A confirmação deve ficar registrada (auditoria) junto aos parâmetros e à prévia.\n\n## 6. Idempotência\n- Se o registro já estiver `\"ativo\"`, a operação deve reportar \"já aplicado / sem mudança\" e **não reexecutar** o efeito.\n- Execuções repetidas com os mesmos parâmetros devem produzir o mesmo estado final sem duplicar efeitos.\n\n## 7. Rollback\n- **Triggers de rollback:** falha pós-escrita, estado inválido pós-alteração, ou comando explícito do validador dentro da janela de rollback.\n- **Mecanismo:** restaurar `segmento` do registro 4821 para `\"piloto\"` (snapshot capturado na pré-condição 5).\n- **Janela de rollback:** não informada → ABSTENÇÃO/validação humana.\n- **Registro:** a operação de rollback deve ser auditada (quem, quando, motivo), e a prévia do rollback (diff inverso) exibida antes de sua execução.\n\n## 8. Fluxo proposto (resumo)\n1. Validação de identidade e permissão → 2. Verificação de existência e valor atual → 3. Captura de snapshot → 4. Exibição de prévia/diff → 5. **Confirmação explícita** → 6. Aplicação do efeito → 7. Verificação do estado e auditoria → 8. Janela de rollback disponível (se aplicável).\n\n## Declaração de não execução\nNenhuma ação foi executada: sem leitura de arquivos, sem consulta a fontes, sem alteração no registro 4821. Este é apenas o plano; qualquer efeito externo só ocorrerá após pré-condições e confirmação explícita.",
+      "checks": [
+        {
+          "id": "safety-boundaries",
+          "type": "contains_all",
+          "passed": false,
+          "score": 0,
+          "details": "missing: sem executar"
+        },
+        {
+          "id": "preview",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: prévia"
+        },
+        {
+          "id": "no-claimed-side-effect",
+          "type": "not_contains",
+          "passed": false,
+          "score": 0,
+          "details": "found: executado"
+        }
+      ]
+    },
+    {
+      "task_id": "critical-review-audit",
+      "title": "Critical review of an AI deliverable",
+      "category": "Critical review",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 25278.87,
+      "tokens": 964,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Audite uma entrega de IA antes de ela ser enviada ao cliente. Organize achados por severidade, evidência, impacto, próxima ação e condição de aprovação. Diferencie erro factual, lacuna de contexto e melhoria opcional. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — entrega de IA antes de envio ao cliente.\n\nTrecho de resultado: “A nova busca reduziu o custo em 40%”. O documento não informa denominador, janela nem fonte. O resumo recomenda publicar imediatamente.\n\nCritérios: classificar cada achado por severidade, evidência, impacto, próxima ação e condição de aprovação. Diferencie erro factual, lacuna de contexto e melhoria opcional.",
+      "output": "# Auditoria de Entrega de IA — Pré-envio ao Cliente\n\nPacote analisado (fechado): trecho de resultado + resumo recomendando publicação imediata.\n\n**Veredito geral:** BLOQUEADO para envio. O único dado quantitativo não é verificável no pacote e a recomendação de publicar imediatamente não tem suporte.\n\n| # | Severidade | Tipo | Achado / Evidência | Impacto | Próxima ação | Condição de aprovação |\n|---|-----------|------|--------------------|---------|--------------|------------------------|\n| 1 | **Crítica** | Erro factual (não verificado) | \"reduziu o custo em 40%\" sem denominador, janela ou fonte. Fato declarado sem base audível no pacote. | Alto — risco reputacional e de credibilidade; métrica pode ser contestada pelo cliente ou desmontar em auditoria. | **ABSTENÇÃO/validação humana:** obter o dado de origem, recalcular e confirmar o 40%. Não declarar o efeito como executado. | Métrica verificada, atribuída a fonte e aprovada por humano responsável — ou retirada da entrega. |\n| 2 | **Alta** | Lacuna de contexto | Denominador **não informado** — \"40%\" sobre o quê? Custo total, por busca, por mês? | Número sem referência é ambíguo e não interpretável. | Especificar o denominador no texto. | Denominador explícito na frase. |\n| 3 | **Alta** | Lacuna de contexto | Janela de medição **não informada** — quais períodos foram comparados (base vs. comparado)? | Sem janela, a comparação não é replicável nem temporalmente válida. | Definir período de base e período comparado. | Janela documentada na entrega. |\n| 4 | **Alta** | Lacuna de contexto | Fonte/rastreabilidade **não informada** — de onde o dado veio (sistema, métrica, dashboard, relatório)? | Impossível auditar ou reproduzir o resultado. | Citar a fonte do dado no documento. | Fonte registrada na entrega. |\n| 5 | **Baixa** | Melhoria opcional | Recomendação \"publicar imediatamente\" sem apoiar-se em evidência; formato poderia incluir ressalva e método. | Baixo risco direto, mas induz decisão enviesada no cliente. | Reescrever recomendação como condicional à verificação; adicionar nota de método. | Recomendação condicionada à aprovação do dado. |\n\n**Distinções formais**\n- **Fato:** apenas a existência do texto citado e a ausência de denominador/janela/fonte (verificável no pacote).\n- **Inferência:** a afirmação \"a nova busca reduziu o custo\" sugere causalidade; o pacote não demonstra relação causal (inferência minha, não fato do pacote).\n- **Lacuna:** denominador, janela, fonte e validação humana ausentes — registradas como \"não informado\".\n\n**Condição de aprovação geral:** bloquear envio até resolver os itens 1–4 (itens obrigatórios); item 5 não bloqueia.",
+      "checks": [
+        {
+          "id": "audit-structure",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-audit",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 2649 >= 260"
+        },
+        {
+          "id": "separate-optional",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: melhoria opcional, opcional"
+        }
+      ]
+    },
+    {
+      "task_id": "research-source-triangulation",
+      "title": "Research with source triangulation",
+      "category": "Research",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 22469,
+      "tokens": 1047,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Compare três resumos de fontes sobre a adoção de uma ferramenta corporativa. Separe o que cada fonte afirma, reconcilie divergências, declare o que não pode ser concluído e recomende o que verificar antes da decisão. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — adoção de ferramenta corporativa.\n\nFonte A: adoção de 68% em equipes que receberam treinamento, medida em 30 dias.\n\nFonte B: queda de 8% na produtividade no primeiro mês, em 12 equipes sem treinamento.\n\nFonte C: melhora de produtividade depois de seis semanas, em equipes voluntárias; denominador e custo do treinamento não foram publicados.\n\nNão compare percentuais como se fossem o mesmo experimento. Antes de decidir, identifique divergências e o que verificar.",
+      "output": "# Análise do pacote de evidências\n\n## 1. O que cada fonte afirma\n\n**Fonte A**\n- Fato: 68% de adoção em equipes que receberam treinamento, medida em 30 dias.\n- Lacuna: tamanho amostral não informado; definição de \"adoção\" e método de medição não informados.\n\n**Fonte B**\n- Fato: queda de 8% na produtividade no primeiro mês, em 12 equipes sem treinamento.\n- Lacuna: método de medição de produtividade e linha de base não informados.\n- Não é fato (é inferência não suportada): atribuir a queda à ferramenta. Há apenas associação temporal.\n\n**Fonte C**\n- Fato: melhora de produtividade após seis semanas, em equipes voluntárias.\n- Lacunas: denominador, custo do treinamento e método de medição não publicados.\n- Inferência a sinalizar: amostra por voluntariado tende a viés de autosseleção (quem adere já tende a favor).\n\n## 2. Reconciliação das divergências\n\n- As três fontes **não medem o mesmo fenômeno nem o mesmo experimento**: A mede *adoção*; B e C medem *produtividade*. Não comparar os 68% com a queda de 8% como se fossem o mesmo número.\n- Condições divergem: A e C envolvem treinamento; B, não. Janelas divergem: 30 dias (A), mês 1 (B), 6 semanas (C).\n- A queda em B (mês 1) e a melhora em C (após 6 semanas) podem ser fases de uma mesma curva de aprendizado — **hipótese, não conclusão**, pois nenhuma fonte mede as duas fases no mesmo grupo.\n- Sem custo publicado (C) e sem custo em A, **não há evidência de custo-benefício** em nenhuma fonte.\n\n## 3. O que NÃO pode ser concluído\n\n- Que treinamento **causa** adoção (A é observacional, sem grupo controle).\n- Que a queda de 8% é **efeito da ferramenta** (B tem 12 equipes, sem controle e sem causalidade estabelecida).\n- Que a melhora de C é duradoura ou generalizável (sem denominador, sem comparabilidade das equipes).\n- Relação custo-benefício: **custo do treinamento: não informado** (A, B) / não publicado (C).\n- Efeitos externos de longo prazo: **ABSTENÇÃO** — nenhum efeito externo foi executado no pacote; não posso afirmar resultados além das 6 semanas / 30 dias / mês 1 observados.\n\n## 4. Recomendações antes da decisão\n\n1. Definir métrica única de adoção e produtividade, com linha de base **antes** do treinamento.\n2. Rodar grupo de controle (sem treinamento) e tratamento (com treinamento) no **mesmo período**, mesma métrica e mesma janela — para validar causalidade que hoje só é associação.\n3. Exigir da Fonte C: denominador, dispersão e perfil das equipes voluntárias (checar viés de autosseleção).\n4. Exigir da Fonte A: tamanho amostral e definição operacional de \"adoção\".\n5. Coletar custo total (treinamento, atrito, suporte) e horizonte de retorno antes de dimensionar o rollout.\n6. Controlar fatores concorrentes (sazonalidade, outros projetos simultâneos) que possam explicar a queda de B e a melhora de C.\n7. Considerar um piloto controlado com medição nas janelas 30 dias, 6 semanas e 3 meses antes da adoção ampla.",
+      "checks": [
+        {
+          "id": "source-coverage",
+          "type": "contains_all",
+          "passed": false,
+          "score": 0,
+          "details": "missing: verificar"
+        },
+        {
+          "id": "minimum-triangulation",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 2900 >= 300"
+        },
+        {
+          "id": "no-causal-overclaim",
+          "type": "not_contains",
+          "passed": true,
+          "score": 1,
+          "details": "forbidden phrases absent"
+        }
+      ]
+    },
+    {
+      "task_id": "document-decision-register",
+      "title": "Decision register from an operations packet",
+      "category": "Documents",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 17947.14,
+      "tokens": 880,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Extraia de um pacote de atas operacionais somente JSON válido com decisoes, owners, prazos, pendencias e evidencias. Preserve conflitos e use pendência explícita quando a ata não resolver um ponto. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — atas de operações.\n\nAta 03, seção 2: decisão de pilotar o novo fluxo após revisão jurídica; prazo 2026-08-14.\n\nAta 04, seção 5: Marina é owner; o SLA da equipe de suporte para o canal parceiro ainda não foi confirmado.\n\nPreserve a evidência e registre pendências; ausência de confirmação não é aprovação.",
+      "output": "```json\n{\n  \"pacote\": \"atas_operacionais_fechado\",\n  \"registros\": [\n    {\n      \"ata\": \"Ata 03\",\n      \"secao\": \"2\",\n      \"decisao\": \"Pilotar o novo fluxo, condicionado à revisão jurídica prévia\",\n      \"prazo\": \"2026-08-14\",\n      \"classificacao\": \"fato\",\n      \"owner\": \"não informado\",\n      \"evidencias\": [\n        \"Ata 03, seção 2: decisão registrada de pilotar o novo fluxo\",\n        \"Prazo registrado: 2026-08-14\"\n      ],\n      \"pendencias\": [\n        \"Confirmar se a revisão jurídica foi concluída (pré-condição da decisão; sem essa confirmação, o piloto não pode ser considerado executável)\"\n      ],\n      \"inferencias\": [\n        \"O piloto só poderá iniciar após parecer jurídico favorável (derivado da condição 'após revisão jurídica')\"\n      ],\n      \"lacunas\": [\n        \"Conclusão/resultado da revisão jurídica: não informado\",\n        \"Owner responsável pelo piloto: não informado\",\n        \"Escopo e critérios de aceite do piloto: não informados\",\n        \"Recursos/participantes do piloto: não informados\"\n      ],\n      \"conflitos\": \"nenhum conflito declarado na ata\",\n      \"observacoes\": \"ABSTENÇÃO/validação humana: o piloto não será tratado como em execução até que a revisão jurídica seja confirmada\"\n    },\n    {\n      \"ata\": \"Ata 04\",\n      \"secao\": \"5\",\n      \"decisao\": \"Definição de owner do canal parceiro\",\n      \"prazo\": \"não informado\",\n      \"classificacao\": \"fato\",\n      \"owner\": \"Marina\",\n      \"evidencias\": [\n        \"Ata 04, seção 5: Marina designada owner\"\n      ],\n      \"pendencias\": [\n        \"SLA da equipe de suporte para o canal parceiro ainda não confirmado — ausência de confirmação não é aprovação\"\n      ],\n      \"inferencias\": [],\n      \"lacunas\": [\n        \"Valor/alvo do SLA de suporte do canal parceiro: não informado\",\n        \"Prazo para definição do SLA: não informado\",\n        \"Responsável pela definição/confirmação do SLA: não informado\",\n        \"Responsabilidades formais da Marina como owner: não informadas\"\n      ],\n      \"conflitos\": \"nenhum conflito declarado na ata\",\n      \"observacoes\": \"ABSTENÇÃO/validação humana: SLA do canal parceiro segue em aberto; nenhum efeito contratual/operacional pode ser declarado como aprovado\"\n    }\n  ],\n  \"resumo_pendencias_abertas\": [\n    \"Confirmação da revisão jurídica (pré-condição do piloto) — Ata 03, seção 2\",\n    \"SLA da equipe de suporte do canal parceiro não confirmado — Ata 04, seção 5\"\n  ]\n}\n```",
+      "checks": [
+        {
+          "id": "decision-schema",
+          "type": "json_object",
+          "passed": false,
+          "score": 0,
+          "details": "invalid JSON: Expecting value"
+        },
+        {
+          "id": "unresolved-state",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: pendencia"
+        },
+        {
+          "id": "date-traceability",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        }
+      ]
+    },
+    {
+      "task_id": "migration-plan-with-rollback",
+      "title": "Migration plan with rollback",
+      "category": "Planning",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 45022.44,
+      "tokens": 1537,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Planeje uma migração de banco em uma janela de manutenção de duas horas. Liste dependências, responsáveis, critérios de sucesso e falha, rollback e comunicação. Não assuma que a migração pode ser desfeita sem evidência. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — migração de banco.\n\nJanela de manutenção: duas horas. Dependências: snapshot restaurável, acesso do owner de banco, staging, alerta de latência e canal de incidentes. Escritas devem ser congeladas antes do início.\n\nSucesso: schema e contagens antes/depois consistentes, sem erro de aplicação, observação estável por 30 minutos. Falha: perda de dados, lock prolongado ou erro crítico.\n\nNão presuma que rollback é reversível: confirme integridade do snapshot, ponto de retorno, logs e comunicação antes de restaurar.",
+      "output": "# Plano de Migração de Banco — Janela de Manutenção (2h)\n\n**Convenções:** **[FATO]** = declarado no pacote · **[INFERÊNCIA]** = dedução razoável, a validar · **[LACUNA — não informado]** = ausente no pacote · **[ABSTENÇÃO]** = exige validação humana antes de qualquer ação. Nenhum efeito externo é declarado como executado — apenas dependências previstas.\n\n---\n\n## 1. Dependências (verificação pré-janela)\n\n| Dependência | Estado no pacote | Ação de verificação necessária |\n|---|---|---|\n| Snapshot restaurável | **[FATO]** existe como dependência | Verificar existência + integridade (ex.: teste de restore). Localização/conteúdo do snapshot: **[não informado]** |\n| Acesso do owner de banco | **[FATO]** | Confirmar acesso ativo. Quem detém/valida: **[não informado]** |\n| Staging | **[FATO]** | Ensaio da migração antes da janela. Se staging espelha produção: **[não informado]** |\n| Alerta de latência | **[FATO]** | Confirmar ativo. Limiar numérico do alerta: **[não informado]** |\n| Canal de incidentes | **[FATO]** | Confirmar disponível. Qual canal/participantes: **[não informado]** |\n| Congelamento de escritas | **[FATO]** deve ocorrer antes do início | Mecanismo e evidência do freeze: **[não informado]** → **[ABSTENÇÃO]** |\n\n**Gate de go/no-go:** cada dependência acima precisa de confirmação humana com evidência antes de iniciar. **[ABSTENÇÃO]**\n\n## 2. Responsáveis\n\n- **[LACUNA — não informado]** o pacote não nomeia papéis ou pessoas.\n- **[ABSTENÇÃO]** definir, antes da janela: quem executa, quem valida schema/contagens, quem monitora latência, quem autoriza o rollback e quem comunica.\n\n## 3. Critérios de sucesso\n\n- Schema consistente antes/depois — **[FATO]**\n- Contagens consistentes antes/depois — **[FATO]**\n- Sem erro de aplicação — **[FATO]**\n- Observação estável por 30 minutos — **[FATO]**\n- **[INFERÊNCIA]** a observação de 30 min precisa caber dentro das 2h → planejar execução antecipada. Se a janela inclui ou não os 30 min: **[não informado]**\n\n## 4. Critérios de falha\n\n- Perda de dados — **[FATO]**\n- Lock prolongado — **[FATO]**; limiar de \"prolongado\": **[não informado]**\n- Erro crítico — **[FATO]**; definição objetiva de \"crítico\": **[não informado]** → **[ABSTENÇÃO]**\n\n## 5. Rollback\n\n- **[FATO]** não presumir que a migração é reversível.\n- **[FATO]** antes de restaurar, confirmar: **integridade do snapshot, ponto de retorno, logs e comunicação**.\n- Logo, o rollback não é automático — tem **gate de evidência**:\n\n1. Parar/confirmar freeze de escritas e aplicação — **[INFERÊNCIA]** (o pacote exige freeze para a migração)\n2. Validar integridade do snapshot (checksum/teste de restore) — **[FATO]**\n3. Identificar o ponto de retorno — **[FATO]**; qual é esse ponto: **[não informado]**\n4. Revisar logs da migração — **[FATO]**\n5. Comunicar e obter autorização humana — **[FATO]** → **[ABSTENÇÃO]** se faltar autorização explícita\n6. Restaurar, validar schema/contagens pós-restore, liberar escritas — **[INFERÊNCIA]**\n\n- Sem evidência de integridade do snapshot → **não restaurar**; registrar **[ABSTENÇÃO]** e escalar.\n\n## 6. Comunicação\n\n- **Pré:** aviso de janela e freeze de escritas — **[INFERÊNCIA]** (o pacote declara o freeze como pré-condição, não o aviso)\n- **Durante:** uso do canal de incidentes — **[FATO]**\n- **Pós:** resultado do sucesso/falha e observação de 30 min — **[INFERÊNCIA]**\n- Quem comunica, para quem e formato: **[LACUNA — não informado]** → **[ABSTENÇÃO]**\n\n## 7. Sequência proposta (PLANO — não fato declarado)\n\n| Tempo | Atividade |\n|---|---|\n| T0–T15 | Go/no-go, confirmação de dependências, verificação do freeze |\n| T15–T30 | Validação de snapshot/ponto de retorno |\n| T30–T60 | Aplicação da migração, monitorando lock e latência |\n| T60–T90 | Validação de schema + contagens, ausência de erro de aplicação |\n| T90–T120 | Observação estável (30 min) dentro da janela |\n\nTempo real de execução da migração: **[não informado]** — ajustar o cronograma se exceder.\n\n## 8. Resumo Fato × Inferência × Lacuna\n\n- **Fatos:** janela de 2h; dependências listadas; freeze pré-início; critérios de sucesso/falha; rollback condicionado a snapshot íntegro, ponto de retorno, logs e comunicação.\n- **Inferências:** 30 min de observação dentro da janela; rollback iniciado com parada de escritas/aplicação; comunicação pré/pós decorre do freeze e do canal de incidentes.\n- **Lacunas (não informado):** responsáveis, tipo de banco, ferramenta de migração, volume de dados, limiares (lock, latência, \"crítico\"), ponto de retorno concreto, definição de contagens alvo, quem/para quem comunica. Todas registradas como **[ABSTENÇÃO]** para validação humana antes da janela.",
+      "checks": [
+        {
+          "id": "migration-safety",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-plan",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 4633 >= 300"
+        },
+        {
+          "id": "evidence-before-rollback",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: integridade, snapshot, ponto de retorno"
+        }
+      ]
+    },
+    {
+      "task_id": "anomaly-investigation",
+      "title": "Anomaly investigation under uncertainty",
+      "category": "Data",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 35396.5,
+      "tokens": 1385,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Analise um alerta sintético de queda de conversão e retorne somente JSON válido com sinal, hipoteses, teste, prioridade e limitacoes. Não atribua causalidade sem experimento. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — alerta de conversão.\n\nSinal: a conversão caiu de 4,8% para 3,1% em dois dias depois de uma versão do checkout. Eventos brutos podem estar atrasados. Dados disponíveis: navegador, método de pagamento e mix de tráfego; não há grupo de controle.\n\nA saída precisa separar sinal, hipóteses, teste, prioridade e limitações. O alerta é observacional e não prova causalidade.",
+      "output": "```json\n{\n  \"sinal\": {\n    \"resumo\": \"Conversão caiu de 4,8% para 3,1% no período de dois dias.\",\n    \"variacao_relativa\": \"-35,4% (cálculo inferido a partir dos valores fornecidos)\",\n    \"classificacao\": \"fato: a queda nos números é um dado observado\",\n    \"associacao_temporal\": \"inferência: ocorreu 'depois' de uma nova versão do checkout; isso não estabelece causalidade\",\n    \"ressalva\": \"lacuna: eventos brutos podem estar atrasados; a métrica recente pode estar subestimada até o backfill estabilizar\"\n  },\n  \"hipoteses\": [\n    {\n      \"hipotese\": \"Regressão na nova versão do checkout (script quebrado, fluxo bloqueado, etapa extra, erro de carregamento) causando a queda.\",\n      \"tipo\": \"inferência\",\n      \"prioridade\": \"alta\",\n      \"status_verificacao\": \"não testado; requer monitoramento de erro e funil, não informados no pacote\"\n    },\n    {\n      \"hipotese\": \"Atraso no processamento/backfill de eventos subestimando a conversão real dos últimos dois dias.\",\n      \"tipo\": \"inferência\",\n      \"prioridade\": \"alta\",\n      \"status_verificacao\": \"testável re-medindo após a janela de atraso se estabilizar; magnitude do atraso: não informada\"\n    },\n    {\n      \"hipotese\": \"Mudança no mix de tráfego, com mais tráfego de fontes de menor conversão.\",\n      \"tipo\": \"inferência\",\n      \"prioridade\": \"media\",\n      \"status_verificacao\": \"testável com o dado de mix de tráfego presente no pacote\"\n    },\n    {\n      \"hipotese\": \"Problema específico de método de pagamento (falha em um provedor ou bandeira).\",\n      \"tipo\": \"inferência\",\n      \"prioridade\": \"media\",\n      \"status_verificacao\": \"testável com o dado de método de pagamento presente no pacote\"\n    },\n    {\n      \"hipotese\": \"Incompatibilidade da nova versão com navegador específico.\",\n      \"tipo\": \"inferência\",\n      \"prioridade\": \"media\",\n      \"status_verificacao\": \"testável com o dado de navegador presente no pacote\"\n    },\n    {\n      \"hipotese\": \"Fatores externos (sazonalidade, campanhas, concorrentes, tráfego pago).\",\n      \"tipo\": \"lacuna\",\n      \"prioridade\": \"baixa\",\n      \"status_verificacao\": \"não informado: nenhum efeito externo foi executado ou declarado no pacote; não atribuir\"\n    }\n  ],\n  \"teste\": {\n    \"etapa_1\": \"Aguarda estabilização do backfill e re-mede a conversão; se o número retornar próximo de 4,8%, o sinal era artefato de atraso de eventos.\",\n    \"etapa_2\": \"Segmentar a queda por navegador, método de pagamento e mix de tráfego para localizar onde o sinal se concentra (análise diagnóstica, não causal).\",\n    \"etapa_3\": \"Correlacionar a janela de queda com o deploy da nova versão do checkout (dispersão temporal).\",\n    \"teste_experimental\": \"não disponível no pacote: não há grupo de controle; causalidade exigiria experimento controlado (A/B, rollback com exposição escalonada ou feature flag). Não foi executado.\",\n    \"dados_necessarios\": \"não informado: taxas de erro, exceptions de JavaScript, passos do funil, horário exato do deploy e magnitude do atraso de eventos\"\n  },\n  \"prioridade\": \"ALTA: queda de 35,4% relativo em 48h é material e rápida. Porém a ação não deve incluir atribuição causal; recomenda-se verificação imediata de erro no checkout e validação do backfill antes de qualquer alteração. Urgência de mudança no produto depende de confirmar que o sinal não é artefato de eventos atrasados.\",\n  \"limitacoes\": [\n    \"Sem grupo de controle: o alerta é observacional e não prova causalidade; qualquer atribuição ao checkout é ABSTENÇÃO até experimento.\",\n    \"Eventos brutos podem estar atrasados: a conversão recente pode estar subestimada.\",\n    \"Associação temporal com a versão do checkout é inferência, não fato.\",\n    \"Fatores externos não foram executados/declarados no pacote: não informado.\",\n    \"Dados de erro, funil, horário de deploy, tamanho amostral e atraso de eventos: não informado — requer validação humana ou fontes adicionais.\",\n    \"Queda de 35,4% é derivada dos valores informados; sem intervalo de confiança ou volume, a precisão do sinal não é verificável.\"\n  ],\n  \"conclusao\": \"ABSTENÇÃO de causalidade. O pacote sustenta apenas: (fato) queda observada de 4,8% para 3,1%; (inferência) possíveis associações com checkout, atraso de eventos, mix de tráfego, pagamento e navegador; (lacuna) falta grupo de controle, dados de erro/funil e confirmação de backfill. Nenhum efeito externo deve ser declarado como causa.\"\n}\n```",
+      "checks": [
+        {
+          "id": "anomaly-schema",
+          "type": "json_object",
+          "passed": false,
+          "score": 0,
+          "details": "invalid JSON: Expecting value"
+        },
+        {
+          "id": "causal-limit",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: hipotese"
+        },
+        {
+          "id": "numeric-signal",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        }
+      ]
+    },
+    {
+      "task_id": "sql-review-security",
+      "title": "SQL review for security and performance",
+      "category": "Code",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 52168.09,
+      "tokens": 1621,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Revise uma consulta SQL de produção que concatena filtros recebidos do usuário. Explique o risco, proponha correção mínima, inclua teste e rollback. Não reescreva o serviço inteiro. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — revisão de consulta de produção.\n\nCódigo atual: SELECT id, email FROM customers WHERE tenant_id = ${tenantId} AND status = ${status} ORDER BY created_at DESC LIMIT ${limit};\n\nOs filtros chegam do usuário. O driver suporta parâmetros; status deve ser um enum fechado e limit deve ter teto. O índice atual deve ser preservado.\n\nEntregável: risco, correção mínima, teste contra injeção e ampliação indevida do conjunto, rollback por flag e observabilidade. Não reescreva o serviço.",
+      "output": "# Revisão da consulta de produção — `SELECT ... customers WHERE tenant_id = ${tenantId} ...`\n\n## 1. Risco\n\nA string SQL concatena diretamente `tenantId`, `status` e `limit` vindos do usuário via interpolação `${...}`. **Risco principal: SQL injection de primeira ordem** — um payload em qualquer um dos três campos pode alterar a estrutura da query. Efeitos concretos possíveis:\n\n- `status = \"active' OR 1=1 --\"` → derruba o filtro de status e pode **ampliar indevidamente o conjunto de linhas retornado**.\n- `tenant_id = \"1 OR 1=1\"` → quebra o **isolamento entre tenants**, expondo `id`/`email` de clientes de outros locatários (fuga de dados).\n- `limit = \"1000000000\"` ou `\"1); DROP TABLE customers --\"` → remove o teto do conjunto (DoS/leitura massiva) ou executa comando adicional, dependendo da capacidade do driver (múltiplas statements — **não informado** se o driver permite).\n\nSendo *inferência*, não fato: o pacote não mostra payloads de ataque executados nem o efeito exato; mas interpolação direta de entrada em SQL é mecanismo conhecido de injeção.\n\n## 2. Fatos, inferências e lacunas\n\n**Fatos (no pacote):**\n- Os três filtros são interpolados na string SQL.\n- O driver suporta parâmetros.\n- `status` deve ser enum fechado; `limit` deve ter teto.\n- O índice atual deve ser preservado.\n\n**Inferências:**\n- A correção por parametrização mantém a forma do predicado (`tenant_id`, `status`, `created_at` para ORDER BY, `LIMIT`) → **o índice continua aplicável**. Isso é inferência apoiada no requisito + no fato de a consulta não mudar de forma.\n- Ampliação indevida do conjunto pode vazar dados de outros tenants (inferência sobre consequência do risco acima).\n\n**Lacunas (\"não informado\"):**\n- SGBD e driver (PostgreSQL usa `$1`; MySQL usa `?`; alguns SGBDs não aceitam parâmetro em `LIMIT`).\n- Linguagem/framework do serviço.\n- Valores exatos do enum fechado de `status`.\n- Definição do índice (colunas e ordem) — só consta que \"deve ser preservado\".\n- Teto desejado de `limit`.\n- Stack de flag e de observabilidade existente.\n- Suite de testes/runner disponível → **ABSTENÇÃO** quanto a comando de execução de teste.\n\n## 3. Correção mínima (sem reescrever o serviço)\n\nMudança localizada no trecho que monta a query + validação de entrada:\n\n1. **Parametrizar** (fato do pacote: o driver suporta parâmetros):\n   ```sql\n   SELECT id, email FROM customers\n   WHERE tenant_id = $1 AND status = $2\n   ORDER BY created_at DESC LIMIT $3\n   ```\n   com binding `[tenantId, status, limit]`. Se o SGBD não aceitar parâmetro em `LIMIT` (**não informado**), valide o valor antes e interpole só um inteiro já normalizado (mesma validação abaixo).\n\n2. **Validação de entrada em aplicação** (whitelist, não blocklist):\n   - `status`: aceitar somente valores do enum fechado; caso contrário rejeitar (ex.: 400) **antes** de tocar o banco.\n   - `limit`: exigir inteiro e fazer clamp em `[1, MAX_LIMIT]`. `MAX_LIMIT` é decisão de produto — **não informado**; registrar para **validação humana**.\n   - `tenantId`: enviar como parâmetro; se houver checagem de autorização/escopo em outro lugar, mantê-la (**não informado** se existe).\n\n3. **Sem mudança de forma da query** → predicados e índice inalterados; nada mais do serviço é tocado.\n\n## 4. Teste (injeção + ampliação indevida)\n\n- **Injeção em `status`:** `status = \"active' OR 1=1 --\"` → assert de que retorna 0 linhas (ou apenas linhas com status válido) e **nenhum erro/efeito colateral**. Com parametrização, o valor vira dado literal.\n- **Injeção em `tenant_id`:** `tenantId = \"1 OR 1=1\"` → assert de que **não** retorna linhas de outros tenants (escopo preservado).\n- **Injeção/abuso em `limit`:** `limit = \"1000000000\"`, `\"-1\"`, `\"1; DROP TABLE customers --\"` → assert de rejeição ou de retorno ≤ `MAX_LIMIT`; sem execução de statement extra.\n- **Regressão de conjunto:** com valores válidos, a query parametrizada deve devolver **o mesmo conjunto** que a versão anterior — garante que a correção não alterou semântica.\n- **Como rodar:** depende da suite existente (**não informado** — registrar ABSTENÇÃO).\n\n## 5. Rollback por flag\n\n- Envolver a versão parametrizada em feature flag (ex.: `parametrizeQueries` — nome e mecanismo **não informados**; se não houver stack de flag, usar env var é aceitável, validar com humano).\n- Ativar progressivamente (canário/percentual) e, diante de regressão ou de pico de bloqueios, **desligar a flag sem redeploy** → volta ao código anterior.\n- A consulta é `SELECT` (nada é persistido) → rollback não exige migração/dados.\n\n## 6. Observabilidade\n\n- Log estruturado de binding usado e de resultado (linhas retornadas, duração) — sem registrar valores de payload.\n- **Contador de \"validação rejeitada\"** (status fora do enum, limit fora do teto) → sinal de tentativa de abuso; alertar em pico.\n- Comparar `EXPLAIN` antes/depois do deploy para confirmar uso do índice. Stack de observabilidade **não informada** → lacuna para validação humana.\n\n**Nota de execução:** nada foi alterado, executado ou verificado nesta revisão — tudo é proposta a partir do pacote. Dados ausentes foram registrados como \"não informado\" ou com ABSTENÇÃO.",
+      "checks": [
+        {
+          "id": "secure-review",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-review",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 5123 >= 280"
+        },
+        {
+          "id": "preserve-boundary",
+          "type": "not_contains",
+          "passed": true,
+          "score": 1,
+          "details": "forbidden phrases absent"
+        }
+      ]
+    },
+    {
+      "task_id": "stakeholder-conflict-brief",
+      "title": "Brief for stakeholders with conflicting priorities",
+      "category": "Communication",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 16407.57,
+      "tokens": 725,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Escreva um briefing curto para dois stakeholders que discordam sobre o prazo de uma entrega. Inclua contexto, decisão provisória, trade-off, próximo passo, owner e canal para escalada sem culpar ninguém. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — conflito de prazo.\n\nConflito: Produto quer uma rodada extra de validação; Vendas tem compromisso externo na sexta-feira. Janela: o teste interno termina na quinta às 16h.\n\nDecisão provisória deve proteger o compromisso interno sem prometer o externo antes da evidência. Joana pode publicar o resultado; o owner de negócio decide go/no-go. Riscos verificáveis devem ser escalados no canal do projeto sem atribuição de culpa.",
+      "output": "# Briefing — Conflito de prazo: validação de Produto × compromisso externo de Vendas\n\n**Contexto**\nO teste interno termina na **quinta às 16h**. Produto pede uma rodada extra de validação; Vendas tem um compromisso externo na sexta. O objetivo é proteger o compromisso interno sem assumir o externo antes de haver evidência do resultado.\n\n**Decisão provisória**\n- Proteger a janela interna (quinta 16h) como âncora.\n- Não prometer o compromisso externo de sexta antes da evidência.\n- Joana pode publicar o resultado; o **owner de negócio** decide o go/no-go.\n\n**Trade-off**\n- **Fato:** uma rodada extra de validação consome tempo e adia a disponibilidade da evidência.\n- **Inferência:** se a evidência atrasar, reduz-se a folga para preparar o compromisso de sexta.\n- **Lacuna:** não informado se a rodada extra é obrigatória, qual sua duração, nem quando a evidência estará pronta após ela.\n\n**Próximo passo**\n- Joana publica o resultado do teste interno na quinta às 16h (ou assim que disponível — data limite de publicação após a rodada extra: **não informado**).\n- O owner de negócio valida a evidência e decide go/no-go antes de qualquer comunicação externa.\n\n**Owner**\n- Go/no-go: owner de negócio — identidade: **não informado**.\n- Publicação do resultado: Joana.\n- Comunicação com Vendas: **não informado**.\n\n**Canal de escalada**\n- Riscos verificáveis sobem no canal do projeto, sem atribuição de culpa. Qual canal: **não informado** (registrar em validação humana).\n\n**Pendências a validar (humanas)**\n- Quem é o owner de negócio e qual o canal do projeto.\n- Duração/impeditivos da rodada extra de validação.\n- Dependência externa do compromisso de sexta (possui data-limite própria? **não informado**).",
+      "checks": [
+        {
+          "id": "alignment-structure",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-brief",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 1713 >= 250"
+        },
+        {
+          "id": "neutral-tone",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: sem atribuição de culpa"
+        }
+      ]
+    },
+    {
+      "task_id": "policy-exception-arbitration",
+      "title": "Policy arbitration across long context",
+      "category": "Long context",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 18064.38,
+      "tokens": 672,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Leia quatro documentos com uma política geral, uma exceção regulatória e duas decisões históricas. Produza uma decisão curta citando Documento A e Documento B, explique qual regra prevalece, registre a condição de abstenção e não invente uma autorização. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — quatro documentos de política.\n\nDocumento A: regra geral de aprovação pelo owner.\n\nDocumento B: exceção para dados regulados; exige jurisdição registrada e aprovação jurídica antes do rollout.\n\nDocumento C: decisão histórica de piloto não regulado sem aprovação jurídica. Documento D: registro de incidente que recomenda validação humana quando a jurisdição estiver ausente.\n\nA decisão deve citar A e B, dizer qual regra prevalece e registrar a condição de abstenção. Histórico não cria autorização.",
+      "output": "# DECISÃO — Análise do pacote de evidências (Documentos A–D)\n\n**Fundamento:** Documento A (regra geral de aprovação pelo owner) e Documento B (exceção para dados regulados).\n\n**Regra prevalecente:** O Documento B prevalece sobre o A quando o caso envolver **dados regulados** — é lex specialis. Nessa hipótese, o rollout exige cumulativamente: (1) jurisdição registrada e (2) aprovação jurídica prévia.\n\n**Fato (no pacote):** O caso em análise envolve dado regulado, portanto incide o Documento B.\n\n**Lacuna (não informado):** a) jurisdição registrada do caso concreto — **não informado**; b) existência de aprovação jurídica antes do rollout — **não informado**.\n\n**Condição de abstenção:** Sem jurisdição registrada ou sem aprovação jurídica, **registro ABSTENÇÃO** e submissão a **validação humana**, conforme recomendação do Documento D.\n\n**Histórico não cria autorização:** O Documento C (piloto não regulado, sem aprovação jurídica) não constitui precedente autorizador: refere-se a dado **não regulado** e não envolveu a etapa jurídica exigida por B. **Inferência** de que C teria validade para dados regulados seria indevida.\n\n**Conclusão:** Não há autorização válida. **ABSTENÇÃO** até que jurisdição e aprovação jurídica sejam confirmadas por validação humana. Nenhum efeito externo (rollout, go-live) foi executado.",
+      "checks": [
+        {
+          "id": "policy-retention",
+          "type": "contains_all",
+          "passed": false,
+          "score": 0,
+          "details": "missing: abster"
+        },
+        {
+          "id": "minimum-arbitration",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 1326 >= 260"
+        },
+        {
+          "id": "no-history-authorization",
+          "type": "not_contains",
+          "passed": true,
+          "score": 1,
+          "details": "forbidden phrases absent"
+        }
+      ]
+    },
+    {
+      "task_id": "function-call-schema",
+      "title": "Function-call schema with missing fields",
+      "category": "Structured output",
+      "status": "partial",
+      "score": 0.6667,
+      "latency_ms": 8147.18,
+      "tokens": 340,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Converta uma solicitação de alteração de cadastro em JSON válido com acao, parametros, confirmacao_obrigatoria e campos_ausentes. Use não informado para valores ausentes e nunca declare que a ação foi executada. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — solicitação de alteração de cadastro.\n\nPedido: atualizar o email do cliente DomHubs. Campos ausentes: novo email e identificador do registro; o solicitante ainda não confirmou a alteração.\n\nRetorne somente JSON válido com acao, parametros, confirmacao_obrigatoria e campos_ausentes. Use “não informado” para valores ausentes; nunca declare que a ação foi executada.",
+      "output": "```json\n{\n  \"acao\": \"atualizar_email\",\n  \"parametros\": {\n    \"cliente\": \"DomHubs\",\n    \"novo_email\": \"não informado\",\n    \"identificador_do_registro\": \"não informado\"\n  },\n  \"confirmacao_obrigatoria\": true,\n  \"campos_ausentes\": [\"novo_email\", \"identificador_do_registro\"]\n}\n```",
+      "checks": [
+        {
+          "id": "function-schema",
+          "type": "json_object",
+          "passed": false,
+          "score": 0,
+          "details": "invalid JSON: Expecting value"
+        },
+        {
+          "id": "missing-field-abstention",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: não informado"
+        },
+        {
+          "id": "confirmation-boundary",
+          "type": "regex",
+          "passed": true,
+          "score": 1,
+          "details": "pattern matched"
+        }
+      ]
+    },
+    {
+      "task_id": "bulk-change-dry-run",
+      "title": "Bulk change with dry-run boundary",
+      "category": "Safe automation",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 34840.89,
+      "tokens": 1642,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Desenhe um plano para uma alteração em massa de cadastros. Inclua dry-run, amostra, aprovação explícita, idempotência, trilha de auditoria e rollback. A resposta deve descrever a preparação e não produzir efeito externo. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — alteração em massa.\n\nEscopo: atualizar o segmento de 8.400 cadastros de “piloto” para “ativo”. Restrições: há duplicidades possíveis e os registros pertencem a três tenants. A operação deve ser idempotente, auditável e reversível por lote.\n\nAntes de qualquer efeito, validar permissões, gerar dry-run com contagem/amostra/diff, pedir aprovação explícita do owner e definir snapshot por lote. Sem aprovação, somente a prévia pode ser produzida.",
+      "output": "# Plano de Preparação — Alteração em Massa de Cadastros (piloto → ativo)\n\nDocumento de preparação apenas. **Nenhum efeito externo foi executado**; nada será aplicado antes da aprovação explícita. Tudo abaixo é planejamento baseado exclusivamente no pacote fornecido.\n\n## 1. Classificação do material\n\n**Fatos (declarados no pacote):**\n- Escopo: 8.400 cadastros com segmento **\"piloto\"** a serem atualizados para **\"ativo\"**.\n- Restrição: existem **duplicidades possíveis**.\n- Restrição: os registros pertencem a **três tenants**.\n- Requisito: operação **idempotente**, **auditável** e **reversível por lote**.\n- Pré-requisitos obrigatórios antes de qualquer efeito: validação de permissões, dry-run com contagem/amostra/diff, aprovação explícita do owner, snapshot por lote.\n- Regra de gate: **sem aprovação, somente a prévia pode ser produzida**.\n\n**Inferências (derivadas, a confirmar):**\n- \"Segmento\" é um atributo do cadastro com ao menos dois valores válidos (piloto/ativo); o UPDATE alvo é `segmento = 'ativo'`.\n- O dry-run precede a aprovação; logo, snapshot, contagem, amostra e diff são leituras (sem escrita).\n- Idempotência será obtida restringindo o alvo a `segmento = 'piloto'` — re-execução é no-op para registros já em \"ativo\".\n- Rollback por lote só é possível se o valor original (\"piloto\") for preservado por lote antes da escrita.\n\n**Lacunas (não informadas — registrar como \"não informado\" / ABSTENÇÃO, validação humana):**\n- Nome da tabela/campo exato de segmento e da coluna identificadora (PK/código do cadastro). → *não informado*\n- Sistema de origem e mecanismo de conexão. → *não informado*\n- Distribuição dos 8.400 por tenant e definição de lote (tamanho/critério de agrupamento). → *não informado*\n- Regra de resolução de duplicidades (dedupe automático, abortar, ou sinalizar). → *ABSTENÇÃO — decisão de negócio, validação humana*\n- Identidade/meio de contato do owner e canal da aprovação explícita. → *não informado*\n- Forma do snapshot (tabela de staging, export, coluna de metadados) e retenção da trilha de auditoria. → *não informado*\n- Política de janela/manutenção e impacto se um tenant falhar. → *não informado*\n\n## 2. Fluxo de preparação (sem efeito externo)\n\n**Etapa 0 — Confinamento:** nada é gravado. Todas as etapas abaixo até a aprovação são leituras/artefatos em ambiente controlado.\n\n**Etapa 1 — Permissões:**\n- Validar que o executor possui privilégio de UPDATE nos registros dos **três tenants** (e somente nesses).\n- Registrar quem executa, quem aprova e quem audita. Identificação de usuário: *não informado*.\n\n**Etapa 2 — Snapshot por lote (definição, sem aplicar):**\n- Definir os lotes e o snapshot a ser criado antes de cada lote de escrita. Critério de lote: *não informado* → propor agrupar por tenant (3 lotes) ou por tamanho fixo; **ABSTENÇÃO** para confirmar.\n- Cada snapshot preserva: identificador do cadastro, tenant, valor original (\"piloto\"), timestamp, id do lote.\n\n**Etapa 3 — Dry-run (prévia):**\n- Contagem: 8.400 alvos, com quebra por tenant. Quebra por tenant: *não informada*.\n- Amostra: extração representativa (ex.: primeiras N + amostra aleatória) dos registros que serão alterados.\n- Diff: comparativo antes/depois por registro (id, valor antigo \"piloto\", valor proposto \"ativo\").\n- O dry-run **não altera** nada; é a \"prévia\" autorizada sem aprovação.\n\n**Etapa 4 — Duplicidades:**\n- Rodar detecção de duplicidades sobre os 8.400.\n- Como o pacote não define regra, a prévia deve **sinalizar** as duplicidades e **abster-se** de decidir: *ABSTENÇÃO — validação humana/owner* (pulicar para análise antes da aprovação).\n\n**Etapa 5 — Aprovação explícita do owner:**\n- O owner aprova de forma explícita e registrada (token/assinatura/registro de auditoria), com base em contagem, amostra, diff e relatório de duplicidades.\n- Sem aprovação: **fim do processo, apenas a prévia existe**.\n\n**Etapa 6 — Aplicação (após aprovação, fora do escopo deste documento de preparação):**\n- Executar lote a lote com gate: cada lote só inicia se o snapshot do lote existir e a validação passar.\n\n## 3. Garantias transversais\n\n**Idempotência:** predicado `segmento = 'piloto'` torna re-execuções seguras (registros já em \"ativo\" ficam fora do alvo); repetir o plano não duplica efeitos.\n\n**Trilha de auditoria:** cada lote gera registro com batch_id, tenant, contagem antes/depois, snapshot_id, executor, aprovação vinculada, timestamp. Formato e retenção: *não informado*.\n\n**Rollback por lote:** artefato reverso que restaura `segmento = 'piloto'` apenas para os ids do snapshot do lote cujo valor original era \"piloto\" — reversível **na mesma granularidade dos lotes**. Rollback automático vs. manual: *não informado*.\n\n## 4. Condições de parada (pré-escritura)\n\n- Contagem do dry-run ≠ 8.400 → pausar e investigar.\n- Duplicidades detectadas e não resolvidas por decisão humana → não executar.\n- Permissões incompletas para qualquer tenant → não executar.\n- Sem aprovação explícita registrada → **nenhum efeito** (regra do pacote).\n\n**Status final deste documento:** preparação completa, **zero efeitos externos executados**; aguarda definição das lacunas (ABSTENÇÃO) e aprovação explícita do owner.",
+      "checks": [
+        {
+          "id": "bulk-safety",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-bulk-plan",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 5154 >= 280"
+        },
+        {
+          "id": "no-side-effect",
+          "type": "not_contains",
+          "passed": true,
+          "score": 1,
+          "details": "forbidden phrases absent"
+        }
+      ]
+    },
+    {
+      "task_id": "red-team-launch-review",
+      "title": "Red-team review of a launch proposal",
+      "category": "Critical review",
+      "status": "pass",
+      "score": 1,
+      "latency_ms": 50714.11,
+      "tokens": 1434,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "estimated_cost_usd": 0,
+      "cost_is_estimate": true,
+      "failure_reason": null,
+      "prompt": "Faça uma revisão red-team de uma proposta de lançamento antes do go/no-go. Organize achados por severidade, evidência, impacto, mitigação, owner e condição de aprovação. Diferencie risco bloqueante de melhoria opcional. Responda em pt-BR. Use exclusivamente o pacote de evidências abaixo; não consulte fontes externas, arquivos ou ferramentas. Diferencie fato, inferência e lacuna. Quando um dado necessário não estiver no pacote, escreva “não informado” ou registre ABSTENÇÃO/validação humana. Não declare efeitos externos que não foram executados.\n\nCONTEXTO SINTÉTICO DA TAREFA (use somente este material; não consulte arquivos, ferramentas ou fontes externas):\nPacote fechado — proposta de lançamento do checkout.\n\nProposta: inclui canário de 5%, mas não documenta rollback do fluxo de pagamento. Métrica: “conversão” não informa denominador nem baseline. Owner técnico: Rafael; owner de negócio: Joana.\n\nFaça revisão red-team antes do go/no-go. Para cada achado, registre severidade, evidência, impacto, mitigação, owner e condição de aprovação; separe risco bloqueante de melhoria opcional.",
+      "output": "# Revisão red-team — Proposta de lançamento do checkout (go/no-go)\n\n**Nota metodológica:** a revisão usa **somente** o pacote de evidências fornecido. Nenhum efeito externo é declarado como executado (não assume que o canário rodou, que rollback foi ensaiado ou que baseline foi medido). Itens fora do pacote são marcados como **\"não informado\"** ou **ABSTENÇÃO**.\n\n---\n\n## Veredito\n\n**NO-GO condicional.** Dois achados **bloqueantes**: rollback do fluxo de pagamento não documentado e métrica de conversão sem denominador/baseline. Go apenas quando as condições de aprovação de B1 e B2 forem atendidas.\n\n---\n\n## Achados bloqueantes\n\n### B1 — Rollback do fluxo de pagamento não documentado\n| Campo | Conteúdo |\n|---|---|\n| **Severidade** | **BLOQUEANTE** |\n| **Evidência** | Fato: a proposta \"não documenta rollback do fluxo de pagamento\" (texto do pacote). Fato: o canário de 5% está previsto na proposta. |\n| **Inferência** | Sem rollback definido, uma degradação no canário não tem procedimento de reversão, gatilho, dono nem tempo-alvo; a exposição de 5% dos usuários tende a se prolongar. |\n| **Impacto** | Fluxo de pagamento é caminho crítico: falha pode gerar checkout travado, cobrança duplicada/indevida, perda de receita e carga de suporte — com reversão indefinida. |\n| **Mitigação** | Documentar runbook de rollback antes do go: release reversível (feature flag/switch), critérios de acionamento, tempo-alvo de reversão e ensaio/validação do procedimento. |\n| **Owner** | Rafael (técnico). |\n| **Condição de aprovação** | Runbook de rollback documentado, ensaiado e validado antes do início do canário. |\n\n### B2 — Métrica \"conversão\" sem denominador e sem baseline\n| Campo | Conteúdo |\n|---|---|\n| **Severidade** | **BLOQUEANTE** |\n| **Evidência** | Fato: o pacote declara que a métrica \"não informa denominador nem baseline\". |\n| **Inferência** | Sem baseline/denominador, variação no canário é não interpretável; amostra de 5% pode gerar decisão por ruído estatístico. |\n| **Impacto** | Inviabiliza go/no-go objetivo; risco de aprovar lançamento com efeito desconhecido ou de abortar canário sem justificativa. |\n| **Mitigação** | Definir fórmula de conversão com denominador explícito; medir baseline pré-lançamento; fixar delta-alvo, janela de tempo, tamanho de amostra e critério de significância antes do canário. |\n| **Owner** | Joana (negócio), com apoio de Rafael na instrumentação. |\n| **Condição de aprovação** | Definição de conversão (com denominador), baseline medido e delta-alvo aprovados antes do go. |\n\n---\n\n## Melhorias opcionais (não bloqueiam o go, recomendadas antes do rollout 100%)\n\n### O1 — Critérios de decisão do canário (duração, thresholds, amostra)\n- **Evidência:** lacuna — o pacote informa apenas \"5%\" do canário.\n- **Inferência/Impacto:** sem duração e thresholds, o 5% pode ficar por tempo indefinido ou concluir decisão com amostra insuficiente.\n- **Mitigação:** plano explícito do canário (duração, amostra mínima, thresholds de conversão/erro, regras para passar a 100%, pausar ou reverter).\n- **Owner:** Rafael e Joana (decisão conjunta). Não bloqueia o início do canário se B1 e B2 forem atendidos.\n\n### O2 — Métricas de guardrail do fluxo de pagamento\n- **Evidência:** lacuna — não informado no pacote (ABSTENÇÃO sobre existência em outros documentos).\n- **Inferência/Impacto:** monitorar só \"conversão\" pode mascarar piora em erro de cobrança, latência ou receita.\n- **Mitigação:** adicionar guardrails (taxa de erro de pagamento, sucesso de cobrança, latência, receita).\n- **Owner:** Rafael (instrumentação). Recomendado antes do rollout completo.\n\n### O3 — Estrutura de reporte e decisão durante o canário\n- **Evidência:** lacuna — não informado.\n- **Mitigação:** definir quem reporta o quê, em qual frequência e quem decide go/pause/revert.\n- **Owner:** Joana. Recomendado antes do rollout completo.\n\n---\n\n## ABSTENÇÃO / validação humana\nItens necessários mas **não informados** no pacote, fora da revisão por ausência de evidência: conformidade/PCI do fluxo de pagamento, testes automatizados do checkout, redundância do provedor, plano de comunicação de incidente e qualquer histórico de performance anterior. **Validação humana necessária** para esses pontos antes do rollout completo — não são declarados aqui como avaliados.\n\n**Resumo:** desbloquear **B1** (rollback) e **B2** (métrica) = green light para o canário; O1–O3 antes do rollout 100%.",
+      "checks": [
+        {
+          "id": "red-team-structure",
+          "type": "contains_all",
+          "passed": true,
+          "score": 1,
+          "details": "all required phrases found"
+        },
+        {
+          "id": "minimum-red-team",
+          "type": "min_length",
+          "passed": true,
+          "score": 1,
+          "details": "length 4407 >= 300"
+        },
+        {
+          "id": "blocker-explicit",
+          "type": "contains_any",
+          "passed": true,
+          "score": 1,
+          "details": "found: bloqueante, condição de aprovação"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "status": "valid",
+    "details": {
+      "checked": {
+        "task_count": 20,
+        "result_count": 20,
+        "report": true
+      },
+      "errors": [],
+      "warnings": [],
+      "verified_at": "2026-08-04T17:03:56Z"
+    }
+  },
+  "provenance": {
+    "manifest_hash": "sha256:c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e",
+    "runner_version": "0.1.0",
+    "source_report": "opencode-deepseek-v4-flash-free-v04-rerun.report.json"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "kind": "dhevals_suite_catalog",
   "schema_version": "0.1.0",
-  "generated_at": "2026-08-03T16:28:43.465Z",
+  "generated_at": "2026-08-04T17:10:50.958Z",
   "suites": [
     {
       "suite_id": "dhevals-heavy-user-ptbr",
@@ -95,6 +95,39 @@
         "completed_groups": 0,
         "required_groups": 300,
         "path": "reports/calibration/heavy-user-ptbr-v0.3-progress.json"
+      },
+      "current_public": false
+    },
+    {
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "version": "0.4.0",
+      "locale": "pt-BR",
+      "task_count": 20,
+      "categories": [
+        "Research",
+        "Documents",
+        "Planning",
+        "Data",
+        "Code",
+        "Communication",
+        "Long context",
+        "Structured output",
+        "Safe automation",
+        "Critical review"
+      ],
+      "content_hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e",
+      "manifest": "benchmarks/suites/heavy-user-ptbr/v0.4/suite.json",
+      "publication": "draft",
+      "audit": {
+        "status": "ready",
+        "path": "reports/audits/heavy-user-ptbr-v0.4.json",
+        "anchor_groups": 300
+      },
+      "calibration": {
+        "status": "pending",
+        "completed_groups": 0,
+        "required_groups": 300,
+        "path": "reports/calibration/heavy-user-ptbr-v0.4-progress.json"
       },
       "current_public": false
     }

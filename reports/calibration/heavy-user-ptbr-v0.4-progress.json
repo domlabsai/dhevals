@@ -1,0 +1,14 @@
+{
+  "kind": "dhevals_calibration_progress",
+  "schema_version": "0.1.0",
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.4.0",
+  "status": "pending",
+  "completed_groups": 0,
+  "required_groups": 300,
+  "reviewers_required": 2,
+  "notes": [
+    "v0.4 is evidence-complete but has not received human anchor calibration.",
+    "No v0.4 score may be promoted before independent review and adjudication."
+  ]
+}

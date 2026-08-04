@@ -168,11 +168,16 @@ export function ReportPage({ runId }) {
               { label: 'Errors', value: summary.error_count },
               {
                 label: 'Est. cost',
-                value: typeof summary.estimated_cost_usd_total === 'number' ? `$${summary.estimated_cost_usd_total.toFixed(3)}` : null,
+                value: typeof summary.estimated_cost_usd_total === 'number' ? `${summary.cost_is_estimate ? '≈' : ''}$${summary.estimated_cost_usd_total.toFixed(3)}` : null,
                 unit: 'USD',
               },
             ]}
           />
+          {summary.cost_estimate_warning ? (
+            <p className="notice notice--amber micro" role="status">
+              {summary.cost_estimate_warning} Token counts from a plain-text CLI may also be estimated.
+            </p>
+          ) : null}
         </div>
       </div>
 
