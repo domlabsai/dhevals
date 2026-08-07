@@ -1,4 +1,5 @@
 run_id,model_id,suite_version,run_status,quality_score,coverage,verified,completed_at
+qwen-3-8-max-v04-full-20260807,qwen3.8-max,0.4.0,archive_only,83.3,1,true,2026-08-07T10:59:08Z
 qwen-3-8-max-preview-v04-full-20260807,qwen3.8-max-preview,0.4.0,archive_only,91.7,1,true,2026-08-07T10:28:37Z
 grok-4-5-v04-full-20260806,grok-4.5,0.4.0,archive_only,81.7,1,true,2026-08-07T02:54:19Z
 kimi-code-k3-256k-v04-full-20260806,kimi-code/k3-256k,0.4.0,archive_only,70.4,1,true,2026-08-07T02:01:03Z

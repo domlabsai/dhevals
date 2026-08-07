@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_overview",
-  "generated_at": "2026-08-07T10:35:05.026Z",
-  "source_revision": "ece8bbf",
+  "generated_at": "2026-08-07T12:45:15.603Z",
+  "source_revision": "a6bbb00",
   "latest_signal": {
-    "run_id": "qwen-3-8-max-preview-v04-full-20260807",
-    "model_id": "qwen3.8-max-preview",
-    "model_name": "qwen3.8-max-preview",
+    "run_id": "qwen-3-8-max-v04-full-20260807",
+    "model_id": "qwen3.8-max",
+    "model_name": "qwen3.8-max",
     "provider": "qwen-cli",
     "suite_id": "dhevals-heavy-user-ptbr",
     "suite_version": "0.4.0",
@@ -14,7 +14,7 @@
     "coverage": 1,
     "evidence_status": "locked",
     "is_fixture": false,
-    "date": "2026-08-07T10:28:37Z"
+    "date": "2026-08-07T10:59:08Z"
   },
   "calibration": {
     "status": "pending",
@@ -23,8 +23,8 @@
   },
   "counts": {
     "suites": 4,
-    "models": 5,
-    "runs": 14,
+    "models": 6,
+    "runs": 15,
     "promoted_runs": 0
   },
   "methodology_version": "0.1.0"

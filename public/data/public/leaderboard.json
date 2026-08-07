@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_leaderboard",
-  "generated_at": "2026-08-07T10:35:05.026Z",
+  "generated_at": "2026-08-07T12:45:15.603Z",
   "methodology": {
     "ranking_field": "quality_score",
     "displayed_fields": [
@@ -123,6 +123,55 @@
     },
     {
       "rank": 3,
+      "model_id": "qwen3.8-max",
+      "model_name": "qwen3.8-max",
+      "provider": "qwen-cli",
+      "quality_score": 83.3,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "promoted": false,
+      "ranking_status": "archive_only_ranked",
+      "evidence_status": "locked",
+      "ranking_task_count": 20,
+      "category_scores": {
+        "Code": 83.3,
+        "Communication": 100,
+        "Critical review": 100,
+        "Data": 66.7,
+        "Documents": 66.7,
+        "Long context": 83.3,
+        "Planning": 100,
+        "Research": 83.3,
+        "Safe automation": 83.3,
+        "Structured output": 66.7
+      },
+      "metrics": {
+        "input_cost_per_1k": null,
+        "output_cost_per_1k": null,
+        "cost_per_1k": null,
+        "run_cost_usd": null,
+        "tokens_total": 30489,
+        "latency_ms": 31713,
+        "tokens_per_second": null,
+        "context_tokens": 1000000,
+        "token_count_source": "estimated_utf8_bytes_per_4",
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
+        "pricing_fetched_at": null,
+        "observed_from_runs": true
+      },
+      "license": "unknown",
+      "bench_run_date": "2026-08-07T10:59:08Z",
+      "run_ids": [
+        "qwen-3-8-max-v04-full-20260807"
+      ],
+      "last_verified_at": "2026-08-07T10:59:08Z"
+    },
+    {
+      "rank": 4,
       "model_id": "grok-4.5",
       "model_name": "grok-4.5",
       "provider": "xai",
@@ -171,7 +220,7 @@
       "last_verified_at": "2026-08-07T02:54:20Z"
     },
     {
-      "rank": 4,
+      "rank": 5,
       "model_id": "opencode/deepseek-v4-flash-free",
       "model_name": "opencode/deepseek-v4-flash-free",
       "provider": "opencode",
@@ -223,7 +272,7 @@
       "last_verified_at": "2026-08-04T17:03:56Z"
     },
     {
-      "rank": 5,
+      "rank": 6,
       "model_id": "kimi-code/k3-256k",
       "model_name": "kimi-code/k3-256k",
       "provider": "kimi-cli",
