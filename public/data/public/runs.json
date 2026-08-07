@@ -1,8 +1,30 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_runs_index",
-  "generated_at": "2026-08-07T12:45:15.603Z",
+  "generated_at": "2026-08-07T13:07:05.892Z",
   "entries": [
+    {
+      "id": "cursor-composer-2-5-v04-full-20260807",
+      "model_id": "composer-2.5",
+      "model_name": "composer-2.5",
+      "provider": "cursor-cli",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.4.0",
+      "run_status": "archive_only",
+      "quality_score": 86.7,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "lock_reason": null,
+      "started_at": "2026-08-07T12:48:01Z",
+      "completed_at": "2026-08-07T13:03:23Z",
+      "task_count": 20,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/cursor-composer-2-5-v04-full-20260807.json"
+      }
+    },
     {
       "id": "qwen-3-8-max-v04-full-20260807",
       "model_id": "qwen3.8-max",
