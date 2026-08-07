@@ -1,7 +1,7 @@
 {
   "kind": "dhevals_experiment_catalog",
   "schema_version": "0.1.0",
-  "generated_at": "2026-08-07T12:45:15.515Z",
+  "generated_at": "2026-08-07T13:07:05.807Z",
   "status": "ready",
   "entries": [
     {
@@ -382,6 +382,44 @@
       },
       "started_at": "2026-08-07T10:48:34Z",
       "finished_at": "2026-08-07T10:59:08Z",
+      "publication": "candidate"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.4.0:composer-2.5:cursor-composer-2-5-v04-full-20260807",
+      "run_id": "cursor-composer-2-5-v04-full-20260807",
+      "status": "completed",
+      "model": {
+        "id": "composer-2.5",
+        "provider": "cursor-cli",
+        "checkpoint": null,
+        "runtime": null,
+        "training_commit": null
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.4.0",
+        "hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 20,
+        "completed_count": 20,
+        "coverage": 1,
+        "quality_score": 0.8667,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/runs/cursor-composer-2-5-v04-full-20260807.report.json",
+        "report_hash": "d9122a8cc2f8dc75b7ae49b042141af4c3b38f35c02421c3969b6b987a077354",
+        "generated_at": "2026-08-07T13:03:23Z"
+      },
+      "started_at": "2026-08-07T12:48:01Z",
+      "finished_at": "2026-08-07T13:03:23Z",
       "publication": "candidate"
     }
   ]
