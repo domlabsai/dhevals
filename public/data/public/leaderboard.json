@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_leaderboard",
-  "generated_at": "2026-08-07T03:17:04.345Z",
+  "generated_at": "2026-08-07T10:35:05.026Z",
   "methodology": {
     "ranking_field": "quality_score",
     "displayed_fields": [
@@ -23,6 +23,55 @@
   "ranked": [
     {
       "rank": 1,
+      "model_id": "qwen3.8-max-preview",
+      "model_name": "qwen3.8-max-preview",
+      "provider": "qwen-cli",
+      "quality_score": 91.7,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "promoted": false,
+      "ranking_status": "archive_only_ranked",
+      "evidence_status": "locked",
+      "ranking_task_count": 20,
+      "category_scores": {
+        "Code": 66.7,
+        "Communication": 100,
+        "Critical review": 100,
+        "Data": 100,
+        "Documents": 100,
+        "Long context": 83.3,
+        "Planning": 100,
+        "Research": 83.3,
+        "Safe automation": 83.3,
+        "Structured output": 100
+      },
+      "metrics": {
+        "input_cost_per_1k": null,
+        "output_cost_per_1k": null,
+        "cost_per_1k": null,
+        "run_cost_usd": null,
+        "tokens_total": 30934,
+        "latency_ms": 91278,
+        "tokens_per_second": null,
+        "context_tokens": 1000000,
+        "token_count_source": "estimated_utf8_bytes_per_4",
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
+        "pricing_fetched_at": null,
+        "observed_from_runs": true
+      },
+      "license": "unknown",
+      "bench_run_date": "2026-08-07T10:28:37Z",
+      "run_ids": [
+        "qwen-3-8-max-preview-v04-full-20260807"
+      ],
+      "last_verified_at": "2026-08-07T10:28:37Z"
+    },
+    {
+      "rank": 2,
       "model_id": "codex/gpt-5.6-luna",
       "model_name": "GPT-5.6 Luna (Codex)",
       "provider": "codex",
@@ -73,7 +122,7 @@
       "last_verified_at": "2026-08-03T23:12:54Z"
     },
     {
-      "rank": 2,
+      "rank": 3,
       "model_id": "grok-4.5",
       "model_name": "grok-4.5",
       "provider": "xai",
@@ -122,7 +171,7 @@
       "last_verified_at": "2026-08-07T02:54:20Z"
     },
     {
-      "rank": 3,
+      "rank": 4,
       "model_id": "opencode/deepseek-v4-flash-free",
       "model_name": "opencode/deepseek-v4-flash-free",
       "provider": "opencode",
@@ -174,7 +223,7 @@
       "last_verified_at": "2026-08-04T17:03:56Z"
     },
     {
-      "rank": 4,
+      "rank": 5,
       "model_id": "kimi-code/k3-256k",
       "model_name": "kimi-code/k3-256k",
       "provider": "kimi-cli",

@@ -1,0 +1,16 @@
+{
+  "kind": "dhevals_verification",
+  "status": "valid",
+  "run_id": "qwen-3-8-max-preview-v04-full-20260807",
+  "suite_id": "dhevals-heavy-user-ptbr",
+  "suite_version": "0.4.0",
+  "suite_hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e",
+  "checked": {
+    "task_count": 20,
+    "result_count": 20,
+    "report": true
+  },
+  "errors": [],
+  "warnings": [],
+  "verified_at": "2026-08-07T10:28:37Z"
+}
