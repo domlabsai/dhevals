@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "kind": "dhevals_youtube_pack",
+  "title": "DHEvals · kimi-code/k3-256k · dhevals-heavy-user-ptbr v0.4.0",
+  "run_id": "kimi-code-k3-256k-v04-full-20260806",
+  "hook": "kimi-code/k3-256k alcançou 70.4/100 em 20 tarefas heavy-user.",
+  "facts": [
+    "Modelo avaliado: kimi-code/k3-256k.",
+    "Suíte: dhevals-heavy-user-ptbr v0.4.0.",
+    "Tarefas concluídas: 20 de 20.",
+    "Score médio determinístico: 70.4/100."
+  ],
+  "category_breakdown": [
+    {
+      "category": "Code",
+      "score": 83.3,
+      "task_count": 2
+    },
+    {
+      "category": "Communication",
+      "score": 70.8,
+      "task_count": 2
+    },
+    {
+      "category": "Critical review",
+      "score": 100.0,
+      "task_count": 2
+    },
+    {
+      "category": "Data",
+      "score": 50.0,
+      "task_count": 2
+    },
+    {
+      "category": "Documents",
+      "score": 66.7,
+      "task_count": 2
+    },
+    {
+      "category": "Long context",
+      "score": 66.7,
+      "task_count": 2
+    },
+    {
+      "category": "Planning",
+      "score": 66.7,
+      "task_count": 2
+    },
+    {
+      "category": "Research",
+      "score": 66.7,
+      "task_count": 2
+    },
+    {
+      "category": "Safe automation",
+      "score": 66.7,
+      "task_count": 2
+    },
+    {
+      "category": "Structured output",
+      "score": 66.7,
+      "task_count": 2
+    }
+  ],
+  "methodology": {
+    "suite_hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e",
+    "suite_version": "0.4.0",
+    "runner_version": "0.1.0",
+    "model": {
+      "model_id": "kimi-code/k3-256k",
+      "provider": "kimi-cli",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "seed": 7,
+      "extra": {
+        "context_tokens": 262144,
+        "pricing_provenance": {
+          "model_id": "kimi-code/k3-256k"
+        }
+      }
+    }
+  },
+  "limitations": [
+    "O score determinístico não substitui a revisão humana da rubrica.",
+    "Comparações públicas exigem a mesma versão de suíte e configuração."
+  ]
+}

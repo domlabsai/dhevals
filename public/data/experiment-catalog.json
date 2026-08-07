@@ -1,7 +1,7 @@
 {
   "kind": "dhevals_experiment_catalog",
   "schema_version": "0.1.0",
-  "generated_at": "2026-08-03T16:28:43.746Z",
+  "generated_at": "2026-08-07T02:01:05Z",
   "status": "ready",
   "entries": [
     {
@@ -231,6 +231,44 @@
       "started_at": "2026-08-02T23:09:13Z",
       "finished_at": "2026-08-02T23:09:13Z",
       "publication": "locked_fixture"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.4.0:kimi-code/k3-256k:kimi-code-k3-256k-v04-full-20260806",
+      "run_id": "kimi-code-k3-256k-v04-full-20260806",
+      "status": "completed",
+      "model": {
+        "id": "kimi-code/k3-256k",
+        "provider": "kimi-cli",
+        "checkpoint": null,
+        "runtime": null,
+        "training_commit": null
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.4.0",
+        "hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 20,
+        "completed_count": 20,
+        "coverage": 1,
+        "quality_score": 0.7042,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/runs/kimi-code-k3-256k-v04-full-20260806.report.json",
+        "report_hash": "31cfdc98186650a60a13f193af922f394e323b1b8d8963638da63b91b45aacc2",
+        "generated_at": "2026-08-07T02:01:05Z"
+      },
+      "started_at": "2026-08-07T01:51:33Z",
+      "finished_at": "2026-08-07T02:01:03Z",
+      "publication": "candidate"
     }
   ]
 }
