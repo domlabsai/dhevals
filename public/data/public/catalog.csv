@@ -10,3 +10,4 @@ opencode-deepseek-v4-flash-free-v02,opencode/deepseek-v4-flash-free,0.2.0,invali
 opencode-deepseek-v4-flash-free-v01-rerun,opencode/deepseek-v4-flash-free,0.1.0,archive_only,66.7,1,true,2026-08-03T16:26:18Z
 negative-fixture-v0.3,negative-fixture-v0.3,0.3.0,invalid,,1,true,2026-08-03T02:18:27Z
 verify-negative,negative-fixture,0.2.0,invalid,,1,false,2026-08-02T23:43:40Z
+kimi-code-k3-256k-v04-full-20260806,kimi-code/k3-256k,0.4.0,archive_only,70.4,1,true,2026-08-07T02:01:03Z

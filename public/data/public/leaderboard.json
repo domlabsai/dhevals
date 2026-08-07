@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_leaderboard",
-  "generated_at": "2026-08-04T17:10:42.853Z",
+  "generated_at": "2026-08-07T02:01:05Z",
   "methodology": {
     "ranking_field": "quality_score",
     "displayed_fields": [
@@ -123,6 +123,55 @@
         "opencode-deepseek-v4-flash-free-v01-rerun"
       ],
       "last_verified_at": "2026-08-04T17:03:56Z"
+    },
+    {
+      "rank": 3,
+      "model_id": "kimi-code/k3-256k",
+      "model_name": "kimi-code/k3-256k",
+      "provider": "kimi-cli",
+      "quality_score": 70.4,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "promoted": false,
+      "ranking_status": "archive_only_ranked",
+      "evidence_status": "locked",
+      "ranking_task_count": 20,
+      "category_scores": {
+        "Code": 83.3,
+        "Communication": 70.8,
+        "Critical review": 100,
+        "Data": 50,
+        "Documents": 66.7,
+        "Long context": 66.7,
+        "Planning": 66.7,
+        "Research": 66.7,
+        "Safe automation": 66.7,
+        "Structured output": 66.7
+      },
+      "metrics": {
+        "input_cost_per_1k": null,
+        "output_cost_per_1k": null,
+        "cost_per_1k": null,
+        "run_cost_usd": null,
+        "tokens_total": 35410,
+        "latency_ms": 28494,
+        "tokens_per_second": null,
+        "context_tokens": 262144,
+        "token_count_source": "estimated_utf8_bytes_per_4",
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
+        "pricing_fetched_at": null,
+        "observed_from_runs": true
+      },
+      "license": "unknown",
+      "bench_run_date": "2026-08-07T02:01:03Z",
+      "run_ids": [
+        "kimi-code-k3-256k-v04-full-20260806"
+      ],
+      "last_verified_at": "2026-08-07T02:01:06Z"
     }
   ],
   "not_ranked": []

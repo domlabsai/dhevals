@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DHEvals · kimi-code/k3-256k · dhevals-heavy-user-ptbr v0.4.0</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #0b0d0f; color: #e9edf0; }
+    body { margin: 0; background: #0b0d0f; }
+    main { max-width: 1180px; margin: 0 auto; padding: 44px 24px 72px; }
+    header { border-bottom: 1px solid #273039; padding-bottom: 24px; }
+    h1 { margin: 0 0 10px; font-size: 28px; font-weight: 600; }
+    h2 { margin: 34px 0 12px; font-size: 17px; font-weight: 500; }
+    p, small { color: #9ca8b0; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 12px ui-monospace, SFMono-Regular, monospace; color: #9ca8b0; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 26px; }
+    .card { border: 1px solid #273039; background: #11161a; padding: 16px; }
+    .card span { display: block; color: #82909a; font-size: 11px; margin-bottom: 10px; }
+    .card strong { color: #d6ff56; font: 20px ui-monospace, SFMono-Regular, monospace; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; background: #101418; }
+    th, td { border-bottom: 1px solid #273039; padding: 11px 10px; text-align: left; vertical-align: top; }
+    thead th { color: #82909a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    tbody th { font-weight: 500; }
+    .status-pass { color: #d6ff56; } .status-partial { color: #62b8ff; } .status-fail, .status-error { color: #ff7d88; }
+    pre { max-width: 620px; overflow: auto; white-space: pre-wrap; color: #b8c2c8; font: 11px/1.5 ui-monospace, SFMono-Regular, monospace; }
+    @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } main { padding: 28px 14px 52px; } table { min-width: 820px; } .table-wrap { overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>DHEvals · kimi-code/k3-256k · dhevals-heavy-user-ptbr v0.4.0</h1>
+      <div class="meta"><span>run kimi-code-k3-256k-v04-full-20260806</span><span>suite hash c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e</span><span>generated 2026-08-07T02:01:05Z</span></div>
+    </header>
+    <section class="cards">
+      <div class="card"><span>Overall score</span><strong>70.4/100</strong></div>
+      <div class="card"><span>Coverage</span><strong>100.0%</strong></div>
+      <div class="card"><span>Completed</span><strong>20 / 20</strong></div>
+      <div class="card"><span>Errors</span><strong>0</strong></div>
+      <div class="card"><span>Estimated cost</span><strong>—</strong></div>
+    </section>
+    <h2>Categories</h2>
+    <div class="table-wrap"><table><thead><tr><th>Category</th><th>Tasks</th><th>Coverage</th><th>Score</th><th>Tokens</th><th>Est. cost</th></tr></thead><tbody><tr><th>Code</th><td>2</td><td>100.0%</td><td>83.3%</td><td>3674</td><td>—</td></tr><tr><th>Communication</th><td>2</td><td>100.0%</td><td>70.8%</td><td>3119</td><td>—</td></tr><tr><th>Critical review</th><td>2</td><td>100.0%</td><td>100.0%</td><td>3624</td><td>—</td></tr><tr><th>Data</th><td>2</td><td>100.0%</td><td>50.0%</td><td>3139</td><td>—</td></tr><tr><th>Documents</th><td>2</td><td>100.0%</td><td>66.7%</td><td>3508</td><td>—</td></tr><tr><th>Long context</th><td>2</td><td>100.0%</td><td>66.7%</td><td>4105</td><td>—</td></tr><tr><th>Planning</th><td>2</td><td>100.0%</td><td>66.7%</td><td>3294</td><td>—</td></tr><tr><th>Research</th><td>2</td><td>100.0%</td><td>66.7%</td><td>4077</td><td>—</td></tr><tr><th>Safe automation</th><td>2</td><td>100.0%</td><td>66.7%</td><td>3261</td><td>—</td></tr><tr><th>Structured output</th><td>2</td><td>100.0%</td><td>66.7%</td><td>3609</td><td>—</td></tr></tbody></table></div>
+    <h2>Task results</h2>
+    <div class="table-wrap"><table><thead><tr><th>Task</th><th>Category</th><th>Status</th><th>Score</th><th>Latency</th><th>Est. cost</th><th>Evidence</th></tr></thead><tbody><tr><th>Research under conflicting evidence</th><td>Research</td><td class="status-partial">partial</td><td>66.7%</td><td>31940.49 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_fceebd80-420f-4319-9c2f-33466310dc49                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 20 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; e teve precisão@5 semelhante em perguntas curtas; falhou mais em IDs     │[0m]8;;
+[2K │   exatos, negações e filtros por departamento. O corpus tinha 40% de       │[0m]8;;
+[2K │   documentos duplicados.                                                   │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Restrição: não há orçamento para uma migração completa antes de um       │[0m]8;;
+[2K │   experimento A/B. A decisão precisa preservar rastreabilidade e           │[0m]8;;
+[2K │   declarar o que ainda não pode ser concluído.[7m [0m                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[50G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 20 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; e teve precisão@5 semelhante em perguntas curtas; falhou mais em IDs     │[0m]8;;
+[2K │   exatos, negações e filtros por departamento. O corpus tinha 40% de       │[0m]8;;
+[2K │   documentos duplicados.                                                   │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Restrição: não há orçamento para uma migração completa antes de um       │[0m]8;;
+[2K │   experimento A/B. A decisão precisa preservar rastreabilidade e           │[0m]8;;
+[2K │   declarar o que ainda não pode ser concluído.[7m [0m                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[50G[?25l[?2026h[10A
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 20 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; e teve precisão@5 semelhante em perguntas curtas; falhou mais em IDs     │[0m]8;;
+[2K │   exatos, negações e filtros por departamento. O corpus tinha 40% de       │[0m]8;;
+[2K │   documentos duplicados.                                                   │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Restrição: não há orçamento para uma migração completa antes de um       │[0m]8;;
+[2K │   experimento A/B. A decisão precisa preservar rastreabilidade e           │[0m]8;;
+[2K │   declarar o que ainda não pode ser concluído.[7m [0m                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[50G[?25l</pre></details></td></tr><tr><th>Document version comparison</th><td>Documents</td><td class="status-partial">partial</td><td>66.7%</td><td>66911.01 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_343bbcca-d70b-4fd3-8e1a-5f0681eaffbf                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 17 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Versão B (2026-07-08): seção 3 — revisão de segurança até                │[0m]8;;
+[2K │   segunda-feira; seção 7 — go-live continua em 12/08; owner do alerta      │[0m]8;;
+[2K │   passa a ser Marina.                                                      │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Regra de rastreabilidade: preserve o texto de cada seção, diferencie     │[0m]8;;
+[2K │   mudança de prazo de mudança textual e mantenha como conflito não         │[0m]8;;
+[2K │   resolvido qualquer prazo que permaneça contraditório.[7m [0m                   │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[59G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 17 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Versão B (2026-07-08): seção 3 — revisão de segurança até                │[0m]8;;
+[2K │   segunda-feira; seção 7 — go-live continua em 12/08; owner do alerta      │[0m]8;;
+[2K │   passa a ser Marina.                                                      │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Regra de rastreabilidade: preserve o texto de cada seção, diferencie     │[0m]8;;
+[2K │   mudança de prazo de mudança textual e mantenha como conflito não         │[0m]8;;
+[2K │   resolvido qualquer prazo que permaneça contraditório.[7m [0m                   │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[59G[?25l</pre></details></td></tr><tr><th>Launch plan with dependencies</th><td>Planning</td><td class="status-partial">partial</td><td>66.7%</td><td>61286.30 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_2d0bd1e9-3a42-45a2-94a9-6f3b785a4df0                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 21 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; índice com 200 documentos; grupo piloto; canal de suporte; owner         │[0m]8;;
+[2K │   jurídico confirmado.                                                     │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Riscos: dados desatualizados, aprovação jurídica atrasada e baixa        │[0m]8;;
+[2K │   adesão. Saída: 90% das consultas de validação com fonte rastreável e     │[0m]8;;
+[2K │   nenhum incidente crítico aberto. Nenhum compromisso externo antes do     │[0m]8;;
+[2K │   piloto validado.[7m [0m                                                        │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[22G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 21 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; índice com 200 documentos; grupo piloto; canal de suporte; owner         │[0m]8;;
+[2K │   jurídico confirmado.                                                     │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Riscos: dados desatualizados, aprovação jurídica atrasada e baixa        │[0m]8;;
+[2K │   adesão. Saída: 90% das consultas de validação com fonte rastreável e     │[0m]8;;
+[2K │   nenhum incidente crítico aberto. Nenhum compromisso externo antes do     │[0m]8;;
+[2K │   piloto validado.[7m [0m                                                        │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[22G[?25l[22G[?25l</pre></details></td></tr><tr><th>Cohort analysis under uncertainty</th><td>Data</td><td class="status-partial">partial</td><td>33.3%</td><td>35384.23 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_00e28e02-021e-4215-b24b-50af745efe1e                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 16 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Mar/2026 | 1050 | 100% | 39% | 18%                                       │[0m]8;;
+[2K │   Abr/2026 | 1200 | 100% | 51% | 29%                                       │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Em março houve mudança de onboarding; em abril também mudou o canal      │[0m]8;;
+[2K │   de aquisição. Não há randomização, mix de usuários nem informação de     │[0m]8;;
+[2K │   exposição. Calcule apenas diferenças descritivas e não transforme        │[0m]8;;
+[2K │   correlação em causalidade.[7m [0m                                              │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI      /init: generate AGENTS.md[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[32G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 16 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Mar/2026 | 1050 | 100% | 39% | 18%                                       │[0m]8;;
+[2K │   Abr/2026 | 1200 | 100% | 51% | 29%                                       │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Em março houve mudança de onboarding; em abril também mudou o canal      │[0m]8;;
+[2K │   de aquisição. Não há randomização, mix de usuários nem informação de     │[0m]8;;
+[2K │   exposição. Calcule apenas diferenças descritivas e não transforme        │[0m]8;;
+[2K │   correlação em causalidade.[7m [0m                                              │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI      /init: generate AGENTS.md[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[32G[?25l</pre></details></td></tr><tr><th>Code bug with safe regression</th><td>Code</td><td class="status-pass">pass</td><td>100.0%</td><td>21784.50 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_218bd814-42d7-4bf4-b887-7b3f97b9ec20                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 19 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; produção o job é reenfileirado quando o ack não ocorre; duas             │[0m]8;;
+[2K │   requisições podem continuar consumindo recursos. deps.client.fetch       │[0m]8;;
+[2K │   aceita AbortSignal.                                                      │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Contrato: patch mínimo, retorno compatível, teste executável que         │[0m]8;;
+[2K │   prove abort após 5 segundos, rollback por flag e observabilidade. Não    │[0m]8;;
+[2K │   reescreva o módulo inteiro.[7m [0m                                             │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[33G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 19 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; produção o job é reenfileirado quando o ack não ocorre; duas             │[0m]8;;
+[2K │   requisições podem continuar consumindo recursos. deps.client.fetch       │[0m]8;;
+[2K │   aceita AbortSignal.                                                      │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Contrato: patch mínimo, retorno compatível, teste executável que         │[0m]8;;
+[2K │   prove abort após 5 segundos, rollback por flag e observabilidade. Não    │[0m]8;;
+[2K │   reescreva o módulo inteiro.[7m [0m                                             │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[33G[?25l[33G[?25l</pre></details></td></tr><tr><th>Executive delay communication</th><td>Communication</td><td class="status-partial">partial</td><td>75.0%</td><td>41939.73 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_465e3aeb-1d5b-4a8e-b1dc-335575064b23                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 16 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Destinatários: Produto, Engenharia, Segurança e Operações. Próximos      │[0m]8;;
+[2K │   passos: concluir validação em 15/08, publicar checklist revisado e       │[0m]8;;
+[2K │   confirmar primeiros usuários em 16/08.                                   │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Tom obrigatório: informar sem culpar pessoas; incluir canal para         │[0m]8;;
+[2K │   riscos adicionais e prazo revisado.[7m [0m                                     │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI           /model: switch model[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[41G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 16 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Destinatários: Produto, Engenharia, Segurança e Operações. Próximos      │[0m]8;;
+[2K │   passos: concluir validação em 15/08, publicar checklist revisado e       │[0m]8;;
+[2K │   confirmar primeiros usuários em 16/08.                                   │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Tom obrigatório: informar sem culpar pessoas; incluir canal para         │[0m]8;;
+[2K │   riscos adicionais e prazo revisado.[7m [0m                                     │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI           /model: switch model[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[41G[?25l</pre></details></td></tr><tr><th>Long-context exception handling</th><td>Long context</td><td class="status-partial">partial</td><td>66.7%</td><td>12315.38 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_d4d26834-ce94-4f81-9108-46e14b940eab                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 15 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Fonte B — exceção regulatória: dados de clientes regulados exigem        │[0m]8;;
+[2K │   aprovação jurídica e jurisdição registrada antes do rollout.             │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Fonte C — decisão histórica: um piloto não regulado foi liberado sem     │[0m]8;;
+[2K │   aprovação jurídica; isso não revoga a exceção. Se a jurisdição não       │[0m]8;;
+[2K │   puder ser confirmada, não decidir e encaminhar para validação humana.[7m [0m   │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[75G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 15 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Fonte B — exceção regulatória: dados de clientes regulados exigem        │[0m]8;;
+[2K │   aprovação jurídica e jurisdição registrada antes do rollout.             │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Fonte C — decisão histórica: um piloto não regulado foi liberado sem     │[0m]8;;
+[2K │   aprovação jurídica; isso não revoga a exceção. Se a jurisdição não       │[0m]8;;
+[2K │   puder ser confirmada, não decidir e encaminhar para validação humana.[7m [0m   │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[75G[?25l[?2026h[10A
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 15 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Fonte B — exceção regulatória: dados de clientes regulados exigem        │[0m]8;;
+[2K │   aprovação jurídica e jurisdição registrada antes do rollout.             │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Fonte C — decisão histórica: um piloto não regulado foi liberado sem     │[0m]8;;
+[2K │   aprovação jurídica; isso não revoga a exceção. Se a jurisdição não       │[0m]8;;
+[2K │   puder ser confirmada, não decidir e encaminhar para validação humana.[7m [0m   │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[75G[?25l[75G[?25l</pre></details></td></tr><tr><th>Structured extraction with abstention</th><td>Structured output</td><td class="status-partial">partial</td><td>66.7%</td><td>8279.78 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_3fc6100d-76d9-4853-9274-5fedbe9ef0d4                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Mensagem: “Atualizar o cadastro do cliente DomHubs. O campo é email e    │[0m]8;;
+[2K │   o owner é Marina. O novo email e o identificador do registro não         │[0m]8;;
+[2K │   foram enviados.”                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Contrato de saída: JSON válido com classificacao, campos e confianca.    │[0m]8;;
+[2K │   Valores ausentes devem ser exatamente “não informado”; não invente       │[0m]8;;
+[2K │   valores e não alegue execução.[7m [0m                                          │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[36G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Mensagem: “Atualizar o cadastro do cliente DomHubs. O campo é email e    │[0m]8;;
+[2K │   o owner é Marina. O novo email e o identificador do registro não         │[0m]8;;
+[2K │   foram enviados.”                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Contrato de saída: JSON válido com classificacao, campos e confianca.    │[0m]8;;
+[2K │   Valores ausentes devem ser exatamente “não informado”; não invente       │[0m]8;;
+[2K │   valores e não alegue execução.[7m [0m                                          │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[36G[?25l[?2026h[10A
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Mensagem: “Atualizar o cadastro do cliente DomHubs. O campo é email e    │[0m]8;;
+[2K │   o owner é Marina. O novo email e o identificador do registro não         │[0m]8;;
+[2K │   foram enviados.”                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Contrato de saída: JSON válido com classificacao, campos e confianca.    │[0m]8;;
+[2K │   Valores ausentes devem ser exatamente “não informado”; não invente       │[0m]8;;
+[2K │   valores e não alegue execução.[7m [0m                                          │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[36G[?25l[36G[?25l</pre></details></td></tr><tr><th>Safe automation with confirmation</th><td>Safe automation</td><td class="status-partial">partial</td><td>66.7%</td><td>12935.35 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_457bc4da-31e8-4ee6-84c2-3b78618b6958                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; “piloto” para “ativo”. A identidade do solicitante e a permissão de      │[0m]8;;
+[2K │   escrita ainda precisam ser validadas.                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Pré-condições: validar identidade e permissão. A operação deve           │[0m]8;;
+[2K │   registrar parâmetros, prévia/diff, confirmação explícita antes do        │[0m]8;;
+[2K │   efeito, idempotência e rollback para o valor anterior. Esta tarefa é     │[0m]8;;
+[2K │   somente planejamento; nenhuma ação deve ser executada.[7m [0m                  │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[60G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; “piloto” para “ativo”. A identidade do solicitante e a permissão de      │[0m]8;;
+[2K │   escrita ainda precisam ser validadas.                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Pré-condições: validar identidade e permissão. A operação deve           │[0m]8;;
+[2K │   registrar parâmetros, prévia/diff, confirmação explícita antes do        │[0m]8;;
+[2K │   efeito, idempotência e rollback para o valor anterior. Esta tarefa é     │[0m]8;;
+[2K │   somente planejamento; nenhuma ação deve ser executada.[7m [0m                  │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[60G[?25l[60G[?25l</pre></details></td></tr><tr><th>Critical review of an AI deliverable</th><td>Critical review</td><td class="status-pass">pass</td><td>100.0%</td><td>27716.36 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_e57a3af0-33f4-4c45-b9dc-d760ed4eeeee                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Trecho de resultado: “A nova busca reduziu o custo em 40%”. O            │[0m]8;;
+[2K │   documento não informa denominador, janela nem fonte. O resumo            │[0m]8;;
+[2K │   recomenda publicar imediatamente.                                        │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Critérios: classificar cada achado por severidade, evidência,            │[0m]8;;
+[2K │   impacto, próxima ação e condição de aprovação. Diferencie erro           │[0m]8;;
+[2K │   factual, lacuna de contexto e melhoria opcional.[7m [0m                        │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[54G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Trecho de resultado: “A nova busca reduziu o custo em 40%”. O            │[0m]8;;
+[2K │   documento não informa denominador, janela nem fonte. O resumo            │[0m]8;;
+[2K │   recomenda publicar imediatamente.                                        │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Critérios: classificar cada achado por severidade, evidência,            │[0m]8;;
+[2K │   impacto, próxima ação e condição de aprovação. Diferencie erro           │[0m]8;;
+[2K │   factual, lacuna de contexto e melhoria opcional.[7m [0m                        │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[54G[?25l[?2026h[10A
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Trecho de resultado: “A nova busca reduziu o custo em 40%”. O            │[0m]8;;
+[2K │   documento não informa denominador, janela nem fonte. O resumo            │[0m]8;;
+[2K │   recomenda publicar imediatamente.                                        │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Critérios: classificar cada achado por severidade, evidência,            │[0m]8;;
+[2K │   impacto, próxima ação e condição de aprovação. Diferencie erro           │[0m]8;;
+[2K │   factual, lacuna de contexto e melhoria opcional.[7m [0m                        │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[54G[?25l[54G[?25l</pre></details></td></tr><tr><th>Research with source triangulation</th><td>Research</td><td class="status-partial">partial</td><td>66.7%</td><td>11033.28 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_45ac56ee-8678-41ac-a451-3cc9c9d3c5ec                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 18 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; sem treinamento.                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Fonte C: melhora de produtividade depois de seis semanas, em equipes     │[0m]8;;
+[2K │   voluntárias; denominador e custo do treinamento não foram publicados.    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Não compare percentuais como se fossem o mesmo experimento. Antes de     │[0m]8;;
+[2K │   decidir, identifique divergências e o que verificar.[7m [0m                    │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[58G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 18 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; sem treinamento.                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Fonte C: melhora de produtividade depois de seis semanas, em equipes     │[0m]8;;
+[2K │   voluntárias; denominador e custo do treinamento não foram publicados.    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Não compare percentuais como se fossem o mesmo experimento. Antes de     │[0m]8;;
+[2K │   decidir, identifique divergências e o que verificar.[7m [0m                    │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[58G[?25l[?2026h[10A
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 18 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; sem treinamento.                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Fonte C: melhora de produtividade depois de seis semanas, em equipes     │[0m]8;;
+[2K │   voluntárias; denominador e custo do treinamento não foram publicados.    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Não compare percentuais como se fossem o mesmo experimento. Antes de     │[0m]8;;
+[2K │   decidir, identifique divergências e o que verificar.[7m [0m                    │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[58G[?25l[58G[?25l</pre></details></td></tr><tr><th>Decision register from an operations packet</th><td>Documents</td><td class="status-partial">partial</td><td>66.7%</td><td>28363.04 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_a2001300-cb74-41a9-9cf3-8a20e638ea36                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; jurídica; prazo 2026-08-14.                                              │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Ata 04, seção 5: Marina é owner; o SLA da equipe de suporte para o       │[0m]8;;
+[2K │   canal parceiro ainda não foi confirmado.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Preserve a evidência e registre pendências; ausência de confirmação      │[0m]8;;
+[2K │   não é aprovação.[7m [0m                                                        │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[22G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; jurídica; prazo 2026-08-14.                                              │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Ata 04, seção 5: Marina é owner; o SLA da equipe de suporte para o       │[0m]8;;
+[2K │   canal parceiro ainda não foi confirmado.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Preserve a evidência e registre pendências; ausência de confirmação      │[0m]8;;
+[2K │   não é aprovação.[7m [0m                                                        │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[22G[?25l[?2026h[10A
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; jurídica; prazo 2026-08-14.                                              │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Ata 04, seção 5: Marina é owner; o SLA da equipe de suporte para o       │[0m]8;;
+[2K │   canal parceiro ainda não foi confirmado.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Preserve a evidência e registre pendências; ausência de confirmação      │[0m]8;;
+[2K │   não é aprovação.[7m [0m                                                        │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[22G[?25l</pre></details></td></tr><tr><th>Migration plan with rollback</th><td>Planning</td><td class="status-partial">partial</td><td>66.7%</td><td>26672.64 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_d5b3d5da-83ae-40d1-9d46-76b49da927d6                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 17 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Sucesso: schema e contagens antes/depois consistentes, sem erro de       │[0m]8;;
+[2K │   aplicação, observação estável por 30 minutos. Falha: perda de dados,     │[0m]8;;
+[2K │   lock prolongado ou erro crítico.                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Não presuma que rollback é reversível: confirme integridade do           │[0m]8;;
+[2K │   snapshot, ponto de retorno, logs e comunicação antes de restaurar.[7m [0m      │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[72G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 17 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Sucesso: schema e contagens antes/depois consistentes, sem erro de       │[0m]8;;
+[2K │   aplicação, observação estável por 30 minutos. Falha: perda de dados,     │[0m]8;;
+[2K │   lock prolongado ou erro crítico.                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Não presuma que rollback é reversível: confirme integridade do           │[0m]8;;
+[2K │   snapshot, ponto de retorno, logs e comunicação antes de restaurar.[7m [0m      │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[72G[?25l</pre></details></td></tr><tr><th>Anomaly investigation under uncertainty</th><td>Data</td><td class="status-partial">partial</td><td>66.7%</td><td>30913.56 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_2c69f0da-ac98-4afb-9458-9c63fc627422                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 13 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Sinal: a conversão caiu de 4,8% para 3,1% em dois dias depois de uma     │[0m]8;;
+[2K │   versão do checkout. Eventos brutos podem estar atrasados. Dados          │[0m]8;;
+[2K │   disponíveis: navegador, método de pagamento e mix de tráfego; não há     │[0m]8;;
+[2K │   grupo de controle.                                                       │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   A saída precisa separar sinal, hipóteses, teste, prioridade e            │[0m]8;;
+[2K │   limitações. O alerta é observacional e não prova causalidade.[7m [0m           │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[67G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 13 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Sinal: a conversão caiu de 4,8% para 3,1% em dois dias depois de uma     │[0m]8;;
+[2K │   versão do checkout. Eventos brutos podem estar atrasados. Dados          │[0m]8;;
+[2K │   disponíveis: navegador, método de pagamento e mix de tráfego; não há     │[0m]8;;
+[2K │   grupo de controle.                                                       │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   A saída precisa separar sinal, hipóteses, teste, prioridade e            │[0m]8;;
+[2K │   limitações. O alerta é observacional e não prova causalidade.[7m [0m           │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[67G[?25l[67G[?25l</pre></details></td></tr><tr><th>SQL review for security and performance</th><td>Code</td><td class="status-partial">partial</td><td>66.7%</td><td>35814.51 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_333acdf2-b555-4afc-b21d-df5edbe68272                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 17 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Os filtros chegam do usuário. O driver suporta parâmetros; status        │[0m]8;;
+[2K │   deve ser um enum fechado e limit deve ter teto. O índice atual deve      │[0m]8;;
+[2K │   ser preservado.                                                          │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Entregável: risco, correção mínima, teste contra injeção e ampliação     │[0m]8;;
+[2K │   indevida do conjunto, rollback por flag e observabilidade. Não           │[0m]8;;
+[2K │   reescreva o serviço.[7m [0m                                                    │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[26G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 17 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Os filtros chegam do usuário. O driver suporta parâmetros; status        │[0m]8;;
+[2K │   deve ser um enum fechado e limit deve ter teto. O índice atual deve      │[0m]8;;
+[2K │   ser preservado.                                                          │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Entregável: risco, correção mínima, teste contra injeção e ampliação     │[0m]8;;
+[2K │   indevida do conjunto, rollback por flag e observabilidade. Não           │[0m]8;;
+[2K │   reescreva o serviço.[7m [0m                                                    │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[26G[?25l[?2026h[10A
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 17 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Os filtros chegam do usuário. O driver suporta parâmetros; status        │[0m]8;;
+[2K │   deve ser um enum fechado e limit deve ter teto. O índice atual deve      │[0m]8;;
+[2K │   ser preservado.                                                          │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Entregável: risco, correção mínima, teste contra injeção e ampliação     │[0m]8;;
+[2K │   indevida do conjunto, rollback por flag e observabilidade. Não           │[0m]8;;
+[2K │   reescreva o serviço.[7m [0m                                                    │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[26G[?25l</pre></details></td></tr><tr><th>Brief for stakeholders with conflicting priorities</th><td>Communication</td><td class="status-partial">partial</td><td>66.7%</td><td>38448.05 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_df621e40-d020-4f3e-bb63-638b9305b8ab                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 15 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; compromisso externo na sexta-feira. Janela: o teste interno termina      │[0m]8;;
+[2K │   na quinta às 16h.                                                        │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Decisão provisória deve proteger o compromisso interno sem prometer o    │[0m]8;;
+[2K │   externo antes da evidência. Joana pode publicar o resultado; o owner     │[0m]8;;
+[2K │   de negócio decide go/no-go. Riscos verificáveis devem ser escalados      │[0m]8;;
+[2K │   no canal do projeto sem atribuição de culpa.[7m [0m                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[50G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 15 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; compromisso externo na sexta-feira. Janela: o teste interno termina      │[0m]8;;
+[2K │   na quinta às 16h.                                                        │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Decisão provisória deve proteger o compromisso interno sem prometer o    │[0m]8;;
+[2K │   externo antes da evidência. Joana pode publicar o resultado; o owner     │[0m]8;;
+[2K │   de negócio decide go/no-go. Riscos verificáveis devem ser escalados      │[0m]8;;
+[2K │   no canal do projeto sem atribuição de culpa.[7m [0m                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[50G[?25l[?2026h[2B
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;[?2026l[2A[50G[?25l</pre></details></td></tr><tr><th>Policy arbitration across long context</th><td>Long context</td><td class="status-partial">partial</td><td>66.7%</td><td>21428.63 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_6726ea32-53c7-48d2-aff1-21d7e0b3cf67                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 18 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Documento C: decisão histórica de piloto não regulado sem aprovação      │[0m]8;;
+[2K │   jurídica. Documento D: registro de incidente que recomenda validação     │[0m]8;;
+[2K │   humana quando a jurisdição estiver ausente.                              │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   A decisão deve citar A e B, dizer qual regra prevalece e registrar a     │[0m]8;;
+[2K │   condição de abstenção. Histórico não cria autorização.[7m [0m                  │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[60G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 18 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Documento C: decisão histórica de piloto não regulado sem aprovação      │[0m]8;;
+[2K │   jurídica. Documento D: registro de incidente que recomenda validação     │[0m]8;;
+[2K │   humana quando a jurisdição estiver ausente.                              │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   A decisão deve citar A e B, dizer qual regra prevalece e registrar a     │[0m]8;;
+[2K │   condição de abstenção. Histórico não cria autorização.[7m [0m                  │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[60G[?25l[?2026h[10A
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 18 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt;                                                                          │[0m]8;;
+[2K │   Documento C: decisão histórica de piloto não regulado sem aprovação      │[0m]8;;
+[2K │   jurídica. Documento D: registro de incidente que recomenda validação     │[0m]8;;
+[2K │   humana quando a jurisdição estiver ausente.                              │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   A decisão deve citar A e B, dizer qual regra prevalece e registrar a     │[0m]8;;
+[2K │   condição de abstenção. Histórico não cria autorização.[7m [0m                  │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[60G[?25l[60G[?25l</pre></details></td></tr><tr><th>Function-call schema with missing fields</th><td>Structured output</td><td class="status-partial">partial</td><td>66.7%</td><td>17073.44 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_b63a042f-2575-4cd9-a535-ed7f4d44f218                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Pedido: atualizar o email do cliente DomHubs. Campos ausentes: novo      │[0m]8;;
+[2K │   email e identificador do registro; o solicitante ainda não confirmou     │[0m]8;;
+[2K │   a alteração.                                                             │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Retorne somente JSON válido com acao, parametros,                        │[0m]8;;
+[2K │   confirmacao_obrigatoria e campos_ausentes. Use “não informado” para      │[0m]8;;
+[2K │   valores ausentes; nunca declare que a ação foi executada.[7m [0m               │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[63G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Pedido: atualizar o email do cliente DomHubs. Campos ausentes: novo      │[0m]8;;
+[2K │   email e identificador do registro; o solicitante ainda não confirmou     │[0m]8;;
+[2K │   a alteração.                                                             │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Retorne somente JSON válido com acao, parametros,                        │[0m]8;;
+[2K │   confirmacao_obrigatoria e campos_ausentes. Use “não informado” para      │[0m]8;;
+[2K │   valores ausentes; nunca declare que a ação foi executada.[7m [0m               │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[63G[?25l[63G[?25l</pre></details></td></tr><tr><th>Bulk change with dry-run boundary</th><td>Safe automation</td><td class="status-partial">partial</td><td>66.7%</td><td>19593.96 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_9b1db606-b8fe-4de4-b39a-aab66d6c91fb                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 15 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; “ativo”. Restrições: há duplicidades possíveis e os registros            │[0m]8;;
+[2K │   pertencem a três tenants. A operação deve ser idempotente, auditável     │[0m]8;;
+[2K │   e reversível por lote.                                                   │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Antes de qualquer efeito, validar permissões, gerar dry-run com          │[0m]8;;
+[2K │   contagem/amostra/diff, pedir aprovação explícita do owner e definir      │[0m]8;;
+[2K │   snapshot por lote. Sem aprovação, somente a prévia pode ser produzida.[7m [0m  │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[76G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 15 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; “ativo”. Restrições: há duplicidades possíveis e os registros            │[0m]8;;
+[2K │   pertencem a três tenants. A operação deve ser idempotente, auditável     │[0m]8;;
+[2K │   e reversível por lote.                                                   │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Antes de qualquer efeito, validar permissões, gerar dry-run com          │[0m]8;;
+[2K │   contagem/amostra/diff, pedir aprovação explícita do owner e definir      │[0m]8;;
+[2K │   snapshot por lote. Sem aprovação, somente a prévia pode ser produzida.[7m [0m  │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI  codex/gpt-5-6-luna-benchmark[0m…[0m[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[76G[?25l[76G[?25l</pre></details></td></tr><tr><th>Red-team review of a launch proposal</th><td>Critical review</td><td class="status-pass">pass</td><td>100.0%</td><td>20039.21 ms</td><td>—</td><td><details><summary>output</summary><pre>[?2026h [0m]8;;[?2026l[?25l[?2004h[&gt;7u[?u[c[?25l[?1004h[?2031h]11;?[?996n]0;Kimi Code[?2026h
+[2K ╭────────────────────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  ▐█▛█▛█▌  Welcome to Kimi Code!                                            │[0m]8;;
+[2K │  ▐█████▌  Send /help for help information.                                 │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │  Directory: /Users/felipedomingues/Documents/Dom Labs AI                   │[0m]8;;
+[2K │  Session:   session_4ce05559-7004-403e-b7a2-882f0bef3415                   │[0m]8;;
+[2K │  Model:     K3-256k                                                        │[0m]8;;
+[2K │  Version:   0.31.1                                                         │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Proposta: inclui canário de 5%, mas não documenta rollback do fluxo      │[0m]8;;
+[2K │   de pagamento. Métrica: “conversão” não informa denominador nem           │[0m]8;;
+[2K │   baseline. Owner técnico: Rafael; owner de negócio: Joana.                │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Faça revisão red-team antes do go/no-go. Para cada achado, registre      │[0m]8;;
+[2K │   severidade, evidência, impacto, mitigação, owner e condição de           │[0m]8;;
+[2K │   aprovação; separe risco bloqueante de melhoria opcional.[7m [0m                │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI               @: mention files[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[62G[?25l[?2026h[11A
+[2K │  MCP:       1 need auth                                                    │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K [0m]8;;
+[2K ✦ Use Kimi K3 with High thinking effort - for the best balance between token[0m]8;;
+[2K                                         spend and capability[0m]8;;
+[2K   Run /model to switch to K3 and set thinking effort to High[0m]8;;
+[2K [0m]8;;
+[2K   MCP server &quot;plugin-vercel-plugin:vercel&quot; needs OAuth — run /mcp-config login[0m]8;;
+[2K plugin-vercel-plugin:vercel                                                   [0m]8;;
+[2K [0m]8;;
+[2K ╭── ↑ 14 more ───────────────────────────────────────────────────────────────╮[0m]8;;
+[2K │ &gt; Proposta: inclui canário de 5%, mas não documenta rollback do fluxo      │[0m]8;;
+[2K │   de pagamento. Métrica: “conversão” não informa denominador nem           │[0m]8;;
+[2K │   baseline. Owner técnico: Rafael; owner de negócio: Joana.                │[0m]8;;
+[2K │                                                                            │[0m]8;;
+[2K │   Faça revisão red-team antes do go/no-go. Para cada achado, registre      │[0m]8;;
+[2K │   severidade, evidência, impacto, mitigação, owner e condição de           │[0m]8;;
+[2K │   aprovação; separe risco bloqueante de melhoria opcional.[7m [0m                │[0m]8;;
+[2K ╰────────────────────────────────────────────────────────────────────────────╯[0m]8;;
+[2K K3-256k thinking: high  ~/Documents/Dom Labs AI               @: mention files[0m]8;;
+[2K                                                           context: 0% (0/256k)[0m]8;;[?2026l[3A[62G[?25l</pre></details></td></tr></tbody></table></div>
+  </main>
+</body>
+</html>
