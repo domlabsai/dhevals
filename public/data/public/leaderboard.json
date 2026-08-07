@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_leaderboard",
-  "generated_at": "2026-08-07T02:01:05Z",
+  "generated_at": "2026-08-07T03:17:04.345Z",
   "methodology": {
     "ranking_field": "quality_score",
     "displayed_fields": [
@@ -74,6 +74,55 @@
     },
     {
       "rank": 2,
+      "model_id": "grok-4.5",
+      "model_name": "grok-4.5",
+      "provider": "xai",
+      "quality_score": 81.7,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "promoted": false,
+      "ranking_status": "archive_only_ranked",
+      "evidence_status": "locked",
+      "ranking_task_count": 20,
+      "category_scores": {
+        "Code": 66.7,
+        "Communication": 100,
+        "Critical review": 100,
+        "Data": 66.7,
+        "Documents": 66.7,
+        "Long context": 83.3,
+        "Planning": 100,
+        "Research": 100,
+        "Safe automation": 66.7,
+        "Structured output": 66.7
+      },
+      "metrics": {
+        "input_cost_per_1k": 0.002,
+        "output_cost_per_1k": 0.006,
+        "cost_per_1k": 0.0054146050374201254,
+        "run_cost_usd": 0.2178,
+        "tokens_total": 40219,
+        "latency_ms": 53485,
+        "tokens_per_second": null,
+        "context_tokens": 500000,
+        "token_count_source": "estimated_utf8_bytes_per_4",
+        "cost_source": "models.dev-api",
+        "cost_is_estimate": true,
+        "cost_estimate_warning": "Base model-list price multiplied by token count; final billed cost may differ.",
+        "pricing_fetched_at": "2026-08-07T02:36:28.875Z",
+        "observed_from_runs": true
+      },
+      "license": "unknown",
+      "bench_run_date": "2026-08-07T02:54:19Z",
+      "run_ids": [
+        "grok-4-5-v04-full-20260806"
+      ],
+      "last_verified_at": "2026-08-07T02:54:20Z"
+    },
+    {
+      "rank": 3,
       "model_id": "opencode/deepseek-v4-flash-free",
       "model_name": "opencode/deepseek-v4-flash-free",
       "provider": "opencode",
@@ -125,7 +174,7 @@
       "last_verified_at": "2026-08-04T17:03:56Z"
     },
     {
-      "rank": 3,
+      "rank": 4,
       "model_id": "kimi-code/k3-256k",
       "model_name": "kimi-code/k3-256k",
       "provider": "kimi-cli",

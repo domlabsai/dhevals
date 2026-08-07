@@ -1,4 +1,6 @@
 run_id,model_id,suite_version,run_status,quality_score,coverage,verified,completed_at
+grok-4-5-v04-full-20260806,grok-4.5,0.4.0,archive_only,81.7,1,true,2026-08-07T02:54:19Z
+kimi-code-k3-256k-v04-full-20260806,kimi-code/k3-256k,0.4.0,archive_only,70.4,1,true,2026-08-07T02:01:03Z
 opencode-deepseek-v4-flash-free-v04-rerun,opencode/deepseek-v4-flash-free,0.4.0,archive_only,81.7,1,true,2026-08-04T17:03:55Z
 codex-gpt-5.6-luna-max-heavy-user-ptbr-v03,codex/gpt-5.6-luna,0.3.0,archive_only,80,1,true,2026-08-03T23:12:53Z
 codex-gpt-5.6-luna-max-heavy-user-ptbr-v02,codex/gpt-5.6-luna,0.2.0,archive_only,85,1,true,2026-08-03T22:25:57Z
@@ -10,4 +12,3 @@ opencode-deepseek-v4-flash-free-v02,opencode/deepseek-v4-flash-free,0.2.0,invali
 opencode-deepseek-v4-flash-free-v01-rerun,opencode/deepseek-v4-flash-free,0.1.0,archive_only,66.7,1,true,2026-08-03T16:26:18Z
 negative-fixture-v0.3,negative-fixture-v0.3,0.3.0,invalid,,1,true,2026-08-03T02:18:27Z
 verify-negative,negative-fixture,0.2.0,invalid,,1,false,2026-08-02T23:43:40Z
-kimi-code-k3-256k-v04-full-20260806,kimi-code/k3-256k,0.4.0,archive_only,70.4,1,true,2026-08-07T02:01:03Z
