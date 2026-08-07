@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_overview",
-  "generated_at": "2026-08-07T02:01:05Z",
-  "source_revision": "ea367b5",
+  "generated_at": "2026-08-07T03:17:04.345Z",
+  "source_revision": "dd6b937",
   "latest_signal": {
-    "run_id": "kimi-code-k3-256k-v04-full-20260806",
-    "model_id": "kimi-code/k3-256k",
-    "model_name": "kimi-code/k3-256k",
-    "provider": "kimi-cli",
+    "run_id": "grok-4-5-v04-full-20260806",
+    "model_id": "grok-4.5",
+    "model_name": "grok-4.5",
+    "provider": "xai",
     "suite_id": "dhevals-heavy-user-ptbr",
     "suite_version": "0.4.0",
     "score": null,
     "coverage": 1,
     "evidence_status": "locked",
     "is_fixture": false,
-    "date": "2026-08-07T02:01:03Z"
+    "date": "2026-08-07T02:54:19Z"
   },
   "calibration": {
     "status": "pending",
@@ -23,8 +23,8 @@
   },
   "counts": {
     "suites": 4,
-    "models": 3,
-    "runs": 12,
+    "models": 4,
+    "runs": 13,
     "promoted_runs": 0
   },
   "methodology_version": "0.1.0"
