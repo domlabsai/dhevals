@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_overview",
-  "generated_at": "2026-08-07T03:17:04.345Z",
-  "source_revision": "dd6b937",
+  "generated_at": "2026-08-07T10:35:05.026Z",
+  "source_revision": "ece8bbf",
   "latest_signal": {
-    "run_id": "grok-4-5-v04-full-20260806",
-    "model_id": "grok-4.5",
-    "model_name": "grok-4.5",
-    "provider": "xai",
+    "run_id": "qwen-3-8-max-preview-v04-full-20260807",
+    "model_id": "qwen3.8-max-preview",
+    "model_name": "qwen3.8-max-preview",
+    "provider": "qwen-cli",
     "suite_id": "dhevals-heavy-user-ptbr",
     "suite_version": "0.4.0",
     "score": null,
     "coverage": 1,
     "evidence_status": "locked",
     "is_fixture": false,
-    "date": "2026-08-07T02:54:19Z"
+    "date": "2026-08-07T10:28:37Z"
   },
   "calibration": {
     "status": "pending",
@@ -23,8 +23,8 @@
   },
   "counts": {
     "suites": 4,
-    "models": 4,
-    "runs": 13,
+    "models": 5,
+    "runs": 14,
     "promoted_runs": 0
   },
   "methodology_version": "0.1.0"

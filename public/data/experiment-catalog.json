@@ -1,7 +1,7 @@
 {
   "kind": "dhevals_experiment_catalog",
   "schema_version": "0.1.0",
-  "generated_at": "2026-08-07T03:14:49.420Z",
+  "generated_at": "2026-08-07T10:35:04.948Z",
   "status": "ready",
   "entries": [
     {
@@ -306,6 +306,44 @@
       },
       "started_at": "2026-08-07T02:36:29Z",
       "finished_at": "2026-08-07T02:54:19Z",
+      "publication": "candidate"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.4.0:qwen3.8-max-preview:qwen-3-8-max-preview-v04-full-20260807",
+      "run_id": "qwen-3-8-max-preview-v04-full-20260807",
+      "status": "completed",
+      "model": {
+        "id": "qwen3.8-max-preview",
+        "provider": "qwen-cli",
+        "checkpoint": null,
+        "runtime": null,
+        "training_commit": null
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.4.0",
+        "hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 20,
+        "completed_count": 20,
+        "coverage": 1,
+        "quality_score": 0.9167,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/runs/qwen-3-8-max-preview-v04-full-20260807.report.json",
+        "report_hash": "72459344536f9453c3ca3ec8644d94a2ebea9efd24acd98beee1dedb0b61fa96",
+        "generated_at": "2026-08-07T10:28:37Z"
+      },
+      "started_at": "2026-08-07T09:58:11Z",
+      "finished_at": "2026-08-07T10:28:37Z",
       "publication": "candidate"
     }
   ]

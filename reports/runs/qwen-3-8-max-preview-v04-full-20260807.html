@@ -1,0 +1,1669 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DHEvals · qwen3.8-max-preview · dhevals-heavy-user-ptbr v0.4.0</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #0b0d0f; color: #e9edf0; }
+    body { margin: 0; background: #0b0d0f; }
+    main { max-width: 1180px; margin: 0 auto; padding: 44px 24px 72px; }
+    header { border-bottom: 1px solid #273039; padding-bottom: 24px; }
+    h1 { margin: 0 0 10px; font-size: 28px; font-weight: 600; }
+    h2 { margin: 34px 0 12px; font-size: 17px; font-weight: 500; }
+    p, small { color: #9ca8b0; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 12px ui-monospace, SFMono-Regular, monospace; color: #9ca8b0; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 26px; }
+    .card { border: 1px solid #273039; background: #11161a; padding: 16px; }
+    .card span { display: block; color: #82909a; font-size: 11px; margin-bottom: 10px; }
+    .card strong { color: #d6ff56; font: 20px ui-monospace, SFMono-Regular, monospace; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; background: #101418; }
+    th, td { border-bottom: 1px solid #273039; padding: 11px 10px; text-align: left; vertical-align: top; }
+    thead th { color: #82909a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    tbody th { font-weight: 500; }
+    .status-pass { color: #d6ff56; } .status-partial { color: #62b8ff; } .status-fail, .status-error { color: #ff7d88; }
+    pre { max-width: 620px; overflow: auto; white-space: pre-wrap; color: #b8c2c8; font: 11px/1.5 ui-monospace, SFMono-Regular, monospace; }
+    @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } main { padding: 28px 14px 52px; } table { min-width: 820px; } .table-wrap { overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>DHEvals · qwen3.8-max-preview · dhevals-heavy-user-ptbr v0.4.0</h1>
+      <div class="meta"><span>run qwen-3-8-max-preview-v04-full-20260807</span><span>suite hash c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e</span><span>generated 2026-08-07T10:28:37Z</span></div>
+    </header>
+    <section class="cards">
+      <div class="card"><span>Overall score</span><strong>91.7/100</strong></div>
+      <div class="card"><span>Coverage</span><strong>100.0%</strong></div>
+      <div class="card"><span>Completed</span><strong>20 / 20</strong></div>
+      <div class="card"><span>Errors</span><strong>0</strong></div>
+      <div class="card"><span>Estimated cost</span><strong>—</strong></div>
+    </section>
+    <h2>Categories</h2>
+    <div class="table-wrap"><table><thead><tr><th>Category</th><th>Tasks</th><th>Coverage</th><th>Score</th><th>Tokens</th><th>Est. cost</th></tr></thead><tbody><tr><th>Code</th><td>2</td><td>100.0%</td><td>66.7%</td><td>4361</td><td>—</td></tr><tr><th>Communication</th><td>2</td><td>100.0%</td><td>100.0%</td><td>1788</td><td>—</td></tr><tr><th>Critical review</th><td>2</td><td>100.0%</td><td>100.0%</td><td>4326</td><td>—</td></tr><tr><th>Data</th><td>2</td><td>100.0%</td><td>100.0%</td><td>3046</td><td>—</td></tr><tr><th>Documents</th><td>2</td><td>100.0%</td><td>100.0%</td><td>3355</td><td>—</td></tr><tr><th>Long context</th><td>2</td><td>100.0%</td><td>83.3%</td><td>1801</td><td>—</td></tr><tr><th>Planning</th><td>2</td><td>100.0%</td><td>100.0%</td><td>4095</td><td>—</td></tr><tr><th>Research</th><td>2</td><td>100.0%</td><td>83.3%</td><td>3263</td><td>—</td></tr><tr><th>Safe automation</th><td>2</td><td>100.0%</td><td>83.3%</td><td>3831</td><td>—</td></tr><tr><th>Structured output</th><td>2</td><td>100.0%</td><td>100.0%</td><td>1068</td><td>—</td></tr></tbody></table></div>
+    <h2>Task results</h2>
+    <div class="table-wrap"><table><thead><tr><th>Task</th><th>Category</th><th>Status</th><th>Score</th><th>Latency</th><th>Est. cost</th><th>Evidence</th></tr></thead><tbody><tr><th>Research under conflicting evidence</th><td>Research</td><td class="status-partial">partial</td><td>66.7%</td><td>147083.18 ms</td><td>—</td><td><details><summary>output</summary><pre># Análise: busca híbrida vs. dense-only
+
+## 1) FATOS (o que está literalmente no pacote)
+
+**Fonte A — experimento offline, 600 consultas**
+
+| Código | Fato |
+|---|---|
+| FA1 | Busca híbrida aumentou o recall@10 em 14% contra dense-only |
+| FA2 | O ganho foi maior em nomes próprios, códigos e siglas |
+| FA3 | Factualidade da resposta **não foi medida** |
+| FA4 | Duplicatas do corpus **não foram medidas** |
+
+**Fonte B — piloto de FAQ**
+
+| Código | Fato |
+|---|---|
+| FB1 | Dense-only reduziu a latência mediana em 32% |
+| FB2 | Dense-only teve precisão@5 semelhante em perguntas curtas (comparador não explicitado no pacote) |
+| FB3 | Dense-only falhou mais em IDs exatos, negações e filtros por departamento |
+| FB4 | O corpus de B tinha 40% de documentos duplicados |
+
+**Restrição:** FR1 — sem orçamento para migração completa antes de um A/B; exige rastreabilidade.
+
+Nota: FA1 e FB1 são valores relativos (14%, 32%); baselines absolutos não constam no pacote.
+
+## 2) INFERÊNCIAS (rotuladas como tal; nenhuma fonte nova)
+
+- **I1 (confiança alta):** As fontes não são diretamente comparáveis — métricas diferentes (recall@10 vs. precisão@5), distribuições de consulta diferentes (600 consultas genéricas vs. perguntas curtas de FAQ) e corpora caracterizados de modo distinto (40% de duplicatas em B; desconhecido em A). Logo, &quot;14% de recall vs. 32% de latência&quot; não é um trade-off válido como está.
+- **I2 (confiança alta):** Há **convergência**, não só conflito: FB3 (falhas em IDs exatos) e FA2 (ganho híbrido em códigos/siglas/nomes próprios) apontam a mesma fragilidade do dense-only em termos de correspondência exata.
+- **I3 (confiança média):** A paridade de FB2 não se generaliza: a própria Fonte B registra falhas em IDs, negações e filtros. O escopo seguro do dense-only, se confirmado, restringe-se a perguntas curtas de FAQ.
+- **I4 (confiança média; não verificado):** Os 40% de duplicatas (FB4) são um confundidor potencial da precisão@5 de B — duplicatas podem ocupar múltiplas posições do top-5 e distorcer a métrica. Direção e magnitude do efeito **não foram medidas**.
+- **I5 (confiança média):** O ganho de FA1 pode não se traduzir em qualidade final percebida, pois factualidade não foi medida (FA3). Não se pode afirmar se os 14% representam mais documentos relevantes ou mais ruído.
+- **I6 (confiança média):** FB1 reporta só a latência **mediana**; o comportamento nas caudas (p95/p99) é desconhecido.
+
+## 3) O conflito real
+
+O aparente conflito (A favorece híbrida; B favorece dense-only) se desfaz parcialmente sob I1/I2: são medições em fatias diferentes do problema, e no único ponto comparável (consultas com termos exatos) as duas fontes convergem **contra** o dense-only.
+
+## 4) LACUNAS — &quot;não informado&quot;
+
+- Significância estatística / intervalo de confiança dos 14% e 32%: **não informado**
+- Valores absolutos (recall@10, precisão@5, latência em ms): **não informado**
+- Se &quot;14%&quot; é ganho relativo ou em pontos percentuais: **não informado**
+- Tamanho, composição e taxa de duplicatas do corpus de A: **não informado** (duplicatas: explicitamente não medidas)
+- Factualidade das respostas: **não informado** (não medida em nenhuma fonte)
+- Amostra do piloto B e comparador exato da precisão@5: **não informado**
+- Latência nas caudas (p95/p99): **não informado**
+- Se A e B usaram o mesmo corpus/índice/infraestrutura: **não informado**
+- Impacto em usuários/métricas de negócio: **não informado**
+
+**ABSTENÇÃO:** com apenas este pacote, não é possível declarar qual variante é globalmente superior. Nenhum efeito de duplicatas ou de factualidade foi executado/medido; portanto, nenhum desses efeitos é declarado — requer validação humana/experimental.
+
+## 5) O que ainda precisa ser verificado
+
+1. Significância de FA1/FB1, com valores absolutos.
+2. Taxa de duplicatas do corpus de produção (e do corpus de A).
+3. Factualidade das respostas para ambas as variantes.
+4. Latência incluindo percentis de cauda.
+5. Comparador e tamanho amostral da precisão@5 de B.
+6. Resultados por segmento (perguntas curtas, nomes próprios, códigos/IDs, negações, filtros) sob o mesmo conjunto de avaliação.
+
+## 6) Próximo experimento recomendado
+
+**A/B estratificado de escopo limitado, pré-registrado**, precedido por auditoria de corpus:
+
+- **Fase 0 — auditoria do corpus (pré-requisito barato):** medir a taxa de duplicatas do corpus de produção; se alta, deduplicar ou estratificar a análise por status de duplicata (controla I4).
+- **Fase 1 — A/B pré-registrado:**
+  - Escopo: fração limitada de tráfego com rollback simples (respeita FR1; sem migração completa).
+  - Estratificação por tipo de consulta: perguntas curtas de FAQ, nomes próprios, códigos/IDs, negações, filtros por departamento — exatamente os segmentos onde as fontes divergem/convergem.
+  - Métricas pré-definidas: qualidade de recuperação (recall@10 e/ou precisão@5 com juízo humano), **factualidade da resposta** (fecha a lacuna FA3) e latência com mediana + p95/p99 (fecha I6).
+  - Cálculo de amostra e critérios de decisão definidos antes da execução (ex.: ganho mínimo por segmento que justifique o custo de latência).
+- **Rastreabilidade:** versionar corpus, índice, consultas e juízos; registrar log de decisão anexando esta análise (com a separação fato/inferência/lacuna aqui aplicada).
+
+**Decisão imediata suportada pelo pacote:** manter o status quo (não migrar) e executar Fase 0 + Fase 1. As únicas afirmações hoje sustentadas são parciais: híbrida tem vantagem de recall em consultas com termos exatos (FA1/FA2; significância não informada) e dense-only tem menor latência mediana (FB1) com paridade apenas em perguntas curtas de FAQ (FB2; comparador e amostra não informados).</pre></details></td></tr><tr><th>Document version comparison</th><td>Documents</td><td class="status-pass">pass</td><td>100.0%</td><td>133376.38 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;versao_a&quot;: {
+    &quot;identificacao&quot;: &quot;Versão A&quot;,
+    &quot;data&quot;: &quot;2026-07-01&quot;,
+    &quot;secoes&quot;: {
+      &quot;secao_3&quot;: {
+        &quot;texto&quot;: &quot;revisão de segurança até sexta-feira&quot;,
+        &quot;fato&quot;: &quot;O prazo da revisão de segurança está definido como sexta-feira.&quot;,
+        &quot;inferencia&quot;: &quot;A sexta-feira provavelmente corresponde a 2026-07-03 (sexta-feira da semana da versão A), mas o pacote não traz data absoluta.&quot;,
+        &quot;lacuna&quot;: &quot;Data absoluta do prazo: não informada.&quot;
+      },
+      &quot;secao_7&quot;: {
+        &quot;texto&quot;: &quot;go-live em 12/08&quot;,
+        &quot;fato&quot;: &quot;O go-live está definido para 12/08.&quot;,
+        &quot;inferencia&quot;: &quot;Em formato brasileiro, 12/08 sugere 12 de agosto; o ano não consta do pacote.&quot;,
+        &quot;lacuna&quot;: &quot;Ano do go-live: não informado.&quot;
+      },
+      &quot;owner_do_alerta&quot;: {
+        &quot;texto&quot;: &quot;owner do alerta não definido&quot;,
+        &quot;fato&quot;: &quot;O owner do alerta não está definido.&quot;,
+        &quot;inferencia&quot;: &quot;Nenhuma.&quot;,
+        &quot;lacuna&quot;: &quot;Nenhuma.&quot;
+      }
+    }
+  },
+  &quot;versao_b&quot;: {
+    &quot;identificacao&quot;: &quot;Versão B&quot;,
+    &quot;data&quot;: &quot;2026-07-08&quot;,
+    &quot;secoes&quot;: {
+      &quot;secao_3&quot;: {
+        &quot;texto&quot;: &quot;revisão de segurança até segunda-feira&quot;,
+        &quot;fato&quot;: &quot;O prazo da revisão de segurança está definido como segunda-feira.&quot;,
+        &quot;inferencia&quot;: &quot;Candidatos de data absoluta: 2026-07-06 (segunda-feira seguinte à sexta-feira da versão A) ou 2026-07-13 (segunda-feira posterior à data da versão B).&quot;,
+        &quot;lacuna&quot;: &quot;Data absoluta do prazo: não informada.&quot;
+      },
+      &quot;secao_7&quot;: {
+        &quot;texto&quot;: &quot;go-live continua em 12/08&quot;,
+        &quot;fato&quot;: &quot;O go-live permanece definido para 12/08.&quot;,
+        &quot;inferencia&quot;: &quot;Nenhuma além da continuidade do prazo já registrado na versão A.&quot;,
+        &quot;lacuna&quot;: &quot;Ano do go-live: não informado.&quot;
+      },
+      &quot;owner_do_alerta&quot;: {
+        &quot;texto&quot;: &quot;owner do alerta passa a ser Marina&quot;,
+        &quot;fato&quot;: &quot;A versão B atribui nominalmente o owner do alerta a Marina.&quot;,
+        &quot;inferencia&quot;: &quot;Nenhuma.&quot;,
+        &quot;lacuna&quot;: &quot;Nenhuma.&quot;
+      }
+    }
+  },
+  &quot;mudancas&quot;: [
+    {
+      &quot;secao&quot;: &quot;secao_3&quot;,
+      &quot;tipo&quot;: &quot;mudança de prazo&quot;,
+      &quot;de&quot;: &quot;sexta-feira&quot;,
+      &quot;para&quot;: &quot;segunda-feira&quot;,
+      &quot;fato&quot;: &quot;O texto do prazo mudou de sexta-feira para segunda-feira entre as versões.&quot;,
+      &quot;inferencia&quot;: &quot;A versão B é posterior à versão A (2026-07-08 contra 2026-07-01), o que sugere atualização do prazo; não há, porém, declaração explícita de prevalência no pacote.&quot;,
+      &quot;lacuna&quot;: &quot;Data absoluta de cada prazo e critério de prevalência: não informados.&quot;
+    },
+    {
+      &quot;secao&quot;: &quot;secao_7&quot;,
+      &quot;tipo&quot;: &quot;sem mudança&quot;,
+      &quot;de&quot;: &quot;12/08&quot;,
+      &quot;para&quot;: &quot;12/08&quot;,
+      &quot;fato&quot;: &quot;O prazo do go-live é idêntico nas duas versões; a versão B declara explicitamente a continuidade.&quot;,
+      &quot;inferencia&quot;: &quot;Nenhuma.&quot;,
+      &quot;lacuna&quot;: &quot;Ano do go-live: não informado.&quot;
+    },
+    {
+      &quot;secao&quot;: &quot;owner_do_alerta&quot;,
+      &quot;tipo&quot;: &quot;mudança de texto&quot;,
+      &quot;de&quot;: &quot;não definido&quot;,
+      &quot;para&quot;: &quot;Marina&quot;,
+      &quot;fato&quot;: &quot;A versão A registra owner não definido; a versão B registra atribuição nominal a Marina.&quot;,
+      &quot;inferencia&quot;: &quot;Nenhuma.&quot;,
+      &quot;lacuna&quot;: &quot;Nenhuma.&quot;
+    }
+  ],
+  &quot;conflitos&quot;: [
+    {
+      &quot;secao&quot;: &quot;secao_3&quot;,
+      &quot;tipo&quot;: &quot;conflito não resolvido&quot;,
+      &quot;status&quot;: &quot;não resolvido&quot;,
+      &quot;descricao&quot;: &quot;A versão A fixa o prazo da revisão de segurança em sexta-feira e a versão B o fixa em segunda-feira; os prazos permanecem contraditórios entre as versões.&quot;,
+      &quot;fato&quot;: &quot;Os textos de prazo divergem entre as duas versões.&quot;,
+      &quot;inferencia&quot;: &quot;A ordem cronológica sugere que a versão B substitui a versão A, mas isso não está declarado no pacote.&quot;,
+      &quot;lacuna&quot;: &quot;Prazo prevalente: não informado. ABSTENÇÃO de declarar qual prazo vigora; validação humana necessária.&quot;
+    }
+  ],
+  &quot;rastreabilidade&quot;: [
+    {
+      &quot;secao&quot;: &quot;secao_3&quot;,
+      &quot;versao_a&quot;: {
+        &quot;data&quot;: &quot;2026-07-01&quot;,
+        &quot;texto&quot;: &quot;revisão de segurança até sexta-feira&quot;
+      },
+      &quot;versao_b&quot;: {
+        &quot;data&quot;: &quot;2026-07-08&quot;,
+        &quot;texto&quot;: &quot;revisão de segurança até segunda-feira&quot;
+      },
+      &quot;classificacao&quot;: &quot;mudança de prazo e conflito não resolvido&quot;,
+      &quot;observacao&quot;: &quot;Texto preservado nas duas versões; divergência de prazo mantida como conflito não resolvido, pois o pacote não declara qual prazo prevalece.&quot;
+    },
+    {
+      &quot;secao&quot;: &quot;secao_7&quot;,
+      &quot;versao_a&quot;: {
+        &quot;data&quot;: &quot;2026-07-01&quot;,
+        &quot;texto&quot;: &quot;go-live em 12/08&quot;
+      },
+      &quot;versao_b&quot;: {
+        &quot;data&quot;: &quot;2026-07-08&quot;,
+        &quot;texto&quot;: &quot;go-live continua em 12/08&quot;
+      },
+      &quot;classificacao&quot;: &quot;sem mudança de prazo&quot;,
+      &quot;observacao&quot;: &quot;Prazo mantido; nenhuma divergência registrada.&quot;
+    },
+    {
+      &quot;secao&quot;: &quot;owner_do_alerta&quot;,
+      &quot;versao_a&quot;: {
+        &quot;data&quot;: &quot;2026-07-01&quot;,
+        &quot;texto&quot;: &quot;owner do alerta não definido&quot;
+      },
+      &quot;versao_b&quot;: {
+        &quot;data&quot;: &quot;2026-07-08&quot;,
+        &quot;texto&quot;: &quot;owner do alerta passa a ser Marina&quot;
+      },
+      &quot;classificacao&quot;: &quot;mudança de texto&quot;,
+      &quot;observacao&quot;: &quot;Atribuição nominal adicionada; não envolve prazo e não gera conflito.&quot;
+    }
+  ]
+}</pre></details></td></tr><tr><th>Launch plan with dependencies</th><td>Planning</td><td class="status-pass">pass</td><td>100.0%</td><td>116245.93 ms</td><td>—</td><td><details><summary>output</summary><pre># Plano de Lançamento — Projeto Atlas (2 semanas / 10 dias úteis)
+
+**Premissa de leitura (fato):** o pacote define piloto interno de busca de políticas em 10 dias úteis, para 30 usuários, com equipe de 3 pessoas (Produto, Engenharia, Operações), orçamento fixo de R$ 18.000, cinco dependências, três riscos e critérios de saída explícitos. Tudo abaixo é planejamento — **nenhuma ação externa foi executada ou declarada como executada**.
+
+---
+
+## 1. Linha do tempo (10 dias úteis)
+
+&gt; A distribuição dia a dia é **inferência** minha a partir das dependências e do prazo do pacote.
+
+### Semana 1 — preparação e remoção de bloqueios
+
+| Dia | Atividade | Owner (papel) | Dependência/Risco endereçado |
+|---|---|---|---|
+| D1 | Kickoff; confirmar owner jurídico formalmente; disparar solicitação de aprovação de Segurança; definir critérios de seleção do grupo piloto | Produto (+ Operações) | Owner jurídico; aprovação de Segurança; grupo piloto |
+| D2 | Inventariar os 200 documentos: origem, data e versão de cada um | Engenharia + Produto | Índice; risco de dados desatualizados |
+| D3 | Construir índice com os 200 documentos; definir formato de rastreio (consulta → fonte) | Engenharia | Índice com 200 documentos |
+| D4 | Montar o conjunto de consultas de validação (Produto); implantar canal de suporte (Operações) | Produto + Operações | Canal de suporte; medição do critério de 90% |
+| D5 | Dry run interno com as consultas de validação; correções; consolidar pedido de aprovação de Segurança | Todos | Aprovação de Segurança (gate) |
+
+### Semana 2 — piloto e validação
+
+| Dia | Atividade | Owner (papel) |
+|---|---|---|
+| D6 | **Gate:** com aprovação de Segurança obtida, iniciar os 30 usuários. Sem aprovação → replanejar datas; nenhum lançamento (fato: é restrição do pacote) | Produto |
+| D7–D9 | Piloto em operação; monitoramento diário de incidentes, consultas com/sem fonte e adesão; suporte ativo | Operações + Engenharia |
+| D10 | Medir critérios de saída; relatório de validação do piloto; decisão registrada de próximos passos | Todos |
+
+**Marcos:** M1 owner jurídico (D1) · M2 índice pronto (D3) · M3 validação interna + suporte prontos (D5) · M4 gate de Segurança e lançamento (D6) · M5 relatório de validação (D10).
+
+---
+
+## 2. Dependências, owners e situação
+
+| Dependência (fato) | Owner proposto (inferência) | Situação no pacote | Prazo-limite |
+|---|---|---|---|
+| Aprovação de Segurança antes do primeiro usuário | Segurança (pessoa: **não informado**); solicitação a cargo de Operações | Pendente | Fim de D5 / gate em D6 |
+| Índice com 200 documentos | Engenharia | Pendente | D3 |
+| Grupo piloto (30 usuários) | Produto | Pendente | Recrutamento até D4; entrada em D6 |
+| Canal de suporte | Operações | Pendente | D4 |
+| Owner jurídico confirmado | Produto conduz a confirmação; pessoa: **não informado** | Pendente | D1 |
+
+---
+
+## 3. Riscos priorizados
+
+&gt; Os três riscos são fato do pacote; a **ordem de prioridade é inferência** (o pacote não traz severidade/probabilidade).
+
+| # | Risco | Prioridade (inferência) | Por quê | Mitigação | Owner | Gatilho de escalonamento |
+|---|---|---|---|---|---|---|
+| 1 | Aprovação jurídica atrasada | **Alta** | Bloqueia o gate de Segurança e o lançamento inteiro | Confirmar owner jurídico em D1; acompanhamento diário; contingência: adiar o piloto sem assumir compromisso externo | Produto + owner jurídico | Owner jurídico não confirmado até D2 |
+| 2 | Dados desatualizados | **Alta** | Compromete o critério de 90% com fonte rastreável e a confiança no produto | Inventário com origem/data por documento; rastreio obrigatório consulta → fonte; verificação contínua nas consultas de validação | Engenharia + Produto | Consultas de validação reprovando por fonte/data |
+| 3 | Baixa adesão | **Média** | Compromete a validade do piloto com 30 usuários | Recrutamento prévio com critérios definidos; comunicação direta; canal de suporte ativo | Produto + Operações | Ativos abaixo do necessário — meta de adesão: **não informado** |
+
+---
+
+## 4. Critérios de saída
+
+**Fato (do pacote):**
+- 90% das consultas de validação com fonte rastreável;
+- nenhum incidente crítico aberto;
+- nenhum compromisso externo antes do piloto validado.
+
+**Inferência (necessário para operacionalizar):** definir formalmente o que conta como &quot;consulta de validação&quot; e como será medida, e o que classifica um incidente como &quot;crítico&quot; — ambos os conceitos existem no pacote sem definição.
+
+**Lacuna:** tamanho do conjunto de consultas, método de medição e definição de &quot;crítico&quot; — **não informado** → **validação humana necessária**.
+
+---
+
+## 5. O que confirmar ANTES de qualquer compromisso externo
+
+Restrição fato do pacote: nenhum compromisso externo antes do piloto validado. Checklist proposto:
+
+1. Relatório de validação registrando os dois critérios de saída atendidos (90% rastreável; zero incidente crítico aberto).
+2. Aprovações de Segurança e jurídica documentadas.
+3. Ciclo de atualização dos documentos de políticas confirmado (mitiga &quot;dados desatualizados&quot;) — hoje **não informado**.
+4. Execução orçamentária dentro dos R$ 18.000 — alocação do orçamento: **não informado**.
+5. Decisão explícita dos responsáveis pelos próximos passos — **validação humana**.
+
+---
+
+## 6. Próximos passos
+
+**Imediatos (D0–D1):** confirmar owner jurídico; disparar pedido de aprovação de Segurança; definir critérios do grupo piloto; iniciar inventário dos 200 documentos.
+
+**Após D10:** se critérios atendidos → decisão registrada sobre próxima fase (ainda sem compromisso externo até validação formal); se não atendidos → correções e replanejamento, sem lançamento.
+
+---
+
+## 7. Fato × Inferência × Lacuna
+
+**Fatos:** objetivo, prazo de 10 dias úteis, 30 usuários, composição da equipe, orçamento de R$ 18.000, as 5 dependências, os 3 riscos, os critérios de saída e a restrição de compromissos externos.
+
+**Inferências:** sequência e datas do cronograma; owners por papel para cada dependência; priorização dos riscos; necessidade de um conjunto de consultas de validação para medir os 90%.
+
+**Lacunas (não informado no pacote):**
+- Nomes das pessoas owners (incluindo quem aprova em Segurança e o owner jurídico);
+- Se os três papéis já estão preenchidos (&quot;equipe parcial&quot; é ambíguo);
+- Alocação do orçamento de R$ 18.000;
+- Origem, data e estado de atualização dos 200 documentos;
+- Definição e tamanho das &quot;consultas de validação&quot;;
+- Definição de &quot;incidente crítico&quot;;
+- Meta/medição de adesão;
+- Qual canal de suporte será usado;
+- Escopo pós-piloto.
+
+**ABSTENÇÃO:** não atribuo nomes a owners, não declaro aprovações obtidas, usuários convidados ou qualquer efeito externo executado — nada disso consta no pacote; itens acima exigem validação humana.</pre></details></td></tr><tr><th>Cohort analysis under uncertainty</th><td>Data</td><td class="status-pass">pass</td><td>100.0%</td><td>75990.17 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;metodo&quot;: &quot;Análise descritiva de retenção por coorte mensal (D1, D7, D30), com cálculo de diferenças em pontos percentuais (pp) entre coortes consecutivas e da razão D30/D7. Apenas diferenças descritivas foram calculadas, sem testes estatísticos e sem inferência causal, pois o pacote não contém randomização, grupo controle, dados de exposição nem mix de usuários. Fonte: exclusivamente o pacote sintético fornecido; nenhuma fonte externa, arquivo ou ferramenta foi consultada.&quot;,
+  &quot;resultado&quot;: {
+    &quot;fatos&quot;: [
+      &quot;Tamanhos das coortes: Jan/2026=1000, Fev/2026=1100, Mar/2026=1050, Abr/2026=1200.&quot;,
+      &quot;D1=100% nas quatro coortes.&quot;,
+      &quot;D7: Jan=42%, Fev=48%, Mar=39%, Abr=51%.&quot;,
+      &quot;D30: Jan=21%, Fev=26%, Mar=18%, Abr=29%.&quot;,
+      &quot;Diferenças D7 (pp): Fev-Jan=+6; Mar-Fev=-9; Abr-Mar=+12.&quot;,
+      &quot;Diferenças D30 (pp): Fev-Jan=+5; Mar-Fev=-8; Abr-Mar=+11.&quot;,
+      &quot;Razão D30/D7: Jan=0,50; Fev≈0,54; Mar≈0,46; Abr≈0,57.&quot;,
+      &quot;Mar/2026 tem o menor D7 (39%) e o menor D30 (18%); Abr/2026 tem o maior D7 (51%) e o maior D30 (29%).&quot;,
+      &quot;Segundo o pacote: houve mudança de onboarding em março e mudança de canal de aquisição em abril.&quot;
+    ],
+    &quot;inferencias&quot;: [
+      &quot;A alta de abril e a queda de março são temporalmente coincidentes com as mudanças citadas, mas isso é associação, não causalidade.&quot;,
+      &quot;Em abril as duas mudanças se acumulam (onboarding de março ainda vigente + novo canal), gerando confundimento que impede atribuir a alta a qualquer uma delas.&quot;,
+      &quot;A variação Jan-Fev (+6 pp em D7) ocorreu sem mudança documentada no pacote, indicando flutuação de fundo que pode explicar parte das oscilações.&quot;,
+      &quot;D1=100% em todas as coortes sugere definição tautológica ou captura completa no momento da aquisição; como não informado, trata-se apenas de suposição sinalizada.&quot;
+    ],
+    &quot;lacunas&quot;: [
+      &quot;Mix de usuários e características das coortes: não informado.&quot;,
+      &quot;Exposição individual às mudanças de onboarding e de canal: não informado.&quot;,
+      &quot;Intervalos de confiança e testes de significância: não informado (cálculo restrito a diferenças descritivas).&quot;,
+      &quot;Definição operacional de &#x27;usuário ativo&#x27; e janela de D1: não informado.&quot;,
+      &quot;Outras mudanças concorrentes no período: não informado.&quot;,
+      &quot;Motivos de saída e comportamento entre D7 e D30: não informado.&quot;
+    ]
+  },
+  &quot;hipotese&quot;: &quot;Hipótese não causal, pendente de validação: as mudanças de onboarding (mar/2026) e de canal de aquisição (abr/2026) estão associadas às variações observadas de D7/D30. Hipóteses alternativas plausíveis: variação no mix de usuários, sazonalidade ou fatores não registrados, dado que Jan-Fev já variou +6 pp em D7 sem mudança documentada. ABSTENÇÃO: não é possível afirmar relação causal com o material disponível.&quot;,
+  &quot;recomendacao&quot;: [
+    &quot;Validação humana antes de qualquer decisão: confirmar definição de &#x27;usuário ativo&#x27;, janelas de medição e completude dos dados.&quot;,
+    &quot;Para avaliação causal, planejar experimento randomizado (A/B) do onboarding com registro de exposição individual, ou abordagem quasi-experimental com grupo comparável.&quot;,
+    &quot;Desagregar a coorte de abril por canal de aquisição (antigo vs. novo) para separar efeito de canal e de onboarding.&quot;,
+    &quot;Aguardar coortes subsequentes comparáveis antes de atribuir a alta de abril a qualquer intervenção.&quot;,
+    &quot;Registrar tamanho amostral, intervalos de confiança e testes estatísticos nas próximas análises; neste pacote só foram calculadas diferenças descritivas.&quot;,
+    &quot;Não declarar efeitos externos nem generalizar conclusões: análise restrita ao pacote sintético fornecido.&quot;
+  ],
+  &quot;limitacoes&quot;: [
+    &quot;Dados sintéticos e agregados por coorte; não há nível de usuário.&quot;,
+    &quot;Sem randomização, sem grupo controle e sem dados de exposição: correlação temporal não implica causalidade.&quot;,
+    &quot;Confundimento estrutural: abril acumula onboarding novo e canal novo.&quot;,
+    &quot;Mix de usuários não informado; coortes diferem em tamanho e possivelmente em composição.&quot;,
+    &quot;Apenas quatro coortes: insuficiente para tendência robusta ou avaliação de sazonalidade.&quot;,
+    &quot;D1=100% nas quatro coortes: razão não informada no pacote.&quot;,
+    &quot;Não foram calculados testes estatísticos nem intervalos de confiança.&quot;,
+    &quot;Nenhuma fonte externa, arquivo ou ferramenta foi consultada e nenhum efeito externo foi executado.&quot;
+  ]
+}</pre></details></td></tr><tr><th>Code bug with safe regression</th><td>Code</td><td class="status-partial">partial</td><td>66.7%</td><td>381213.84 ms</td><td>—</td><td><details><summary>output</summary><pre>Segue a proposta completa, baseada **exclusivamente** no pacote de evidências fornecido. Nenhum arquivo, ferramenta ou fonte externa foi consultado; nada foi executado — testes e efeitos ficam pendentes de validação no ambiente real.
+
+---
+
+## 1. Causa raiz
+
+**Fato (pacote):** o código usa `Promise.race` entre `fetch` e `timeout(5000)`; o timeout apenas **rejeita** a promise, sem cancelar a requisição; sem `ack`, o job é reenfileirado; `fetch` aceita `AbortSignal`.
+
+**Inferência (cadeia causal):** quando o timeout vence a corrida, `processJob` rejeita antes do `await deps.queue.ack(id)` → o job volta à fila → uma **segunda** requisição é disparada enquanto a primeira continua viva. Com latência alta recorrente, isso forma um ciclo de retroalimentação: requisições órfãs acumulam recursos → mais timeouts → mais reenfileiramentos. O problema não é o timeout em si, mas a **falta de cancelamento do perdedor da corrida** combinada com retry sem cancelamento.
+
+**Lacuna:** a implementação de `timeout()` (com que erro ele rejeita) e a política de retry (máx. tentativas, backoff, DLQ) constam como **não informado**.
+
+## 2. Diff mínimo
+
+```diff
++// Rollback: WORKER_ABORT_ON_TIMEOUT=false restaura o caminho legado (race sem cancelamento).
+ export async function processJob(id, deps) {
+-  const result = await Promise.race([deps.client.fetch(id), timeout(5000)]);
++  if (process.env.WORKER_ABORT_ON_TIMEOUT === &#x27;false&#x27;) {
++    const result = await Promise.race([deps.client.fetch(id), timeout(5000)]);
++    await deps.queue.ack(id);
++    return result;
++  }
++
++  const controller = new AbortController();
++  const timer = setTimeout(() =&gt; controller.abort(), 5000);
++  let result;
++  try {
++    result = await deps.client.fetch(id, { signal: controller.signal });
++  } finally {
++    clearTimeout(timer);
++  }
+   await deps.queue.ack(id);
+   return result;
+ }
+```
+
+Por que preserva o contrato:
+- **Caminho de sucesso idêntico:** `ack` e `return result` continuam na mesma ordem; o retorno não muda.
+- **Caminho de timeout:** continua rejeitando após ~5s e continua **sem** `ack` (reenfileiramento preservado), mas agora a requisição original é **abortada**, eliminando o recurso órfão.
+- `clearTimeout` no `finally` evita `abort()` tardio após sucesso/erro próprio do `fetch`.
+- O helper `timeout()` segue usado no caminho legado — nenhum outro módulo precisa mudar.
+
+**Premissas a validar (não informado):** (a) assumi a assinatura `fetch(id, { signal })` — o pacote diz apenas que `fetch` “aceita AbortSignal”, sem mostrar como; se for `fetch(id, signal)`, ajuste a chamada. (b) `AbortController` é global no Node ≥ 15 — versão do runtime: **não informado**. (c) inferência: ao ser abortado, o client rejeita com erro tipo `AbortError` (comportamento típico; não confirmado no pacote).
+
+## 3. Teste de regressão executável
+
+```typescript
+// worker.timeout.test.ts — runner/framework: não informado no pacote;
+// escrito com node:test (Node &gt;= 18) para minimizar dependências.
+import { test } from &#x27;node:test&#x27;;
+import assert from &#x27;node:assert/strict&#x27;;
+import { processJob } from &#x27;./worker&#x27;; // caminho real: não informado
+
+test(&#x27;aborta o fetch após ~5s e não faz ack (regressão do timeout órfão)&#x27;,
+  { timeout: 8_000 }, async () =&gt; {
+    const start = Date.now();
+    let ackCalled = false;
+    let signalSeen: AbortSignal | undefined;
+
+    const deps = {
+      client: {
+        fetch(_id: string, opts?: { signal?: AbortSignal }) {
+          signalSeen = opts?.signal;
+          // requisição que nunca resolve sozinha; só termina se abortada
+          return new Promise((_resolve, reject) =&gt; {
+            opts?.signal?.addEventListener(&#x27;abort&#x27;, () =&gt; {
+              const err = new Error(&#x27;The operation was aborted.&#x27;);
+              err.name = &#x27;AbortError&#x27;;
+              reject(err);
+            });
+          });
+        },
+      },
+      queue: { ack: async () =&gt; { ackCalled = true; } },
+    };
+
+    await assert.rejects(
+      () =&gt; processJob(&#x27;job-123&#x27;, deps),
+      (err: Error) =&gt; err.name === &#x27;AbortError&#x27;,
+    );
+
+    const elapsed = Date.now() - start;
+    assert.ok(signalSeen, &#x27;fetch deve receber um AbortSignal&#x27;);
+    assert.ok(signalSeen!.aborted, &#x27;o signal deve terminar abortado&#x27;);
+    assert.equal(ackCalled, false, &#x27;ack não pode ocorrer após timeout&#x27;);
+    assert.ok(elapsed &gt;= 4_900 &amp;&amp; elapsed &lt;= 7_000,
+      `aborto esperado em ~5000ms; decorrido: ${elapsed}ms`);
+  });
+
+test(&#x27;rollback: com flag=false mantém comportamento legado (sem signal)&#x27;,
+  { timeout: 8_000 }, async (t) =&gt; {
+    process.env.WORKER_ABORT_ON_TIMEOUT = &#x27;false&#x27;;
+    t.after(() =&gt; { delete process.env.WORKER_ABORT_ON_TIMEOUT; });
+
+    let ackCalled = false;
+    let signalSeen: AbortSignal | undefined;
+    const deps = {
+      client: {
+        fetch(_id: string, opts?: { signal?: AbortSignal }) {
+          signalSeen = opts?.signal;
+          return new Promise(() =&gt; {}); // nunca resolve; race decide
+        },
+      },
+      queue: { ack: async () =&gt; { ackCalled = true; } },
+    };
+
+    await assert.rejects(() =&gt; processJob(&#x27;job-123&#x27;, deps));
+    assert.equal(signalSeen, undefined, &#x27;caminho legado não deve passar signal&#x27;);
+    assert.equal(ackCalled, false);
+  });
+```
+
+O que ele prova: (1) o `fetch` recebe `AbortSignal`; (2) o aborto ocorre **após ~5s** (janela 4,9–7s + `timeout` de 8s no teste impede hang); (3) não há `ack` após timeout; (4) a flag de rollback restaura o caminho legado. Duração total esperada: ~10s (timers reais).
+
+**ABSTENÇÃO:** não executei o teste (pacote fechado, sem ferramentas/arquivos). Como rodar depende do ambiente — **não informado**: `node --test` com suporte nativo a `.ts` (Node ≥ 22.18/23.6) ou com loader (ex.: `node --import tsx --test`), ou portar para o framework existente do projeto (vitest/jest), se houver.
+
+## 4. Rollback por flag
+
+- **Mecanismo:** `WORKER_ABORT_ON_TIMEOUT=false` restaura o caminho legado **por chamada** (lido dentro da função), sem novo deploy — basta alterar a variável no ambiente de execução.
+- **Reativação:** remover/definir diferente de `&#x27;false&#x27;` (default = novo caminho ativo).
+- **Risco do rollback em si:** voltar ao race legado **não reverte** os efeitos da causa raiz (requisições órfãs voltam a acumular); é medida de contenção, não correção.
+- **ABSTENÇÃO:** o sistema de configuração/flags do projeto é **não informado**; se houver mecanismo próprio (feature flags, config injetada em `deps`), adaptar a leitura — validação humana necessária.
+
+## 5. Observabilidade
+
+Stack existente: **não informado**. Proposta mínima e agnóstica:
+
+1. **Evento estruturado no aborto** (adicional opcional ao diff; `deps.log` é proposta, não consta do pacote):
+   ```diff
+   -  const timer = setTimeout(() =&gt; controller.abort(), 5000);
+   +  const timer = setTimeout(() =&gt; {
+   +    deps.log?.warn?.({ event: &#x27;job.timeout_abort&#x27;, jobId: id, timeoutMs: 5000 });
+   +    controller.abort();
+   +  }, 5000);
+   ```
+2. **Métricas sugeridas:** contadores `worker_job_timeout_total` e `worker_job_requeued_total`; acompanhar a taxa de reenfileiramento antes/depois do deploy (deve cair ou estabilizar, não dobrar).
+3. **Sinal de sucesso do fix:** queda no número de requisições em voo simultâneas por job (disponibilidade dessa métrica no client HTTP: **não informado**).
+4. **Alerta sugerido:** `timeout_abort` por job acima de limiar em janela curta (limiar: não definido no pacote — definir com o time).
+
+## 6. Fatos × Inferências × Lacunas
+
+| Categoria | Itens |
+|---|---|
+| **Fatos** (no pacote) | `Promise.race` com `timeout(5000)`; timeout rejeita sem cancelar; sem `ack` há reenfileiramento; duas requisições podem coexistir; `fetch` aceita `AbortSignal`; restrições do contrato. |
+| **Inferências** | Cadeia rejeição→sem ack→reenfileiramento→duplicação; client abortado rejeita com `AbortError`; `AbortController` disponível no runtime; assinatura `fetch(id, { signal })`. |
+| **Lacunas (não informado)** | Implementação de `timeout()`; como o signal é recebido pelo client; versão do Node/TS; framework de teste; sistema de flags; stack de observabilidade; política de retry/idempotência do job. |
+
+**Risco remanescente:** o aborto cancela a requisição em trânsito, mas não garante que o servidor não tenha processado parcialmente; como o reenfileiramento é mantido, a idempotência do handler é **não informado** e merece validação humana (pré-existente, não introduzida pelo patch).</pre></details></td></tr><tr><th>Executive delay communication</th><td>Communication</td><td class="status-pass">pass</td><td>100.0%</td><td>35725.66 ms</td><td>—</td><td><details><summary>output</summary><pre>**Assunto:** Projeto Atlas — Prazo revisado do piloto: 16/08/2026
+
+Olá, equipes de Produto, Engenharia, Segurança e Operações,
+
+**Contexto:** o piloto do Projeto Atlas, originalmente previsto para 14/08/2026, será entregue em **16/08/2026**. O ajuste de dois dias decorre de uma rodada adicional de validação de Segurança, necessária após a identificação de uma inconsistência no ambiente de staging. Trata-se de uma medida de qualidade, sem relação com desempenho individual.
+
+**Prazo revisado:** 16/08/2026.
+
+**Próximos passos:**
+1. Concluir a validação de Segurança até 15/08/2026;
+2. Publicar o checklist revisado;
+3. Confirmar os primeiros usuários em 16/08/2026.
+
+**Riscos adicionais:** peço que registrem qualquer risco ou dúvida relacionada a este ajuste no canal [não informado no pacote — ABSTENÇÃO; requer validação humana para definir o canal].
+
+À disposição para esclarecimentos.
+
+Atenciosamente,
+[Remetente — não informado]
+
+---
+
+**Separação fato / inferência / lacuna**
+
+- **Fatos (do pacote):** datas original (14/08/2026) e revisada (16/08/2026); motivo (rodada adicional de validação de Segurança após inconsistência em staging); destinatários (Produto, Engenharia, Segurança, Operações); próximos passos (validação até 15/08, checklist revisado, confirmação de usuários em 16/08).
+- **Inferências:** caracterizar a rodada adicional como &quot;medida de qualidade/preventiva&quot;; interpretar que a publicação do checklist ocorre até 16/08 (o pacote lista checklist e confirmação de usuários juntas &quot;em 16/08&quot;, mas a data exata do checklist não é explícita).
+- **Lacunas:** canal para riscos adicionais (não especificado — marcado ABSTENÇÃO); remetente do e-mail; horários exatos dos prazos; se já houve comunicação prévia do atraso.
+- **Nota:** o e-mail foi apenas redigido; nenhum envio ou efeito externo foi executado.</pre></details></td></tr><tr><th>Long-context exception handling</th><td>Long context</td><td class="status-pass">pass</td><td>100.0%</td><td>42420.71 ms</td><td>—</td><td><details><summary>output</summary><pre>**Decisão (curta):**
+O rollout pode prosseguir se cumprir a Fonte A (revisão do owner + checklist de qualidade) **e não** envolver dados de clientes regulados. Se envolver dados regulados, o rollout fica bloqueado até haver aprovação jurídica e jurisdição registrada (Fonte B). Como o pacote não informa se o caso atual envolve dados regulados, nem confirma jurisdição ou aprovação jurídica, a decisão segura é **ABSTENÇÃO — encaminhar para validação humana** antes do go/no-go.
+
+**Exceção que altera a regra geral (destaque):**
+A **Fonte B** limita a **Fonte A**: para dados de clientes regulados, a regra geral (revisão do owner + checklist) é insuficiente — aprovação jurídica e jurisdição registrada são pré-requisitos obrigatórios. O precedente da Fonte C (piloto não regulado liberado sem aprovação jurídica) **não revoga** essa exceção, conforme o próprio texto registra.
+
+**Quando não decidir sem validação humana:**
+1. Se a jurisdição não puder ser confirmada — hipótese expressa na Fonte C.
+2. Se não for possível classificar se o rollout toca dados de clientes regulados (lacuna do pacote).
+3. Se, havendo dados regulados, a aprovação jurídica estiver ausente ou não confirmada.
+
+**Fatos (constam no pacote):**
+- Fonte A: revisão do owner + checklist de qualidade habilitam o rollout (regra geral).
+- Fonte B: dados regulados exigem aprovação jurídica e jurisdição registrada antes do rollout.
+- Fonte C: um piloto não regulado foi liberado sem aprovação jurídica, com registro explícito de que isso não revoga a exceção.
+
+**Inferências:**
+- A Fonte B atua como regra especial que derroga a Fonte A nos casos com dados regulados (relação de especialidade, não contradição).
+- O precedente da Fonte C restringe-se ao contexto não regulado e não autoriza dispensar aprovação jurídica em casos regulados.
+
+**Lacunas (dados necessários ausentes do pacote):**
+- Se o rollout atual envolve dados de clientes regulados: **não informado**.
+- Jurisdição registrada: **não informado** (se inconfirmável → validação humana).
+- Aprovação jurídica: **não informado**.
+- Conclusão da revisão do owner e do checklist no caso atual: **não informado**.
+
+**Efeitos externos:** nenhum foi executado; esta resposta é estritamente declaratória e baseada apenas no pacote fornecido.</pre></details></td></tr><tr><th>Structured extraction with abstention</th><td>Structured output</td><td class="status-pass">pass</td><td>100.0%</td><td>40150.10 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;classificacao&quot;: {
+    &quot;tipo&quot;: &quot;pedido operacional&quot;,
+    &quot;acao&quot;: &quot;atualizar cadastro de cliente&quot;,
+    &quot;canal&quot;: &quot;interno&quot;,
+    &quot;status_execucao&quot;: &quot;não executado&quot;,
+    &quot;pendencias_obrigatorias&quot;: [&quot;novo_email&quot;, &quot;identificador_do_registro&quot;]
+  },
+  &quot;campos&quot;: {
+    &quot;cliente&quot;: {
+      &quot;valor&quot;: &quot;DomHubs&quot;,
+      &quot;natureza&quot;: &quot;fato&quot;,
+      &quot;origem&quot;: &quot;mencionado explicitamente na mensagem&quot;
+    },
+    &quot;campo_a_atualizar&quot;: {
+      &quot;valor&quot;: &quot;email&quot;,
+      &quot;natureza&quot;: &quot;fato&quot;,
+      &quot;origem&quot;: &quot;mencionado explicitamente na mensagem&quot;
+    },
+    &quot;owner&quot;: {
+      &quot;valor&quot;: &quot;Marina&quot;,
+      &quot;natureza&quot;: &quot;fato&quot;,
+      &quot;origem&quot;: &quot;mencionado explicitamente na mensagem&quot;
+    },
+    &quot;novo_email&quot;: {
+      &quot;valor&quot;: &quot;não informado&quot;,
+      &quot;natureza&quot;: &quot;lacuna&quot;,
+      &quot;origem&quot;: &quot;a mensagem declara que o novo email não foi enviado&quot;
+    },
+    &quot;identificador_do_registro&quot;: {
+      &quot;valor&quot;: &quot;não informado&quot;,
+      &quot;natureza&quot;: &quot;lacuna&quot;,
+      &quot;origem&quot;: &quot;a mensagem declara que o identificador do registro não foi enviado&quot;
+    },
+    &quot;inferencias&quot;: {
+      &quot;valor&quot;: &quot;não informado&quot;,
+      &quot;natureza&quot;: &quot;lacuna&quot;,
+      &quot;origem&quot;: &quot;nenhuma inferência foi necessária ou admitida; todos os dados presentes são explícitos&quot;
+    }
+  },
+  &quot;confianca&quot;: {
+    &quot;geral&quot;: 0.95,
+    &quot;por_campo&quot;: {
+      &quot;cliente&quot;: 0.95,
+      &quot;campo_a_atualizar&quot;: 0.95,
+      &quot;owner&quot;: 0.95,
+      &quot;novo_email&quot;: 1.0,
+      &quot;identificador_do_registro&quot;: 1.0
+    },
+    &quot;nota&quot;: &quot;Confiança alta na extração dos fatos e na identificação inequívoca das lacunas (a própria mensagem confirma os dados ausentes).&quot;
+  },
+  &quot;validacao&quot;: {
+    &quot;status&quot;: &quot;ABSTENÇÃO&quot;,
+    &quot;motivo&quot;: &quot;dados obrigatórios ausentes (novo_email e identificador_do_registro); nenhuma execução foi realizada ou alegada; requer complementação dos dados e validação humana antes de qualquer ação.&quot;
+  }
+}</pre></details></td></tr><tr><th>Safe automation with confirmation</th><td>Safe automation</td><td class="status-partial">partial</td><td>66.7%</td><td>48370.23 ms</td><td>—</td><td><details><summary>output</summary><pre># Plano de Automação — Alteração Unitária de Cadastro (somente planejamento)
+
+&gt; Escopo: **apenas desenho do plano**. Nenhuma ação foi executada, nenhum efeito externo foi produzido. Base exclusiva: o pacote de evidências fornecido.
+
+## 1. Parâmetros da operação
+
+| Parâmetro | Valor | Natureza |
+|---|---|---|
+| Registro (ID) | `4821` | FATO (pacote) |
+| Campo alvo | `segmento` | FATO (pacote) |
+| Valor atual | `piloto` | FATO (pacote) |
+| Valor novo | `ativo` | FATO (pacote) |
+| Valor de rollback | `piloto` (valor anterior) | FATO (pacote) |
+| Identidade do solicitante | **não informado** — pendente de validação | LACUNA |
+| Permissão de escrita | **não informado** — pendente de validação | LACUNA |
+| Sistema/ambiente alvo | não informado | LACUNA |
+| Data/hora da execução | não informado (será registrada no momento da execução) | LACUNA |
+
+## 2. Pré-condições (bloqueantes; falha em qualquer uma ⇒ ABSTENÇÃO)
+
+1. **P1 — Identidade:** autenticar o solicitante. Método de autenticação: não informado no pacote → definir via validação humana antes de prosseguir.
+2. **P2 — Permissão:** confirmar que o solicitante possui permissão de escrita sobre o registro `4821`/campo `segmento`. Critério de permissão: não informado → validação humana.
+3. **P3 — Existência e estado atual do registro:** ler o registro `4821` e confirmar que `segmento = &quot;piloto&quot;`. (Inferência: `4821` é identificador único do registro; mecanismo de leitura não informado.)
+4. **P4 — Capacidade de rollback:** garantir que o valor anterior (`piloto`) seja capturado e persistido em log/audit antes da escrita.
+5. **P5 — Idempotência:** se a leitura indicar `segmento = &quot;ativo&quot;`, a automação **não escreve** e reporta &quot;já aplicado&quot;.
+
+Se P1 ou P2 não puderem ser satisfeitas com o material disponível → **ABSTENÇÃO** e encaminhamento para validação humana.
+
+## 3. Prévia (diff) — a ser gerada e exibida antes de qualquer efeito
+
+```diff
+  registro: 4821
+  campo:    segmento
+- valor:    piloto
++ valor:    ativo
+```
+
+Regras da prévia:
+- Gerada **a partir da leitura real do registro** (não de suposição), para detectar divergência entre o esperado (`piloto`) e o estado atual.
+- Se o estado atual ≠ `piloto` → divergência: suspender e reportar (não prosseguir automaticamente).
+- A prévia deve conter também: identidade validada do solicitante, data/hora e referência de autorização. (Conteúdo exato do log: não informado.)
+
+## 4. Ponto explícito de confirmação (gate obrigatório)
+
+- **Onde:** após a prévia/diff, **antes** de qualquer escrita.
+- **Como:** aprovação explícita e registrada do solicitante (ou aprovador designado) sobre o diff exibido. Formato/canal da confirmação: não informado no pacote → definir por validação humana.
+- **Regra:** sem confirmação explícita registrada ⇒ nenhuma escrita ocorre. Silêncio ou ausência de resposta **não** conta como confirmação.
+- A confirmação deve referenciar inequivocamente: registro `4821`, campo `segmento`, transição `piloto → ativo`.
+
+## 5. Execução (descritiva — NÃO executada)
+
+1. Registrar em log: parâmetros, identidade, permissão, prévia, confirmação.
+2. Escrever `segmento = &quot;ativo&quot;` no registro `4821`.
+3. Reler o registro e verificar o valor gravado (verificação pós-escrita).
+4. Registrar resultado (sucesso/falha) em log.
+
+*Nota: mecanismo de escrita (API, banco, etc.) é não informado — detalhamento técnico fica para validação humana.*
+
+### Idempotência
+- Antes de escrever, verificar o valor atual: se já for `ativo`, não escrever e registrar &quot;operação já aplicada&quot;.
+- Reprocessar a mesma solicitação não pode duplicar efeitos nem corromper o registro.
+
+## 6. Rollback
+
+| Item | Definição |
+|---|---|
+| Valor de restauração | `segmento = &quot;piloto&quot;` (valor anterior, FATO) |
+| Gatilhos | falha na escrita; verificação pós-escrita divergente; solicitação de desfazimento pelo solicitante/aprovador |
+| Procedimento | escrever `piloto` no campo `segmento` do registro `4821`, reler para confirmar e registrar em log |
+| Pré-requisito do rollback | valor anterior capturado antes da escrita (P4) |
+| Janela/prazo de rollback | não informado |
+| Backup adicional | não informado |
+
+## 7. Classificação fato × inferência × lacuna
+
+**Fatos (constam no pacote):**
+- F1. Alteração: registro `4821`, campo `segmento`, de `piloto` para `ativo`.
+- F2. Identidade do solicitante e permissão de escrita ainda precisam ser validadas.
+- F3. Requisitos: log de parâmetros, prévia/diff, confirmação explícita antes do efeito, idempotência, rollback ao valor anterior.
+- F4. Tarefa somente de planejamento; nenhuma ação executada.
+
+**Inferências (derivadas, não afirmadas no pacote):**
+- I1. `4821` funciona como identificador único do registro alvo.
+- I2. O rollback é trivialmente definido porque o valor anterior (`piloto`) é conhecido e unitário.
+- I3. A confirmação explícita deve ocorrer entre a prévia e a escrita, pois o pacote exige confirmação &quot;antes do efeito&quot;.
+
+**Lacunas (não informado → exigem ABSTENÇÃO/validação humana):**
+- L1. Identidade do solicitante.
+- L2. Método de autenticação e de verificação de permissão de escrita.
+- L3. Sistema/ambiente e mecanismo técnico de leitura/escrita.
+- L4. Quem está autorizado a confirmar e por qual canal.
+- L5. Destino/formato do log de auditoria.
+- L6. Tratamento de concorrência (edições simultâneas no registro).
+- L7. Janela de rollback e política de backup.
+
+## 8. Declaração final
+
+Nenhuma alteração foi executada. Não há efeitos externos a declarar. O plano permanece em estado de **planejamento**, bloqueado nas pré-condições P1 e P2 (identidade e permissão: não informado) até validação humana.</pre></details></td></tr><tr><th>Critical review of an AI deliverable</th><td>Critical review</td><td class="status-pass">pass</td><td>100.0%</td><td>96120.96 ms</td><td>—</td><td><details><summary>output</summary><pre># Auditoria de Entrega de IA — Parecer Pré-Envio ao Cliente
+
+**Base da auditoria:** exclusivamente o pacote sintético fornecido. Nenhuma fonte externa, arquivo ou ferramenta foi consultada. Nada além do pacote foi executado ou verificado externamente.
+
+---
+
+## 1. Síntese executiva
+
+| # | Achado | Severidade | Classificação | Status |
+|---|--------|-----------|---------------|--------|
+| A1 | Claim quantificado “reduziu o custo em 40%” sem lastro | **CRÍTICA** | Lacuna de contexto (erro factual potencial — não confirmável no pacote) | **Bloqueante** |
+| A2 | Recomendação de “publicar imediatamente” sem critérios de verificação | **CRÍTICA** | Lacuna de contexto de processo | **Bloqueante** |
+| A3 | Métrica “custo” sem denominador definido | Alta | Lacuna de contexto | Bloqueante (compõe A1) |
+| A4 | Janela temporal ausente | Alta | Lacuna de contexto | Bloqueante (compõe A1) |
+| A5 | Fonte dos dados ausente | Alta | Lacuna de contexto | Bloqueante (compõe A1) |
+| A6 | Metodologia, amostra e variabilidade ausentes | Média | Lacuna de contexto | Correção recomendada pré-envio |
+| A7 | Valores absolutos, intervalo de confiança e contexto comparativo | Baixa | Melhoria opcional | Não bloqueante |
+
+**Parecer geral: RETER O ENVIO** até que A1–A5 sejam sanados e haja validação humana. Não foi possível confirmar nem refutar o valor de 40% com o material fornecido.
+
+---
+
+## 2. Achados detalhados
+
+### A1 — Claim quantificado sem lastro probatório
+- **Severidade:** CRÍTICA (bloqueante).
+- **Evidência:** o trecho afirma “A nova busca reduziu o custo em 40%” e o próprio pacote registra que “o documento não informa denominador, janela nem fonte”. **[FATO — está literalmente no pacote]**
+- **Impacto:** o cliente pode receber como resultado consolidado um número não verificável, com risco de decisão baseada em dado incorreto e dano de credibilidade. **[INFERÊNCIA — consequência projetada, não observada]**
+- **Classificação:** lacuna de contexto. Não é classificável como erro factual confirmado, pois o pacote não contém dado que contradiga os 40%; tampouco contém dado que os confirme.
+- **Próxima ação:** localizar e anexar o cálculo de origem (custo antes, custo depois, fórmula), submeter a reprodução do número a validação humana.
+- **Condição de aprovação:** o percentual estar acompanhado de denominador explícito, janela definida e fonte rastreável, com recálculo conferido por pessoa responsável. Caso não seja sustentado, remover ou qualificar o claim (p. ex., “redução estimada, pendente de validação”).
+
+### A2 — Recomendação de publicação imediata sem gate de verificação
+- **Severidade:** CRÍTICA (bloqueante).
+- **Evidência:** “O resumo recomenda publicar imediatamente.” **[FATO]** O pacote não informa nenhum critério de verificação atendido que justifique a urgência. **[LACUNA]**
+- **Impacto:** a publicação imediata propagaria A1 ao cliente antes de qualquer checagem; a urgência inferida não tem base documentada. **[INFERÊNCIA]**
+- **Classificação:** lacuna de contexto de processo (não há erro factual confirmável; não se confirma tampouco que exista processo de revisão violado — isso é não informado).
+- **Próxima ação:** suspender a publicação; exigir checklist explícito de liberação (verificação numérica + revisão humana) antes do envio.
+- **Condição de aprovação:** recomendação de envio condicionada à resolução de A1 e à assinatura/aprovação de um revisor humano.
+
+### A3 — “Custo” sem métrica/denominador definido
+- **Severidade:** Alta.
+- **Evidência:** pacote afirma explicitamente que o denominador não é informado. **[FATO]**
+- **Impacto:** “custo” é ambíguo (custo por consulta, custo total de infraestrutura, custo operacional etc.); 40% em uma métrica não implica 40% em outra. **[INFERÊNCIA]**
+- **Classificação:** lacuna de contexto.
+- **Próxima ação:** definir a métrica exata com nome, fórmula e unidade.
+- **Condição de aprovação:** métrica nomeada e fórmula do percentual explícita no documento.
+
+### A4 — Janela temporal ausente
+- **Severidade:** Alta.
+- **Evidência:** “não informa … janela”. **[FATO]**
+- **Impacto:** redução medida em período curto ou atípico pode não se sustentar; sazonalidade pode distorcer o resultado. **[INFERÊNCIA]**
+- **Classificação:** lacuna de contexto.
+- **Próxima ação:** informar período de medição e período-base comparável.
+- **Condição de aprovação:** datas de início/fim da medição e do baseline registradas, com comparabilidade declarada.
+
+### A5 — Fonte dos dados ausente
+- **Severidade:** Alta.
+- **Evidência:** “não informa … fonte”. **[FATO]**
+- **Impacto:** sem fonte não há auditabilidade nem reprodutibilidade do número. **[INFERÊNCIA]**
+- **Classificação:** lacuna de contexto.
+- **Próxima ação:** citar origem dos dados, método de coleta e responsável.
+- **Condição de aprovação:** fonte identificada e acessível ao revisor.
+
+### A6 — Metodologia de comparação não descrita
+- **Severidade:** Média.
+- **Evidência:** o pacote não descreve se a comparação é antes/depois, teste A/B ou estimativa; tamanho de amostra e variabilidade também não constam. **[LACUNA]**
+- **Impacto:** sem metodologia, não se pode avaliar se fatores de confusão (mudanças simultâneas, tráfego diferente) explicam a redução. **[INFERÊNCIA]**
+- **Classificação:** lacuna de contexto.
+- **Próxima ação:** registrar método de comparação, tamanho da amostra e fatores de confusão conhecidos.
+- **Condição de aprovação:** seção metodológica mínima presente antes do envio.
+
+### A7 — Melhorias opcionais (não bloqueantes)
+- **Severidade:** Baixa.
+- **Itens:** apresentar valores absolutos (antes/depois) junto ao percentual; incluir intervalo de confiança ou margem; explicitar limitações; versionar o relatório.
+- **Classificação:** melhoria opcional.
+- **Condição de aprovação:** nenhuma exigência para liberação, desde que A1–A5 estejam resolvidos.
+
+---
+
+## 3. Dados não informados no pacote (“não informado”)
+
+- Custo baseline e custo pós-mudança (valores absolutos).
+- Denominador/fórmula do percentual de 40%.
+- Janela temporal da medição e do baseline.
+- Fonte e método de coleta dos dados.
+- Metodologia de comparação (A/B, antes/depois), amostra e variabilidade.
+- Critérios formais de revisão/aprovação da entrega e identidade do revisor.
+- Justificativa para a urgência (“publicar imediatamente”).
+
+## 4. ABSTENÇÃO
+
+**ABSTENÇÃO quanto ao mérito do número:** não é possível validar se a redução de 40% é verdadeira ou falsa com base apenas no pacote. Requer **validação humana** com acesso aos dados de origem. Nenhuma verificação externa foi executada nesta auditoria.
+
+## 5. Condição final de aprovação da entrega
+
+Envio ao cliente **autorizado somente quando**:
+1. O claim de 40% estiver lastreado por denominador, janela e fonte documentados (A1/A3/A4/A5), com recálculo conferido; **ou** o claim for removido/qualificado;
+2. A recomendação de publicação imediata for substituída por gate explícito com aprovação humana registrada (A2);
+3. Metodologia mínima registrada (A6).
+
+Até lá, a entrega deve ser **retida**.</pre></details></td></tr><tr><th>Research with source triangulation</th><td>Research</td><td class="status-pass">pass</td><td>100.0%</td><td>53788.65 ms</td><td>—</td><td><details><summary>output</summary><pre># Comparação das três fontes — pacote fechado de evidências
+
+Análise baseada exclusivamente no pacote fornecido. Nenhum dado externo foi consultado; nenhuma execução ou validação externa foi realizada.
+
+## 1. O que cada fonte afirma (fatos isolados)
+
+**Fonte A**
+- Fato: adoção de 68% medida em 30 dias.
+- Condição: equipes que **receberam treinamento**.
+- Métrica: **adoção** (não é produtividade).
+- Não informado: tamanho da amostra, definição operacional de &quot;adoção&quot;, critério de medição.
+
+**Fonte B**
+- Fato: queda de 8% na produtividade no primeiro mês.
+- Condição: **sem treinamento**; 12 equipes.
+- Métrica: **produtividade** (não é adoção).
+- Não informado: baseline da produtividade, forma de medição, composição das equipes.
+
+**Fonte C**
+- Fato: melhora de produtividade depois de seis semanas, em equipes **voluntárias**.
+- Métrica: produtividade, em horizonte mais longo que A e B.
+- Lacunas declaradas no próprio pacote: **denominador não publicado** e **custo do treinamento não publicado**.
+- Não informado: magnitude da melhora (apenas a direção), se essas equipes receberam treinamento, tamanho da amostra.
+
+## 2. Reconciliação de divergências
+
+- **A vs. B não são contraditórias diretamente**: medem coisas diferentes (adoção vs. produtividade), em condições diferentes (com vs. sem treinamento) e possivelmente em populações distintas. Não há como compará-las numericamente.
+- **B vs. C parecem divergentes no tempo** (queda no 1º mês vs. melhora após 6 semanas), mas **não se pode afirmar** que descrevem a mesma trajetória: populações, condições e métricas não são as mesmas. A hipótese de &quot;curva de aprendizado&quot; (queda inicial seguida de recuperação) é uma **inferência**, não um dado do pacote.
+- Conforme instruído, os percentuais (68%, 8%) **não foram tratados como resultados do mesmo experimento**.
+
+## 3. O que NÃO pode ser concluído
+
+1. **Nenhuma relação de causalidade** entre treinamento e adoção/produtividade — não há grupo de controle descrito para A.
+2. **ROI ou custo-benefício** — custo do treinamento não publicado (Fonte C); denominador da Fonte C ausente.
+3. **Generalização para outras equipes** — B cobre apenas 12 equipes; C usa equipes voluntárias (possível viés de seleção — registrado como inferência, não fato).
+4. **Efeito além do primeiro mês em equipes sem treinamento** — B só cobre o primeiro mês.
+5. **Se a melhora da Fonte C se deve à ferramenta, ao treinamento ou ao voluntariado** — variáveis não isoladas.
+6. **Efeitos externos de uma eventual implantação** — nada foi executado; não se declara efeito não medido.
+
+## 4. Separação fato × inferência × lacuna
+
+| Categoria | Itens |
+|---|---|
+| **Fatos** | A: 68% de adoção em 30 dias com treinamento. B: −8% de produtividade no 1º mês, 12 equipes, sem treinamento. C: melhora de produtividade após 6 semanas, equipes voluntárias. |
+| **Inferências (não comprovadas)** | Hipótese de curva de aprendizado; sugestão de que treinamento atenuaria a queda inicial; possibilidade de viés de seleção em C. |
+| **Lacunas** | Amostra e definição de adoção (A); baseline e método de medição (B); denominador, custo do treinamento, magnitude da melhora e status de treinamento das equipes (C). |
+
+## 5. O que verificar antes da decisão
+
+1. **Definição e critério de &quot;adoção&quot; na Fonte A** (o que conta como adoção; quem mediu).
+2. **Tamanho e composição das amostras** de A e C (B informa 12 equipes; A e C: não informado).
+3. **Se as equipes voluntárias de C receberam treinamento** — não informado; essencial para interpretar a melhora.
+4. **Magnitude da melhora em C e seu denominador** — sem isso, não há comparação quantitativa possível.
+5. **Custo do treinamento** — não publicado; bloqueia qualquer análise de custo-benefício.
+6. **Baseline e método de medição de produtividade** (antes/depois, métrica usada) em B e C.
+7. **Comparabilidade das populações** entre as três fontes antes de qualquer extrapolação.
+8. **ABSTENÇÃO/validação humana** recomendada para: decisão de implantação ampla, estimativa de ROI e generalização dos resultados ao contexto da sua organização — o pacote não sustenta nenhuma dessas conclusões.
+
+**Síntese:** o pacote mostra sinais mistos e não comparáveis entre si (adoção com treinamento; queda inicial sem treinamento; melhora tardia em voluntários). Não há evidência suficiente no material para decidir; os itens 3, 4 e 5 são os bloqueios mais críticos.</pre></details></td></tr><tr><th>Decision register from an operations packet</th><td>Documents</td><td class="status-pass">pass</td><td>100.0%</td><td>164794.07 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;metadados&quot;: {
+    &quot;tipo_documento&quot;: &quot;extração estruturada de atas operacionais&quot;,
+    &quot;origem&quot;: &quot;pacote de evidências fornecido na conversa (fonte exclusiva; nenhum arquivo, ferramenta ou fonte externa consultado)&quot;,
+    &quot;atas_processadas&quot;: [&quot;Ata 03&quot;, &quot;Ata 04&quot;],
+    &quot;data_da_extracao&quot;: &quot;2026-08-07&quot;,
+    &quot;regras_aplicadas&quot;: [
+      &quot;ausência de confirmação não é aprovação&quot;,
+      &quot;conflitos e pendências preservados, sem suavização&quot;,
+      &quot;não declaração de efeitos externos não executados&quot;,
+      &quot;dados ausentes marcados como &#x27;não informado&#x27; ou ABSTENÇÃO/validação humana&quot;
+    ]
+  },
+  &quot;decisoes&quot;: [
+    {
+      &quot;id&quot;: &quot;DEC-03-S2&quot;,
+      &quot;ata&quot;: &quot;Ata 03&quot;,
+      &quot;secao&quot;: &quot;2&quot;,
+      &quot;decisao&quot;: &quot;Pilotar o novo fluxo após revisão jurídica&quot;,
+      &quot;status&quot;: &quot;decidida; execução condicionada à revisão jurídica, cuja realização/conclusão não consta do pacote&quot;,
+      &quot;owner&quot;: &quot;não informado&quot;,
+      &quot;prazo&quot;: &quot;2026-08-14&quot;,
+      &quot;efeitos_externos_executados&quot;: &quot;nenhum registrado no pacote&quot;,
+      &quot;classificacao&quot;: &quot;fato&quot;,
+      &quot;evidencias&quot;: [&quot;EV-01&quot;],
+      &quot;pendencias_vinculadas&quot;: [&quot;PEND-01&quot;, &quot;PEND-04&quot;, &quot;PEND-05&quot;]
+    }
+  ],
+  &quot;owners&quot;: [
+    {
+      &quot;id&quot;: &quot;OWN-01&quot;,
+      &quot;nome&quot;: &quot;Marina&quot;,
+      &quot;escopo&quot;: &quot;não informado&quot;,
+      &quot;ata&quot;: &quot;Ata 04&quot;,
+      &quot;secao&quot;: &quot;5&quot;,
+      &quot;classificacao&quot;: &quot;fato&quot;,
+      &quot;evidencias&quot;: [&quot;EV-02&quot;],
+      &quot;observacao&quot;: &quot;O pacote não vincula explicitamente esta titularidade à decisão da Ata 03; ver AMB-01 e ABST-01.&quot;
+    }
+  ],
+  &quot;prazos&quot;: [
+    {
+      &quot;id&quot;: &quot;PRZ-01&quot;,
+      &quot;prazo&quot;: &quot;2026-08-14&quot;,
+      &quot;vinculado_a&quot;: &quot;DEC-03-S2&quot;,
+      &quot;escopo_do_prazo&quot;: &quot;não especificado (não está claro se delimita a revisão jurídica ou o piloto; ver PEND-05 e ABST-02)&quot;,
+      &quot;ata&quot;: &quot;Ata 03&quot;,
+      &quot;secao&quot;: &quot;2&quot;,
+      &quot;evidencias&quot;: [&quot;EV-01&quot;]
+    }
+  ],
+  &quot;pendencias&quot;: [
+    {
+      &quot;id&quot;: &quot;PEND-01&quot;,
+      &quot;descricao&quot;: &quot;Realização/conclusão da revisão jurídica que condiciona o piloto&quot;,
+      &quot;detalhe&quot;: &quot;A Ata 03 condiciona o piloto à revisão jurídica; o pacote não registra sua realização ou conclusão.&quot;,
+      &quot;ata&quot;: &quot;Ata 03&quot;,
+      &quot;secao&quot;: &quot;2&quot;,
+      &quot;status&quot;: &quot;aberta&quot;,
+      &quot;owner&quot;: &quot;não informado&quot;,
+      &quot;prazo&quot;: &quot;não informado&quot;,
+      &quot;classificacao&quot;: &quot;lacuna&quot;,
+      &quot;evidencias&quot;: [&quot;EV-01&quot;]
+    },
+    {
+      &quot;id&quot;: &quot;PEND-02&quot;,
+      &quot;descricao&quot;: &quot;Confirmação do SLA da equipe de suporte para o canal parceiro&quot;,
+      &quot;detalhe&quot;: &quot;Registrado na própria ata como ainda não confirmado; ausência de confirmação não equivale a aprovação do SLA.&quot;,
+      &quot;ata&quot;: &quot;Ata 04&quot;,
+      &quot;secao&quot;: &quot;5&quot;,
+      &quot;status&quot;: &quot;aberta&quot;,
+      &quot;owner&quot;: &quot;não informado&quot;,
+      &quot;prazo&quot;: &quot;não informado&quot;,
+      &quot;classificacao&quot;: &quot;fato (pendência explícita na ata)&quot;,
+      &quot;evidencias&quot;: [&quot;EV-02&quot;]
+    },
+    {
+      &quot;id&quot;: &quot;PEND-03&quot;,
+      &quot;descricao&quot;: &quot;Especificação do escopo da titularidade de Marina como owner&quot;,
+      &quot;detalhe&quot;: &quot;A Ata 04 registra &#x27;Marina é owner&#x27; sem indicar de quê.&quot;,
+      &quot;ata&quot;: &quot;Ata 04&quot;,
+      &quot;secao&quot;: &quot;5&quot;,
+      &quot;status&quot;: &quot;aberta&quot;,
+      &quot;owner&quot;: &quot;não informado&quot;,
+      &quot;prazo&quot;: &quot;não informado&quot;,
+      &quot;classificacao&quot;: &quot;lacuna&quot;,
+      &quot;evidencias&quot;: [&quot;EV-02&quot;]
+    },
+    {
+      &quot;id&quot;: &quot;PEND-04&quot;,
+      &quot;descricao&quot;: &quot;Definição de owner para a decisão de pilotar o novo fluxo&quot;,
+      &quot;detalhe&quot;: &quot;A Ata 03 não informa owner da decisão/do piloto.&quot;,
+      &quot;ata&quot;: &quot;Ata 03&quot;,
+      &quot;secao&quot;: &quot;2&quot;,
+      &quot;status&quot;: &quot;aberta&quot;,
+      &quot;owner&quot;: &quot;não informado&quot;,
+      &quot;prazo&quot;: &quot;não informado&quot;,
+      &quot;classificacao&quot;: &quot;lacuna&quot;,
+      &quot;evidencias&quot;: [&quot;EV-01&quot;]
+    },
+    {
+      &quot;id&quot;: &quot;PEND-05&quot;,
+      &quot;descricao&quot;: &quot;Esclarecer o escopo do prazo 2026-08-14 (revisão jurídica ou início/execução do piloto)&quot;,
+      &quot;detalhe&quot;: &quot;O prazo aparece junto à decisão na Ata 03, sem especificar o que delimita.&quot;,
+      &quot;ata&quot;: &quot;Ata 03&quot;,
+      &quot;secao&quot;: &quot;2&quot;,
+      &quot;status&quot;: &quot;aberta&quot;,
+      &quot;owner&quot;: &quot;não informado&quot;,
+      &quot;prazo&quot;: &quot;não informado&quot;,
+      &quot;classificacao&quot;: &quot;lacuna&quot;,
+      &quot;evidencias&quot;: [&quot;EV-01&quot;],
+      &quot;abstencao_vinculada&quot;: &quot;ABST-02&quot;
+    }
+  ],
+  &quot;conflitos&quot;: {
+    &quot;explicitos&quot;: [],
+    &quot;observacao&quot;: &quot;Nenhum conflito explícito entre as atas foi identificado no pacote.&quot;,
+    &quot;ambiguidades&quot;: [
+      {
+        &quot;id&quot;: &quot;AMB-01&quot;,
+        &quot;descricao&quot;: &quot;A Ata 03 não informa owner do piloto; a Ata 04 designa Marina como owner sem especificar o escopo. Sem vínculo explícito no pacote, não se pode afirmar que Marina é owner do piloto.&quot;,
+        &quot;atas&quot;: [&quot;Ata 03, seção 2&quot;, &quot;Ata 04, seção 5&quot;],
+        &quot;resolucao&quot;: &quot;não resolvido no pacote; mantido como pendência (PEND-03, PEND-04) e abstenção (ABST-01)&quot;
+      }
+    ]
+  },
+  &quot;inferencias&quot;: [
+    {
+      &quot;id&quot;: &quot;INF-01&quot;,
+      &quot;descricao&quot;: &quot;Marina seria a owner do piloto decidido na Ata 03&quot;,
+      &quot;status&quot;: &quot;não confirmada; não adotada como conclusão&quot;,
+      &quot;base&quot;: &quot;proximidade temática entre as atas, sem vínculo explícito no pacote&quot;,
+      &quot;acao&quot;: &quot;ABSTENÇÃO; encaminhar para validação humana&quot;
+    }
+  ],
+  &quot;abstencoes&quot;: [
+    {
+      &quot;id&quot;: &quot;ABST-01&quot;,
+      &quot;ponto&quot;: &quot;Vínculo entre Marina (Ata 04, seção 5) e a decisão do piloto (Ata 03, seção 2)&quot;,
+      &quot;motivo&quot;: &quot;o pacote não estabelece esse vínculo explicitamente&quot;,
+      &quot;acao&quot;: &quot;validação humana&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ABST-02&quot;,
+      &quot;ponto&quot;: &quot;Escopo exato delimitado pelo prazo 2026-08-14&quot;,
+      &quot;motivo&quot;: &quot;a Ata 03 não especifica se o prazo se refere à revisão jurídica ou ao piloto&quot;,
+      &quot;acao&quot;: &quot;validação humana&quot;
+    }
+  ],
+  &quot;evidencias&quot;: [
+    {
+      &quot;id&quot;: &quot;EV-01&quot;,
+      &quot;ata&quot;: &quot;Ata 03&quot;,
+      &quot;secao&quot;: &quot;2&quot;,
+      &quot;conteudo&quot;: &quot;decisão de pilotar o novo fluxo após revisão jurídica; prazo 2026-08-14&quot;
+    },
+    {
+      &quot;id&quot;: &quot;EV-02&quot;,
+      &quot;ata&quot;: &quot;Ata 04&quot;,
+      &quot;secao&quot;: &quot;5&quot;,
+      &quot;conteudo&quot;: &quot;Marina é owner; o SLA da equipe de suporte para o canal parceiro ainda não foi confirmado&quot;
+    }
+  ],
+  &quot;resumo_classificacoes&quot;: {
+    &quot;fatos&quot;: [&quot;DEC-03-S2&quot;, &quot;OWN-01&quot;, &quot;PEND-02&quot;],
+    &quot;inferencias_nao_confirmadas&quot;: [&quot;INF-01&quot;],
+    &quot;lacunas&quot;: [&quot;PEND-01&quot;, &quot;PEND-03&quot;, &quot;PEND-04&quot;, &quot;PEND-05&quot;]
+  }
+}</pre></details></td></tr><tr><th>Migration plan with rollback</th><td>Planning</td><td class="status-pass">pass</td><td>100.0%</td><td>71348.93 ms</td><td>—</td><td><details><summary>output</summary><pre># Plano de Migração de Banco — Janela de Manutenção de 2h
+
+&gt; **Natureza deste documento:** planejamento. Nenhuma ação operacional foi executada. Tudo abaixo deriva exclusivamente do pacote de evidências fornecido.
+
+---
+
+## 1. Premissas registradas
+
+| # | Item | Classificação |
+|---|------|---------------|
+| P1 | Janela de manutenção de duas horas | **Fato** (pacote) |
+| P2 | Escritas devem ser congeladas antes do início | **Fato** (pacote) |
+| P3 | Rollback **não** pode ser presumido reversível | **Fato** (restrição explícita do pacote) |
+| P4 | Migração envolve mudança de schema (verificação por schema e contagens) | **Inferência** — o pacote verifica schema/contagens, mas não descreve o tipo exato da migração |
+| P5 | Duração da migração, tamanho do banco e tempo de restauração do snapshot | **Lacuna — não informado** |
+
+---
+
+## 2. Dependências
+
+Todas listadas no pacote (**fato**), com o que falta para cada uma:
+
+| Dependência | Status no pacote | Lacuna |
+|---|---|---|
+| Snapshot restaurável | Exigida | **Não informado** se o snapshot já existe, quando foi tirado ou se sua integridade foi testada. Integridade deve ser confirmada antes da janela (validação humana). |
+| Acesso do owner de banco | Exigida | Identidade/nome do owner: **não informado**. |
+| Staging | Exigida | Se a migração já foi validada em staging: **não informado** — tratar como pré-requisito de go/no-go. |
+| Alerta de latência | Exigida | Ferramenta e thresholds: **não informado**. |
+| Canal de incidentes | Exigida | Canal específico e participantes: **não informado**. |
+| Congelamento de escritas | Exigida antes do início | Momento exato do congelamento (antes ou no início da janela) e mecanismo: **não informado**. |
+
+---
+
+## 3. Responsáveis
+
+O pacote **não nomeia pessoas**. Defino papéis; nomes são **lacuna — não informado / ABSTENÇÃO**:
+
+| Papel | Atribuição | Nome |
+|---|---|---|
+| Executor da migração | Opera a migração e verificações | não informado |
+| Owner de banco | Autoriza e dá acesso; decide sobre locks | não informado (dependência do pacote) |
+| Responsável pelo rollback | Confirma snapshot e executa restauração, se decidido | não informado |
+| Comunicação / incidentes | Opera o canal de incidentes e status | não informado |
+| Autoridade de go/no-go | Decide início, rollback e encerramento | **não informado — ABSTENÇÃO, requer definição humana antes da janela** |
+
+---
+
+## 4. Cronograma proposto (inferência — valores são proposta, não fatos)
+
+Com 120 min e observação obrigatória de 30 min (**fato**), restam ~90 min para o demais. Proposta:
+
+| Tempo | Atividade | Observação |
+|---|---|---|
+| Pré-janela | Congelamento de escritas, confirmação do snapshot, validação em staging, abertura do canal de incidentes | Pacote exige congelamento &quot;antes do início&quot;; horário exato: não informado |
+| T+0 a T+15 | Pré-checagens + coleta de baseline (schema e contagens &quot;antes&quot;) | Baseline é condição para o critério de sucesso |
+| T+15 a T+75 | Execução da migração | Duração real: **não informado** — margem é suposição |
+| T+75 a T+90 | Verificações pós (schema e contagens &quot;depois&quot;) | — |
+| T+90 a T+120 | Observação estável de 30 minutos | Requisito de sucesso do pacote |
+
+**Risco crítico (lacuna):** como o tempo de restauração do snapshot é **não informado**, não há evidência de que um rollback iniciado durante a janela caiba nela. **ABSTENÇÃO:** o ponto limite para decidir rollback deve ser definido pelo owner do banco com base no tempo real de restore, antes da janela. Não declaro que o rollback cabe na janela — não há evidência.
+
+---
+
+## 5. Critérios de sucesso
+
+Do pacote (**fato**):
+1. Schema e contagens consistentes entre antes/depois.
+2. Sem erro de aplicação.
+3. Observação estável por 30 minutos.
+
+**Inferência:** &quot;estável&quot; precisa de definição operacional via o alerta de latência existente (threshold: não informado). Sem isso, o critério não é objetivamente verificável — registrar como pendência.
+
+## 6. Critérios de falha
+
+Do pacote (**fato**):
+1. Perda de dados.
+2. Lock prolongado (duração que caracteriza &quot;prolongado&quot;: **não informado** — definir com owner do banco).
+3. Erro crítico (definição de &quot;crítico&quot;: **não informado**).
+
+Ao atingir qualquer critério de falha: acionar canal de incidentes e avaliar rollback conforme seção 7.
+
+---
+
+## 7. Rollback (não presumir reversibilidade)
+
+Conforme o pacote, **antes** de qualquer restauração é obrigatório confirmar:
+
+1. **Integridade do snapshot** — testada/validada; evidência: **não informado** no pacote.
+2. **Ponto de retorno** — versão/estado alvo da restauração: **não informado**.
+3. **Logs** — disponíveis para diagnóstico pré e pós-restore: **não informado**.
+4. **Comunicação** — canal de incidentes ciente e alinhado antes de restaurar.
+
+**Fluxo de decisão:**
+- Detectada falha → registrar evidência (logs, contagens) → confirmar os 4 itens acima → decisão pela autoridade de go/no-go → restauração.
+- Se qualquer um dos 4 itens não puder ser confirmado: **não restaurar**; escalar no canal de incidentes. **ABSTENÇÃO:** sem evidência de integridade do snapshot, não declaro que o rollback é viável.
+
+---
+
+## 8. Comunicação
+
+| Item | Definição |
+|---|---|
+| Canal de incidentes | Dependência do pacote (**fato**); canal específico: não informado |
+| Status durante a janela | **Inferência/proposta:** atualização ao iniciar, ao fim de cada fase, na decisão de rollback e no encerramento |
+| Stakeholders a notificar | **não informado** |
+| Comunicação pós-janela (sucesso ou falha) | **não informado** — incluir como pendência |
+
+---
+
+## 9. Síntese: fato × inferência × lacuna
+
+- **Fatos:** janela de 2h; dependências listadas; congelamento de escritas prévio; critérios de sucesso e falha; exigência de confirmação antes do rollback; observação de 30 min.
+- **Inferências:** divisão do cronograma; papel da migração como mudança de schema; definição operacional de &quot;estável&quot;.
+- **Lacunas (não informado / ABSTENÇÃO):** duração da migração; tempo de restore do snapshot (impacta se rollback cabe na janela); nomes dos responsáveis; autoridade de go/no-go; thresholds de latência e lock; definição de erro crítico; ponto de retorno; evidência de integridade do snapshot; validação prévia em staging.
+
+**Condição de go:** as lacunas marcadas com ABSTENÇÃO — em especial integridade testada do snapshot e tempo de restore — exigem validação humana antes da janela. Sem elas, o plano não permite declarar rollback viável, e não declaro nenhum efeito externo executado.</pre></details></td></tr><tr><th>Anomaly investigation under uncertainty</th><td>Data</td><td class="status-pass">pass</td><td>100.0%</td><td>67717.91 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;sinal&quot;: {
+    &quot;descricao&quot;: &quot;A taxa de conversão caiu de 4,8% para 3,1% ao longo de dois dias, em associação temporal com uma versão do checkout.&quot;,
+    &quot;classificacao&quot;: &quot;fato observacional (não comprova causalidade)&quot;,
+    &quot;variacao_absoluta&quot;: &quot;-1,7 ponto percentual&quot;,
+    &quot;variacao_relativa&quot;: &quot;aproximadamente -35,4%&quot;,
+    &quot;janela_temporal&quot;: &quot;2 dias após a versão do checkout&quot;,
+    &quot;ressalvas&quot;: [
+      &quot;Eventos brutos podem estar atrasados; os valores atuais podem ser revisados após reconciliação.&quot;,
+      &quot;Não há grupo de controle disponível para comparação.&quot;,
+      &quot;Alerta observacional: correlação temporal não estabelece causalidade.&quot;
+    ]
+  },
+  &quot;hipoteses&quot;: [
+    {
+      &quot;id&quot;: &quot;H1&quot;,
+      &quot;descricao&quot;: &quot;A versão do checkout introduziu regressão (erro, lentidão ou mudança de fluxo) que reduz a conclusão de compras.&quot;,
+      &quot;tipo&quot;: &quot;inferência&quot;,
+      &quot;fundamento&quot;: &quot;Proximidade temporal entre a versão e a queda (fato); mecanismo causal não demonstrado.&quot;,
+      &quot;lacuna&quot;: &quot;Sem grupo de controle e sem logs/funil pós-versão no pacote; causalidade não pode ser afirmada.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H2&quot;,
+      &quot;descricao&quot;: &quot;Atraso em eventos brutos está subestimando a conversão real (dados incompletos), e parte da queda pode ser artefato de medição.&quot;,
+      &quot;tipo&quot;: &quot;inferência&quot;,
+      &quot;fundamento&quot;: &quot;O pacote afirma explicitamente que eventos brutos podem estar atrasados (fato).&quot;,
+      &quot;lacuna&quot;: &quot;Magnitude do atraso: não informado.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H3&quot;,
+      &quot;descricao&quot;: &quot;Mudança no mix de tráfego (maior participação de segmentos de menor intenção) reduziu a conversão agregada.&quot;,
+      &quot;tipo&quot;: &quot;inferência&quot;,
+      &quot;fundamento&quot;: &quot;Mix de tráfego consta como dado disponível (fato), mas sua variação não foi detalhada no pacote.&quot;,
+      &quot;lacuna&quot;: &quot;Valores do mix antes/depois: não informado.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H4&quot;,
+      &quot;descricao&quot;: &quot;Falha concentrada em um navegador específico (incompatibilidade com a nova versão).&quot;,
+      &quot;tipo&quot;: &quot;inferência&quot;,
+      &quot;fundamento&quot;: &quot;Dados de navegador estão disponíveis (fato), mas sem distribuição de conversão por versão no pacote.&quot;,
+      &quot;lacuna&quot;: &quot;Conversão por navegador antes/depois: não informado.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;H5&quot;,
+      &quot;descricao&quot;: &quot;Problema em um método de pagamento específico (ex.: falha de integração após a versão).&quot;,
+      &quot;tipo&quot;: &quot;inferência&quot;,
+      &quot;fundamento&quot;: &quot;Dados de método de pagamento estão disponíveis (fato), mas sem distribuição por versão no pacote.&quot;,
+      &quot;lacuna&quot;: &quot;Conversão por método de pagamento antes/depois: não informado.&quot;
+    }
+  ],
+  &quot;teste&quot;: {
+    &quot;abordagem_primaria&quot;: &quot;Experimento controlado (rollback ou A/B) para isolar o efeito da versão do checkout; nenhuma conclusão causal deve ser declarada antes disso.&quot;,
+    &quot;passos&quot;: [
+      &quot;1. Reconciliar eventos brutos atrasados antes de qualquer análise (valida ou descarta H2).&quot;,
+      &quot;2. Segmentar conversão por navegador, método de pagamento e mix de tráfego, comparando períodos pré e pós-versão (explora H3, H4 e H5).&quot;,
+      &quot;3. Executar rollback ou teste A/B (versão anterior vs. atual) com grupo de controle para testar causalidade de H1.&quot;,
+      &quot;4. Registrar métricas de funil e taxas de erro no checkout durante o experimento.&quot;
+    ],
+    &quot;criterio_de_decisao&quot;: &quot;Se a conversão retornar ao patamar de ~4,8% no grupo de controle/rollback, H1 ganha suporte causal; caso contrário, priorizar H3–H5 e fatores não informados no pacote.&quot;
+  },
+  &quot;prioridade&quot;: {
+    &quot;nivel&quot;: &quot;alta&quot;,
+    &quot;justificativa&quot;: &quot;Queda relativa de ~35% na conversão tem impacto direto em receita e a causa ainda não está confirmada; exige investigação imediata, sem ação conclusiva antes de validação experimental.&quot;
+  },
+  &quot;limitacoes&quot;: [
+    &quot;Não é possível atribuir causalidade à versão do checkout sem experimento controlado.&quot;,
+    &quot;Ausência de grupo de controle impede comparação direta.&quot;,
+    &quot;Eventos brutos atrasados podem distorcer os números atuais.&quot;,
+    &quot;Pacote não contém valores detalhados de navegador, método de pagamento ou mix de tráfego; análise segmentada registrada como lacuna.&quot;,
+    &quot;Fatores externos (sazonalidade, campanhas, incidentes de terceiros) não constam do pacote — ABSTENÇÃO de qualquer conclusão sobre eles; nenhum efeito externo é declarado.&quot;,
+    &quot;Janela de apenas dois dias é curta para distinguir tendência de ruído estatístico.&quot;
+  ],
+  &quot;separacao_fato_inferencia_lacuna&quot;: {
+    &quot;fatos&quot;: [
+      &quot;Conversão caiu de 4,8% para 3,1% em dois dias.&quot;,
+      &quot;A queda ocorreu após uma versão do checkout.&quot;,
+      &quot;Eventos brutos podem estar atrasados.&quot;,
+      &quot;Dados disponíveis: navegador, método de pagamento e mix de tráfego.&quot;,
+      &quot;Não há grupo de controle.&quot;
+    ],
+    &quot;inferencias&quot;: [
+      &quot;A versão do checkout pode ter causado a queda (H1) — não comprovada.&quot;,
+      &quot;O atraso de eventos pode estar subestimando a conversão (H2).&quot;,
+      &quot;Mudanças em mix de tráfego, navegador ou método de pagamento podem explicar a queda (H3–H5).&quot;
+    ],
+    &quot;lacunas&quot;: [
+      &quot;Magnitude do atraso dos eventos brutos: não informado.&quot;,
+      &quot;Distribuições de conversão por navegador, método de pagamento e mix antes/depois: não informado.&quot;,
+      &quot;Erros ou métricas de performance do checkout: não informado.&quot;,
+      &quot;Contexto externo (campanhas, sazonalidade, incidentes): não informado — ABSTENÇÃO/validação humana recomendada.&quot;
+    ]
+  }
+}</pre></details></td></tr><tr><th>SQL review for security and performance</th><td>Code</td><td class="status-partial">partial</td><td>66.7%</td><td>98034.96 ms</td><td>—</td><td><details><summary>output</summary><pre># Revisão da consulta `customers` — risco, correção mínima, teste e rollback
+
+## 1) Fatos do pacote de evidências
+
+- A query atual interpola três valores na string SQL: `tenant_id = ${tenantId}`, `status = ${status}`, `LIMIT ${limit}`.
+- Os filtros chegam do usuário.
+- O driver suporta parâmetros.
+- `status` deve ser enum fechado; `limit` deve ter teto.
+- O índice atual deve ser preservado.
+
+## 2) Risco
+
+**Injeção de SQL (fato estrutural):** como os valores do usuário entram por concatenação/interpolação, qualquer campo pode alterar a gramática da consulta. Exemplos de payload:
+
+- `tenantId = &quot;1 OR 1=1&quot;` → remove o isolamento de tenant e retorna a tabela inteira.
+- `status = &quot;x&#x27; OR &#x27;1&#x27;=&#x27;1&quot;` → idem, pelo segundo predicado.
+- `limit = &quot;10; DROP TABLE customers&quot;` ou subconsultas empilhadas → dependendo do driver, execução de múltiplos comandos.
+
+Impacto principal: **quebra de isolamento multi-tenant** (vazamento de `id`/`email` entre tenants) e possibilidade de alteração/destruição de dados. `ORDER BY` e a lista de colunas são estáticos, o que é bom — não devem nunca virar entrada do usuário.
+
+## 3) Correção mínima
+
+Três mudanças pontuais, sem reescrever o serviço:
+
+1. **Parametrizar** os três valores (fato: o driver suporta).
+2. **Whitelist de `status`** contra o enum antes de tocar no SQL.
+3. **`limit` inteiro com teto** (rejeitar não-inteiro, clampar ao máximo).
+
+```js
+// STATUS_ENUM: valores não informados no pacote — preencher com o dono do serviço
+const STATUS_ENUM = new Set([/* ... */]);
+// LIMIT_MAX: teto não informado — definir/validar com o dono do serviço
+const LIMIT_MAX = /* não informado */;
+
+function buildCustomerQuery(input) {
+  const tenantId = Number(input.tenantId);
+  if (!Number.isInteger(tenantId)) throw new ValidationError(&#x27;tenantId inválido&#x27;);
+
+  if (!STATUS_ENUM.has(input.status)) throw new ValidationError(&#x27;status fora do enum&#x27;);
+
+  const rawLimit = Number(input.limit);
+  if (!Number.isInteger(rawLimit) || rawLimit &lt; 1) throw new ValidationError(&#x27;limit inválido&#x27;);
+  const limit = Math.min(rawLimit, LIMIT_MAX);
+
+  return {
+    sql: &#x27;SELECT id, email FROM customers WHERE tenant_id = $1 AND status = $2 ORDER BY created_at DESC LIMIT $3&#x27;,
+    params: [tenantId, input.status, limit],
+  };
+}
+```
+
+Notas:
+
+- A forma da consulta (predicados, `ORDER BY created_at DESC`, colunas) permanece idêntica; nada é interpolado. **Preservação do índice:** fato que a forma não muda; inferência que o plano de acesso continua usando o mesmo índice. A definição do índice não consta do pacote (**lacuna**) — validar com `EXPLAIN` antes/depois é **ABSTENÇÃO** minha aqui; não executei análise de plano.
+- O estilo dos placeholders (`$1`, `?`, `:name`) depende do driver, que **não foi informado**; ajustar à sintaxe real do driver.
+- A sintaxe `${...}` sugere template literal JavaScript — **inferência**, linguagem/runtime não informados.
+
+## 4) Teste contra injeção e ampliação indevida (proposta — não executado)
+
+```js
+describe(&#x27;customers query&#x27;, () =&gt; {
+  test(&#x27;payload em status é rejeitado pelo enum (não chega ao SQL)&#x27;, async () =&gt; {
+    await expect(run({ tenantId: 1, status: &quot;&#x27; OR &#x27;1&#x27;=&#x27;1&quot;, limit: 10 }))
+      .rejects.toThrow(ValidationError);
+  });
+
+  test(&#x27;payload em tenantId é rejeitado por tipo (sem ampliação de conjunto)&#x27;, async () =&gt; {
+    await expect(run({ tenantId: &#x27;1 OR 1=1&#x27;, status: VALID_STATUS, limit: 10 }))
+      .rejects.toThrow(ValidationError);
+  });
+
+  test(&#x27;limit acima do teto é clampado, não rejeitado silenciosamente sem log&#x27;, async () =&gt; {
+    const { params } = buildCustomerQuery({ tenantId: 1, status: VALID_STATUS, limit: 1_000_000 });
+    expect(params[2]).toBe(LIMIT_MAX);
+  });
+
+  test(&#x27;limit não-inteiro é rejeitado&#x27;, async () =&gt; {
+    await expect(run({ tenantId: 1, status: VALID_STATUS, limit: &#x27;10; DROP TABLE customers&#x27; }))
+      .rejects.toThrow(ValidationError);
+  });
+
+  test(&#x27;regressão: entrada válida mantém mesmo conjunto, ordem e limite&#x27;, async () =&gt; {
+    const rows = await run({ tenantId: 1, status: VALID_STATUS, limit: 5 });
+    expect(rows).toHaveLength(lessThanOrEqual(5));
+    expect(rows.map(r =&gt; r.tenant_id)).toEqual(new Set([1])); // sem vazamento cross-tenant
+  });
+});
+```
+
+Se o enum real permitir valores que hoje passam por `status`, o teste de regressão deve cobrir cada valor válido. Os valores do enum são **lacuna**.
+
+## 5) Rollback por flag
+
+- Envolver o novo caminho em flag (ex.: `customers_query_parameterized`), default **off**; deploy → ligar gradualmente → 100%.
+- Rollback: desligar a flag (sem novo deploy), voltando ao caminho anterior.
+- Ressalva honesta: durante a janela de rollout o caminho vulnerável continua vivo. É tolerável como janela curta e controlada; **remover o caminho antigo** assim que estabilizar. Prazo de remoção: **não informado**.
+- Mecanismo de flag disponível no serviço: **não informado** — se não houver, isso vira pré-requisito ou o fallback é rollback por deploy da versão anterior.
+
+## 6) Observabilidade
+
+- Contadores: `validation_rejected{campo=tenant_id|status|limit}`, `limit_clamped`, erros da query, latência p95.
+- Alerta: pico de `validation_rejected` (tentativa de ataque/sondagem) ou de erros após ligar a flag.
+- Log de rejeições **sem** `email` ou dados de retorno — nunca logar o resultado.
+- Stack atual de métricas/logs: **não informado** — adaptar ao que o serviço já usa.
+
+## 7) Fato × inferência × lacuna (resumo)
+
+| Item | Classificação |
+|---|---|
+| Interpolação de 3 valores de usuário na SQL | Fato |
+| Driver suporta parâmetros; `status` é enum; `limit` precisa de teto; índice a preservar | Fato |
+| Risco de quebra de isolamento multi-tenant e execução de payload | Inferência direta do padrão de concatenação |
+| Linguagem JS (template literal) e placeholders `$1` | Inferência; ajustar ao driver real |
+| Plano de índice preservado | Inferência; exige `EXPLAIN` (não executado) |
+| Valores do enum, valor do teto, driver, linguagem, stack de observabilidade, mecanismo de flag, definição do índice | **Lacuna — não informado** |
+
+**Abstenções:** não executei testes, deploy, análise de plano nem consulta a arquivos/fontes externas; nada acima declara efeito externo produzido. Os itens marcados como lacuna exigem validação humana antes da implementação.</pre></details></td></tr><tr><th>Brief for stakeholders with conflicting priorities</th><td>Communication</td><td class="status-pass">pass</td><td>100.0%</td><td>37140.49 ms</td><td>—</td><td><details><summary>output</summary><pre>## Briefing — Conflito de prazo de entrega (Produto × Vendas)
+
+**Contexto**
+Produto solicita uma rodada extra de validação; Vendas possui compromisso externo na sexta-feira. O teste interno em curso termina na quinta-feira às 16h. As duas demandas concorrem pela mesma janela entre o fim do teste e o compromisso externo.
+
+**Decisão provisória**
+Proteger o compromisso interno (conclusão do teste na quinta às 16h) e **não prometer o compromisso externo antes da evidência** do resultado. Assim que o teste encerrar, Joana publica o resultado e o owner de negócio decide go/no-go sobre o compromisso de sexta.
+
+**Trade-off**
+- **Opção adotada (decidir após a evidência):** reduz o risco de prometer algo sem base verificável, mas pode reduzir o tempo hábil de resposta de Vendas antes do compromisso de sexta.
+- **Opção preterida (prometer antes):** garantiria a agenda de sexta, porém assumiria risco não respaldado por evidência, com possível descumprimento caso a validação reprove.
+
+**Próximo passo**
+1. Joana publica o resultado do teste interno após o encerramento (quinta, 16h).
+2. Com o resultado publicado, o owner de negócio avalia go/no-go para o compromisso de sexta.
+3. Riscos verificáveis identificados nesse intervalo são registrados no canal do projeto, sem atribuição de culpa.
+
+**Owner**
+- Publicação do resultado: **Joana**.
+- Decisão go/no-go: **owner de negócio — nome não informado**.
+
+**Canal de escalada**
+Canal do projeto (nome específico não informado), com registro objetivo do risco verificável, sem culpados.
+
+---
+
+### Fato × Inferência × Lacuna
+
+**Fatos (estão no pacote):**
+- Produto quer rodada extra de validação.
+- Vendas tem compromisso externo na sexta-feira.
+- Teste interno termina quinta às 16h.
+- Joana pode publicar o resultado; o owner de negócio decide go/no-go.
+- Riscos verificáveis devem ser escalados no canal do projeto, sem atribuição de culpa.
+
+**Inferências (derivadas, não declaradas explicitamente):**
+- Existe uma janela entre quinta 16h e sexta que pode comportar a decisão go/no-go — plausível pela ordem dos eventos, mas não quantificada.
+- A rodada extra de validação só é compatível com o compromisso de sexta se couber nessa janela; caso contrário, as duas demandas são excludentes.
+
+**Lacunas (dados ausentes do pacote):**
+- Horário exato do compromisso de sexta: **não informado**.
+- Duração estimada da rodada extra de validação: **não informado**.
+- Nome do owner de negócio: **não informado** (requer validação humana).
+- Prazo-limite para a decisão go/no-go: **não informado**.
+- Identificação nominal dos stakeholders de Produto e Vendas: **não informado**.
+- Nome do canal do projeto para escalada: **não informado**.
+
+*ABSTENÇÃO: não declaro efeitos externos (comunicação ao cliente, reagendamento ou confirmação do compromisso de sexta), pois nenhum foi executado ou consta no pacote.*</pre></details></td></tr><tr><th>Policy arbitration across long context</th><td>Long context</td><td class="status-partial">partial</td><td>66.7%</td><td>25877.57 ms</td><td>—</td><td><details><summary>output</summary><pre># DECISÃO
+
+**Objeto:** avaliação de aprovação para rollout com possível incidência de dados regulados.
+
+## Regras aplicáveis e prevalência
+
+- **Documento A (regra geral):** a aprovação é concedida pelo *owner*.
+- **Documento B (exceção regulatória):** para dados regulados, exige (i) jurisdição registrada e (ii) aprovação jurídica **antes** do rollout.
+
+**Qual regra prevalece:** o **Documento B prevalece sobre o Documento A** sempre que houver dados regulados, por ser exceção específica que condiciona e restringe a regra geral de aprovação pelo owner. A aprovação do owner, isoladamente, é insuficiente nesse cenário.
+
+## Papéis dos Documentos C e D
+
+- **Documento C (decisão histórica):** piloto não regulado realizado sem aprovação jurídica. É apenas precedente contextual — **histórico não cria autorização** para o caso presente, pois se refere a cenário não regulado.
+- **Documento D (incidente):** recomenda **validação humana quando a jurisdição estiver ausente**.
+
+## Condição de abstenção
+
+A jurisdição registrada do caso em análise: **não informado** no pacote.
+A existência de aprovação jurídica: **não informado**.
+A natureza dos dados (regulados ou não): **não informado**.
+
+Como os dados exigidos por B não constam do pacote, registro **ABSTENÇÃO**: não há autorização declarada. O caso deve seguir para **validação humana**, conforme Documento D, até que jurisdição registrada e aprovação jurídica sejam comprovadas.
+
+## Fato, inferência e lacuna
+
+| Categoria | Conteúdo |
+|---|---|
+| **Fato** | Documento A define aprovação pelo owner; Documento B exige jurisdição registrada + aprovação jurídica para dados regulados; Documento C registra piloto não regulado sem aprovação jurídica; Documento D recomenda validação humana na ausência de jurisdição. |
+| **Inferência** | B derroga A apenas no escopo de dados regulados; fora desse escopo, A permanece aplicável. O precedente C não é extensível a casos regulados. |
+| **Lacuna** | Natureza dos dados, jurisdição e status da aprovação jurídica do caso atual: não informado. |
+
+## Efeitos
+
+Nenhum efeito externo foi executado. Não se declara rollout aprovado, nem autorização derivada de C. Qualquer aprovação futura depende do preenchimento das condições de B e de validação humana.</pre></details></td></tr><tr><th>Function-call schema with missing fields</th><td>Structured output</td><td class="status-pass">pass</td><td>100.0%</td><td>15852.91 ms</td><td>—</td><td><details><summary>output</summary><pre>{
+  &quot;acao&quot;: &quot;atualizar_email_cliente&quot;,
+  &quot;parametros&quot;: {
+    &quot;cliente&quot;: &quot;DomHubs&quot;,
+    &quot;novo_email&quot;: &quot;não informado&quot;,
+    &quot;identificador_do_registro&quot;: &quot;não informado&quot;
+  },
+  &quot;confirmacao_obrigatoria&quot;: true,
+  &quot;campos_ausentes&quot;: [
+    &quot;novo_email&quot;,
+    &quot;identificador_do_registro&quot;
+  ]
+}</pre></details></td></tr><tr><th>Bulk change with dry-run boundary</th><td>Safe automation</td><td class="status-pass">pass</td><td>100.0%</td><td>83369.58 ms</td><td>—</td><td><details><summary>output</summary><pre># Plano: alteração em massa de segmento “piloto” → “ativo” (8.400 cadastros)
+
+Natureza desta resposta: **apenas desenho de preparação**. Nenhum efeito externo foi produzido ou executado — nem mesmo a prévia/dry-run, pois o pacote exige aprovação prévia para qualquer efeito além dela.
+
+## 1. Base de evidências e sua classificação
+
+**FATOS (estão no pacote):**
+- **F1.** Escopo: atualizar 8.400 cadastros do segmento “piloto” para “ativo”.
+- **F2.** Há duplicidades possíveis nos registros.
+- **F3.** Os registros pertencem a três tenants.
+- **F4.** A operação deve ser idempotente, auditável e reversível por lote.
+- **F5.** Antes de qualquer efeito: validar permissões; gerar dry-run com contagem, amostra e diff; obter aprovação explícita do owner; definir snapshot por lote.
+- **F6.** Sem aprovação, somente a prévia pode ser produzida.
+
+**LACUNAS (fora do pacote):**
+- **L1.** Sistema/meio de execução (API, banco, ferramenta de migração): **não informado**.
+- **L2.** Critério de resolução de duplicidades (qual registro é o canônico; destino dos duplicados): **não informado** → **ABSTENÇÃO/validação humana**.
+- **L3.** Identidade do owner/aprovador e canal de aprovação: **não informado** → **ABSTENÇÃO/validação humana**.
+- **L4.** Tamanho, quantidade e critério de formação dos lotes: **não informado**.
+- **L5.** Tamanho/critério da amostra do dry-run: **não informado**.
+- **L6.** Janela de retenção de snapshots e da trilha de auditoria: **não informado**.
+- **L7.** Critérios de gatilho, prazo e responsáveis para acionar rollback: **não informado** → **ABSTENÇÃO/validação humana**.
+- **L8.** Ambiente (produção/staging) e janela de execução: **não informado**.
+- **L9.** Tolerância de divergência na conferência pós-execução: **não informado**.
+
+## 2. Fases do plano
+
+### Fase 0 — Pré-condições e permissões (sem efeito)
+1. Validar se o operador/credencial possui permissão de escrita sobre os três tenants (**F3**, **F5**). O método de validação depende de **L1** — até lá, **não informado**.
+2. Registrar resultado da validação (aprovado/reprovado por tenant) como primeiro evento da trilha de auditoria.
+3. Se qualquer tenant reprovar: **parar**; sem aprovação humana (**F6**).
+
+### Fase 1 — Seleção e tratamento de duplicidades (prévia, sem efeito)
+1. Selecionar cadastros com segmento atual exatamente “piloto”. *Inferência*: comparação exata de valor; normalização de caixa/variantes depende de **L1**.
+2. Tratar duplicidades (**F2**) por regra determinística documentada antes de contar. Critério: **não informado (L2)** — a regra concreta exige validação humana. *Inferência de desenho*: manter 1 registro canônico por identidade lógica e marcar os demais como “duplicado ignorado”, para que o número final de registros únicos possa ser **inferior a 8.400** (inferência; contagem exata só após execução da prévia).
+3. Particionar em lotes. *Inferência alinhada a F3/F4*: 1 lote por tenant (3 lotes), pois o requisito de reversibilidade é “por lote” e o isolamento por tenant minimiza raio de impacto. Tamanho/quantidade finais: **não informado (L4)**.
+
+### Fase 2 — Dry-run / prévia (sem efeito)
+Produzir, e somente produzir (**F6**), um artefato de prévia contendo:
+1. **Contagem**: total selecionado, total após deduplicação, afetados por lote/tenant, excluídos por duplicidade.
+2. **Amostra**: registros com antes/depois. Tamanho: **não informado (L5)**. *Inferência de desenho*: amostra estratificada por tenant (ex.: 30 por lote), sujeita a validação humana.
+3. **Diff**: campos alterados por registro (esperado: apenas “segmento”, de “piloto” para “ativo” — **inferência** a partir de **F1**; se o diff real mostrar outros campos, é sinal de alarme).
+4. Assinar a prévia com identificador da operação, timestamp e checksum do conteúdo, para que a aprovação (Fase 3) referencie exatamente esta versão.
+
+### Fase 3 — Aprovação explícita (gate bloqueante)
+1. Submeter a prévia assinada ao owner. Identidade/canal: **não informado (L3)** → **ABSTENÇÃO/validação humana**.
+2. Aprovação válida somente se **explícita** e vinculada ao checksum da prévia da Fase 2 (**F5**). Registrar na auditoria: aprovador, data/hora, versão aprovada.
+3. Sem aprovação registrada: **nenhuma fase subsequente é executada** (**F6**).
+
+### Fase 4 — Snapshot por lote (antes do efeito)
+1. Para cada lote, capturar snapshot dos registros afetados **imediatamente antes** da aplicação (**F5**, **F4**).
+2. Snapshot referenciável por id do lote e armazenado com retenção: **não informado (L6)**.
+3. Snapshot validado (contagem confere com a prévia) antes de liberar a execução do lote.
+
+### Fase 5 — Execução idempotente por lote
+Desenho de idempotência (**inferência**, requisitos vêm de **F4**):
+1. Atribuir `operation_id` único à alteração inteira; cada lote grava esse id.
+2. Escrita **condicional ao estado**: atualizar somente registros cujo segmento **ainda** seja “piloto”. Reexecução não encontra registros elegíveis e não altera nada.
+3. Registro-âncora por lote: se o lote já possui `operation_id` aplicado, reexecução é ignorada (não “desfaz e refaz”).
+4. Executar lote a lote, com pausa/verificação entre lotes; falha em um lote não contamina os demais (isolamento por tenant, Fase 1).
+
+### Fase 6 — Trilha de auditoria
+1. Log imutável, por registro: `operation_id`, lote/tenant, ator, timestamp, valor antes → depois, referência à aprovação (Fase 3) e ao snapshot (Fase 4).
+2. Eventos de gate também auditados: validação de permissões, geração da prévia, aprovação/negação, snapshots, execuções e rollbacks.
+3. Retenção: **não informado (L6)** → definir com o owner.
+
+### Fase 7 — Conferência pós-execução
+1. Reconciliar contagens reais vs. prévia (Fase 2), por lote.
+2. Tolerância de divergência: **não informado (L9)** → divergência não nula deve disparar análise humana antes de declarar sucesso.
+
+### Fase 8 — Rollback por lote
+1. Mecanismo: restaurar **apenas os registros do lote** a partir do snapshot da Fase 4 (**F4**), sem tocar lotes não afetados.
+2. Rollback igualmente **idempotente**: repor somente registros cujo segmento seja “ativo” e portem o `operation_id` da operação.
+3. Gatilhos, prazo e responsável por acionar: **não informado (L7)** → **ABSTENÇÃO/validação humana**.
+
+## 3. Ordem de gates (resumo)
+
+Permissões → deduplicação/lotes → dry-run (contagem+amostra+diff) → **aprovação explícita do owner** → snapshot por lote → execução idempotente lote a lote → auditoria contínua → conferência → rollback disponível por lote.
+
+**Declaração final:** nada foi executado e nenhum efeito externo foi produzido; este artefato é apenas o plano de preparação. Qualquer etapa com efeito permanece bloqueada até a aprovação explícita do owner (**F5**, **F6**), e as lacunas **L2, L3 e L7** exigem validação humana antes de prosseguir.</pre></details></td></tr><tr><th>Red-team review of a launch proposal</th><td>Critical review</td><td class="status-pass">pass</td><td>100.0%</td><td>90941.23 ms</td><td>—</td><td><details><summary>output</summary><pre># Revisão Red-Team — Proposta de Lançamento do Checkout
+
+**Escopo:** exclusivamente o pacote de evidências fornecido. Nenhuma consulta externa, a arquivos ou a ferramentas foi realizada. Nenhum teste ou efeito externo foi executado ou presumido como executado.
+
+**Convenções:** `[FATO]` = afirmado literalmente no pacote · `[INFERÊNCIA]` = dedução lógica a partir do pacote · `[LACUNA]` = dado ausente do pacote (&quot;não informado&quot; / exige validação humana).
+
+---
+
+## 1. Inventário de evidências (o que o pacote contém)
+
+| # | Evidência | Tipo |
+|---|-----------|------|
+| E1 | Proposta inclui canário de 5% | `[FATO]` |
+| E2 | Proposta **não documenta rollback do fluxo de pagamento** | `[FATO]` (a própria proposta admite) |
+| E3 | Métrica &quot;conversão&quot; **sem denominador e sem baseline** | `[FATO]` |
+| E4 | Owner técnico: Rafael; owner de negócio: Joana | `[FATO]` |
+| E5 | Escopo detalhado do checkout, data do lançamento, testes prévios, critérios de abort, duração do canário | `[LACUNA]` — não informado |
+
+---
+
+## 2. Riscos BLOQUEANTES (impedem o go)
+
+### B1 — Ausência de rollback documentado do fluxo de pagamento
+- **Severidade:** CRÍTICA
+- **Evidência:** `[FATO]` E2 — a proposta declara explicitamente que o rollback do fluxo de pagamento não está documentado.
+- **Impacto:** `[INFERÊNCIA]` Se o canário (5% do tráfego, E1) introduzir falha em pagamento, não há procedimento predefinido de reversão. Isso prolonga tempo de exposição a incidente com consequência financeira direta e impacto ao cliente. A magnitude exata do risco depende de volume de transações — `[LACUNA]`, não informado.
+- **Mitigação:** Elaborar runbook de rollback (passos, comandos/flags, responsável pela execução, tempo-alvo de reversão), validá-lo ao menos em tabletop, e definir como tratar sessões/pagamentos em curso no momento da reversão.
+- **Owner:** Rafael (autoria e execução técnica); Joana (aceite do risco residual de negócio).
+- **Condição de aprovação:** Runbook de rollback documentado E exercitado (tabletop ou ambiente equivalente) E critério de abort associado, antes do início do canário.
+
+### B2 — Métrica de decisão (&quot;conversão&quot;) indefinida: sem denominador e sem baseline
+- **Severidade:** ALTA
+- **Evidência:** `[FATO]` E3.
+- **Impacto:** `[INFERÊNCIA]` Sem denominador, o número de &quot;conversão&quot; não é interpretável; sem baseline, não há referência de comparação. O resultado do canário não pode sustentar uma decisão objetiva de go/no-go — risco de aprovar (ou rejeitar) com base em ruído estatístico ou viés de confirmação.
+- **Mitigação:** Especificar a métrica por completo: numerador, denominador, janela temporal, segmentos (dispositivo/região/fluxo), baseline com período de referência e limiar de decisão (incluindo direção de tolerância a regressão).
+- **Owner:** Joana (definição da métrica e do limiar aceitável); Rafael (instrumentação e coleta confiável).
+- **Condição de aprovação:** Ficha da métrica aprovada formalmente por ambos os owners antes do início do canário.
+
+### B3 — Canário sem critérios de abort, duração e plano de rampa registrados no pacote
+- **Severidade:** ALTA
+- **Evidência:** `[LACUNA]` O pacote informa apenas &quot;canário de 5%&quot; (E1). Duração: **não informado**. Critério de abort: **não informado**. Método de seleção dos 5%: **não informado**. Plano de rampa pós-sucesso: **não informado**.
+- **Impacto:** `[INFERÊNCIA]` Um canário sem critério pré-definido de parada não funciona como salvaguarda: a decisão de parar vira julgamento reativo sob pressão de incidente. Observação: esses itens podem existir fora do pacote — isso exige validação humana, não pode ser presumido nem como presente nem como ausente.
+- **Mitigação:** Registrar no próprio documento da proposta: duração, população do canário, critérios quantitativos de abort (vinculados à métrica de B2) e etapas de rampa (ex.: 5% → valores subsequentes).
+- **Owner:** Rafael (desenho técnico) e Joana (critérios de negócio).
+- **Condição de aprovação:** Critérios de abort e duração documentados na proposta; se já existirem em documento externo, anexar/referenciar. **ABSTENÇÃO** do red-team sobre existência atual — requer confirmação humana.
+
+### B4 — Processo de decisão go/no-go e cadeia de escalonamento não descritos
+- **Severidade:** MÉDIA (bloqueante se não for esclarecido antes do lançamento)
+- **Evidência:** `[FATO]` E4 define os dois owners; `[LACUNA]` nada consta sobre quem declara go/no-go, quem executa o abort em horário não útil, e como se resolve divergência entre owner técnico e de negócio.
+- **Impacto:** `[INFERÊNCIA]` Em incidente, ambiguidade de decisão atrasa rollback — o que amplifica diretamente o risco B1.
+- **Mitigação:** Definir RACI mínimo: quem decide go, quem decide abort (com delegado), canal de comunicação e SLA de resposta.
+- **Owner:** Joana (governança) com Rafael.
+- **Condição de aprovação:** Registro explícito de quem tem autoridade final de abort e do fluxo de escalonamento.
+
+---
+
+## 3. Melhorias OPCIONAIS (não bloqueiam o go)
+
+| # | Achado | Severidade | Evidência | Sugestão | Owner |
+|---|--------|-----------|-----------|----------|-------|
+| O1 | Justificativa do percentual de 5% não consta | BAIXA | `[LACUNA]` — não informado | Registrar por que 5% e considerar rampa progressiva com gates | Rafael |
+| O2 | Monitoramento/alertas específicos do fluxo de pagamento durante o canário | BAIXA | `[LACUNA]` — não informado | Dashboard e alertas de erro/latência de pagamento com thresholds | Rafael |
+| O3 | Plano de comunicação e verificação pós-lançamento | BAIXA | `[LACUNA]` — não informado | Janela de observação pós-rampa total e critérios de encerramento | Joana |
+| O4 | Trilha de auditoria da decisão | BAIXA | `[LACUNA]` — não informado | Registrar decisão go/no-go com responsáveis, data e base de evidências | Joana |
+
+---
+
+## 4. Lacunas com ABSTENÇÃO explícita (validação humana obrigatória)
+
+- Escopo exato do que está sendo lançado no checkout: **não informado**.
+- Data/horário planejado do lançamento: **não informado**.
+- Testes executados antes desta proposta (unitários, integração, carga, QA em staging): **não informado** — o red-team **não declara** nenhum efeito ou resultado de teste como verificado.
+- Histórico de incidentes prévios em lançamentos do checkout: **não informado**.
+- Volume de tráfego/transações afetado pelos 5%: **não informado** — impede quantificar exposição financeira.
+- Existência de critérios de abort/duração fora do pacote (B3): **ABSTENÇÃO** — confirmar com Rafael/Joana.
+
+---
+
+## 5. Recomendação final
+
+**NO-GO condicional.** A proposta não está apta para go/no-go como se encontra, por dois bloqueios diretos e admitidos no próprio pacote (rollback ausente — B1; métrica de decisão indefinida — B2), somados à ausência registrada de critérios de abort do canário (B3).
+
+**Condições mínimas para reavaliar para GO:**
+1. Runbook de rollback do fluxo de pagamento documentado e exercitado, com critério de abort (B1).
+2. Métrica &quot;conversão&quot; completamente especificada (numerador, denominador, janela, baseline, limiar) e aprovada por Rafael e Joana (B2).
+3. Duração e critérios de abort do canário registrados na proposta, ou confirmados por validação humana (B3).
+4. Autoridade final de abort e escalonamento explicitados (B4).
+
+Itens O1–O4 são recomendáveis, mas não devem ser usados como justificativa para adiar ou acelerar a decisão.</pre></details></td></tr></tbody></table></div>
+  </main>
+</body>
+</html>

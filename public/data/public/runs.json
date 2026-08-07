@@ -1,8 +1,30 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_runs_index",
-  "generated_at": "2026-08-07T03:17:04.345Z",
+  "generated_at": "2026-08-07T10:35:05.026Z",
   "entries": [
+    {
+      "id": "qwen-3-8-max-preview-v04-full-20260807",
+      "model_id": "qwen3.8-max-preview",
+      "model_name": "qwen3.8-max-preview",
+      "provider": "qwen-cli",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.4.0",
+      "run_status": "archive_only",
+      "quality_score": 91.7,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "lock_reason": null,
+      "started_at": "2026-08-07T09:58:11Z",
+      "completed_at": "2026-08-07T10:28:37Z",
+      "task_count": 20,
+      "error_count": 0,
+      "artifacts": {
+        "json": "/data/public/runs/qwen-3-8-max-preview-v04-full-20260807.json"
+      }
+    },
     {
       "id": "grok-4-5-v04-full-20260806",
       "model_id": "grok-4.5",
