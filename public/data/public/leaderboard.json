@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_leaderboard",
-  "generated_at": "2026-08-08T10:30:14.615Z",
+  "generated_at": "2026-08-08T11:00:59.261Z",
   "methodology": {
     "ranking_field": "quality_score",
     "displayed_fields": [
@@ -121,6 +121,55 @@
     },
     {
       "rank": 3,
+      "model_id": "claude-sonnet-5-high",
+      "model_name": "claude-sonnet-5-high",
+      "provider": "cursor-cli",
+      "quality_score": 83.3,
+      "coverage": 1,
+      "verified": true,
+      "is_fixture": false,
+      "archive_only": true,
+      "promoted": false,
+      "ranking_status": "archive_only_ranked",
+      "evidence_status": "locked",
+      "ranking_task_count": 20,
+      "category_scores": {
+        "Code": 100,
+        "Communication": 100,
+        "Critical review": 100,
+        "Data": 66.7,
+        "Documents": 66.7,
+        "Long context": 66.7,
+        "Planning": 100,
+        "Research": 83.3,
+        "Safe automation": 83.3,
+        "Structured output": 66.7
+      },
+      "metrics": {
+        "input_cost_per_1k": null,
+        "output_cost_per_1k": null,
+        "cost_per_1k": null,
+        "run_cost_usd": null,
+        "tokens_total": 30631,
+        "latency_ms": 44120,
+        "tokens_per_second": null,
+        "context_tokens": null,
+        "token_count_source": "estimated_utf8_bytes_per_4",
+        "cost_source": null,
+        "cost_is_estimate": false,
+        "cost_estimate_warning": null,
+        "pricing_fetched_at": null,
+        "observed_from_runs": true
+      },
+      "license": "unknown",
+      "bench_run_date": "2026-08-08T10:57:55Z",
+      "run_ids": [
+        "cursor-claude-sonnet-5-high-v04-full-20260808"
+      ],
+      "last_verified_at": "2026-08-08T10:57:55Z"
+    },
+    {
+      "rank": 4,
       "model_id": "codex/gpt-5.6-luna",
       "model_name": "GPT-5.6 Luna (Codex)",
       "provider": "codex",
@@ -171,7 +220,7 @@
       "last_verified_at": "2026-08-03T23:12:54Z"
     },
     {
-      "rank": 4,
+      "rank": 5,
       "model_id": "qwen3.8-max",
       "model_name": "qwen3.8-max",
       "provider": "qwen-cli",
@@ -220,7 +269,7 @@
       "last_verified_at": "2026-08-07T10:59:08Z"
     },
     {
-      "rank": 5,
+      "rank": 6,
       "model_id": "gemini-3.6-flash",
       "model_name": "gemini-3.6-flash",
       "provider": "antigravity-cli",
@@ -269,7 +318,7 @@
       "last_verified_at": "2026-08-08T10:27:17Z"
     },
     {
-      "rank": 6,
+      "rank": 7,
       "model_id": "grok-4.5",
       "model_name": "grok-4.5",
       "provider": "xai",
@@ -318,7 +367,7 @@
       "last_verified_at": "2026-08-07T02:54:20Z"
     },
     {
-      "rank": 7,
+      "rank": 8,
       "model_id": "opencode/deepseek-v4-flash-free",
       "model_name": "opencode/deepseek-v4-flash-free",
       "provider": "opencode",
@@ -370,7 +419,7 @@
       "last_verified_at": "2026-08-04T17:03:56Z"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "model_id": "kimi-code/k3-256k",
       "model_name": "kimi-code/k3-256k",
       "provider": "kimi-cli",

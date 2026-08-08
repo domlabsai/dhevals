@@ -1,4 +1,5 @@
 run_id,model_id,suite_version,run_status,quality_score,coverage,verified,completed_at
+cursor-claude-sonnet-5-high-v04-full-20260808,claude-sonnet-5-high,0.4.0,archive_only,83.3,1,true,2026-08-08T10:57:55Z
 antigravity-gemini-3-6-flash-v04-full-20260808,gemini-3.6-flash,0.4.0,archive_only,81.7,1,true,2026-08-08T10:27:17Z
 cursor-composer-2-5-v04-full-20260807,composer-2.5,0.4.0,archive_only,86.7,1,true,2026-08-07T13:03:23Z
 qwen-3-8-max-v04-full-20260807,qwen3.8-max,0.4.0,archive_only,83.3,1,true,2026-08-07T10:59:08Z
