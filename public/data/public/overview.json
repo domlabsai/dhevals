@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_overview",
-  "generated_at": "2026-08-07T13:07:05.892Z",
-  "source_revision": "aa88d37",
+  "generated_at": "2026-08-08T10:30:14.615Z",
+  "source_revision": "1a5235c",
   "latest_signal": {
-    "run_id": "cursor-composer-2-5-v04-full-20260807",
-    "model_id": "composer-2.5",
-    "model_name": "composer-2.5",
-    "provider": "cursor-cli",
+    "run_id": "antigravity-gemini-3-6-flash-v04-full-20260808",
+    "model_id": "gemini-3.6-flash",
+    "model_name": "gemini-3.6-flash",
+    "provider": "antigravity-cli",
     "suite_id": "dhevals-heavy-user-ptbr",
     "suite_version": "0.4.0",
     "score": null,
     "coverage": 1,
     "evidence_status": "locked",
     "is_fixture": false,
-    "date": "2026-08-07T13:03:23Z"
+    "date": "2026-08-08T10:27:17Z"
   },
   "calibration": {
     "status": "pending",
@@ -23,8 +23,8 @@
   },
   "counts": {
     "suites": 4,
-    "models": 7,
-    "runs": 16,
+    "models": 8,
+    "runs": 17,
     "promoted_runs": 0
   },
   "methodology_version": "0.1.0"

@@ -1,7 +1,7 @@
 {
   "kind": "dhevals_experiment_catalog",
   "schema_version": "0.1.0",
-  "generated_at": "2026-08-07T13:07:05.807Z",
+  "generated_at": "2026-08-08T10:30:14.529Z",
   "status": "ready",
   "entries": [
     {
@@ -420,6 +420,44 @@
       },
       "started_at": "2026-08-07T12:48:01Z",
       "finished_at": "2026-08-07T13:03:23Z",
+      "publication": "candidate"
+    },
+    {
+      "experiment_id": "dhevals:dhevals-heavy-user-ptbr:0.4.0:gemini-3.6-flash:antigravity-gemini-3-6-flash-v04-full-20260808",
+      "run_id": "antigravity-gemini-3-6-flash-v04-full-20260808",
+      "status": "completed",
+      "model": {
+        "id": "gemini-3.6-flash",
+        "provider": "antigravity-cli",
+        "checkpoint": null,
+        "runtime": null,
+        "training_commit": null
+      },
+      "suite": {
+        "id": "dhevals-heavy-user-ptbr",
+        "version": "0.4.0",
+        "hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e"
+      },
+      "configuration": {
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "seed": 7
+      },
+      "metrics": {
+        "task_count": 20,
+        "completed_count": 20,
+        "coverage": 1,
+        "quality_score": 0.8167,
+        "error_count": 0,
+        "estimated_cost_usd": null
+      },
+      "artifact": {
+        "report": "reports/runs/antigravity-gemini-3-6-flash-v04-full-20260808.report.json",
+        "report_hash": "8acadadd2bfe2df060add9b1e5f551367821f95929b3e3f71f44d100e38b7029",
+        "generated_at": "2026-08-08T10:27:17Z"
+      },
+      "started_at": "2026-08-08T10:23:46Z",
+      "finished_at": "2026-08-08T10:27:17Z",
       "publication": "candidate"
     }
   ]
