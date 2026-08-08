@@ -1,9 +1,32 @@
 {
   "kind": "dhevals_run_catalog",
   "schema_version": "0.1.0",
-  "generated_at": "2026-08-07T13:07:05.752Z",
+  "generated_at": "2026-08-08T10:30:14.472Z",
   "current_public_run_id": "e2e-fixture-refresh",
   "entries": [
+    {
+      "run_id": "antigravity-gemini-3-6-flash-v04-full-20260808",
+      "suite_id": "dhevals-heavy-user-ptbr",
+      "suite_version": "0.4.0",
+      "suite_hash": "c0d7cbe68a42b8ba33304bf5c8656f2344fffb45f4fa57c724bb8ea73b6dcd4e",
+      "model_id": "gemini-3.6-flash",
+      "provider": "antigravity-cli",
+      "score": 0.8167,
+      "coverage": 1,
+      "task_count": 20,
+      "completed_count": 20,
+      "error_count": 0,
+      "started_at": "2026-08-08T10:23:46Z",
+      "finished_at": "2026-08-08T10:27:17Z",
+      "generated_at": "2026-08-08T10:27:17Z",
+      "source": "reports/runs/antigravity-gemini-3-6-flash-v04-full-20260808.report.json",
+      "current_public": false,
+      "archive_only": true,
+      "verified": true,
+      "quality_eligible": true,
+      "publication_status": "candidate",
+      "lock_reason": null
+    },
     {
       "run_id": "cursor-composer-2-5-v04-full-20260807",
       "suite_id": "dhevals-heavy-user-ptbr",
