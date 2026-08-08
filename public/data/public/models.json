@@ -1,5 +1,70 @@
 [
   {
+    "id": "claude-sonnet-5-high",
+    "slug": "claude-sonnet-5-high",
+    "name": "claude-sonnet-5-high",
+    "provider": "cursor-cli",
+    "status": "calibration_pending",
+    "license": "unknown",
+    "capabilities": [
+      "Code",
+      "Communication",
+      "Critical review",
+      "Data",
+      "Documents",
+      "Long context",
+      "Planning",
+      "Research",
+      "Safe automation",
+      "Structured output"
+    ],
+    "category_scores": {
+      "Code": 100,
+      "Communication": 100,
+      "Critical review": 100,
+      "Data": 66.7,
+      "Documents": 66.7,
+      "Long context": 66.7,
+      "Planning": 100,
+      "Research": 83.3,
+      "Safe automation": 83.3,
+      "Structured output": 66.7
+    },
+    "quality_score": 83.3,
+    "ranking_status": "archive_only_ranked",
+    "ranking_runs": [
+      "cursor-claude-sonnet-5-high-v04-full-20260808"
+    ],
+    "ranking_task_count": 20,
+    "ranking_coverage": 1,
+    "promoted": false,
+    "evidence_status": "locked",
+    "evidence_coverage": 1,
+    "last_verified_at": "2026-08-08T10:57:55Z",
+    "bench_run_date": "2026-08-08T10:57:55Z",
+    "metrics": {
+      "input_cost_per_1k": null,
+      "output_cost_per_1k": null,
+      "cost_per_1k": null,
+      "run_cost_usd": null,
+      "tokens_total": 30631,
+      "latency_ms": 44120,
+      "tokens_per_second": null,
+      "context_tokens": null,
+      "token_count_source": "estimated_utf8_bytes_per_4",
+      "cost_source": null,
+      "cost_is_estimate": false,
+      "cost_estimate_warning": null,
+      "pricing_fetched_at": null,
+      "observed_from_runs": true
+    },
+    "sources": [
+      "reports/runs/cursor-claude-sonnet-5-high-v04-full-20260808.report.json"
+    ],
+    "notes": "Observed archive-only ranking from verified full-coverage runs; human calibration is still pending and the score is not promoted.",
+    "last_activity_at": "2026-08-08T10:57:55Z"
+  },
+  {
     "id": "gemini-3.6-flash",
     "slug": "gemini-3-6-flash",
     "name": "gemini-3.6-flash",

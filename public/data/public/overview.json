@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0.0",
   "kind": "dhevals_public_overview",
-  "generated_at": "2026-08-08T10:30:14.615Z",
-  "source_revision": "1a5235c",
+  "generated_at": "2026-08-08T11:00:59.261Z",
+  "source_revision": "6420401",
   "latest_signal": {
-    "run_id": "antigravity-gemini-3-6-flash-v04-full-20260808",
-    "model_id": "gemini-3.6-flash",
-    "model_name": "gemini-3.6-flash",
-    "provider": "antigravity-cli",
+    "run_id": "cursor-claude-sonnet-5-high-v04-full-20260808",
+    "model_id": "claude-sonnet-5-high",
+    "model_name": "claude-sonnet-5-high",
+    "provider": "cursor-cli",
     "suite_id": "dhevals-heavy-user-ptbr",
     "suite_version": "0.4.0",
     "score": null,
     "coverage": 1,
     "evidence_status": "locked",
     "is_fixture": false,
-    "date": "2026-08-08T10:27:17Z"
+    "date": "2026-08-08T10:57:55Z"
   },
   "calibration": {
     "status": "pending",
@@ -23,8 +23,8 @@
   },
   "counts": {
     "suites": 4,
-    "models": 8,
-    "runs": 17,
+    "models": 9,
+    "runs": 18,
     "promoted_runs": 0
   },
   "methodology_version": "0.1.0"
